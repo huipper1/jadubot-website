@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X } from "lucide-react";
 
-import { ThemeToggle } from "@/components/widgets";
 import { cn } from "@/utils";
 
 const NAV_LINKS = [
@@ -104,7 +103,6 @@ export function Header() {
 
         {/* Action Buttons */}
         <div className="hidden items-center gap-3 sm:flex">
-          <ThemeToggle />
           <a
             href="https://app.jadubot.com/"
             target="_blank"
@@ -124,7 +122,6 @@ export function Header() {
 
         {/* Mobile menu trigger */}
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

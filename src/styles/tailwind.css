@@ -243,3 +243,30 @@
 .animate-marquee-reverse {
   animation: marquee-reverse 35s linear infinite;
 }
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.88);
+    opacity: 0.4;
+    filter: blur(45px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.85;
+    filter: blur(80px);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4.5s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow {
+    animation: none;
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
