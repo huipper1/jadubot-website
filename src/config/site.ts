@@ -3,17 +3,25 @@ import { env } from "@/env";
 
 // FIXME: Update site branding, theme color, social links, and OG image
 export const siteConfig: SiteConfig = {
-  name: "Next.js 16 Boilerplate",
-  description: "Production-ready Next.js 16+ starter built with Tailwind CSS 4 and TypeScript.",
+  name: "Jadubot",
+  description:
+    "Bangladesh's #1 AI-Powered Chatbot & Marketing Automation Tool for Facebook Messenger, Instagram DMs, and eCommerce.",
   url: env.NEXT_PUBLIC_SITE_URL,
-  author: "",
+  author: "Jadubot Support",
   locale: "en",
-  themeColor: "#ffffff",
-  keywords: ["nextjs", "typescript", "tailwindcss", "boilerplate", "starter"],
+  themeColor: "#8e2de2",
+  keywords: [
+    "jadubot",
+    "chatbot",
+    "marketing automation",
+    "facebook page auto reply",
+    "comment to inbox",
+    "bangladesh"
+  ],
   social: {
-    twitter: "",
+    twitter: "https://twitter.com/jadubot",
     github: "",
-    linkedin: ""
+    linkedin: "https://www.facebook.com/jadubotbd/"
   },
-  ogImage: "/og.jpg"
+  ogImage: "/assets/images/shared/jadubot-logo.png"
 } as const;

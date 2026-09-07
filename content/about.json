@@ -1,0 +1,99 @@
+{
+  "slug": "about",
+  "title": "About",
+  "metaTitle": "About | Jadubot",
+  "metaDescription": "About Smarter Solutions for Your Business Growth Who we are We offer powerful digital marketing solutions to boost your business. Specializing in social media m...",
+  "canonical": "https://jadubot.com/about/",
+  "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "headings": [
+    {
+      "level": 1,
+      "text": "About"
+    },
+    {
+      "level": 4,
+      "text": "Smarter Solutions for Your Business Growth"
+    },
+    {
+      "level": 2,
+      "text": "Video Overview - Jadubot"
+    },
+    {
+      "level": 2,
+      "text": "Started with passion, building with trust."
+    },
+    {
+      "level": 3,
+      "text": "What our customers say about us"
+    }
+  ],
+  "links": [],
+  "images": [
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/qc2n6rqu4vw.jpg",
+      "local": "/assets/images/about/qc2n6rqu4vw.jpg",
+      "alt": "business"
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/ytwxplo5haa.jpg",
+      "local": "/assets/images/about/ytwxplo5haa.jpg",
+      "alt": "business"
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/t6fdn60bmwy.jpg",
+      "local": "/assets/images/about/t6fdn60bmwy.jpg",
+      "alt": "design"
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/2_img@2x.png",
+      "local": "/assets/images/about/2_img-2x.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-1.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-1.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-2.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-2.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-3.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-3.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-4.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-4.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-5.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-5.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-11.png",
+      "local": "https://jadubot.advertoo.io/wp-content/uploads/2025/01/logo-11.png",
+      "alt": ""
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/img__0006_Layer-2.jpg",
+      "local": "/assets/images/about/img__0006_layer-2.jpg",
+      "alt": "Mariam Sultana"
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/img__0005_Layer-3.jpg",
+      "local": "/assets/images/about/img__0005_layer-3.jpg",
+      "alt": "Rashid Ahmed"
+    },
+    {
+      "original": "https://jadubot.com/wp-content/uploads/2025/01/img__0003_Layer-5.jpg",
+      "local": "/assets/images/about/img__0003_layer-5.jpg",
+      "alt": "Nabila Chowdhury"
+    }
+  ],
+  "rawHtmlPreview": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"119\" class=\"elementor elementor-119\" data-elementor-post-type=\"page\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-top-section elementor-element elementor-element-6879a6f4 elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"6879a6f4\" data-element_type=\"section\" data-e-type=\"section\" data-settings=\"{&quot;background_background&quot;:&quot;classic&quot;}\">\n\t\t\t\t\t\t\t<div class=\"elementor-background-overlay\"></div>\n\t\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-no\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e0bbbec\" data-id=\"6e0bbbec\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-populated\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-inner-section elementor-element elementor-element-2331ad46 elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"2331ad46\" data-element_type=\"section\" data-e-type=\"section\">\n\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-default\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-525d059c\" data-id=\"525d059c\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-populated\">\n\t\t\t\t\t\t<div class=\"elementor-element elementor-element-38a70688 e"
+}

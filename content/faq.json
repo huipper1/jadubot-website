@@ -1,0 +1,51 @@
+{
+  "slug": "faq",
+  "title": "FAQ",
+  "metaTitle": "FAQ | Jadubot",
+  "metaDescription": "FAQ Frequently Ask Questions Common questions Most popular questions. We’re always here to help! Contact us anytime for personalized assistance. What is Jadubot...",
+  "canonical": "https://jadubot.com/faq/",
+  "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "headings": [
+    {
+      "level": 1,
+      "text": "FAQ"
+    },
+    {
+      "level": 2,
+      "text": "Most popular questions."
+    },
+    {
+      "level": 2,
+      "text": "Boost Your Business with Smart Automation"
+    },
+    {
+      "level": 2,
+      "text": "Most popular questions."
+    }
+  ],
+  "links": [],
+  "images": [],
+  "rawHtmlPreview": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"205\" class=\"elementor elementor-205\" data-elementor-post-type=\"page\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-top-section elementor-element elementor-element-61dbdc7e elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"61dbdc7e\" data-element_type=\"section\" data-e-type=\"section\" data-settings=\"{&quot;background_background&quot;:&quot;classic&quot;}\">\n\t\t\t\t\t\t\t<div class=\"elementor-background-overlay\"></div>\n\t\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-no\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-25df268f\" data-id=\"25df268f\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-populated\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-inner-section elementor-element elementor-element-34323475 elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"34323475\" data-element_type=\"section\" data-e-type=\"section\">\n\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-default\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-17eaed38\" data-id=\"17eaed38\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-populated\">\n\t\t\t\t\t\t<div class=\"elementor-element elementor-element-4791e718 e",
+  "faqs": [
+    {
+      "question": "What is Jadubot?",
+      "answer": "Jadubot is Bangladesh’s #1 AI-powered Chatbot & Marketing Automation tool for Facebook Messenger, Instagram DMs, comment-to-inbox automation, and eCommerce sales workflows."
+    },
+    {
+      "question": "Do I need coding knowledge to use Jadubot?",
+      "answer": "No coding required at all. Jadubot provides an intuitive visual flow builder and pre-configured templates to launch your chatbot in minutes."
+    },
+    {
+      "question": "Does Jadubot support Bengali (Bangla)?",
+      "answer": "Yes! Jadubot is specifically designed for Bangladeshi businesses with full support for Bengali keywords, auto-replies, and customer messaging."
+    },
+    {
+      "question": "Can Jadubot automatically reply to Facebook post comments?",
+      "answer": "Yes, Jadubot features automated public comment replies plus instant private DM inbox push to convert commentators into paying customers."
+    },
+    {
+      "question": "How do payments work in Messenger?",
+      "answer": "Jadubot includes Messenger Commerce support allowing customers to view products, select options, add to cart, and checkout directly inside Messenger."
+    }
+  ]
+}

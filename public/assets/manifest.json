@@ -1,0 +1,420 @@
+{
+  "generatedAt": "2026-09-07T05:08:08.420Z",
+  "totalAssets": 69,
+  "assets": [
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/jadubot-logo-main.png",
+      "localPath": "/assets/images/shared/jadubot-logo.png",
+      "category": "shared",
+      "alt": "Jadubot Official Logo"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69673754329a6d8c434c8fe8_Modern%20screen%20mockup.png",
+      "localPath": "/assets/images/home/hero-screen-mockup.png",
+      "category": "home",
+      "alt": "Modern chat automation screen mockup on desktop and mobile"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/693b9de46b0e589802566931_Screen-Recording-2025-05-09-at-105432-transcode_mp4.mp4",
+      "localPath": "/assets/videos/solution-sales-demo.mp4",
+      "category": "solutions",
+      "alt": "LazyChat sales automation closing customer order in chat"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/6942d69a839ac4ad7dd0cd20_1000018492_mp4.mp4",
+      "localPath": "/assets/videos/solution-instant-reply.mp4",
+      "category": "solutions",
+      "alt": "Instant chatbot replies across messaging channels"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491c17712ca619de836387_Tag%20system%20fast%20capcut_mp4.mp4",
+      "localPath": "/assets/videos/solution-productivity.mp4",
+      "category": "solutions",
+      "alt": "Fast tag system and productivity automations"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491f3baae1dc9539f3a816_Product-suggestion%20(1)%20(1)_mp4.mp4",
+      "localPath": "/assets/videos/feature-product-suggestion.mp4",
+      "category": "features",
+      "alt": "AI product recommendations directly inside customer chat"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491d6dd85ca3e88c9c67d2_out%20of%20stock%20without%20thumbnail_mp4.mp4",
+      "localPath": "/assets/videos/feature-stock-alert.mp4",
+      "category": "features",
+      "alt": "Out of stock notifications and back-in-stock alerts"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491d7741c947233cd87ca5_comment%20automation%20final_mp4.mp4",
+      "localPath": "/assets/videos/feature-comment-automation.mp4",
+      "category": "features",
+      "alt": "Auto comment reply and instant DM inbox push"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491d821ddedb50c55fdd4f_Built%20in%20order%20cart_mp4.mp4",
+      "localPath": "/assets/videos/feature-in-chat-checkout.mp4",
+      "category": "features",
+      "alt": "Built-in Messenger order cart and instant checkout"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491eb76b36f0dc357759f7_ads%20(1)%20(1)_mp4.mp4",
+      "localPath": "/assets/videos/feature-click-to-message-ads.mp4",
+      "category": "features",
+      "alt": "Facebook & Instagram Click to Message ads lead capture"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6811ccd7b98203355f3d9732/69491d9cbaf8e5a6a8df3165_advanced%20image_mp4.mp4",
+      "localPath": "/assets/videos/feature-visual-ai.mp4",
+      "category": "features",
+      "alt": "Visual AI image recognition in customer chat"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/11/meta-partner-jadubot.avif",
+      "localPath": "/assets/images/shared/meta-partner-jadubot.avif",
+      "sourcePage": "instagram-automation",
+      "alt": "Instagram Automation illustration"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/11/insta-hero-jadubot-705x630.avif",
+      "localPath": "/assets/images/shared/insta-hero-jadubot-705x630.avif",
+      "sourcePage": "instagram-automation",
+      "alt": "Instagram Automation illustration"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/44.jpg",
+      "localPath": "/assets/images/shared/44.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@nicoles_outfit_inspirations"
+    },
+    {
+      "originalUrl": "https://cdn.prod.website-files.com/6469c31014f61c2d0620f95c/653a593e084dbed7d7d66275_5f16b71d834f293a268634ec966da12d_verified.webp",
+      "localPath": "/assets/images/shared/653a593e084dbed7d7d66275_5f16b71d834f293a268634ec966da12d_verified.webp",
+      "sourcePage": "instagram-automation",
+      "alt": "verified"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/33.jpg",
+      "localPath": "/assets/images/shared/33.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@the_pastaqueen"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/99.jpg",
+      "localPath": "/assets/images/shared/99.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@beautyxdanaplumb"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/15.jpg",
+      "localPath": "/assets/images/shared/15.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@getschooledinfashion"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/21.jpg",
+      "localPath": "/assets/images/shared/21.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@rachaelsgoodeats"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/22.jpg",
+      "localPath": "/assets/images/shared/22.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@monicsutter"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/55.jpg",
+      "localPath": "/assets/images/shared/55.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@yummytoddlerfood"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/62.jpg",
+      "localPath": "/assets/images/shared/62.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@palmettoporchathome"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+      "localPath": "/assets/images/shared/12.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@skincarebytanisha"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/42.jpg",
+      "localPath": "/assets/images/shared/42.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@snipestwins"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/29.jpg",
+      "localPath": "/assets/images/shared/29.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@just.jacsy"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/31.jpg",
+      "localPath": "/assets/images/shared/31.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@yvetteg23"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/35.jpg",
+      "localPath": "/assets/images/shared/35.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@the_broadmoor_house"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/66.jpg",
+      "localPath": "/assets/images/shared/66.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@maciejade"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/27.jpg",
+      "localPath": "/assets/images/shared/27.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@linenoaksinteriors"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/36.jpg",
+      "localPath": "/assets/images/shared/36.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@justglow011"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/61.jpg",
+      "localPath": "/assets/images/shared/61.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@interiordesignerella"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/74.jpg",
+      "localPath": "/assets/images/shared/74.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@just.ingredients"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/78.jpg",
+      "localPath": "/assets/images/shared/78.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@mytexashouse"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/70.jpg",
+      "localPath": "/assets/images/shared/70.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@danielle.donohue"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/men/14.jpg",
+      "localPath": "/assets/images/shared/14.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@eatingbirdfood"
+    },
+    {
+      "originalUrl": "https://randomuser.me/api/portraits/women/81.jpg",
+      "localPath": "/assets/images/shared/81.jpg",
+      "sourcePage": "instagram-automation",
+      "alt": "@sunsetsandstilettos"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/11/meta-business-partners-jadubot.avif",
+      "localPath": "/assets/images/shared/meta-business-partners-jadubot.avif",
+      "sourcePage": "instagram-automation",
+      "alt": "Instagram Automation illustration"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/qc2n6rqu4vw.jpg",
+      "localPath": "/assets/images/about/qc2n6rqu4vw.jpg",
+      "sourcePage": "about",
+      "alt": "business"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/ytwxplo5haa.jpg",
+      "localPath": "/assets/images/about/ytwxplo5haa.jpg",
+      "sourcePage": "about",
+      "alt": "business"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/t6fdn60bmwy.jpg",
+      "localPath": "/assets/images/about/t6fdn60bmwy.jpg",
+      "sourcePage": "about",
+      "alt": "design"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/2_img@2x.png",
+      "localPath": "/assets/images/about/2_img-2x.png",
+      "sourcePage": "about",
+      "alt": "About illustration"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/img__0006_Layer-2.jpg",
+      "localPath": "/assets/images/about/img__0006_layer-2.jpg",
+      "sourcePage": "about",
+      "alt": "Mariam Sultana"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/img__0005_Layer-3.jpg",
+      "localPath": "/assets/images/about/img__0005_layer-3.jpg",
+      "sourcePage": "about",
+      "alt": "Rashid Ahmed"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/img__0003_Layer-5.jpg",
+      "localPath": "/assets/images/about/img__0003_layer-5.jpg",
+      "sourcePage": "about",
+      "alt": "Nabila Chowdhury"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/learninbd-logo-1.png",
+      "localPath": "/assets/images/home/learninbd-logo-1.png",
+      "sourcePage": "home",
+      "alt": "learninbd-logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/EasyDrop-1-e1738610976518.png",
+      "localPath": "/assets/images/home/easydrop-1-e1738610976518.png",
+      "sourcePage": "home",
+      "alt": "EasyDrop"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/greenwordpress-logo-1.png",
+      "localPath": "/assets/images/home/greenwordpress-logo-1.png",
+      "sourcePage": "home",
+      "alt": "greenwordpress-logo-1"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/mitalifc-logo-e1738611032855.png",
+      "localPath": "/assets/images/home/mitalifc-logo-e1738611032855.png",
+      "sourcePage": "home",
+      "alt": "mitalihost-logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/paytk-logo.png",
+      "localPath": "/assets/images/home/paytk-logo.png",
+      "sourcePage": "home",
+      "alt": "paytk-logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/Jadubot-Logo-1-e1738611390846.png",
+      "localPath": "/assets/images/home/jadubot-logo-1-e1738611390846.png",
+      "sourcePage": "home",
+      "alt": "Jadubot-Logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/20250204_1228481.png",
+      "localPath": "/assets/images/home/20250204_1228481.png",
+      "sourcePage": "home",
+      "alt": "Likebook-logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/khabodabo-logo-1.png",
+      "localPath": "/assets/images/home/khabodabo-logo-1.png",
+      "sourcePage": "home",
+      "alt": "khabo-dabo-logo"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/Inside-Messenger-Commerce-Store-1.gif",
+      "localPath": "/assets/images/home/inside-messenger-commerce-store-1.gif",
+      "sourcePage": "home",
+      "alt": "Animated GIF"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/01/Asset-053.png",
+      "localPath": "/assets/images/home/asset-053.png",
+      "sourcePage": "home",
+      "alt": "Instagram dm automation"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/facebook-chatbot-2026-1200x630.jpg",
+      "localPath": "/assets/images/blog/facebook-chatbot-2026-1200x630.jpg",
+      "sourcePage": "facebook-chatbot",
+      "alt": "ফেসবুক চ্যাটবট"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/facebook-and-instagram-chatbot-2026-1-1200x630.jpg",
+      "localPath": "/assets/images/blog/facebook-and-instagram-chatbot-2026-1-1200x630.jpg",
+      "sourcePage": "facebook-and-instagram-chatbot",
+      "alt": "ফেসবুক ও ইনস্টাগ্রাম চ্যাটবট"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Automation-Tools-in-Bangladesh-2025-–-Facebook-and-Instagram-Chatbots-Auto-Comment-Reply.jpg",
+      "localPath": "/assets/images/blog/automation-tools-in-bangladesh-2025--e2-80-93-facebook-and-instagram-chatbots-auto-comment-reply.jpg",
+      "sourcePage": "%e0%a6%ac%e0%a6%be%e0%a6%82%e0%a6%b2%e0%a6%be%e0%a6%a6%e0%a7%87%e0%a6%b6%e0%a7%87-%e0%a6%85%e0%a6%9f%e0%a7%8b%e0%a6%ae%e0%a7%87%e0%a6%b6%e0%a6%a8-%e0%a6%9f%e0%a7%81%e0%a6%b2%e0%a6%b8",
+      "alt": "বাংলাদেশে অটোমেশন টুলস"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/How-to-Set-Up-Auto-Reply-DMs-on-Instagram-Step-by-Step-in-Bangladesh-2025-Guide-with-Jadubot-Chatbot-1200x630.jpg",
+      "localPath": "/assets/images/blog/how-to-set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh-2025-guide-with-jadubot-chatbot-1200x630.jpg",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "Set Up Auto Reply DMs on Instagram Step by Step in Bangladesh"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/login-page-jadubot-661x630.png",
+      "localPath": "/assets/images/blog/login-page-jadubot-661x630.png",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "login page jadubot"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Best-Auto-Reply-Tool-in-Bangladesh-2025-Dahboard-1200x523.png",
+      "localPath": "/assets/images/blog/best-auto-reply-tool-in-bangladesh-2025-dahboard-1200x523.png",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "Best Auto Reply Tool in Bangladesh"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Facebook-Messenger-and-Instagram-DM-1200x519.png",
+      "localPath": "/assets/images/blog/facebook-messenger-and-instagram-dm-1200x519.png",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "Facebook Messenger and Instagram DM"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Auto‑Reply-Messages-flow-1200x522.png",
+      "localPath": "/assets/images/blog/auto-e2-80-91reply-messages-flow-1200x522.png",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "Auto‑Reply Messages flow"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Facebook-Messenger-and-Instagram-DM-Setup-1200x516.png",
+      "localPath": "/assets/images/blog/facebook-messenger-and-instagram-dm-setup-1200x516.png",
+      "sourcePage": "set-up-auto-reply-dms-on-instagram-step-by-step-in-bangladesh",
+      "alt": "Facebook Messenger and Instagram DM Setup"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Best-Automation-Software-in-Bangladesh-2025-–-Facebook-Instagram-Chatbot-Auto-Comment-Reply-1200x630.png",
+      "localPath": "/assets/images/blog/best-automation-software-in-bangladesh-2025--e2-80-93-facebook-instagram-chatbot-auto-comment-reply-1200x630.png",
+      "sourcePage": "best-automation-software-in-bangladesh",
+      "alt": "best automation software in bangladesh"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-07-at-01.57.36_aa903fa1.jpg",
+      "localPath": "/assets/images/blog/whatsapp-image-2025-08-07-at-01.57.36_aa903fa1.jpg",
+      "sourcePage": "best-bangladeshi-top-1-free-ai-chatbot",
+      "alt": "Bangladeshi top 1 free AI chatbot"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/Auto-Comment-Chatbot-in-Bangladesh-1200x580.png",
+      "localPath": "/assets/images/blog/auto-comment-chatbot-in-bangladesh-1200x580.png",
+      "sourcePage": "best-bangladeshi-top-1-free-ai-chatbot",
+      "alt": "Auto Comment Chatbot in Bangladesh"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/08/best-ai-chatbot-in-bd-1200x582.png",
+      "localPath": "/assets/images/blog/best-ai-chatbot-in-bd-1200x582.png",
+      "sourcePage": "best-bangladeshi-top-1-free-ai-chatbot",
+      "alt": "Multi-Platform Support – Facebook &amp; Instagram Integration"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/Jadubot-The-Game-Changer-Marketing-Automation-Tool-1-1024x538.png",
+      "localPath": "/assets/images/blog/jadubot-the-game-changer-marketing-automation-tool-1-1024x538.png",
+      "sourcePage": "marketing-automation-tool-in-bangladesh",
+      "alt": "Marketing Automation Tool in Bangladesh"
+    },
+    {
+      "originalUrl": "https://jadubot.com/wp-content/uploads/2025/02/How-JADUBOT-Transforms-Digital-Marketing-in-Bangladesh-1.png",
+      "localPath": "/assets/images/blog/how-jadubot-transforms-digital-marketing-in-bangladesh-1.png",
+      "sourcePage": "marketing-automation-tool-in-bangladesh",
+      "alt": "jadubot"
+    }
+  ]
+}

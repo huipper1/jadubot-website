@@ -1,0 +1,21 @@
+{
+  "slug": "ticket",
+  "title": "Ticket",
+  "metaTitle": "Ticket | Jadubot",
+  "metaDescription": "Submit a Ticket we’re here to make your experience smooth and hassle-free Need Help? Get Support Now! Got a question or facing an issue? Our team is ready to as...",
+  "canonical": "https://jadubot.com/ticket/",
+  "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Submit a Ticket"
+    },
+    {
+      "level": 2,
+      "text": "Need Help? Get Support Now!"
+    }
+  ],
+  "links": [],
+  "images": [],
+  "rawHtmlPreview": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"718\" class=\"elementor elementor-718\" data-elementor-post-type=\"page\">\n\t\t\t\t<div class=\"elementor-element elementor-element-348a6769 e-flex e-con-boxed e-con e-parent\" data-id=\"348a6769\" data-element_type=\"container\" data-e-type=\"container\" id=\"xs_cta_style_15\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-4ce76caf elementor-widget elementor-widget-elementskit-heading\" data-id=\"4ce76caf\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"elementskit-heading.default\">\n\t\t\t\t\t<div class=\"ekit-wid-con\" ><div class=\"ekit-heading elementskit-section-title-wraper text_center   ekit_heading_tablet-   ekit_heading_mobile-\"><h2 class=\"ekit-heading--title elementskit-section-title \">Submit a Ticket</h2><div class=\"ekit_heading_separetor_wraper ekit_heading_elementskit-border-divider ekit-dotted\"><div class=\"elementskit-border-divider ekit-dotted\"></div></div>\t\t\t\t<div class='ekit-heading__description'>\n\t\t\t\t\t<p>we’re here to make your experience smooth and hassle-free</p>\n\t\t\t\t</div>\n\t\t\t</div></div>\t\t\t\t</div>\n\t\t<div class=\"elementor-element elementor-element-510c1d5 e-con-full e-flex e-con e-child\" data-id=\"510c1d5\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-1cba14ab elementor-widget elementor-widget-elementskit-heading\" data-id=\"1cba14ab\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"elementskit-headin"
+}

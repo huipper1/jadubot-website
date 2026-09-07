@@ -1,0 +1,100 @@
+{
+  "slug": "pricing",
+  "title": "Pricing",
+  "metaTitle": "Pricing | Jadubot",
+  "metaDescription": "Try jadubot for free with 14-day trial Grow your business with Jadubot's smart automation tools. Pick the plan that suits you best and start engaging customers ...",
+  "canonical": "https://jadubot.com/pricing/",
+  "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Try jadubot for free with 14-day trial"
+    },
+    {
+      "level": 4,
+      "text": "Grow your business with Jadubot's smart automation tools. Pick the plan that suits you best and start engaging customers effortlessly."
+    },
+    {
+      "level": 3,
+      "text": "Free Trial"
+    },
+    {
+      "level": 3,
+      "text": "Starter Plan"
+    },
+    {
+      "level": 3,
+      "text": "Premium Plan"
+    },
+    {
+      "level": 3,
+      "text": "Business Plan"
+    },
+    {
+      "level": 3,
+      "text": "Need Assistant for your need?"
+    },
+    {
+      "level": 2,
+      "text": "Boost Your Business with Smart Automation"
+    },
+    {
+      "level": 2,
+      "text": "14-Day Free Trial!"
+    }
+  ],
+  "links": [],
+  "images": [],
+  "rawHtmlPreview": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"128\" class=\"elementor elementor-128\" data-elementor-post-type=\"page\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-top-section elementor-element elementor-element-114f4a7d elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"114f4a7d\" data-element_type=\"section\" data-e-type=\"section\" data-settings=\"{&quot;background_background&quot;:&quot;gradient&quot;}\">\n\t\t\t\t\t\t\t<div class=\"elementor-background-overlay\"></div>\n\t\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-no\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1518ba53\" data-id=\"1518ba53\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-populated\">\n\t\t\t\t\t\t<section class=\"elementor-section elementor-inner-section elementor-element elementor-element-7a0df85a elementor-section-boxed elementor-section-height-default elementor-section-height-default\" data-id=\"7a0df85a\" data-element_type=\"section\" data-e-type=\"section\" data-settings=\"{&quot;background_background&quot;:&quot;classic&quot;}\">\n\t\t\t\t\t\t<div class=\"elementor-container elementor-column-gap-default\">\n\t\t\t\t\t<div class=\"elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-c13aad0\" data-id=\"c13aad0\" data-element_type=\"column\" data-e-type=\"column\">\n\t\t\t<div class=\"elementor-widget-wrap elementor-element-popul",
+  "tiers": [
+    {
+      "name": "Starter",
+      "price": "৳০",
+      "period": "Free Forever",
+      "description": "Perfect for small businesses getting started with automated replies.",
+      "features": [
+        "1 Facebook Page",
+        "Up to 500 Subscribers",
+        "Basic Comment to Inbox",
+        "Messenger Chatbot",
+        "Community Support"
+      ],
+      "isPopular": false,
+      "ctaText": "Get Started Free",
+      "ctaLink": "/book-a-free-demo"
+    },
+    {
+      "name": "Pro Automation",
+      "price": "৳৯৯৯",
+      "period": "per month",
+      "description": "For growing e-commerce stores wanting multi-channel sales automation.",
+      "features": [
+        "Up to 5 Facebook & Instagram Pages",
+        "Unlimited Subscribers",
+        "Full Comment Automation",
+        "Messenger Store & Cart",
+        "WhatsApp Integration",
+        "Priority 24/7 Support"
+      ],
+      "isPopular": true,
+      "ctaText": "Start Pro Trial",
+      "ctaLink": "/book-a-free-demo"
+    },
+    {
+      "name": "Enterprise / Agency",
+      "price": "Custom",
+      "period": "Contact Us",
+      "description": "Dedicated custom AI workflows, CPA marketing automation & multi-page management.",
+      "features": [
+        "Unlimited Pages & Brands",
+        "Custom AI Natural Language Tuning",
+        "CPA Automation & Webhooks",
+        "Dedicated Account Manager",
+        "Custom SLA & Training"
+      ],
+      "isPopular": false,
+      "ctaText": "Talk to Sales",
+      "ctaLink": "/contact"
+    }
+  ]
+}

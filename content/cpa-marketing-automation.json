@@ -1,0 +1,98 @@
+{
+  "slug": "cpa-marketing-automation",
+  "title": "CPA Marketing Automation",
+  "metaTitle": "CPA Marketing Automation | Jadubot",
+  "metaDescription": "📍 Global CPA Infrastructure Turn Comments Into CPA Leads — Automatically The all-in-one automation suite for Facebook & Instagram performance marketers. Captur...",
+  "canonical": "https://jadubot.com/cpa-marketing-automation/",
+  "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Turn Comments Into CPA Leads — Automatically"
+    },
+    {
+      "level": 2,
+      "text": "Automation Tailored for CPA"
+    },
+    {
+      "level": 3,
+      "text": "Facebook Automation"
+    },
+    {
+      "level": 3,
+      "text": "Instagram Automation"
+    },
+    {
+      "level": 3,
+      "text": "CPA Performance"
+    },
+    {
+      "level": 2,
+      "text": "CPA Automation Packages"
+    },
+    {
+      "level": 3,
+      "text": "Pack 1"
+    },
+    {
+      "level": 3,
+      "text": "Pack 2"
+    },
+    {
+      "level": 3,
+      "text": "Pack 4"
+    },
+    {
+      "level": 3,
+      "text": "Pack 5"
+    },
+    {
+      "level": 2,
+      "text": "Built for Responsible Scaling"
+    },
+    {
+      "level": 4,
+      "text": "Delay Controls"
+    },
+    {
+      "level": 4,
+      "text": "Daily Limits"
+    },
+    {
+      "level": 4,
+      "text": "Keyword Triggers"
+    },
+    {
+      "level": 4,
+      "text": "Manual Control"
+    },
+    {
+      "level": 2,
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "level": 2,
+      "text": "Ready to Turn Engagement Into CPA Revenue?"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://app.jadubot.com/payment/details_package/6",
+      "text": "Get Pack 1"
+    },
+    {
+      "href": "https://app.jadubot.com/payment/details_package/7",
+      "text": "Get Pack 2"
+    },
+    {
+      "href": "https://app.jadubot.com/payment/details_package/9",
+      "text": "Get Pack 4"
+    },
+    {
+      "href": "https://app.jadubot.com/payment/details_package/10",
+      "text": "Get Pack 5"
+    }
+  ],
+  "images": [],
+  "rawHtmlPreview": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"1683\" class=\"elementor elementor-1683\" data-elementor-post-type=\"page\">\n\t\t\t\t<div class=\"elementor-element elementor-element-8f557d2 e-con-full e-flex e-con e-parent\" data-id=\"8f557d2\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-e0e64ea elementor-widget elementor-widget-html\" data-id=\"e0e64ea\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"html.default\">\n\t\t\t\t\t<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0\" />\r\n\r\n<style>\r\n    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');\r\n\r\n    :root {\r\n        --primary-blue: #007bff;\r\n        --dark-bg: #0a0b10;\r\n        --card-bg: #161b22;\r\n        --text-white: #ffffff;\r\n        --text-gray: #e5e7eb;\r\n        --accent-green: #00ff88;\r\n    }\r\n\r\n    .jadubot-v3-wrapper {\r\n        font-family: 'Inter', sans-serif;\r\n        background-color: var(--dark-bg);\r\n        color: var(--text-white);\r\n        padding: 20px;\r\n    }\r\n\r\n    /* --- SECTION 1: HERO --- */\r\n    .hero-container {\r\n        text-align: center;\r\n        max-width: 1000px;\r\n        margin: 100px auto 80px;\r\n        padding: 0 15px;\r\n    }\r\n\r\n    .hero-container h1 {\r\n        font-size: clamp(38px, 6vw, 72px);\r\n        font-weight: 800;\r\n        line-height: 1.1;\r\n        margin-bottom: 25px;\r\n        color: #ffffff !impor"
+}
