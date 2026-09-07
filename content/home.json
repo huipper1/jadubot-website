@@ -5,6 +5,28 @@
   "metaDescription": "Automation Service All-in-One Chatbot for F-Commerce Engage Customers, Increase Sales, and Save Time with Our All-in-One AI-Powered Chatbot Solution for Faceboo...",
   "canonical": "https://jadubot.com/",
   "ogImage": "/assets/images/shared/jadubot-logo.png",
+  "problem": {
+    "badge": "Problem",
+    "headline": "You are losing sales because of missed messages and late replies",
+    "subtext": "That leads to ...",
+    "cards": [
+      {
+        "number": 1,
+        "title": "Lost Sales",
+        "description": "Customers move on to competitors who reply instantly on Facebook and Instagram."
+      },
+      {
+        "number": 2,
+        "title": "Buried Inbox",
+        "description": "Comments and DMs pile up faster than your team can answer them."
+      },
+      {
+        "number": 3,
+        "title": "Repetitive Grind",
+        "description": "You spend hours typing the same price, stock, and delivery answers all day."
+      }
+    ]
+  },
   "headings": [
     {
       "level": 4,

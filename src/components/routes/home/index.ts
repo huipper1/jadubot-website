@@ -1,5 +1,6 @@
 export * from "./HomeHero";
 export * from "./HomeMarquee";
+export * from "./HomeProblem";
 export * from "./HomeSolutions";
 export * from "./HomeFeatures";
 export * from "./HomeProcess";

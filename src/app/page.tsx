@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import {
   HomeHero,
   HomeMarquee,
+  HomeProblem,
   HomeSolutions,
   HomeFeatures,
   HomeProcess,
@@ -76,6 +77,7 @@ export default function HomePage() {
       />
       <HomeHero />
       <HomeMarquee />
+      <HomeProblem />
       <HomeSolutions />
       <HomeFeatures />
       <HomeProcess />
