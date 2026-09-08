@@ -1,6 +1,11 @@
 "use client";
 
-import { AccordionItem } from "@/ui";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from "@/ui";
 
 const PRICING_FAQS = [
   {
@@ -39,16 +44,17 @@ export function PricingFaq() {
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl space-y-4">
-          {PRICING_FAQS.map((item, idx) => (
-            <AccordionItem
-              key={item.question}
-              title={item.question}
-              defaultOpen={idx === 0}
-            >
-              <p>{item.answer}</p>
-            </AccordionItem>
-          ))}
+        <div className="mx-auto mt-10 max-w-3xl">
+          <Accordion type="single" collapsible defaultValue="item-0" className="space-y-4">
+            {PRICING_FAQS.map((item, idx) => (
+              <AccordionItem key={item.question} value={`item-${idx}`}>
+                <AccordionTrigger>{item.question}</AccordionTrigger>
+                <AccordionContent>
+                  <p>{item.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

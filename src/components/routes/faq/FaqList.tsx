@@ -1,6 +1,11 @@
 "use client";
 
-import { AccordionItem } from "@/ui";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from "@/ui";
 
 const CATEGORIES = [
   {
@@ -75,17 +80,21 @@ export function FaqList() {
               <h2 className="text-xl font-bold text-foreground border-b border-white/10 pb-3 mb-6">
                 {cat.category}
               </h2>
-              <div className="space-y-4">
+              <Accordion
+                type="single"
+                collapsible
+                defaultValue={cat.category.startsWith("General") ? "faq-0" : undefined}
+                className="space-y-4"
+              >
                 {cat.items.map((item, idx) => (
-                  <AccordionItem
-                    key={item.question}
-                    title={item.question}
-                    defaultOpen={cat.category.startsWith("General") && idx === 0}
-                  >
-                    <p>{item.answer}</p>
+                  <AccordionItem key={item.question} value={`faq-${idx}`}>
+                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                    <AccordionContent>
+                      <p>{item.answer}</p>
+                    </AccordionContent>
                   </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           ))}
         </div>

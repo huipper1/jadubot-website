@@ -1,53 +1,71 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import * as React from "react";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/utils";
+import { Accordion as AccordionPrimitive } from "radix-ui";
+import { cn } from "@/lib/utils";
 
-export interface AccordionItemProps {
-  title: string;
-  children: ReactNode;
-  defaultOpen?: boolean;
-  className?: string;
+function Accordion({
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
-export function AccordionItem({
-  title,
-  children,
-  defaultOpen = false,
-  className
-}: AccordionItemProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-
+function AccordionItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
   return (
-    <div
+    <AccordionPrimitive.Item
+      data-slot="accordion-item"
       className={cn(
-        "group rounded-xl border border-[#373a41] bg-[#12151c]/80 transition-all duration-300 hover:border-[#8e2de2]/50",
-        isOpen && "border-[#8e2de2]/60 bg-[#181d27]/90 shadow-[0_4px_24px_rgba(142,45,226,0.15)]",
+        "group rounded-xl border border-[#373a41] bg-[#12151c]/80 transition-all duration-300 hover:border-[#8e2de2]/50 data-[state=open]:border-[#8e2de2]/60 data-[state=open]:bg-[#181d27]/90 data-[state=open]:shadow-[0_4px_24px_rgba(142,45,226,0.15)] overflow-hidden",
         className
       )}
-    >
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between p-5 text-left transition-colors"
-        aria-expanded={isOpen}
-      >
-        <span className="text-base font-semibold text-white group-hover:text-[#d8b4fe]">
-          {title}
-        </span>
-        <ChevronDown
-          className={cn(
-            "h-5 w-5 shrink-0 text-[#cecfd2] transition-transform duration-300 group-hover:text-[#d8b4fe]",
-            isOpen && "rotate-180 text-[#8e2de2]"
-          )}
-        />
-      </button>
-      {isOpen && (
-        <div className="px-5 pb-5 pt-1 text-sm leading-relaxed text-[#cecfd2] animate-in fade-in-50 duration-200">
-          {children}
-        </div>
-      )}
-    </div>
+      {...props}
+    />
   );
 }
+
+function AccordionTrigger({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+  return (
+    <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
+        data-slot="accordion-trigger"
+        className={cn(
+          "flex flex-1 items-center justify-between gap-4 p-5 text-left text-base font-semibold text-white transition-all duration-200 outline-none hover:no-underline hover:text-[#d8b4fe] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:text-[#8e2de2]",
+          className
+        )}
+        {...props}
+      >
+        <span>{children}</span>
+        <ChevronDown className="pointer-events-none h-5 w-5 shrink-0 text-[#cecfd2] transition-transform duration-300 group-hover:text-[#d8b4fe]" />
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  );
+}
+
+function AccordionContent({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+  return (
+    <AccordionPrimitive.Content
+      data-slot="accordion-content"
+      className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      {...props}
+    >
+      <div className={cn("px-5 pb-5 pt-1 text-sm leading-relaxed text-[#cecfd2]", className)}>
+        {children}
+      </div>
+    </AccordionPrimitive.Content>
+  );
+}
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+

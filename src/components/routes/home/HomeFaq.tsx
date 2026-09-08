@@ -1,6 +1,13 @@
 "use client";
 
-import { AccordionItem } from "@/ui";
+import { useRef } from "react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from "@/ui";
+import { gsap, useGSAP } from "@/lib/animations";
 
 const FAQS = [
   {
@@ -36,11 +43,79 @@ const FAQS = [
 ];
 
 export function HomeFaq() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const accordionRef = useRef<HTMLDivElement | null>(null);
+  const itemsRef = useRef<HTMLDivElement[]>([]);
+
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) return;
+
+      // 1. Header pop animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current,
+          {
+            scale: 0.88,
+            opacity: 0
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              once: true
+            }
+          }
+        );
+      }
+
+      // 2. FAQ Accordion items pop animation
+      const validItems = itemsRef.current.filter(Boolean);
+      if (validItems.length > 0) {
+        gsap.fromTo(
+          validItems,
+          {
+            scale: 0.88,
+            opacity: 0
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: accordionRef.current || validItems[0],
+              start: "top 82%",
+              once: true
+            }
+          }
+        );
+      }
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]">
-      <div className="container">
+    <section
+      ref={sectionRef}
+      className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]"
+    >
+      <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div
+          ref={headerRef}
+          className="mx-auto max-w-2xl text-center will-change-transform origin-center"
+        >
           <div className="solution-badge">Knowledge Base</div>
           <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Frequently asked questions
@@ -51,18 +126,27 @@ export function HomeFaq() {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="mx-auto mt-14 max-w-3xl space-y-4">
-          {FAQS.map((faq, idx) => (
-            <AccordionItem
-              key={faq.question}
-              title={faq.question}
-              defaultOpen={idx === 0}
-            >
-              <p className="text-sm leading-relaxed text-[#cecfd2]">
-                {faq.answer}
-              </p>
-            </AccordionItem>
-          ))}
+        <div ref={accordionRef} className="mx-auto mt-14 max-w-3xl">
+          <Accordion type="single" collapsible defaultValue="faq-0" className="space-y-4">
+            {FAQS.map((faq, idx) => (
+              <div
+                key={faq.question}
+                ref={(el) => {
+                  if (el) itemsRef.current[idx] = el;
+                }}
+                className="will-change-transform origin-center"
+              >
+                <AccordionItem value={`faq-${idx}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="text-sm leading-relaxed text-[#cecfd2]">
+                      {faq.answer}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              </div>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
