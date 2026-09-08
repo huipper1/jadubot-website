@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent
 } from "@/ui";
-import { gsap, useGSAP } from "@/lib/animations";
+import { usePopAnimation } from "@/lib/animations";
 
 const FAQS = [
   {
@@ -43,73 +43,18 @@ const FAQS = [
 ];
 
 export function HomeFaq() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const headerRef = useRef<HTMLDivElement | null>(null);
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
   const accordionRef = useRef<HTMLDivElement | null>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
 
-  useGSAP(
-    () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      if (prefersReducedMotion) return;
-
-      // 1. Header pop animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          {
-            scale: 0.88,
-            opacity: 0
-          },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.8,
-            ease: "back.out(1.4)",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              once: true
-            }
-          }
-        );
-      }
-
-      // 2. FAQ Accordion items pop animation
-      const validItems = itemsRef.current.filter(Boolean);
-      if (validItems.length > 0) {
-        gsap.fromTo(
-          validItems,
-          {
-            scale: 0.88,
-            opacity: 0
-          },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.08,
-            ease: "back.out(1.4)",
-            scrollTrigger: {
-              trigger: accordionRef.current || validItems[0],
-              start: "top 82%",
-              once: true
-            }
-          }
-        );
-      }
-    },
-    { scope: sectionRef }
-  );
+  usePopAnimation(itemsRef, {
+    trigger: accordionRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]"
-    >
+    <section className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div

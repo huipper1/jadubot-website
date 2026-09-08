@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Flame, ShieldAlert, Cpu } from "lucide-react";
 import { Badge } from "@/ui";
+import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function CpaHero() {
@@ -8,8 +9,8 @@ export function CpaHero() {
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="hero-gradient pointer-events-none absolute inset-0 -z-10" />
 
-      <div className="container relative z-10 text-center">
-        <div className="mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-7xl relative z-10 text-center">
+        <PopIn className="mx-auto max-w-4xl">
           <Badge variant="glow" className="px-4 py-1.5 text-xs font-semibold">
             <Flame className="h-3.5 w-3.5 mr-1 text-brand" />
             Global CPA Performance Infrastructure
@@ -21,7 +22,7 @@ export function CpaHero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            The all-in-one automation suite for Facebook & Instagram affiliate marketers.
+            The all-in-one automation suite for Facebook &amp; Instagram affiliate marketers.
             Capture leads, trigger server-to-server postbacks, and supercharge campaign
             conversion rates with zero manual work.
           </p>
@@ -59,7 +60,7 @@ export function CpaHero() {
               <span>3x higher EPCs</span>
             </div>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

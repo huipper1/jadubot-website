@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { Badge } from "@/ui";
+import { PopIn } from "@/components/animations";
 
 const TESTIMONIALS = [
   {
@@ -35,9 +38,9 @@ const TESTIMONIALS = [
 export function HomeTestimonials() {
   return (
     <section className="relative py-24 md:py-32 bg-[#05070D]/40">
-      <div className="container">
+      <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <PopIn className="mx-auto max-w-3xl text-center">
           <Badge variant="default" className="px-3.5 py-1 text-xs">
             Client Stories
           </Badge>
@@ -47,10 +50,10 @@ export function HomeTestimonials() {
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             See how top retailers use Jadubot to convert conversations into loyal customers.
           </p>
-        </div>
+        </PopIn>
 
         {/* 3 Testimonial Cards */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <PopIn stagger={0.1} className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           {TESTIMONIALS.map((item) => (
             <div
               key={item.name}
@@ -90,7 +93,7 @@ export function HomeTestimonials() {
               </div>
             </div>
           ))}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

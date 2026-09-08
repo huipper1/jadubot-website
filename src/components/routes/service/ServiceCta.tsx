@@ -1,12 +1,12 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function ServiceCta() {
   return (
     <section className="relative py-20 bg-[#05070D]/50 border-t border-white/5">
-      <div className="container text-center">
-        <div className="mx-auto max-w-2xl">
+      <div className="container mx-auto max-w-7xl text-center">
+        <PopIn className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             See Jadubot in action on your page
           </h2>
@@ -25,7 +25,7 @@ export function ServiceCta() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

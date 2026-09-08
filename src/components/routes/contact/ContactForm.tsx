@@ -4,6 +4,8 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Send, CheckCircle2 } from "lucide-react";
 
+import { PopIn } from "@/components/animations";
+
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -37,7 +39,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="glass-card rounded-2xl p-8 border-white/10 shadow-2xl">
+    <PopIn className="glass-card rounded-2xl p-8 border-white/10 shadow-2xl">
       <h3 className="text-xl font-bold text-foreground">Send Us a Message</h3>
       <p className="mt-1 text-xs text-muted-foreground">
         Fill out the form below and we will respond promptly.
@@ -158,6 +160,6 @@ export function ContactForm() {
           </button>
         </form>
       )}
-    </div>
+    </PopIn>
   );
 }

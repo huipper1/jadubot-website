@@ -1,12 +1,13 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function AffiliateCta() {
   return (
     <section className="relative py-16 md:py-24 border-t border-white/5 overflow-hidden">
       <div className="hero-gradient pointer-events-none absolute inset-0 -z-10" />
 
-      <div className="container relative z-10 text-center">
-        <div className="mx-auto max-w-2xl">
+      <div className="container mx-auto max-w-7xl relative z-10 text-center">
+        <PopIn className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
             আজই শুরু করুন, <span className="text-gradient">আজীবন আয়</span> নিশ্চিত করুন!
           </h2>
@@ -35,7 +36,7 @@ export function AffiliateCta() {
               হোয়াটসঅ্যাপ সাপোর্ট (01707991750)
             </a>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

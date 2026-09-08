@@ -1,49 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/animations";
+import { usePopAnimation } from "@/lib/animations";
 import { PricingCards } from "@/components/routes/pricing";
 
 export function HomePricing() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const headerRef = useRef<HTMLDivElement | null>(null);
-
-  useGSAP(
-    () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      if (prefersReducedMotion) return;
-
-      // Header pop animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          {
-            scale: 0.88,
-            opacity: 0
-          },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.8,
-            ease: "back.out(1.4)",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              once: true
-            }
-          }
-        );
-      }
-    },
-    { scope: sectionRef }
-  );
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
 
   return (
     <section
-      ref={sectionRef}
       id="pricing"
       className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]"
     >

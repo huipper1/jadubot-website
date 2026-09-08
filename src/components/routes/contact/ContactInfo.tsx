@@ -1,8 +1,9 @@
 import { Mail, Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function ContactInfo() {
   return (
-    <div className="flex flex-col justify-between space-y-8">
+    <PopIn className="flex flex-col justify-between space-y-8">
       <div>
         <h3 className="text-xl font-bold text-foreground">Connect with Our Team</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -35,7 +36,7 @@ export function ContactInfo() {
           </div>
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              WhatsApp & Phone
+              WhatsApp &amp; Phone
             </div>
             <div className="text-base font-bold text-foreground">+880 1700-000000</div>
             <div className="text-xs text-muted-foreground">Instant chat available</div>
@@ -89,6 +90,6 @@ export function ContactInfo() {
           <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
-    </div>
+    </PopIn>
   );
 }

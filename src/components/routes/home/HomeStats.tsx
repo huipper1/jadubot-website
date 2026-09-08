@@ -1,6 +1,7 @@
 "use client";
 
 import { useCounter } from "@/lib/animations";
+import { PopIn } from "@/components/animations";
 
 function StatItem({
   value,
@@ -32,8 +33,8 @@ function StatItem({
 export function HomeStats() {
   return (
     <section className="relative py-20 md:py-28">
-      <div className="container">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn stagger={0.08} className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           <StatItem
             value={25}
             suffix="%"
@@ -58,7 +59,7 @@ export function HomeStats() {
             label="Reliable Uptime"
             sublabel="Never misses a message"
           />
-        </div>
+        </PopIn>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ export default function ContactPage() {
     <>
       <ContactHero />
       <section className="relative py-12 md:py-20">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <ContactForm />

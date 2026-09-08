@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function AboutStory() {
   return (
     <section className="relative py-16 md:py-24 bg-[#05070D]/40">
-      <div className="container">
-        <div className="mx-auto max-w-3xl">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-center">
-            Our Story & Vision
+            Our Story &amp; Vision
           </h2>
 
           <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
@@ -48,7 +49,7 @@ export function AboutStory() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { Check, Minus } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const COMPARISON_ROWS = [
   { feature: "Connected Accounts", free: "1", starter: "3", premium: "3", business: "Unlimited" },
@@ -20,8 +21,8 @@ const COMPARISON_ROWS = [
 export function PricingComparison() {
   return (
     <section className="relative py-16 md:py-24 border-t border-[#373a41]/60 bg-[#0c0e12]">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-3xl text-center">
           <div className="solution-badge">Comparison</div>
           <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
             Compare Plan Features
@@ -29,9 +30,9 @@ export function PricingComparison() {
           <p className="mt-3 text-sm text-[#cecfd2]">
             A detailed breakdown of every capability across all 4 Jadubot tiers.
           </p>
-        </div>
+        </PopIn>
 
-        <div className="mt-12 overflow-x-auto">
+        <PopIn className="mt-12 overflow-x-auto" start="top 82%">
           <div className="min-w-[720px] rounded-2xl border border-[#373a41] bg-[#12151c]/90 p-6 backdrop-blur-md">
             <table className="w-full text-left text-sm" aria-label="Feature Comparison Table">
               <thead>
@@ -98,7 +99,7 @@ export function PricingComparison() {
               </tbody>
             </table>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

@@ -28,6 +28,8 @@
       "@/widgets/*": ["./src/components/widgets/*"],
       "@/ui": ["./src/components/ui"],
       "@/ui/*": ["./src/components/ui/*"],
+      "@/animations": ["./src/components/animations"],
+      "@/animations/*": ["./src/components/animations/*"],
       "@/hooks": ["./src/hooks"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/data": ["./src/data"],

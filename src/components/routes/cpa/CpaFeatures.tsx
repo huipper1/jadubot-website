@@ -1,4 +1,5 @@
 import { Zap, Link2, Filter, BarChart3 } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const CPA_FEATURES = [
   {
@@ -30,17 +31,17 @@ const CPA_FEATURES = [
 export function CpaFeatures() {
   return (
     <section className="relative py-16 md:py-24">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Engineered for High-Volume Affiliate Campaigns
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
             Eliminate wasted ad clicks and drive motivated prospects directly into high-payout offers.
           </p>
-        </div>
+        </PopIn>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <PopIn stagger={0.1} className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
           {CPA_FEATURES.map((item) => {
             const Icon = item.icon;
             return (
@@ -60,7 +61,7 @@ export function CpaFeatures() {
               </div>
             );
           })}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

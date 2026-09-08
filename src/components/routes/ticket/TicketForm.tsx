@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Send, Clock, CheckCircle2, MessageCircle } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function TicketForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,10 +26,10 @@ export function TicketForm() {
 
   return (
     <section className="relative py-12 md:py-20 border-t border-white/5">
-      <div className="container">
+      <div className="container mx-auto max-w-7xl">
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-3">
           {/* Left Info Column */}
-          <div className="space-y-6">
+          <PopIn className="space-y-6">
             <div className="glass-card rounded-2xl p-6 border-white/10">
               <h3 className="text-lg font-bold text-foreground">Support Hours</h3>
               <p className="mt-1 text-xs text-muted-foreground">
@@ -76,10 +77,10 @@ export function TicketForm() {
                 WhatsApp: +880 1707-991750
               </a>
             </div>
-          </div>
+          </PopIn>
 
           {/* Form Column */}
-          <div className="lg:col-span-2">
+          <PopIn className="lg:col-span-2">
             <div className="glass-card rounded-2xl p-8 border-white/10">
               {ticketNumber ? (
                 <div className="py-12 text-center">
@@ -240,7 +241,7 @@ export function TicketForm() {
                 </form>
               )}
             </div>
-          </div>
+          </PopIn>
         </div>
       </div>
     </section>

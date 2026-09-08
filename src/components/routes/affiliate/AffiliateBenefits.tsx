@@ -1,4 +1,5 @@
 import { Percent, TrendingUp, Gift, Wallet, BarChart3, Award } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const BENEFITS = [
   {
@@ -42,17 +43,17 @@ const BENEFITS = [
 export function AffiliateBenefits() {
   return (
     <section className="relative py-16 md:py-24 border-t border-white/5">
-      <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             কেন হবেন <span className="text-gradient">Jadubot এফিলিয়েট</span> পার্টনার?
           </h2>
           <p className="mt-4 text-muted-foreground">
             ডিজিটাল মার্কেটার, ফ্রিল্যান্সার, এজেন্সি এবং ই-কমার্স পরামর্শকদের জন্য জাদুবট তৈরি করেছে বাংলাদেশের সবচেয়ে নির্ভরযোগ্য আয়ের সুযোগ।
           </p>
-        </div>
+        </PopIn>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <PopIn stagger={0.08} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((b) => {
             const Icon = b.icon;
             return (
@@ -68,7 +69,7 @@ export function AffiliateBenefits() {
               </div>
             );
           })}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

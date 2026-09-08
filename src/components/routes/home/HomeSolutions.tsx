@@ -81,7 +81,7 @@ export function HomeSolutions() {
 
   return (
     <section id="solutions" className="relative py-16 md:py-28 overflow-hidden bg-[#0c0e12]">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Left-aligned matching screenshot */}
         <div className="max-w-3xl text-left">
           <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-[#0c2417] px-3.5 py-1 text-xs font-semibold text-emerald-400">

@@ -6,6 +6,7 @@ import {
   Network,
   ShieldCheck
 } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const SERVICES = [
   {
@@ -86,8 +87,8 @@ const SERVICES = [
 export function ServiceGrid() {
   return (
     <section className="relative py-16 md:py-24">
-      <div className="container">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn stagger={0.08} className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => {
             const Icon = service.icon;
             return (
@@ -120,7 +121,7 @@ export function ServiceGrid() {
               </div>
             );
           })}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

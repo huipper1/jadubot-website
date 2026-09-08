@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
   AccordionContent
 } from "@/ui";
+import { PopIn } from "@/components/animations";
 
 const CATEGORIES = [
   {
@@ -73,10 +74,10 @@ const CATEGORIES = [
 export function FaqList() {
   return (
     <section className="relative py-12 md:py-20">
-      <div className="container">
+      <div className="container mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl space-y-12">
           {CATEGORIES.map((cat) => (
-            <div key={cat.category}>
+            <PopIn key={cat.category}>
               <h2 className="text-xl font-bold text-foreground border-b border-white/10 pb-3 mb-6">
                 {cat.category}
               </h2>
@@ -95,7 +96,7 @@ export function FaqList() {
                   </AccordionItem>
                 ))}
               </Accordion>
-            </div>
+            </PopIn>
           ))}
         </div>
       </div>

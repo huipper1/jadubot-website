@@ -1,20 +1,21 @@
 import { AlertCircle, CheckCircle } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function AffiliateRules() {
   return (
     <section className="relative py-16 md:py-24 border-t border-white/5">
-      <div className="container">
+      <div className="container mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl">
-          <div className="text-center mb-10">
+          <PopIn className="text-center mb-10">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               পেমেন্ট নীতিমালা ও গুরুত্বপূর্ণ নিয়মাবলী
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               স্বচ্ছ ও দীর্ঘমেয়াদী পার্টনারশিপ বজায় রাখতে অনুগ্রহ করে নিয়মগুলো লক্ষ্য রাখুন।
             </p>
-          </div>
+          </PopIn>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <PopIn stagger={0.1} className="grid gap-6 md:grid-cols-2">
             <div className="glass-card rounded-2xl p-6 border-white/10">
               <h3 className="text-base font-bold text-foreground flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-emerald-400" />
@@ -64,7 +65,7 @@ export function AffiliateRules() {
                 </li>
               </ul>
             </div>
-          </div>
+          </PopIn>
         </div>
       </div>
     </section>

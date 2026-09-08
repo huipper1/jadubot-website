@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
-import { gsap, useGSAP } from "@/lib/animations";
+import { usePopAnimation } from "@/lib/animations";
 
 export interface ProcessStep {
   id: string;
@@ -57,67 +57,17 @@ const STEPS: ProcessStep[] = [
 ];
 
 export function HomeProcess() {
-  const containerRef = useRef<HTMLElement | null>(null);
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const connectorRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
   const cardsRef = useRef<HTMLDivElement[]>([]);
-  const orbRef = useRef<HTMLDivElement | null>(null);
-  const linesRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(
-    () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      if (prefersReducedMotion) return;
-
-      const cards = cardsRef.current.filter(Boolean);
-
-      // Stagger entrance for the 3 cards
-      if (cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: cards[0],
-              start: "top 88%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      }
-
-      // Stagger entrance for the 3 cards
-      if (cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: cards[0],
-              start: "top 85%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      }
-    },
-    { scope: containerRef }
-  );
+  usePopAnimation(cardsRef, {
+    stagger: 0.1,
+    start: "top 80%"
+  });
 
   return (
     <section
-      ref={containerRef}
       id="how-it-works"
       className="relative bg-[#0c0e12] overflow-hidden py-16 sm:py-20 lg:py-28 border-t border-[#373a41]/60"
     >
@@ -133,7 +83,7 @@ export function HomeProcess() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center lg:pb-10">
+        <div ref={headerRef} className="mx-auto max-w-3xl text-center lg:pb-10 will-change-transform origin-center">
           <div className="solution-badge inline-flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5 text-[#c084fc]" />
             <span>AI-Powered Automation</span>
@@ -152,14 +102,11 @@ export function HomeProcess() {
         {/* DESKTOP CONNECTOR SYSTEM (>= 1024px): Central Orb + 3 Connecting Lines   */}
         {/* ========================================================================= */}
         <div
-          ref={linesRef}
-          className="hidden lg:flex relative items-end justify-center h-[264px] max-w-[1020px] xl:max-w-[1140px] mx-auto mt-24 xl:mt-28 mb-0 select-none pointer-events-none"
+          ref={connectorRef}
+          className="hidden lg:flex relative items-end justify-center h-[264px] max-w-[1020px] xl:max-w-[1140px] mx-auto mt-24 xl:mt-28 mb-0 select-none pointer-events-none will-change-transform origin-center"
         >
           {/* Central Logo & Radial Glow */}
-          <div
-            ref={orbRef}
-            className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-[200px] h-[200px]"
-          >
+          <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-[200px] h-[200px]">
             {/* Diffuse Conic/Radial Glow behind logo */}
             <div
               className="absolute w-[280px] h-[280px] rounded-full opacity-65 blur-[45px] pointer-events-none"
@@ -170,7 +117,7 @@ export function HomeProcess() {
             />
             <div className="absolute w-[180px] h-[180px] rounded-full bg-[#894bf6]/50 blur-[30px] pointer-events-none" />
 
-            {/* Crisp Logo Image - without blurring filter */}
+            {/* Crisp Logo Image */}
             <Image
               src="/assets/images/home/three-steps/step-logo.png"
               alt="Start in 3 Steps Central Logo"
@@ -240,7 +187,7 @@ export function HomeProcess() {
               ref={(el) => {
                 if (el) cardsRef.current[idx] = el;
               }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#8e2de2]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(142,45,226,0.2),_inset_0_0_24px_2px_rgba(142,45,226,0.08)] hover:-translate-y-1"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#8e2de2]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(142,45,226,0.2),_inset_0_0_24px_2px_rgba(142,45,226,0.08)] hover:-translate-y-1 will-change-transform origin-center"
               style={{
                 boxShadow: "inset 0 0 20px 1px rgba(158, 119, 237, 0.06)"
               }}

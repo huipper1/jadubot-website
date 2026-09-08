@@ -1,13 +1,14 @@
 import { ArrowRight, Sparkles, Gift, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/ui";
+import { PopIn } from "@/components/animations";
 
 export function AffiliateHero() {
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="hero-gradient pointer-events-none absolute inset-0 -z-10" />
 
-      <div className="container relative z-10 text-center">
-        <div className="mx-auto max-w-3xl">
+      <div className="container mx-auto max-w-7xl relative z-10 text-center">
+        <PopIn className="mx-auto max-w-3xl">
           <Badge variant="default" className="px-3.5 py-1 text-xs font-semibold">
             <Sparkles className="h-3.5 w-3.5 mr-1.5 text-brand-orange" />
             Jadubot High-Paying Partner Program
@@ -60,7 +61,7 @@ export function AffiliateHero() {
               বিকাশ / নগদ / ব্যাংকে পেমেন্ট
             </span>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

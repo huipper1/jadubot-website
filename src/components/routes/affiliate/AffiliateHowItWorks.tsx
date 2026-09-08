@@ -1,4 +1,5 @@
 import { UserPlus, Link2, Share2, Banknote } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const STEPS = [
   {
@@ -34,8 +35,8 @@ const STEPS = [
 export function AffiliateHowItWorks() {
   return (
     <section id="how-it-works" className="relative py-16 md:py-24 bg-surface/50 border-t border-white/5">
-      <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-brand-orange">
             Simple 4-Step Process
           </span>
@@ -45,9 +46,9 @@ export function AffiliateHowItWorks() {
           <p className="mt-4 text-muted-foreground">
             মাত্র ৪টি সহজ পদক্ষেপে শুরু করুন আপনার ডিজিটাল উপার্জনের নতুন যাত্রা।
           </p>
-        </div>
+        </PopIn>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <PopIn stagger={0.1} className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => {
             const Icon = s.icon;
             return (
@@ -63,7 +64,7 @@ export function AffiliateHowItWorks() {
               </div>
             );
           })}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

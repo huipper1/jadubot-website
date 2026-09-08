@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/utils";
-import { gsap, useGSAP } from "@/lib/animations";
+import { usePopAnimation } from "@/lib/animations";
 
 export const PRICING_TIERS = [
   {
@@ -94,43 +94,14 @@ export function PricingCards({
   className,
   isStandalone = true
 }: PricingCardsProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const gridRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(
-    () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-      if (prefersReducedMotion) return;
-
-      const validCards = cardsRef.current.filter(Boolean);
-      if (validCards.length > 0) {
-        gsap.fromTo(
-          validCards,
-          {
-            scale: 0.88,
-            opacity: 0
-          },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "back.out(1.4)",
-            scrollTrigger: {
-              trigger: gridRef.current || validCards[0],
-              start: "top 82%",
-              once: true
-            }
-          }
-        );
-      }
-    },
-    { scope: containerRef }
-  );
+  usePopAnimation(cardsRef, {
+    trigger: gridRef,
+    stagger: 0.1,
+    start: "top 82%"
+  });
 
   const gridContent = (
     <div
@@ -226,11 +197,11 @@ export function PricingCards({
 
   if (isStandalone) {
     return (
-      <section ref={containerRef} className="relative py-12 md:py-16">
+      <section className="relative py-12 md:py-16">
         <div className="container mx-auto max-w-7xl">{gridContent}</div>
       </section>
     );
   }
 
-  return <div ref={containerRef}>{gridContent}</div>;
+  return <div>{gridContent}</div>;
 }

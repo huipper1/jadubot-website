@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
 import type { BlogPostMeta } from "@/types/content";
+import { PopIn } from "@/components/animations";
 
 interface BlogPostHeaderProps {
   meta: BlogPostMeta;
@@ -18,8 +19,8 @@ export function BlogPostHeader({ meta }: BlogPostHeaderProps) {
     <header className="relative overflow-hidden pt-32 pb-12 md:pt-40 md:pb-16">
       <div className="hero-gradient pointer-events-none absolute inset-0 -z-10" />
 
-      <div className="container relative z-10">
-        <div className="mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <PopIn className="mx-auto max-w-4xl">
           {/* Back button */}
           <Link
             href="/blog/"
@@ -61,7 +62,7 @@ export function BlogPostHeader({ meta }: BlogPostHeaderProps) {
               className="object-cover"
             />
           </div>
-        </div>
+        </PopIn>
       </div>
     </header>
   );

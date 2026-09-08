@@ -1,5 +1,6 @@
 import { marked } from "marked";
 import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 interface BlogPostBodyProps {
   content: string;
@@ -11,8 +12,8 @@ export function BlogPostBody({ content }: BlogPostBodyProps) {
 
   return (
     <article className="relative py-12 md:py-16">
-      <div className="container">
-        <div className="mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="mx-auto max-w-4xl">
           {/* Article Body */}
           <div
             className="prose prose-invert prose-purple max-w-none text-base leading-relaxed text-foreground/90 prose-headings:font-bold prose-headings:text-foreground prose-a:text-[#c084fc] hover:prose-a:underline prose-strong:text-foreground prose-li:text-muted-foreground prose-img:rounded-xl prose-img:border prose-img:border-white/10"
@@ -28,7 +29,7 @@ export function BlogPostBody({ content }: BlogPostBodyProps) {
                   Try Jadubot Today
                 </span>
                 <h3 className="mt-2 text-2xl font-bold text-foreground">
-                  Ready to Automate Your Facebook & Instagram?
+                  Ready to Automate Your Facebook &amp; Instagram?
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground max-w-xl">
                   Join 1,200+ Bangladeshi merchants using Jadubot for 24/7 comment replies, inbox sales,
@@ -59,7 +60,7 @@ export function BlogPostBody({ content }: BlogPostBodyProps) {
               </div>
             </div>
           </div>
-        </div>
+        </PopIn>
       </div>
     </article>
   );

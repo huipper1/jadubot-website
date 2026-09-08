@@ -1,4 +1,5 @@
 import { HeartHandshake, Zap, ShieldCheck } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 const VALUES = [
   {
@@ -21,8 +22,8 @@ const VALUES = [
 export function AboutMission() {
   return (
     <section className="relative py-16 md:py-24">
-      <div className="container">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn stagger={0.1} className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {VALUES.map((val) => {
             const Icon = val.icon;
             return (
@@ -42,7 +43,7 @@ export function AboutMission() {
               </div>
             );
           })}
-        </div>
+        </PopIn>
       </div>
     </section>
   );

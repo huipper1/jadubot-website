@@ -1,12 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function HomeCta() {
   return (
     <section className="relative py-24 md:py-32">
-      <div className="container">
-        <div className="relative overflow-hidden rounded-3xl border border-[#373a41] bg-gradient-to-br from-[#4a00e0]/20 via-[#181d27] to-[#0c0e12] p-10 text-center shadow-[0_0_60px_rgba(142,45,226,0.15)] md:p-20">
+      <div className="container mx-auto max-w-7xl">
+        <PopIn className="relative overflow-hidden rounded-3xl border border-[#373a41] bg-gradient-to-br from-[#4a00e0]/20 via-[#181d27] to-[#0c0e12] p-10 text-center shadow-[0_0_60px_rgba(142,45,226,0.15)] md:p-20">
           {/* Ambient Glow */}
           <div
             className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-[#8e2de2]/25 blur-[100px]"
@@ -48,7 +51,7 @@ export function HomeCta() {
               </Link>
             </div>
           </div>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

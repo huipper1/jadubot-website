@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function CpaWorkflow() {
   const steps = [
@@ -22,11 +23,14 @@ export function CpaWorkflow() {
 
   return (
     <section className="relative py-16 md:py-24 bg-[#05070D]/40">
-      <div className="container text-center">
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          The 3-Step CPA Growth Loop
-        </h2>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="container mx-auto max-w-7xl text-center">
+        <PopIn className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            The 3-Step CPA Growth Loop
+          </h2>
+        </PopIn>
+
+        <PopIn stagger={0.1} className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {steps.map((s) => (
             <div
               key={s.step}
@@ -37,9 +41,9 @@ export function CpaWorkflow() {
               <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
             </div>
           ))}
-        </div>
+        </PopIn>
 
-        <div className="mt-14">
+        <PopIn className="mt-14">
           <Link
             href="/contact"
             className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-semibold text-white shadow-[0_0_20px_rgba(142,45,226,0.35)] hover:scale-[1.02]"
@@ -47,7 +51,7 @@ export function CpaWorkflow() {
             <span>Talk to a CPA Specialist</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-        </div>
+        </PopIn>
       </div>
     </section>
   );

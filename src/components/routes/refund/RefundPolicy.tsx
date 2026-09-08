@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { CheckCircle2, XCircle, ArrowRight, Mail } from "lucide-react";
+import { PopIn } from "@/components/animations";
 
 export function RefundPolicy() {
   return (
     <section className="relative py-12 md:py-20 border-t border-white/5">
-      <div className="container">
+      <div className="container mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl space-y-12">
           {/* Eligibility vs Non-Refundable */}
-          <div className="grid gap-8 md:grid-cols-2">
+          <PopIn stagger={0.1} className="grid gap-8 md:grid-cols-2">
             {/* Eligibility */}
             <div className="glass-card rounded-2xl p-6 border-emerald-500/20 bg-emerald-500/[0.02]">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg">
@@ -67,10 +68,10 @@ export function RefundPolicy() {
                 </li>
               </ul>
             </div>
-          </div>
+          </PopIn>
 
           {/* How to request and timeline */}
-          <div className="glass-card rounded-2xl p-8 border-white/10 space-y-6">
+          <PopIn className="glass-card rounded-2xl p-8 border-white/10 space-y-6">
             <div>
               <h3 className="text-xl font-bold text-foreground">How to Request a Refund</h3>
               <div className="mt-4 grid gap-4 sm:grid-cols-3">
@@ -90,7 +91,7 @@ export function RefundPolicy() {
                 </div>
                 <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
                   <span className="text-xs font-bold text-brand-orange uppercase">Step 3</span>
-                  <p className="mt-2 text-sm text-foreground font-medium">Review & Payout</p>
+                  <p className="mt-2 text-sm text-foreground font-medium">Review &amp; Payout</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     Our team reviews within 3-5 business days. Payouts arrive in 5-7 days.
                   </p>
@@ -123,7 +124,7 @@ export function RefundPolicy() {
                 </Link>
               </div>
             </div>
-          </div>
+          </PopIn>
         </div>
       </div>
     </section>

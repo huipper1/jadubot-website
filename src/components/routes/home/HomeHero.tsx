@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
+import { usePopAnimation } from "@/lib/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function HomeHero() {
+  const contentRef = usePopAnimation<HTMLDivElement>({ start: "top 95%", duration: 0.8 });
+  const mockupRef = usePopAnimation<HTMLDivElement>({ start: "top 90%", delay: 0.15, duration: 0.9 });
+
   return (
     <section className="relative overflow-hidden pt-36 pb-0 md:pt-44 md:pb-0">
       {/* Hero Background Grid Pattern */}
@@ -19,8 +24,8 @@ export function HomeHero() {
         <div className="absolute inset-0 bg-linear-to-b from-[#0c0e12]/40 via-transparent to-[#0c0e12]" />
       </div>
 
-      <div className="container relative z-10 text-center">
-        <div className="mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl relative z-10 text-center">
+        <div ref={contentRef} className="mx-auto max-w-6xl will-change-transform origin-center">
           {/* LazyChat Pill Badge */}
           <div className="inline-flex items-center gap-2 rounded-md border border-[#373a41] bg-[#0c0e12] p-1 text-xs font-medium text-[#cecfd2] shadow-sm">
             <span className="rounded-sm bg-[#181d27] px-2.5 py-1 text-white font-semibold">
@@ -69,7 +74,7 @@ export function HomeHero() {
         </div>
 
         {/* Hero Screen Mockup Frame - Enlarged with top 80% visible & bottom 20% overflow hidden */}
-        <div className="relative mx-auto mt-14 sm:mt-18 max-w-6xl xl:max-w-7xl px-2 sm:px-4">
+        <div ref={mockupRef} className="relative mx-auto mt-14 sm:mt-18 max-w-6xl xl:max-w-7xl px-2 sm:px-4 will-change-transform origin-center">
           {/* Animated Inward-Outward Breathing Glow behind the mockup frame */}
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[80%] w-[92%] rounded-full bg-linear-to-r from-brand-purple-start/70 via-[#8e2de2]/85 to-brand-amber/65 animate-pulse-glow"
