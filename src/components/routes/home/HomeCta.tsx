@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function HomeCta() {
   return (
@@ -29,13 +30,15 @@ export function HomeCta() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/book-a-free-demo"
+              <a
+                href={CALENDLY_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group btn-primary inline-flex w-full items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white shadow-[0_0_25px_rgba(142,45,226,0.35)] transition-all duration-300 hover:scale-[1.02] sm:w-auto"
               >
                 <span>Book a Free Live Demo</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
+              </a>
 
               <Link
                 href="/service"

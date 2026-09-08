@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 import { cn } from "@/utils";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -111,13 +112,15 @@ export function Header() {
           >
             Portal Login
           </a>
-          <Link
-            href="/book-a-free-demo"
+          <a
+            href={CALENDLY_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary text-xs !py-2 !px-4 shadow-[0_0_20px_rgba(142,45,226,0.35)]"
           >
             <span>Book a live demo</span>
             <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu trigger */}
@@ -168,14 +171,16 @@ export function Header() {
               >
                 Portal Login
               </a>
-              <Link
-                href="/book-a-free-demo"
+              <a
+                href={CALENDLY_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-primary w-full text-center"
               >
                 <span>Book a Free Demo</span>
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </div>
           </nav>
         </div>

@@ -25,3 +25,5 @@ export const siteConfig: SiteConfig = {
   },
   ogImage: "/assets/images/shared/jadubot-logo.png"
 } as const;
+
+export const CALENDLY_DEMO_URL = "https://calendly.com/jadubot-com/30min?month=2026-09";

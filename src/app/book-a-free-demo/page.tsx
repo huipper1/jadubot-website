@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { DemoHero, DemoPerks, DemoForm } from "@/components/routes/demo";
-import { siteConfig } from "@/config/site";
+import { redirect } from "next/navigation";
+import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Book a Free Demo – Experience Smarter Automation | Jadubot",
@@ -17,21 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function BookADemoPage() {
-  return (
-    <>
-      <DemoHero />
-      <section className="relative py-12 md:py-20 border-t border-white/5">
-        <div className="container">
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <DemoPerks />
-            </div>
-            <div className="lg:col-span-3">
-              <DemoForm />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  redirect(CALENDLY_DEMO_URL);
 }

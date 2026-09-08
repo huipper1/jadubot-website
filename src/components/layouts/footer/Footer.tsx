@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -85,13 +86,15 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/book-a-free-demo"
+                <a
+                  href={CALENDLY_DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 transition-colors hover:text-white"
                 >
                   <span>Live Demo</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

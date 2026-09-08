@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Flame, ShieldAlert, Cpu } from "lucide-react";
 import { Badge } from "@/ui";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function CpaHero() {
   return (
@@ -34,12 +35,14 @@ export function CpaHero() {
               <ArrowRight className="h-4 w-4" />
             </Link>
 
-            <Link
-              href="/book-a-free-demo"
+            <a
+              href={CALENDLY_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-brand/40 sm:w-auto"
             >
               <span>Book Strategy Call</span>
-            </Link>
+            </a>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-4 border-t border-white/5 pt-8 sm:grid-cols-3">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function HomeHero() {
   return (
@@ -56,9 +57,14 @@ export function HomeHero() {
               <span>Watch Demo</span>
             </a>
 
-            <Link href="/book-a-free-demo" className="btn-primary">
+            <a
+              href={CALENDLY_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
               <span>Book a live demo</span>
-            </Link>
+            </a>
           </div>
         </div>
 

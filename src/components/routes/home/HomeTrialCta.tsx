@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/animations";
+import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function HomeTrialCta() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -87,10 +88,15 @@ export function HomeTrialCta() {
           {/* Bottom actions & benefits block */}
           <div className="relative z-10 mt-8 sm:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-6 border-t border-[#373a41]/40">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link href="/book-a-free-demo" className="btn-primary">
+              <a
+                href={CALENDLY_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 <span>Book a live demo</span>
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
               <a
                 href="https://app.jadubot.com/"
                 target="_blank"
