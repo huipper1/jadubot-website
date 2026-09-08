@@ -76,12 +76,12 @@ export function HomeProcess() {
       if (cards.length > 0) {
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.7,
-            stagger: 0.15,
+            duration: 0.5,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: cards[0],
@@ -96,12 +96,12 @@ export function HomeProcess() {
       if (cards.length > 0) {
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 35 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.7,
-            stagger: 0.15,
+            duration: 0.5,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: cards[0],
