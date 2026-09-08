@@ -36,7 +36,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 transition-all duration-300">
       <div
         className={cn(
-          "mx-auto flex max-w-6xl items-center justify-between rounded-2xl border transition-all duration-300 px-4 py-2.5",
+          "mx-auto flex max-w-7xl items-center justify-between rounded-2xl border transition-all duration-300 px-4 py-2.5",
           isScrolled
             ? "border-[#373a41] bg-[#0c0e12]/95 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
             : "border-[#373a41]/80 bg-[#0c0e12]/80 backdrop-blur-lg"

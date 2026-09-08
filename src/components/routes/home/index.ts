@@ -4,8 +4,6 @@ export * from "./HomeProblem";
 export * from "./HomeSolutions";
 export * from "./HomeFeatures";
 export * from "./HomeProcess";
-export * from "./HomeCaseStudies";
-export * from "./HomeVideoSlider";
 export * from "./HomeTrialCta";
 export * from "./HomePricing";
 export * from "./HomeFaq";

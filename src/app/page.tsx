@@ -7,8 +7,6 @@ import {
   HomeSolutions,
   HomeFeatures,
   HomeProcess,
-  HomeCaseStudies,
-  HomeVideoSlider,
   HomeTrialCta,
   HomePricing,
   HomeFaq
@@ -81,8 +79,6 @@ export default function HomePage() {
       <HomeSolutions />
       <HomeFeatures />
       <HomeProcess />
-      <HomeCaseStudies />
-      <HomeVideoSlider />
       <HomeTrialCta />
       <HomePricing />
       <HomeFaq />
