@@ -20,8 +20,48 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllBlogPosts();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": siteConfig.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": `${siteConfig.url}/blog/`
+          }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "Jadubot Blog & Insights",
+        "description":
+          "Marketing automation guides, social media bot tutorials, and conversational commerce strategies for Bangladeshi businesses.",
+        "url": `${siteConfig.url}/blog/`,
+        "hasPart": posts.map((post) => ({
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "url": `${siteConfig.url}/blog/${post.fileSlug}/`,
+          "datePublished": post.date
+        }))
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BlogHero />
       <BlogGrid posts={posts} />
     </>

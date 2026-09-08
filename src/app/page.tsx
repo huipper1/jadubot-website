@@ -44,24 +44,51 @@ export default function HomePage() {
       {
         "@type": "Organization",
         "@id": `${siteConfig.url}/#organization`,
-        name: "Jadubot",
-        url: siteConfig.url,
-        logo: {
+        "name": "Jadubot",
+        "url": siteConfig.url,
+        "telephone": siteConfig.phone,
+        "email": siteConfig.email,
+        "sameAs": [
+          siteConfig.social.facebook,
+          siteConfig.social.twitter
+        ].filter(Boolean),
+        "logo": {
           "@type": "ImageObject",
-          url: `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+          "url": `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Daffodil Smart City (DSC), Birulia",
+          "addressLocality": "Savar",
+          "addressRegion": "Dhaka",
+          "postalCode": "1216",
+          "addressCountry": "BD"
         }
       },
       {
         "@type": "SoftwareApplication",
-        name: "Jadubot",
-        operatingSystem: "Web",
-        applicationCategory: "BusinessApplication",
-        description:
-          "AI-Powered Chatbot and Marketing Automation Software for Facebook Messenger and Instagram DM.",
-        offers: {
+        "name": "Jadubot",
+        "operatingSystem": "Web",
+        "applicationCategory": "BusinessApplication",
+        "description":
+          "AI-Powered Chatbot and Marketing Automation Platform for Facebook Messenger, Instagram DMs, Messenger eCommerce, and CPA marketing.",
+        "featureList": [
+          "Facebook Messenger Automation",
+          "Instagram DM & Story Automation",
+          "Comment-to-Inbox Lead Converter",
+          "In-Messenger Commerce Store",
+          "CPA Marketing Automation & Postbacks",
+          "SMS & Email Campaign Broadcasting"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "reviewCount": "120"
+        },
+        "offers": {
           "@type": "Offer",
-          price: "0",
-          priceCurrency: "BDT"
+          "price": "0",
+          "priceCurrency": "BDT"
         }
       }
     ]

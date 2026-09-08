@@ -2,6 +2,7 @@ export interface SocialLinks {
   twitter: string;
   github: string;
   linkedin: string;
+  facebook?: string;
 }
 
 export interface SiteConfig {
@@ -14,4 +15,7 @@ export interface SiteConfig {
   keywords: string[];
   social: SocialLinks;
   ogImage: string;
+  phone?: string;
+  email?: string;
+  address?: string;
 }

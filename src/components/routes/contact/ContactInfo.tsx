@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { PopIn } from "@/components/animations";
+import { siteConfig } from "@/config/site";
 
 export function ContactInfo() {
   return (
@@ -7,8 +8,8 @@ export function ContactInfo() {
       <div>
         <h3 className="text-xl font-bold text-foreground">Connect with Our Team</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          Whether you need advice choosing the right plan or technical support configuring
-          your automated flows, our team is always within reach.
+          Whether you need advice choosing the right plan, CPA custom setup assistance,
+          or technical guidance configuring your automated flows, our team is within reach.
         </p>
       </div>
 
@@ -22,10 +23,10 @@ export function ContactInfo() {
               Email Address
             </div>
             <a
-              href="mailto:support@jadubot.com"
-              className="text-base font-bold text-foreground hover:text-brand"
+              href={`mailto:${siteConfig.email}`}
+              className="text-base font-bold text-foreground hover:text-brand transition-colors"
             >
-              support@jadubot.com
+              {siteConfig.email}
             </a>
           </div>
         </div>
@@ -36,10 +37,15 @@ export function ContactInfo() {
           </div>
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              WhatsApp &amp; Phone
+              Direct Helpline &amp; WhatsApp
             </div>
-            <div className="text-base font-bold text-foreground">+880 1700-000000</div>
-            <div className="text-xs text-muted-foreground">Instant chat available</div>
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="text-base font-bold text-foreground hover:text-brand transition-colors"
+            >
+              {siteConfig.phone}
+            </a>
+            <div className="text-xs text-muted-foreground">Direct customer support line</div>
           </div>
         </div>
 
@@ -49,10 +55,10 @@ export function ContactInfo() {
           </div>
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Headquarters
+              Headquarters &amp; Innovation Lab
             </div>
             <div className="text-sm font-semibold text-foreground">
-              Dhaka, Bangladesh
+              {siteConfig.address}
             </div>
           </div>
         </div>
@@ -66,22 +72,22 @@ export function ContactInfo() {
               Support Availability
             </div>
             <div className="text-sm font-semibold text-foreground">
-              Automated Bot: 24/7/365
+              Automated Bot &amp; Inbox: 24/7/365
             </div>
             <div className="text-xs text-muted-foreground">
-              Live Specialists: 9:00 AM – 11:00 PM BST
+              Live Human Specialists: 9:00 AM – 11:00 PM BST
             </div>
           </div>
         </div>
       </div>
 
       <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-md">
-        <h4 className="text-sm font-bold text-foreground">Official Community</h4>
+        <h4 className="text-sm font-bold text-foreground">Official Community &amp; Updates</h4>
         <p className="mt-1 text-xs text-muted-foreground">
-          Join over 5,000+ Bangladeshi digital marketers in our official Facebook community.
+          Join thousands of Bangladeshi entrepreneurs and performance marketers on our official Facebook community page.
         </p>
         <a
-          href="https://www.facebook.com/jadubotbd/"
+          href={siteConfig.social.facebook}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:underline"

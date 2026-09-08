@@ -1,7 +1,6 @@
 import type { SiteConfig } from "@/types/site-config";
 import { env } from "@/env";
 
-// FIXME: Update site branding, theme color, social links, and OG image
 export const siteConfig: SiteConfig = {
   name: "Jadubot",
   description:
@@ -10,18 +9,24 @@ export const siteConfig: SiteConfig = {
   author: "Jadubot Support",
   locale: "en",
   themeColor: "#8e2de2",
+  phone: "+8809611609565",
+  email: "info@jadubot.com",
+  address: "Daffodil Smart City (DSC), Birulia, Savar, Dhaka-1216",
   keywords: [
     "jadubot",
     "chatbot",
     "marketing automation",
     "facebook page auto reply",
     "comment to inbox",
-    "bangladesh"
+    "messenger commerce",
+    "cpa marketing automation",
+    "bangladesh ai chatbot"
   ],
   social: {
     twitter: "https://twitter.com/jadubot",
     github: "",
-    linkedin: "https://www.facebook.com/jadubotbd/"
+    linkedin: "https://www.facebook.com/jadubotbd/",
+    facebook: "https://www.facebook.com/jadubotbd/"
   },
   ogImage: "/assets/images/shared/jadubot-logo.png"
 } as const;

@@ -57,8 +57,67 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": siteConfig.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": `${siteConfig.url}/blog/`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.meta.title,
+            "item": `${siteConfig.url}/blog/${post.meta.fileSlug}/`
+          }
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": post.meta.title,
+        "description": post.meta.excerpt,
+        "datePublished": post.meta.date,
+        "dateModified": post.meta.date,
+        "author": {
+          "@type": "Person",
+          "name": post.meta.author || siteConfig.author
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Jadubot",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+          }
+        },
+        "image": post.meta.featuredImage
+          ? `${siteConfig.url}${post.meta.featuredImage}`
+          : `${siteConfig.url}/assets/images/shared/jadubot-logo.png`,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${siteConfig.url}/blog/${post.meta.fileSlug}/`
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BlogPostHeader meta={post.meta} />
       <BlogPostBody content={post.content} />
     </>

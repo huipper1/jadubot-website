@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { CpaHero, CpaFeatures, CpaWorkflow } from "@/components/routes/cpa";
+import {
+  CpaHero,
+  CpaFeatures,
+  CpaWorkflow,
+  CpaPricing,
+  CpaFaq,
+  CPA_FAQS,
+  CPA_PLANS
+} from "@/components/routes/cpa";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -18,11 +26,69 @@ export const metadata: Metadata = {
 };
 
 export default function CpaMarketingAutomationPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": siteConfig.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "CPA Automation",
+            "item": `${siteConfig.url}/cpa-marketing-automation/`
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "name": "Jadubot CPA Marketing Automation",
+        "description":
+          "High-volume comment-to-inbox auto-reply suite, multi-account routing, and server-to-server postback integration for CPA affiliate campaigns.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Jadubot"
+        },
+        "offers": CPA_PLANS.map((plan) => ({
+          "@type": "Offer",
+          "name": plan.name,
+          "price": plan.price.replace(/[^0-9]/g, ""),
+          "priceCurrency": "BDT",
+          "url": plan.ctaUrl,
+          "availability": "https://schema.org/InStock"
+        }))
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": CPA_FAQS.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <CpaHero />
       <CpaFeatures />
       <CpaWorkflow />
+      <CpaPricing />
+      <CpaFaq />
     </>
   );
 }

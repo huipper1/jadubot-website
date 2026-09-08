@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { ServiceHero, ServiceGrid, ServiceCta } from "@/components/routes/service";
+import {
+  ServiceHero,
+  ServiceGrid,
+  ServiceMetrics,
+  ServiceProcess,
+  ServiceFaq,
+  ServiceCta,
+  SERVICE_FAQS
+} from "@/components/routes/service";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -18,10 +26,106 @@ export const metadata: Metadata = {
 };
 
 export default function ServicePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": siteConfig.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": `${siteConfig.url}/service/`
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Jadubot Social Commerce & Chatbot Automation Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "Jadubot",
+          "url": siteConfig.url,
+          "telephone": siteConfig.phone,
+          "email": siteConfig.email
+        },
+        "description":
+          "All-in-one conversational AI automation services for Facebook Messenger, Instagram DM, Comment-to-Inbox lead generation, In-Messenger eCommerce stores, and CPA marketing.",
+        "areaServed": "Bangladesh",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Chatbot Automation Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Facebook Messenger Automation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Instagram DM & Story Automation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Comment-to-Inbox Lead Converter"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "In-Messenger Commerce Store"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "CPA Marketing Automation"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": SERVICE_FAQS.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ServiceHero />
       <ServiceGrid />
+      <ServiceMetrics />
+      <ServiceProcess />
+      <ServiceFaq />
       <ServiceCta />
     </>
   );
