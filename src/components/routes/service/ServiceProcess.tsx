@@ -1,4 +1,4 @@
-import { Link2, Sparkles, ShoppingBag, BarChart3, ArrowRight } from "lucide-react";
+import { Link2, Sparkles, Database, Bot, TrendingUp, ArrowRight } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
@@ -7,72 +7,75 @@ const STEPS = [
     step: "01",
     title: "Connect Your Channels",
     description:
-      "Link your Facebook Pages and Instagram accounts in under 60 seconds with official Meta API authentication. No technical configurations or coding required.",
+      "Integrate your Facebook, Instagram, WhatsApp or other platforms with our secure and easy setup.",
     icon: Link2
   },
   {
     step: "02",
-    title: "Train AI & Set Smart Triggers",
+    title: "Train with Your Business Data",
     description:
-      "Configure keyword rules, comment-to-inbox auto-replies, and AI responses. Native support for English, standard Bangla, and phonetic Banglish ensures natural conversations.",
-    icon: Sparkles
+      "Help our AI understand your products, services, and customer style for more accurate and relevant responses.",
+    icon: Database
   },
   {
     step: "03",
-    title: "Activate In-Chat Commerce",
+    title: "Automate in Real-Time",
     description:
-      "Enable your Messenger eCommerce store. Customers browse catalogs, choose product variants, and submit delivery details directly inside the chat window.",
-    icon: ShoppingBag
+      "Start engaging customers, answering queries, capturing leads, and processing orders automatically.",
+    icon: Bot
   },
   {
     step: "04",
-    title: "Broadcast, Track & Scale",
+    title: "Track & Scale",
     description:
-      "Send high-converting segmented messages, push postback triggers to CPA networks, and manage real-time customer dialogues from a single unified hub.",
-    icon: BarChart3
+      "Monitor performance, optimize your campaigns, and unlock new growth opportunities.",
+    icon: TrendingUp
   }
 ];
 
 export function ServiceProcess() {
   return (
-    <section className="relative py-16 md:py-24">
-      <div className="container mx-auto max-w-7xl">
+    <section className="relative py-20 md:py-28">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1 text-xs font-semibold text-brand">
-            How Jadubot Works
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/35 bg-[#1a0c33]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+            <span>HOW IT WORKS</span>
           </div>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            From Setup to Conversions in Four Simple Steps
+          <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            From Setup to Conversions in{" "}
+            <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(192,132,252,0.35)]">
+              Four Simple Steps
+            </span>
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            A seamless, reliable automation workflow engineered to turn social media engagement
-            into paying customers without human intervention.
+          <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-300 max-w-2xl mx-auto">
+            A smooth, hassle-free process to get your automation up and running — so you can focus on what matters most, growing your business.
           </p>
         </div>
 
-        <PopIn stagger={0.1} className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <PopIn stagger={0.1} className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.step}
-                className="glass-card glass-card-hover group relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300"
+                className="group relative flex flex-col justify-between rounded-2xl border border-[#2f3342]/70 bg-gradient-to-b from-[#131622]/90 to-[#0c0e14]/95 p-6 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/40 hover:shadow-[0_15px_40px_rgba(168,85,247,0.15)]"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="h-6 w-6" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-purple-500/30 bg-[#1b1230]/80 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-transform duration-300 group-hover:scale-105">
+                      <Icon className="h-5 w-5 text-purple-400" />
                     </div>
-                    <span className="text-3xl font-black text-white/10 group-hover:text-brand/30 transition-colors">
+                    <span className="text-2xl font-bold font-mono text-purple-400/50 group-hover:text-purple-300 transition-colors">
                       {step.step}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 text-lg font-bold text-foreground transition-colors group-hover:text-brand">
+                  <h3 className="mt-6 font-heading text-lg font-bold text-white transition-colors group-hover:text-purple-200">
                     {step.title}
                   </h3>
 
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-300/85">
                     {step.description}
                   </p>
                 </div>
@@ -81,18 +84,23 @@ export function ServiceProcess() {
           })}
         </PopIn>
 
-        <div className="mt-12 text-center">
+        {/* Action Button & Caption from Screenshot */}
+        <div className="mt-16 text-center">
           <a
             href={CALENDLY_DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2 py-3 px-6 text-xs font-semibold shadow-[0_0_20px_rgba(142,45,226,0.35)]"
+            className="btn-primary inline-flex items-center gap-2.5 py-3.5 px-8 text-sm font-semibold rounded-xl shadow-[0_0_25px_rgba(142,45,226,0.45)] hover:scale-[1.02] transition-transform"
           >
-            <span>Schedule a Live Walkthrough</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <span>Book a Live Demo</span>
+            <ArrowRight className="h-4 w-4" />
           </a>
+          <p className="mt-3 text-xs sm:text-sm text-slate-400">
+            See how automation can transform your business
+          </p>
         </div>
       </div>
     </section>
   );
 }
+

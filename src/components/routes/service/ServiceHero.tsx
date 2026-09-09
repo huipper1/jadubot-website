@@ -34,17 +34,16 @@ export function ServiceHero() {
 
           {/* Main Headline */}
           <h1 className="font-sans mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
-            Smart Automation <br className="hidden sm:inline" />
-            Solutions to Scale Your <br className="hidden sm:inline" />
+            Powerful Automations <br />
+            for{" "}
             <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(192,132,252,0.4)]">
-              Business
+              Modern Businesses
             </span>
           </h1>
 
           {/* Subtitle Paragraph */}
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
-            Effortlessly engage with customers, automate public comments and private DMs,
-            and sell products 24/7 across Facebook, Instagram, and WhatsApp.
+            From customer engagement to lead conversion, our automation solutions help you save time, boost sales, and grow faster.
           </p>
         </PopIn>
       </div>

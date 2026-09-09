@@ -81,21 +81,28 @@ export default function ServicePage() {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Comment-to-Inbox Lead Converter"
+                "name": "Content, AI & Sales Lead Generator"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "In-Messenger Commerce Store"
+                "name": "Messenger Store & Cart System"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "CPA Marketing Automation"
+                "name": "GPS Marketing Automation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Enterprise & Custom AI Training"
               }
             }
           ]

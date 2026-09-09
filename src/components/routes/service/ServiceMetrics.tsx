@@ -1,51 +1,54 @@
-import { Award, Users, TrendingUp, Zap } from "lucide-react";
+import { Sparkles, Users, Award, TrendingUp, Heart } from "lucide-react";
 import { PopIn } from "@/components/animations";
 
 const METRICS = [
   {
     value: "5+",
-    unit: "Years",
+    unit: "YEARS",
     title: "Experience You Can Trust",
-    description: "Pioneering AI-driven conversational automation in Bangladesh since 2021.",
-    icon: Award
-  },
-  {
-    value: "97%",
-    unit: "Retention",
-    title: "Happy Customers Who Stay",
-    description: "Businesses rely on Jadubot daily for continuous, uninterrupted lead generation.",
+    description: "Powering businesses with reliable automation since 2019.",
     icon: Users
   },
   {
-    value: "75%",
-    unit: "Higher",
-    title: "Higher Inbox Engagement",
-    description: "Instant 2-second automated replies turn passive page visitors into buyers.",
-    icon: Zap
+    value: "97%",
+    unit: "SATISFACTION",
+    title: "Happy Businesses",
+    description: "Businesses rate our solutions as reliable, effective, and easy to use.",
+    icon: Award
+  },
+  {
+    value: "73%",
+    unit: "HIGHER",
+    title: "Higher Sales & Engagement",
+    description: "Our clients see an average 73% increase in customer engagement.",
+    icon: TrendingUp
   },
   {
     value: "89%",
-    unit: "Faster",
-    title: "Faster Order Processing",
-    description: "Messenger store carts collect address, phone, and payment details automatically.",
-    icon: TrendingUp
+    unit: "RETAINED",
+    title: "Return-Scale Relationships",
+    description: "Most of our clients continue working with us for new features and advancements.",
+    icon: Heart
   }
 ];
 
 export function ServiceMetrics() {
   return (
-    <section className="relative border-y border-[#373a41]/60 bg-[#0c0e12]/60 py-16 backdrop-blur-md">
-      <div className="container mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1 text-xs font-semibold text-brand">
-            Proven Performance &amp; Trust
+    <section className="relative border-y border-[#373a41]/60 bg-[#0c0e12]/60 py-20 backdrop-blur-md">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/35 bg-[#1a0c33]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+            <span>REAL IMPACT</span>
           </div>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            Helping Bangladeshi Businesses Deliver a Better Customer Experience
+          <h2 className="mt-5 font-heading text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
+            Helping Bangladeshi Businesses Deliver a{" "}
+            <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(192,132,252,0.35)]">
+              Better Customer Experience
+            </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-            Whether you run a high-traffic F-commerce shop or performance marketing campaigns,
-            our automation tools are built to drive measurable growth.
+          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-300">
+            Businesses across Bangladesh are using our automation solutions to save time, increase sales, and build stronger customer relationships.
           </p>
         </div>
 
