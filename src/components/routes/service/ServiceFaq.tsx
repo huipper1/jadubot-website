@@ -20,7 +20,6 @@ export function ServiceFaq() {
             badgeIcon={false}
             title="Common Questions About Our Automation Services"
             description="Everything you need to know about setting up, running, and scaling with Jadubot."
-            maxWidth="max-w-3xl"
             className="mb-12"
           />
 

@@ -19,9 +19,9 @@ export interface SectionHeaderProps
   description?: React.ReactNode;
   /** Text alignment */
   align?: "center" | "left";
-  /** Size preset */
-  size?: "sm" | "default" | "lg";
-  /** Maximum width of the header container */
+  /** Optional size override if explicitly needed */
+  size?: "default" | "sm" | "lg";
+  /** Maximum width of the header container (default: max-w-4xl) */
   maxWidth?: string;
   /** Custom classes for the title element */
   titleClassName?: string;
@@ -50,11 +50,12 @@ function DefaultBadgeIcon({ className }: { className?: string }) {
   );
 }
 
-const TITLE_SIZES = {
-  sm: "text-xl sm:text-2xl md:text-3xl font-heading font-bold tracking-tight text-white leading-tight",
+// Unified standardized typography matching the site design
+const TITLE_STYLES = {
   default:
-    "text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-heading font-extrabold tracking-tight text-white leading-tight",
-  lg: "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white leading-[1.15]"
+    "font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white leading-tight",
+  sm: "font-heading text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight",
+  lg: "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-extrabold tracking-tight text-white leading-[1.15]"
 };
 
 const DEFAULT_GRADIENT =
@@ -126,7 +127,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         <h2
           className={cn(
             badge ? "mt-5" : "mt-0",
-            TITLE_SIZES[size],
+            TITLE_STYLES[size],
             titleClassName
           )}
         >

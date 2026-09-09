@@ -46,24 +46,16 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-3">
           <figure className="relative flex items-center">
-            <div className="relative h-9 w-9 overflow-hidden rounded-xl bg-gradient-to-br from-[#4a00e0] to-[#8e2de2] p-0.5 shadow-[0_0_15px_rgba(142,45,226,0.35)]">
-              <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0c0e12]">
-                <Image
-                  src="/assets/images/shared/jadubot-logo.png"
-                  alt="Jadubot Logo"
-                  width={28}
-                  height={28}
-                  className="object-contain"
-                  priority
-                />
-              </div>
+            <div className="flex h-full w-full items-center justify-center">
+              <Image
+                src="/assets/images/shared/jadubot-logo.png"
+                alt="Jadubot Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
+              />
             </div>
-            <span
-              className="absolute -bottom-0.5 -right-0.5 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-emerald-400 ring-2 ring-[#0c0e12]"
-              title="Online 24/7"
-            >
-              <span className="h-1.5 w-1.5 animate-ping rounded-full bg-emerald-300 opacity-75" />
-            </span>
           </figure>
           <div className="flex flex-col">
             <span className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#c084fc]">

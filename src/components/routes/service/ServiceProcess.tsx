@@ -44,8 +44,6 @@ export function ServiceProcess() {
           title="From Setup to Conversions in"
           gradientTitle="Four Simple Steps"
           description="A smooth, hassle-free process to get your automation up and running — so you can focus on what matters most, growing your business."
-          size="lg"
-          maxWidth="max-w-3xl"
         />
 
         <PopIn stagger={0.1} className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
