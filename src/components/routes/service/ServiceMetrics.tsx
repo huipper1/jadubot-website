@@ -1,30 +1,37 @@
-import { Sparkles, Users, Award, TrendingUp, Heart } from "lucide-react";
-import { PopIn } from "@/components/animations";
+"use client";
+
+import { useRef, useState } from "react";
+import { Users, Smile, TrendingUp, Heart } from "lucide-react";
+import { gsap, useGSAP } from "@/lib/animations";
 
 const METRICS = [
   {
-    value: "5+",
+    target: 5,
+    suffix: "+",
     unit: "YEARS",
     title: "Experience You Can Trust",
     description: "Powering businesses with reliable automation since 2019.",
     icon: Users
   },
   {
-    value: "97%",
+    target: 97,
+    suffix: "%",
     unit: "SATISFACTION",
     title: "Happy Businesses",
     description: "Businesses rate our solutions as reliable, effective, and easy to use.",
-    icon: Award
+    icon: Smile
   },
   {
-    value: "73%",
+    target: 73,
+    suffix: "%",
     unit: "HIGHER",
     title: "Higher Sales & Engagement",
     description: "Our clients see an average 73% increase in customer engagement.",
     icon: TrendingUp
   },
   {
-    value: "89%",
+    target: 89,
+    suffix: "%",
     unit: "RETAINED",
     title: "Return-Scale Relationships",
     description: "Most of our clients continue working with us for new features and advancements.",
@@ -33,56 +40,153 @@ const METRICS = [
 ];
 
 export function ServiceMetrics() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
+
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) {
+        setCounts(METRICS.map((m) => m.target));
+        return;
+      }
+
+      const targets = METRICS.map((m) => m.target);
+      const counterObj = { v0: 0, v1: 0, v2: 0, v3: 0 };
+
+      gsap.to(counterObj, {
+        v0: targets[0],
+        v1: targets[1],
+        v2: targets[2],
+        v3: targets[3],
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true
+        },
+        onUpdate: () => {
+          setCounts([
+            Math.round(counterObj.v0),
+            Math.round(counterObj.v1),
+            Math.round(counterObj.v2),
+            Math.round(counterObj.v3)
+          ]);
+        }
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="relative border-y border-[#373a41]/60 bg-[#0c0e12]/60 py-20 backdrop-blur-md">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/35 bg-[#1a0c33]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
-            <span>REAL IMPACT</span>
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#0c0e12] py-20 sm:py-24 lg:py-28"
+    >
+      {/* Background Ambience */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-70"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[650px] rounded-full bg-[#8e2de2]/10 blur-[140px]"
+        aria-hidden="true"
+      />
+
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-14 sm:mb-16 lg:mb-20 text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/35 bg-[#140b25]/80 px-4 py-1.5 text-xs font-semibold tracking-wider text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md">
+            <svg
+              className="h-3.5 w-3.5 text-purple-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="17" cy="7" r="2.5" />
+              <circle cx="7" cy="17" r="2.5" />
+              <circle cx="17" cy="17" r="2.5" />
+              <path d="M14.5 7.5L9.5 14.5" />
+              <path d="M9.5 17h5" />
+            </svg>
+            <span className="font-mono uppercase">REAL IMPACT</span>
           </div>
-          <h2 className="mt-5 font-heading text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
+
+          <h2 className="mt-5 font-heading text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[42px] leading-tight">
             Helping Bangladeshi Businesses Deliver a{" "}
             <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(192,132,252,0.35)]">
               Better Customer Experience
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-300">
-            Businesses across Bangladesh are using our automation solutions to save time, increase sales, and build stronger customer relationships.
+          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-400">
+            Businesses across Bangladesh are using our automation solutions to save time,
+            <br className="hidden sm:inline" />{" "}
+            increase sales, and build stronger customer relationships.
           </p>
         </div>
 
-        <PopIn stagger={0.08} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {METRICS.map((metric) => {
+        {/* Metrics Grid with Dividers */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          {METRICS.map((metric, index) => {
             const Icon = metric.icon;
+
             return (
               <div
                 key={metric.title}
-                className="glass-card glass-card-hover group relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300"
+                className={`group relative flex flex-col justify-start py-8 px-4 sm:px-6 lg:px-8 xl:px-10 border-[#2d3142]/70 ${
+                  // Mobile (1-column): border-b on all except last
+                  "border-b last:border-b-0"
+                  } ${
+                  // Tablet (2x2 grid): top row has border-b, bottom row does not
+                  index < 2 ? "sm:border-b" : "sm:border-b-0"
+                  } ${
+                  // Tablet (2x2 grid): left column has border-r, right column does not
+                  index % 2 === 0 ? "sm:border-r" : "sm:border-r-0"
+                  } ${
+                  // Desktop (4 columns): no horizontal borders
+                  "lg:border-b-0"
+                  } ${
+                  // Desktop (4 columns): items 0, 1, 2 have border-r, item 3 has none
+                  index < 3 ? "lg:border-r" : "lg:border-r-0"
+                  }`}
               >
-                <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="mt-5 flex items-baseline gap-1.5">
-                    <span className="text-3xl font-extrabold tracking-tight text-foreground group-hover:text-brand transition-colors">
-                      {metric.value}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-brand">
-                      {metric.unit}
-                    </span>
-                  </div>
-                  <h3 className="mt-2 text-base font-semibold text-foreground">
-                    {metric.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {metric.description}
-                  </p>
+                {/* Circular Icon */}
+                <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-purple-500/40 bg-[#160c29]/90 shadow-[0_0_22px_rgba(168,85,247,0.18)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400/60 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                  <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-purple-300 transition-colors group-hover:text-purple-200" />
                 </div>
+
+                {/* Number + Unit */}
+                <div className="mt-6 sm:mt-8 flex items-baseline gap-2.5">
+                  <span className="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-none">
+                    {counts[index]}
+                    {metric.suffix}
+                  </span>
+                  <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#a855f7]">
+                    {metric.unit}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="mt-3 font-heading text-base sm:text-lg font-bold text-white tracking-tight">
+                  {metric.title}
+                </h3>
+
+                {/* Description */}
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400">
+                  {metric.description}
+                </p>
               </div>
             );
           })}
-        </PopIn>
+        </div>
       </div>
     </section>
   );
