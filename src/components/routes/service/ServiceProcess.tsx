@@ -1,5 +1,6 @@
 import { Link2, Sparkles, Database, Bot, TrendingUp, ArrowRight } from "lucide-react";
 import { PopIn } from "@/components/animations";
+import { SectionHeader } from "@/ui";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 const STEPS = [
@@ -37,21 +38,15 @@ export function ServiceProcess() {
   return (
     <section className="relative py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/35 bg-[#1a0c33]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
-            <span>HOW IT WORKS</span>
-          </div>
-          <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            From Setup to Conversions in{" "}
-            <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(192,132,252,0.35)]">
-              Four Simple Steps
-            </span>
-          </h2>
-          <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-300 max-w-2xl mx-auto">
-            A smooth, hassle-free process to get your automation up and running — so you can focus on what matters most, growing your business.
-          </p>
-        </div>
+        <SectionHeader
+          badge="HOW IT WORKS"
+          badgeIcon={Sparkles}
+          title="From Setup to Conversions in"
+          gradientTitle="Four Simple Steps"
+          description="A smooth, hassle-free process to get your automation up and running — so you can focus on what matters most, growing your business."
+          size="lg"
+          maxWidth="max-w-3xl"
+        />
 
         <PopIn stagger={0.1} className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step) => {
