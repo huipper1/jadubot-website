@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Bot, CheckCircle2, MessageSquare, Send, Sparkles, User } from "lucide-react";
+import { Bot, CheckCircle2, MessageSquare, User } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
 import type { IndustryData, IndustryUseCase } from "./industry-data";

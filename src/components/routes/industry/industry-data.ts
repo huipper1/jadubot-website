@@ -72,9 +72,9 @@ export interface IndustryData {
 export const INDUSTRIES: IndustryData[] = [
   {
     slug: "ecommerce-chatbot-automation",
-    name: "E-commerce",
+    name: "E-Commerce",
     shortTag: "Online Stores",
-    navDescription: "Recover abandoned carts, automate order status, COD verification & in-chat checkout.",
+    navDescription: "Cart recovery, orders, and store support.",
     iconName: "ShoppingCart",
     metaTitle: "AI Chatbot Automation for E-commerce Stores | Jadubot",
     metaDescription: "Automate customer support, recover abandoned carts on WhatsApp, verify COD orders, and boost repeat sales 24/7 with Jadubot AI for e-commerce.",
@@ -197,9 +197,9 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "retail-b2c-ecommerce-chatbot-automation",
     name: "Retail B2C",
-    shortTag: "B2C Retailers",
-    navDescription: "Omnichannel store support, seasonal campaign broadcasts & product sizing guidance.",
-    iconName: "Store",
+    shortTag: "Retail & Stores",
+    navDescription: "Retail support, cart recovery, and re-engagement.",
+    iconName: "ShoppingBag",
     metaTitle: "AI Chatbot Automation for B2C Retail Brands | Jadubot",
     metaDescription: "Scale retail store customer engagement, drive foot traffic, automate promotional broadcasts, and connect online inquiries with physical store outlets.",
     hero: {
@@ -305,9 +305,9 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "healthcare-chatbot-automation",
     name: "Healthcare",
-    shortTag: "Clinics & Hospitals",
-    navDescription: "Patient support, 24/7 doctor appointment scheduling, diagnostic tests & follow-ups.",
-    iconName: "Stethoscope",
+    shortTag: "Clinics & Care",
+    navDescription: "Patient support, scheduling, and follow-ups.",
+    iconName: "Plus",
     metaTitle: "AI Chatbot for Healthcare, Clinics & Diagnostic Centers | Jadubot",
     metaDescription: "Streamline patient doctor bookings, lab test inquiries, clinic operating hours, and pre-consultation reminders with HIPAA-conscious AI chat automation.",
     hero: {
@@ -415,8 +415,8 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "real-estate-chatbot-automation",
     name: "Real Estate",
-    shortTag: "Real Estate & Developers",
-    navDescription: "Instant property lead qualification, virtual tour bookings & broker handoff.",
+    shortTag: "Brokers & Agents",
+    navDescription: "Property leads, showings, and inquiries.",
     iconName: "Home",
     metaTitle: "Real Estate AI Chatbot & Lead Automation | Jadubot",
     metaDescription: "Qualify home buyers, capture property investor leads, schedule site visits, and showcase apartment floor plans automatically on Facebook & WhatsApp.",
@@ -516,9 +516,9 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "restaurant-chatbot-automation",
     name: "Restaurant",
-    shortTag: "Food & Dining",
-    navDescription: "Table reservations, interactive digital menus, delivery updates & review collection.",
-    iconName: "Utensils",
+    shortTag: "Dining & Cafes",
+    navDescription: "Reservations, orders, and guest engagement.",
+    iconName: "Coffee",
     metaTitle: "Restaurant AI Chatbot for Reservations & Food Orders | Jadubot",
     metaDescription: "Automate restaurant table reservations, share digital photo menus, capture direct delivery orders without aggregator commissions, and gather guest reviews.",
     hero: {
@@ -617,9 +617,9 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "finance-chatbot-automation",
     name: "Finance",
-    shortTag: "Banking & Fintech",
-    navDescription: "Lead qualification, loan calculators, secure document routing & support.",
-    iconName: "ShieldCheck",
+    shortTag: "Banking & Wealth",
+    navDescription: "Lead qualification and secure support routing.",
+    iconName: "Wallet",
     metaTitle: "AI Chatbot for Financial Services, Banking & Microfinance | Jadubot",
     metaDescription: "Accelerate financial customer onboarding, calculate loan EMIs, qualify credit applicants, and answer banking FAQs securely on WhatsApp.",
     hero: {
@@ -714,9 +714,9 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "education-chatbot-automation",
     name: "Education",
-    shortTag: "Schools & EdTech",
-    navDescription: "Admissions, course counseling, fee structures & student engagement.",
-    iconName: "GraduationCap",
+    shortTag: "EdTech & Academies",
+    navDescription: "Admissions, counseling, and student engagement.",
+    iconName: "Smartphone",
     metaTitle: "AI Chatbot for Universities, Schools & EdTech Platforms | Jadubot",
     metaDescription: "Automate student admissions inquiries, share course prospectuses, schedule counseling sessions, and answer tuition fee questions 24/7 with Jadubot.",
     hero: {
@@ -812,7 +812,7 @@ export const INDUSTRIES: IndustryData[] = [
     slug: "saas-chatbot-automation",
     name: "SaaS",
     shortTag: "Software & Cloud",
-    navDescription: "Lead generation, product demo bookings, trial onboarding & churn reduction.",
+    navDescription: "Leads, demos, onboarding, and retention.",
     iconName: "Cloud",
     metaTitle: "AI Chatbot for SaaS Companies & Cloud Software | Jadubot",
     metaDescription: "Qualify enterprise software leads, automate product demo bookings, guide free trial onboarding, and answer developer documentation queries with Jadubot.",
@@ -908,8 +908,8 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "logistics-chatbot-automation",
     name: "Logistics",
-    shortTag: "Couriers & Delivery",
-    navDescription: "Real-time parcel tracking, address updates, delivery rescheduling & support.",
+    shortTag: "Freight & Delivery",
+    navDescription: "Tracking, delivery updates, and support.",
     iconName: "Truck",
     metaTitle: "AI Chatbot for Logistics, Courier & Delivery Services | Jadubot",
     metaDescription: "Automate parcel tracking, address corrections, delivery rescheduling, cash-on-delivery calculations, and driver-customer coordination on WhatsApp.",
@@ -1005,8 +1005,8 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "agency-chatbot-automation",
     name: "Agencies",
-    shortTag: "Marketing Agencies",
-    navDescription: "White-label client automation, lead generation audits & client reporting.",
+    shortTag: "Marketing & B2B",
+    navDescription: "Leads, consultations, and client comms.",
     iconName: "Briefcase",
     metaTitle: "AI Chatbot & Automation for Marketing Agencies | Jadubot",
     metaDescription: "Offer high-margin chatbot and WhatsApp automation services to your agency clients under your own white-label brand, increasing retainers and MRR.",

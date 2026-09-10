@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, Calendar, CheckCircle2, Sparkles, Zap } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";

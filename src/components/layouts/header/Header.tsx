@@ -6,60 +6,115 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ArrowRight,
+  BookOpen,
   Briefcase,
   ChevronDown,
   Cloud,
-  GraduationCap,
+  Coffee,
+  Handshake,
+  HelpCircle,
   Home,
+  Mail,
   Menu,
-  ShieldCheck,
+  Plus,
+  ShoppingBag,
   ShoppingCart,
-  Sparkles,
-  Stethoscope,
-  Store,
+  Smartphone,
   Truck,
-  Utensils,
+  Users,
+  Wallet,
   X
 } from "lucide-react";
 
 import { cn } from "@/utils";
 import { CALENDLY_DEMO_URL } from "@/config/site";
-import { INDUSTRIES } from "@/components/routes/industry";
+import { getIndustryBySlug } from "@/components/routes/industry";
 
 const INDUSTRY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  ShoppingCart,
-  Store,
-  Stethoscope,
+  Plus,
+  ShoppingBag,
+  Smartphone,
+  Briefcase,
+  Wallet,
   Home,
-  Utensils,
-  ShieldCheck,
-  GraduationCap,
   Cloud,
-  Truck,
-  Briefcase
+  ShoppingCart,
+  Coffee,
+  Truck
 };
 
-const BASE_NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/service", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/cpa-marketing-automation", label: "CPA Automation" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" }
+// 3-Column arrangement matching the user's reference screenshot exactly
+const INDUSTRY_COLUMNS_SLUGS = [
+  // Column 1
+  [
+    "healthcare-chatbot-automation",
+    "retail-b2c-ecommerce-chatbot-automation",
+    "education-chatbot-automation",
+    "agency-chatbot-automation"
+  ],
+  // Column 2
+  [
+    "finance-chatbot-automation",
+    "real-estate-chatbot-automation",
+    "saas-chatbot-automation"
+  ],
+  // Column 3
+  [
+    "ecommerce-chatbot-automation",
+    "restaurant-chatbot-automation",
+    "logistics-chatbot-automation"
+  ]
+];
+
+const RESOURCE_LINKS = [
+  {
+    href: "/about",
+    name: "About Us",
+    description: "Our mission, company story, and autonomous AI vision.",
+    icon: Users
+  },
+  {
+    href: "/blog",
+    name: "Blog & Insights",
+    description: "Guides, sales automation strategies, and product updates.",
+    icon: BookOpen
+  },
+  {
+    href: "/faq",
+    name: "Help & FAQ",
+    description: "Answers to common questions about features, setup, and billing.",
+    icon: HelpCircle
+  },
+  {
+    href: "/contact",
+    name: "Contact Us",
+    description: "Speak with our sales team or get 24/7 technical support.",
+    icon: Mail
+  },
+  {
+    href: "/affiliate",
+    name: "Partner Program",
+    description: "Earn recurring commissions by recommending Jadubot.",
+    icon: Handshake
+  }
 ];
 
 export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<"industries" | "resources" | null>(null);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const isIndustriesActive = pathname.startsWith("/industry");
+  const isResourcesActive =
+    pathname === "/about" ||
+    pathname.startsWith("/blog") ||
+    pathname === "/faq" ||
+    pathname === "/contact" ||
+    pathname === "/affiliate";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,21 +124,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
-    setIndustriesOpen(false);
+  // Close all menus on route change
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOpenDropdown(null);
     setMobileMenuOpen(false);
     setMobileIndustriesOpen(false);
-  }, [pathname]);
+    setMobileResourcesOpen(false);
+  }
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (type: "industries" | "resources") => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIndustriesOpen(true);
+    setOpenDropdown(type);
   };
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
-      setIndustriesOpen(false);
+      setOpenDropdown(null);
     }, 150);
   };
 
@@ -130,7 +188,7 @@ export function Header() {
           <Link
             href="/"
             className={cn(
-              "rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200",
+              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
               pathname === "/"
                 ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
                 : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
@@ -143,7 +201,7 @@ export function Header() {
           <Link
             href="/service"
             className={cn(
-              "rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200",
+              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
               pathname.startsWith("/service")
                 ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
                 : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
@@ -152,142 +210,212 @@ export function Header() {
             Services
           </Link>
 
-          {/* Industries Dropdown Mega-Menu */}
+          {/* Industries Dropdown (Minimal Layout matching screenshot) */}
           <div
-            ref={dropdownRef}
             className="relative"
-            onMouseEnter={handleMouseEnter}
+            onMouseEnter={() => handleMouseEnter("industries")}
             onMouseLeave={handleMouseLeave}
           >
             <button
               type="button"
-              onClick={() => setIndustriesOpen(!industriesOpen)}
+              onClick={() =>
+                setOpenDropdown(openDropdown === "industries" ? null : "industries")
+              }
               className={cn(
-                "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200",
-                isIndustriesActive || industriesOpen
+                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+                isIndustriesActive || openDropdown === "industries"
                   ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
                   : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
               )}
-              aria-expanded={industriesOpen}
+              aria-expanded={openDropdown === "industries"}
               aria-haspopup="true"
             >
               <span>Industries</span>
               <ChevronDown
                 className={cn(
                   "h-3.5 w-3.5 transition-transform duration-200",
-                  industriesOpen ? "rotate-180 text-blue-400" : "text-[#cecfd2]"
+                  openDropdown === "industries" ? "rotate-180 text-blue-400" : "text-[#cecfd2]"
                 )}
               />
             </button>
 
-            {/* Glassmorphic Mega Menu Dropdown */}
+            {/* Dropdown container */}
             <div
               className={cn(
-                "absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-200",
-                industriesOpen
+                "absolute top-full left-1/2 -translate-x-[28%] pt-2.5 z-50 transition-all duration-200",
+                openDropdown === "industries"
                   ? "opacity-100 pointer-events-auto translate-y-0 visible"
                   : "opacity-0 pointer-events-none -translate-y-1 invisible"
               )}
             >
-              <div className="w-[660px] rounded-2xl border border-[#373a41] bg-[#0c0e12]/98 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.85)] backdrop-blur-2xl">
-                {/* Top Bar */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-2.5 px-2 mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="flex h-2 w-2 rounded-full bg-[#0172ff] shadow-[0_0_8px_#0172ff]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-white">
-                      Specialized Industry Solutions
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-medium text-slate-400">
-                    10 Tailored AI Pipelines
-                  </span>
-                </div>
+              <div className="w-[840px] max-w-[calc(100vw-40px)] rounded-2xl border border-[#2e3440] bg-[#0c0e12]/98 p-7 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
+                {/* 3-Column Minimal Grid exactly matching the user's reference */}
+                <div className="grid grid-cols-3 gap-x-8">
+                  {INDUSTRY_COLUMNS_SLUGS.map((colSlugs, colIdx) => (
+                    <div key={colIdx} className="flex flex-col gap-6">
+                      {colSlugs.map((slug) => {
+                        const ind = getIndustryBySlug(slug);
+                        if (!ind) return null;
+                        const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
+                        const isActive = pathname === `/industry/${ind.slug}`;
 
-                {/* 2-Column Grid */}
-                <div className="grid grid-cols-2 gap-2">
-                  {INDUSTRIES.map((ind) => {
-                    const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
-                    const isActive = pathname === `/industry/${ind.slug}`;
+                        return (
+                          <Link
+                            key={ind.slug}
+                            href={`/industry/${ind.slug}`}
+                            onClick={() => setOpenDropdown(null)}
+                            className="group flex items-start gap-3.5 transition-colors p-1 -m-1 rounded-lg hover:bg-white/[0.03]"
+                          >
+                            {/* Minimal icon sitting cleanly on left */}
+                            <div
+                              className={cn(
+                                "mt-0.5 shrink-0 transition-all duration-200",
+                                isActive
+                                  ? "text-[#38bdf8] scale-110"
+                                  : "text-[#0172ff] group-hover:text-[#38bdf8] group-hover:scale-110"
+                              )}
+                            >
+                              <Icon className="h-5 w-5" />
+                            </div>
+
+                            {/* Minimal title and subtitle */}
+                            <div className="flex-1 min-w-0">
+                              <div
+                                className={cn(
+                                  "text-[14px] font-bold leading-snug transition-colors",
+                                  isActive
+                                    ? "text-[#38bdf8]"
+                                    : "text-white group-hover:text-[#38bdf8]"
+                                )}
+                              >
+                                {ind.name}
+                              </div>
+                              <p className="mt-1 text-[12px] leading-relaxed text-[#94a3b8] group-hover:text-slate-300 transition-colors">
+                                {ind.navDescription}
+                              </p>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Resources Dropdown (Minimal Layout matching screenshot) */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleMouseEnter("resources")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button
+              type="button"
+              onClick={() =>
+                setOpenDropdown(openDropdown === "resources" ? null : "resources")
+              }
+              className={cn(
+                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+                isResourcesActive || openDropdown === "resources"
+                  ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
+                  : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+              )}
+              aria-expanded={openDropdown === "resources"}
+              aria-haspopup="true"
+            >
+              <span>Resources</span>
+              <ChevronDown
+                className={cn(
+                  "h-3.5 w-3.5 transition-transform duration-200",
+                  openDropdown === "resources" ? "rotate-180 text-blue-400" : "text-[#cecfd2]"
+                )}
+              />
+            </button>
+
+            {/* Dropdown container */}
+            <div
+              className={cn(
+                "absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 transition-all duration-200",
+                openDropdown === "resources"
+                  ? "opacity-100 pointer-events-auto translate-y-0 visible"
+                  : "opacity-0 pointer-events-none -translate-y-1 invisible"
+              )}
+            >
+              <div className="w-[560px] max-w-[calc(100vw-40px)] rounded-2xl border border-[#2e3440] bg-[#0c0e12]/98 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                  {RESOURCE_LINKS.map((item) => {
+                    const Icon = item.icon;
+                    const isActive =
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname.startsWith(item.href);
 
                     return (
                       <Link
-                        key={ind.slug}
-                        href={`/industry/${ind.slug}`}
-                        onClick={() => setIndustriesOpen(false)}
-                        className={cn(
-                          "group flex items-start gap-3 rounded-xl p-2.5 transition-all duration-150 border",
-                          isActive
-                            ? "bg-[#0172ff]/20 border-[#0172ff]/40 shadow-[0_0_15px_rgba(1,114,255,0.2)]"
-                            : "border-transparent hover:bg-white/[0.04] hover:border-white/10"
-                        )}
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpenDropdown(null)}
+                        className="group flex items-start gap-3.5 transition-colors p-1 -m-1 rounded-lg hover:bg-white/[0.03]"
                       >
                         <div
                           className={cn(
-                            "mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-all duration-200",
+                            "mt-0.5 shrink-0 transition-all duration-200",
                             isActive
-                              ? "border-[#0172ff] bg-[#0172ff] text-white"
-                              : "border-blue-500/25 bg-[#0172ff]/10 text-blue-400 group-hover:scale-105 group-hover:border-[#0172ff]/50 group-hover:text-[#38bdf8]"
+                              ? "text-[#38bdf8] scale-110"
+                              : "text-[#0172ff] group-hover:text-[#38bdf8] group-hover:scale-110"
                           )}
                         >
-                          <Icon className="h-4 w-4" />
+                          <Icon className="h-5 w-5" />
                         </div>
-
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-white group-hover:text-[#38bdf8] transition-colors">
-                              {ind.name}
-                            </span>
-                            <span className="rounded bg-white/5 px-1.5 py-0.2 text-[9px] font-medium text-slate-400">
-                              {ind.shortTag}
-                            </span>
+                          <div
+                            className={cn(
+                              "text-[14px] font-bold leading-snug transition-colors",
+                              isActive
+                                ? "text-[#38bdf8]"
+                                : "text-white group-hover:text-[#38bdf8]"
+                            )}
+                          >
+                            {item.name}
                           </div>
-                          <p className="mt-0.5 text-[11px] leading-tight text-slate-400 line-clamp-1 group-hover:text-slate-300">
-                            {ind.navDescription}
+                          <p className="mt-1 text-[12px] leading-relaxed text-[#94a3b8] group-hover:text-slate-300 transition-colors">
+                            {item.description}
                           </p>
                         </div>
                       </Link>
                     );
                   })}
                 </div>
-
-                {/* Bottom Mega-Menu Footer */}
-                <div className="mt-3 flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs">
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <Sparkles className="h-3.5 w-3.5 text-blue-400" />
-                    <span>Need custom omnichannel automation?</span>
-                  </div>
-                  <a
-                    href={CALENDLY_DEMO_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-semibold text-[#38bdf8] hover:text-white transition-colors"
-                  >
-                    <span>Book Architecture Demo</span>
-                    <ArrowRight className="h-3 w-3" />
-                  </a>
-                </div>
               </div>
             </div>
           </div>
 
-          {/* Remaining links */}
-          {BASE_NAV_LINKS.slice(2).map((link) => {
-            const isActive = pathname.startsWith(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200",
-                  isActive
-                    ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
-                    : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {/* Pricing */}
+          <Link
+            href="/pricing"
+            className={cn(
+              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+              pathname.startsWith("/pricing")
+                ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
+                : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+            )}
+          >
+            Pricing
+          </Link>
+
+          {/* CPA Automation */}
+          <Link
+            href="/cpa-marketing-automation"
+            className={cn(
+              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+              pathname.startsWith("/cpa-marketing-automation")
+                ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
+                : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+            )}
+          >
+            CPA Automation
+          </Link>
         </nav>
 
         {/* Action Buttons */}
@@ -386,7 +514,9 @@ export function Header() {
 
               {mobileIndustriesOpen && (
                 <div className="space-y-1 p-2 bg-[#080d16]/90 border-t border-white/5 animate-in fade-in duration-150">
-                  {INDUSTRIES.map((ind) => {
+                  {INDUSTRY_COLUMNS_SLUGS.flat().map((slug) => {
+                    const ind = getIndustryBySlug(slug);
+                    if (!ind) return null;
                     const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
                     const isChildActive = pathname === `/industry/${ind.slug}`;
 
@@ -406,7 +536,7 @@ export function Header() {
                         )}
                       >
                         <div className="flex items-center gap-2.5">
-                          <Icon className="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                          <Icon className="h-4 w-4 text-[#0172ff] shrink-0" />
                           <span>{ind.name}</span>
                         </div>
                         <span className="text-[10px] text-slate-500">{ind.shortTag}</span>
@@ -417,27 +547,100 @@ export function Header() {
               )}
             </div>
 
-            {/* Remaining Links */}
-            {BASE_NAV_LINKS.slice(2).map((link) => {
-              const isActive = pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+            {/* Resources Collapsible Accordion */}
+            <div className="rounded-xl border border-white/5 bg-white/[0.02] overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                className={cn(
+                  "flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
+                  isResourcesActive
+                    ? "bg-[#0172ff]/15 text-white font-semibold border-b border-[#0172ff]/30"
+                    : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+                )}
+              >
+                <div className="flex items-center gap-2">
+                  <span>Resources</span>
+                  <span className="rounded-full bg-blue-500/20 px-2 py-0.5 text-[10px] font-semibold text-blue-300">
+                    {RESOURCE_LINKS.length}
+                  </span>
+                </div>
+                <ChevronDown
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-                    isActive
-                      ? "bg-[#0172ff]/15 text-white font-semibold border border-[#0172ff]/30"
-                      : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+                    "h-4 w-4 transition-transform duration-200",
+                    mobileResourcesOpen ? "rotate-180 text-blue-400" : "text-slate-400"
                   )}
-                >
-                  <span>{link.label}</span>
-                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-[#0172ff]" />}
-                </Link>
-              );
-            })}
+                />
+              </button>
 
+              {mobileResourcesOpen && (
+                <div className="space-y-1 p-2 bg-[#080d16]/90 border-t border-white/5 animate-in fade-in duration-150">
+                  {RESOURCE_LINKS.map((item) => {
+                    const Icon = item.icon;
+                    const isChildActive =
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname.startsWith(item.href);
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setMobileResourcesOpen(false);
+                        }}
+                        className={cn(
+                          "flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-medium transition-colors",
+                          isChildActive
+                            ? "bg-[#0172ff]/20 text-[#38bdf8] font-semibold"
+                            : "text-slate-300 hover:bg-white/5 hover:text-white"
+                        )}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <Icon className="h-4 w-4 text-[#0172ff] shrink-0" />
+                          <span>{item.name}</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Pricing */}
+            <Link
+              href="/pricing"
+              onClick={() => setMobileMenuOpen(false)}
+              className={cn(
+                "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                pathname.startsWith("/pricing")
+                  ? "bg-[#0172ff]/15 text-white font-semibold border border-[#0172ff]/30"
+                  : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+              )}
+            >
+              <span>Pricing</span>
+              {pathname.startsWith("/pricing") && <span className="h-1.5 w-1.5 rounded-full bg-[#0172ff]" />}
+            </Link>
+
+            {/* CPA Automation */}
+            <Link
+              href="/cpa-marketing-automation"
+              onClick={() => setMobileMenuOpen(false)}
+              className={cn(
+                "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                pathname.startsWith("/cpa-marketing-automation")
+                  ? "bg-[#0172ff]/15 text-white font-semibold border border-[#0172ff]/30"
+                  : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
+              )}
+            >
+              <span>CPA Automation</span>
+              {pathname.startsWith("/cpa-marketing-automation") && (
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0172ff]" />
+              )}
+            </Link>
+
+            {/* Actions */}
             <div className="mt-4 pt-4 border-t border-[#373a41] space-y-2">
               <a
                 href="https://app.jadubot.com/"

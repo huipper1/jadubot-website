@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, GitBranch, Layers } from "lucide-react";
+import { ArrowRight, CheckCircle2, GitBranch } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import type { IndustryData, IndustryWorkflowStep } from "./industry-data";
 

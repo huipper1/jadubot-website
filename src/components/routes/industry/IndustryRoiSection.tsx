@@ -1,6 +1,6 @@
 "use client";
 
-import { Calculator, DollarSign, Percent, Sparkles, TrendingUp } from "lucide-react";
+import { Calculator, Sparkles, TrendingUp } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import type { IndustryData } from "./industry-data";
 
