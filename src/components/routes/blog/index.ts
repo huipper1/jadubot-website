@@ -3,3 +3,7 @@ export * from "./BlogCard";
 export * from "./BlogGrid";
 export * from "./BlogPostHeader";
 export * from "./BlogPostBody";
+export * from "./ReadingProgress";
+export * from "./TableOfContents";
+export * from "./BlogShareButtons";
+export * from "./RelatedPosts";

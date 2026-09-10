@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BlogPostHeader, BlogPostBody } from "@/components/routes/blog";
-import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
+import {
+  BlogPostHeader,
+  BlogPostBody,
+  ReadingProgress
+} from "@/components/routes/blog";
+import {
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  parseBlogMarkdown,
+  getRelatedBlogPosts
+} from "@/lib/content";
 import { siteConfig } from "@/config/site";
 
 interface BlogPostPageProps {
@@ -29,6 +38,12 @@ export async function generateMetadata({
     };
   }
 
+  const imageUrl = post.meta.featuredImage
+    ? post.meta.featuredImage.startsWith("http")
+      ? post.meta.featuredImage
+      : `${siteConfig.url}${post.meta.featuredImage}`
+    : `${siteConfig.url}/assets/images/shared/jadubot-logo.png`;
+
   return {
     title: `${post.meta.title} | Jadubot Blog`,
     description: post.meta.excerpt,
@@ -39,12 +54,21 @@ export async function generateMetadata({
       title: post.meta.title,
       description: post.meta.excerpt,
       url: `${siteConfig.url}/blog/${post.meta.fileSlug}/`,
+      type: "article",
       images: [
         {
-          url: post.meta.featuredImage || "/assets/images/shared/jadubot-logo.png",
+          url: imageUrl,
+          width: 1200,
+          height: 630,
           alt: post.meta.title
         }
       ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      images: [imageUrl]
     }
   };
 }
@@ -56,6 +80,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
+
+  // Parse markdown into HTML with section IDs, extract TOC headings, and calculate reading stats
+  const { html, headings, stats } = parseBlogMarkdown(post.content);
+  const relatedPosts = getRelatedBlogPosts(slug, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,6 +117,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "description": post.meta.excerpt,
         "datePublished": post.meta.date,
         "dateModified": post.meta.date,
+        "wordCount": stats.words,
+        "timeRequired": `PT${stats.readTimeMinutes}M`,
         "author": {
           "@type": "Person",
           "name": post.meta.author || siteConfig.author
@@ -118,8 +148,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogPostHeader meta={post.meta} />
-      <BlogPostBody content={post.content} />
+      <ReadingProgress />
+      <BlogPostHeader meta={post.meta} stats={stats} />
+      <BlogPostBody
+        htmlContent={html}
+        headings={headings}
+        stats={stats}
+        meta={post.meta}
+        relatedPosts={relatedPosts}
+      />
     </>
   );
 }
