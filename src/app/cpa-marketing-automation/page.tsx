@@ -8,7 +8,8 @@ import {
   CPA_FAQS,
   CPA_PLANS
 } from "@/components/routes/cpa";
-import { siteConfig } from "@/config/site";
+import { UnifiedCta } from "@/components/sections";
+import { siteConfig, CALENDLY_DEMO_URL } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "CPA Marketing Automation – Maximize Social Lead Flow | Jadubot",
@@ -89,6 +90,27 @@ export default function CpaMarketingAutomationPage() {
       <CpaWorkflow />
       <CpaPricing />
       <CpaFaq />
+      <UnifiedCta
+        badge="CPA AUTOMATION SCALE"
+        title="Ready to Scale Your CPA Conversions with"
+        highlightedTitle="Zero Account Risks?"
+        description="Deploy high-converting Messenger and Instagram lead funnels today. S2S postback tracking, anti-spam protections, and unlimited lead capture."
+        primaryCta={{
+          text: "Launch CPA Automation",
+          href: "https://app.jadubot.com/",
+          external: true
+        }}
+        secondaryCta={{
+          text: "Book Strategy Call",
+          href: CALENDLY_DEMO_URL,
+          external: true
+        }}
+        trustBadges={[
+          "Sub-Second S2S Postbacks",
+          "Anti-Spam Human Mimicking",
+          "24/7 Dedicated Support"
+        ]}
+      />
     </>
   );
 }

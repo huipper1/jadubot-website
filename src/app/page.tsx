@@ -7,10 +7,10 @@ import {
   HomeSolutions,
   HomeFeatures,
   HomeProcess,
-  HomeTrialCta,
   HomePricing,
   HomeFaq
 } from "@/components/routes/home";
+import { UnifiedCta } from "@/components/sections";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -108,7 +108,7 @@ export default function HomePage() {
       <HomeProcess />
       <HomePricing />
       <HomeFaq />
-      <HomeTrialCta />
+      <UnifiedCta />
     </>
   );
 }

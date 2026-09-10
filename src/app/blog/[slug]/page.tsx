@@ -11,6 +11,7 @@ import {
   parseBlogMarkdown,
   getRelatedBlogPosts
 } from "@/lib/content";
+import { UnifiedCta } from "@/components/sections";
 import { siteConfig } from "@/config/site";
 
 interface BlogPostPageProps {
@@ -156,6 +157,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         stats={stats}
         meta={post.meta}
         relatedPosts={relatedPosts}
+      />
+      <UnifiedCta
+        badge="AUTOMATE YOUR SOCIAL CHANNELS"
+        title="Put What You Just Read into"
+        highlightedTitle="Action on Autopilot"
+        description="Launch Jadubot's official Meta-approved AI chat assistant in under 3 minutes. Zero setup fees, instant integration, and 24/7 lead conversion."
       />
     </>
   );

@@ -7,6 +7,7 @@ import {
   PricingFaq,
   PRICING_TIERS
 } from "@/components/routes/pricing";
+import { UnifiedCta } from "@/components/sections";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -77,6 +78,12 @@ export default function PricingPage() {
       <PricingTrustBanner />
       <PricingComparison />
       <PricingFaq />
+      <UnifiedCta
+        badge="START TODAY WITHOUT RISK"
+        title="Ready to Scale Your Automation and"
+        highlightedTitle="Supercharge Conversions?"
+        description="Sign up for our free tier in 60 seconds or book a walkthrough with our automation specialists to find the perfect plan for your business."
+      />
     </>
   );
 }
