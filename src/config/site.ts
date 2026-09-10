@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   url: env.NEXT_PUBLIC_SITE_URL,
   author: "Jadubot Support",
   locale: "en",
-  themeColor: "#8e2de2",
+  themeColor: "#0172ff",
   phone: "+8809611609565",
   email: "info@jadubot.com",
   address: "Daffodil Smart City (DSC), Birulia, Savar, Dhaka-1216",

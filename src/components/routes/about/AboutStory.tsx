@@ -43,7 +43,7 @@ export function AboutStory() {
           <div className="mt-12 flex justify-center">
             <Link
               href="/contact"
-              className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(142,45,226,0.35)] hover:scale-[1.02]"
+              className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(1,114,255,0.35)] hover:scale-[1.02]"
             >
               <span>Get in Touch with Us</span>
               <ArrowRight className="h-4 w-4" />

@@ -19,7 +19,7 @@ function AccordionItem({
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "group rounded-xl border border-[#373a41] bg-[#12151c]/80 transition-all duration-300 hover:border-[#8e2de2]/50 data-[state=open]:border-[#8e2de2]/60 data-[state=open]:bg-[#181d27]/90 data-[state=open]:shadow-[0_4px_24px_rgba(142,45,226,0.15)] overflow-hidden",
+        "group rounded-xl border border-[#373a41] bg-[#12151c]/80 transition-all duration-300 hover:border-[#0172ff]/50 data-[state=open]:border-[#0172ff]/60 data-[state=open]:bg-[#181d27]/90 data-[state=open]:shadow-[0_4px_24px_rgba(1,114,255,0.15)] overflow-hidden",
         className
       )}
       {...props}
@@ -37,13 +37,13 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "flex flex-1 items-center justify-between gap-4 p-5 text-left text-base font-semibold text-white transition-all duration-200 outline-none hover:no-underline hover:text-[#d8b4fe] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:text-[#8e2de2]",
+          "flex flex-1 items-center justify-between gap-4 p-5 text-left text-base font-semibold text-white transition-all duration-200 outline-none hover:no-underline hover:text-[#93c5fd] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:text-[#0172ff]",
           className
         )}
         {...props}
       >
         <span>{children}</span>
-        <ChevronDown className="pointer-events-none h-5 w-5 shrink-0 text-[#cecfd2] transition-transform duration-300 group-hover:text-[#d8b4fe]" />
+        <ChevronDown className="pointer-events-none h-5 w-5 shrink-0 text-[#cecfd2] transition-transform duration-300 group-hover:text-[#93c5fd]" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );

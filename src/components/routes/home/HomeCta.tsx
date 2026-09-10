@@ -9,10 +9,10 @@ export function HomeCta() {
   return (
     <section className="relative py-24 md:py-32">
       <div className="container mx-auto max-w-7xl">
-        <PopIn className="relative overflow-hidden rounded-3xl border border-[#373a41] bg-gradient-to-br from-[#4a00e0]/20 via-[#181d27] to-[#0c0e12] p-10 text-center shadow-[0_0_60px_rgba(142,45,226,0.15)] md:p-20">
+        <PopIn className="relative overflow-hidden rounded-3xl border border-[#373a41] bg-gradient-to-br from-[#0052cc]/20 via-[#181d27] to-[#0c0e12] p-10 text-center shadow-[0_0_60px_rgba(1,114,255,0.15)] md:p-20">
           {/* Ambient Glow */}
           <div
-            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-[#8e2de2]/25 blur-[100px]"
+            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-[#0172ff]/25 blur-[100px]"
             aria-hidden="true"
           />
 
@@ -37,7 +37,7 @@ export function HomeCta() {
                 href={CALENDLY_DEMO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group btn-primary inline-flex w-full items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white shadow-[0_0_25px_rgba(142,45,226,0.35)] transition-all duration-300 hover:scale-[1.02] sm:w-auto"
+                className="group btn-primary inline-flex w-full items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white shadow-[0_0_25px_rgba(1,114,255,0.35)] transition-all duration-300 hover:scale-[1.02] sm:w-auto"
               >
                 <span>Book a Free Live Demo</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

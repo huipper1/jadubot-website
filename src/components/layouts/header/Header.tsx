@@ -58,7 +58,7 @@ export function Header() {
             </div>
           </figure>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#c084fc]">
+            <span className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-[#38bdf8]">
               Jadubot
             </span>
             <span className="text-[9px] font-medium tracking-wider uppercase text-[#cecfd2]/70">
@@ -84,7 +84,7 @@ export function Header() {
                 className={cn(
                   "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
                   isActive
-                    ? "bg-[#8e2de2]/15 text-white font-semibold shadow-[0_0_12px_rgba(142,45,226,0.25)] border border-[#8e2de2]/30"
+                    ? "bg-[#0172ff]/15 text-white font-semibold shadow-[0_0_12px_rgba(1,114,255,0.25)] border border-[#0172ff]/30"
                     : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
                 )}
               >
@@ -108,7 +108,7 @@ export function Header() {
             href={CALENDLY_DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs !py-2 !px-4 shadow-[0_0_20px_rgba(142,45,226,0.35)]"
+            className="btn-primary text-xs !py-2 !px-4 shadow-[0_0_20px_rgba(1,114,255,0.35)]"
           >
             <span>Book a live demo</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -120,7 +120,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#373a41] bg-white/5 text-white transition-colors hover:border-[#8e2de2]"
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#373a41] bg-white/5 text-white transition-colors hover:border-[#0172ff]"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -145,12 +145,12 @@ export function Header() {
                   className={cn(
                     "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
                     isActive
-                      ? "bg-[#8e2de2]/15 text-white font-semibold border border-[#8e2de2]/30"
+                      ? "bg-[#0172ff]/15 text-white font-semibold border border-[#0172ff]/30"
                       : "text-[#cecfd2] hover:bg-white/5 hover:text-white"
                   )}
                 >
                   <span>{link.label}</span>
-                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-[#8e2de2]" />}
+                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-[#0172ff]" />}
                 </Link>
               );
             })}

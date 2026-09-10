@@ -27,15 +27,15 @@ export function PricingHero() {
       <div className="container relative z-10 mx-auto max-w-7xl px-4 text-center">
         <PopIn className="mx-auto max-w-3xl">
           {/* Glowing Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/35 bg-[#1a0c33]/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-200 shadow-[0_0_18px_rgba(168,85,247,0.25)] backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/35 bg-[#0b162b]/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-200 shadow-[0_0_18px_rgba(1,114,255,0.25)] backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-blue-400" />
             <span>SIMPLE &amp; TRANSPARENT</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="font-sans mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
             Simple Plans for Every Stage of <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(192,132,252,0.4)]">
+            <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
               Your Business
             </span>
           </h1>

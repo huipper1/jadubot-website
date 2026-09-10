@@ -46,7 +46,7 @@ export function CpaWorkflow() {
         <PopIn className="mt-14">
           <Link
             href="/contact"
-            className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-semibold text-white shadow-[0_0_20px_rgba(142,45,226,0.35)] hover:scale-[1.02]"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-semibold text-white shadow-[0_0_20px_rgba(1,114,255,0.35)] hover:scale-[1.02]"
           >
             <span>Talk to a CPA Specialist</span>
             <ArrowRight className="h-4 w-4" />

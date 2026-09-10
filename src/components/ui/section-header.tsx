@@ -32,7 +32,7 @@ export interface SectionHeaderProps
 function DefaultBadgeIcon({ className }: { className?: string }) {
   return (
     <svg
-      className={className || "h-3.5 w-3.5 text-purple-400"}
+      className={className || "h-3.5 w-3.5 text-blue-400"}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -59,7 +59,7 @@ const TITLE_STYLES = {
 };
 
 const DEFAULT_GRADIENT =
-  "bg-gradient-to-r from-[#d8b4fe] via-[#c084fc] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(192,132,252,0.35)]";
+  "bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]";
 
 export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
   (
@@ -90,9 +90,9 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
       if (React.isValidElement(badgeIcon)) return badgeIcon;
       if (typeof badgeIcon === "function") {
         const IconComponent = badgeIcon as React.ComponentType<{ className?: string }>;
-        return <IconComponent className="h-3.5 w-3.5 text-purple-400" />;
+        return <IconComponent className="h-3.5 w-3.5 text-blue-400" />;
       }
-      return <DefaultBadgeIcon className="h-3.5 w-3.5 text-purple-400" />;
+      return <DefaultBadgeIcon className="h-3.5 w-3.5 text-blue-400" />;
     };
 
     return (
@@ -110,7 +110,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         {badge && (
           <div
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border border-purple-500/35 bg-[#140b25]/80 px-4 py-1.5 text-xs font-semibold tracking-wider text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-md",
+              "inline-flex items-center gap-2 rounded-full border border-blue-500/35 bg-[#0b162b]/80 px-4 py-1.5 text-xs font-semibold tracking-wider text-blue-300 shadow-[0_0_15px_rgba(1,114,255,0.2)] backdrop-blur-md",
               badgeClassName
             )}
           >

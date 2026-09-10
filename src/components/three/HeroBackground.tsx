@@ -63,9 +63,9 @@ export function HeroBackground() {
     const ctx = canvasTexture.getContext("2d");
     if (ctx) {
       const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-      gradient.addColorStop(0, "rgba(192, 132, 252, 1)");
-      gradient.addColorStop(0.4, "rgba(142, 45, 226, 0.6)");
-      gradient.addColorStop(1, "rgba(74, 0, 224, 0)");
+      gradient.addColorStop(0, "rgba(147, 197, 253, 1)");
+      gradient.addColorStop(0.4, "rgba(1, 114, 255, 0.7)");
+      gradient.addColorStop(1, "rgba(0, 82, 204, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, 32, 32);
     }

@@ -16,15 +16,15 @@ export function BlogPostBody({ content }: BlogPostBodyProps) {
         <PopIn className="mx-auto max-w-4xl">
           {/* Article Body */}
           <div
-            className="prose prose-invert prose-purple max-w-none text-base leading-relaxed text-foreground/90 prose-headings:font-bold prose-headings:text-foreground prose-a:text-[#c084fc] hover:prose-a:underline prose-strong:text-foreground prose-li:text-muted-foreground prose-img:rounded-xl prose-img:border prose-img:border-white/10"
+            className="prose prose-invert prose-blue max-w-none text-base leading-relaxed text-foreground/90 prose-headings:font-bold prose-headings:text-foreground prose-a:text-[#38bdf8] hover:prose-a:underline prose-strong:text-foreground prose-li:text-muted-foreground prose-img:rounded-xl prose-img:border prose-img:border-white/10"
             dangerouslySetInnerHTML={{ __html: parsedHtml }}
           />
 
           {/* Bottom In-Article CTA Banner */}
-          <div className="mt-16 rounded-2xl border border-[#8e2de2]/30 bg-gradient-to-br from-[#8e2de2]/15 to-transparent p-8 md:p-10 backdrop-blur-sm">
+          <div className="mt-16 rounded-2xl border border-[#0172ff]/30 bg-gradient-to-br from-[#0172ff]/15 to-transparent p-8 md:p-10 backdrop-blur-sm">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#c084fc]">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#38bdf8]">
                   <Sparkles className="h-3.5 w-3.5" />
                   Try Jadubot Today
                 </span>
@@ -52,7 +52,7 @@ export function BlogPostBody({ content }: BlogPostBodyProps) {
                   href="https://app.jadubot.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#8e2de2]/25 transition-all hover:scale-105"
+                  className="btn-primary inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#0172ff]/25 transition-all hover:scale-105"
                 >
                   <span>Get Started Free</span>
                   <ArrowRight className="ml-2 h-4 w-4" />

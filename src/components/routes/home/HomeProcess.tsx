@@ -77,7 +77,7 @@ export function HomeProcess() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[800px] rounded-full bg-[#4a00e0]/15 blur-[160px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 -z-10 h-[500px] w-[800px] rounded-full bg-[#0052cc]/15 blur-[160px]"
         aria-hidden="true"
       />
 
@@ -85,7 +85,7 @@ export function HomeProcess() {
         {/* Section Header */}
         <div ref={headerRef} className="mx-auto max-w-3xl text-center lg:pb-10 will-change-transform origin-center">
           <div className="solution-badge inline-flex items-center gap-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-[#c084fc]" />
+            <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
             <span>AI-Powered Automation</span>
           </div>
 
@@ -112,10 +112,10 @@ export function HomeProcess() {
               className="absolute w-[280px] h-[280px] rounded-full opacity-65 blur-[45px] pointer-events-none"
               style={{
                 background:
-                  "conic-gradient(from 180deg at 50% 50%, #A6AAFF 63deg, #894BF6 140deg, #984AF6 180deg, #D87AFF 238deg, #FFF0FF 305deg, #8C66FF 360deg)"
+                  "conic-gradient(from 180deg at 50% 50%, #93c5fd 63deg, #0052cc 140deg, #0172ff 180deg, #38bdf8 238deg, #e0f2fe 305deg, #2563eb 360deg)"
               }}
             />
-            <div className="absolute w-[180px] h-[180px] rounded-full bg-[#894bf6]/50 blur-[30px] pointer-events-none" />
+            <div className="absolute w-[180px] h-[180px] rounded-full bg-[#0172ff]/40 blur-[30px] pointer-events-none" />
 
             {/* Crisp Logo Image */}
             <Image
@@ -123,7 +123,7 @@ export function HomeProcess() {
               alt="Start in 3 Steps Central Logo"
               width={200}
               height={200}
-              className="relative z-10 w-[180px] xl:w-[200px] h-[180px] xl:h-[200px] object-contain drop-shadow-[0_0_30px_rgba(142,45,226,0.65)]"
+              className="relative z-10 w-[180px] xl:w-[200px] h-[180px] xl:h-[200px] object-contain drop-shadow-[0_0_30px_rgba(1,114,255,0.65)]"
               priority
             />
           </div>
@@ -166,13 +166,13 @@ export function HomeProcess() {
         {/* ========================================================================= */}
         <div className="flex lg:hidden justify-center items-center mt-10 mb-8 select-none">
           <div className="relative flex items-center justify-center">
-            <div className="absolute w-[180px] h-[180px] rounded-full bg-[#894bf6]/35 blur-[35px]" />
+            <div className="absolute w-[180px] h-[180px] rounded-full bg-[#0172ff]/35 blur-[35px]" />
             <Image
               src="/assets/images/home/three-steps/step-logo.png"
               alt="Start in 3 Steps"
               width={130}
               height={130}
-              className="relative z-10 w-[95px] sm:w-[125px] h-auto object-contain drop-shadow-[0_0_24px_rgba(142,45,226,0.6)]"
+              className="relative z-10 w-[95px] sm:w-[125px] h-auto object-contain drop-shadow-[0_0_24px_rgba(1,114,255,0.6)]"
             />
           </div>
         </div>
@@ -187,14 +187,14 @@ export function HomeProcess() {
               ref={(el) => {
                 if (el) cardsRef.current[idx] = el;
               }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#8e2de2]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(142,45,226,0.2),_inset_0_0_24px_2px_rgba(142,45,226,0.08)] hover:-translate-y-1 will-change-transform origin-center"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#0172ff]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(1,114,255,0.2),_inset_0_0_24px_2px_rgba(1,114,255,0.08)] hover:-translate-y-1 will-change-transform origin-center"
               style={{
-                boxShadow: "inset 0 0 20px 1px rgba(158, 119, 237, 0.06)"
+                boxShadow: "inset 0 0 20px 1px rgba(1, 114, 255, 0.06)"
               }}
             >
               {/* Card Title & Description Block */}
               <div className="p-6 sm:p-7 flex flex-col">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#c084fc] transition-colors">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#38bdf8] transition-colors">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-[#cecfd2]/80 leading-relaxed">

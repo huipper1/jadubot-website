@@ -25,18 +25,18 @@ export function CpaPricing() {
               key={plan.name}
               className={`glass-card glass-card-hover group relative flex flex-col justify-between rounded-2xl p-7 transition-all duration-300 ${
                 plan.isPopular
-                  ? "border-brand/50 shadow-[0_0_30px_rgba(142,45,226,0.25)] ring-1 ring-brand/40"
+                  ? "border-[#0172ff]/50 shadow-[0_0_30px_rgba(1,114,255,0.25)] ring-1 ring-[#0172ff]/40"
                   : ""
               }`}
             >
               {plan.isPopular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#4a00e0] to-[#8e2de2] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0052cc] to-[#0172ff] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg">
                   Most Popular
                 </div>
               )}
 
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-brand">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-[#38bdf8]">
                   {plan.tag}
                 </span>
                 <h3 className="mt-2 text-xl font-bold text-foreground">{plan.name}</h3>
@@ -70,8 +70,8 @@ export function CpaPricing() {
                   rel="noopener noreferrer"
                   className={`flex w-full items-center justify-center gap-2 rounded-xl py-3 text-xs font-bold transition-all ${
                     plan.isPopular
-                      ? "btn-primary shadow-[0_0_20px_rgba(142,45,226,0.35)]"
-                      : "btn-black border border-[#373a41] hover:border-brand/40"
+                      ? "btn-primary shadow-[0_0_20px_rgba(1,114,255,0.35)]"
+                      : "btn-black border border-[#373a41] hover:border-[#0172ff]/40"
                   }`}
                 >
                   <span>{plan.ctaText}</span>

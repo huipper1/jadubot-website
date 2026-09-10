@@ -50,7 +50,7 @@ export function ServiceProcess() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[750px] rounded-full bg-purple-600/10 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[750px] rounded-full bg-blue-600/10 blur-[140px]"
         aria-hidden="true"
       />
 
@@ -81,15 +81,15 @@ export function ServiceProcess() {
             <defs>
               <linearGradient id="processRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-                <stop offset="60%" stopColor="#f3e8ff" stopOpacity="0.95" />
-                <stop offset="100%" stopColor="#c084fc" stopOpacity="0.85" />
+                <stop offset="60%" stopColor="#e0f2fe" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.85" />
               </linearGradient>
             </defs>
           </svg>
 
           {/* Horizontal Connecting Timeline Line (Desktop) */}
           <div
-            className="hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-[1.5px] bg-gradient-to-r from-purple-500/30 via-purple-400/70 to-purple-500/30 shadow-[0_0_12px_rgba(168,85,247,0.4)] z-0"
+            className="hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-[1.5px] bg-gradient-to-r from-blue-500/30 via-blue-400/70 to-blue-500/30 shadow-[0_0_12px_rgba(1,114,255,0.4)] z-0"
             aria-hidden="true"
           />
 
@@ -98,19 +98,19 @@ export function ServiceProcess() {
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[25%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(168,85,247,0.9),0_0_30px_rgba(168,85,247,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[50%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(168,85,247,0.9),0_0_30px_rgba(168,85,247,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[75%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(168,85,247,0.9),0_0_30px_rgba(168,85,247,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
 
           {/* 4 Process Step Columns */}
@@ -127,7 +127,7 @@ export function ServiceProcess() {
                   className="group relative flex flex-col items-center text-center"
                 >
                   {/* Glowing Circular Step Node */}
-                  <div className="relative flex h-20 w-20 sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-purple-500/35 bg-[#100822] shadow-[0_0_25px_rgba(147,51,234,0.25)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400/60 group-hover:shadow-[0_0_35px_rgba(168,85,247,0.4)]">
+                  <div className="relative flex h-20 w-20 sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-blue-500/35 bg-[#081226] shadow-[0_0_25px_rgba(1,114,255,0.25)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-blue-400/60 group-hover:shadow-[0_0_35px_rgba(1,114,255,0.4)]">
                     {/* Progressive Circular Stroke (starts at 12 o'clock):
                         01: 0% to 25% (strokeDasharray="25 75")
                         02: 0% to 50% (strokeDasharray="50 50")
@@ -145,9 +145,9 @@ export function ServiceProcess() {
                         cx="44"
                         cy="44"
                         r="41"
-                        stroke="rgba(168, 85, 247, 0.2)"
+                        stroke="rgba(1, 114, 255, 0.2)"
                         strokeWidth="2"
-                        className="transition-colors duration-300 group-hover:stroke-purple-500/35"
+                        className="transition-colors duration-300 group-hover:stroke-blue-500/35"
                       />
 
                       {/* Progressive highlighted stroke */}
@@ -165,11 +165,11 @@ export function ServiceProcess() {
                       />
                     </svg>
 
-                    <Icon className="relative z-10 h-7 w-7 text-purple-100 transition-all duration-300 group-hover:scale-110 group-hover:text-white" />
+                    <Icon className="relative z-10 h-7 w-7 text-blue-100 transition-all duration-300 group-hover:scale-110 group-hover:text-white" />
                   </div>
 
                   {/* Step Number */}
-                  <span className="mt-5 text-base sm:text-lg font-bold font-mono text-purple-400/90 tracking-wider">
+                  <span className="mt-5 text-base sm:text-lg font-bold font-mono text-blue-400/90 tracking-wider">
                     {step.step}
                   </span>
 

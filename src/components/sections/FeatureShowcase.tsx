@@ -163,7 +163,7 @@ export function FeatureShowcase() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[400px] w-[650px] rounded-full bg-[#4a00e0]/15 blur-[150px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[400px] w-[650px] rounded-full bg-[#0052cc]/15 blur-[150px]"
         aria-hidden="true"
       />
 
@@ -176,7 +176,7 @@ export function FeatureShowcase() {
             <div>
               {/* Static Eyebrow Badge */}
               <div className="solution-badge inline-flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-[#c084fc]" />
+                <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
                 <span>Features</span>
               </div>
 
@@ -197,7 +197,7 @@ export function FeatureShowcase() {
                   className="absolute inset-0 flex flex-col justify-start"
                 >
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-[11px] sm:text-xs font-bold text-[#c084fc] px-2 sm:px-2.5 py-0.5 rounded-full border border-[#8e2de2]/30 bg-[#8e2de2]/10">
+                    <span className="font-mono text-[11px] sm:text-xs font-bold text-[#38bdf8] px-2 sm:px-2.5 py-0.5 rounded-full border border-[#0172ff]/30 bg-[#0172ff]/10">
                       {feat.number}
                     </span>
                     <h3 className="font-heading text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white tracking-tight">
@@ -219,7 +219,7 @@ export function FeatureShowcase() {
                   key={feat.id}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeFeatureIndex === idx
-                      ? "w-8 bg-gradient-to-r from-[#4a00e0] to-[#8e2de2]"
+                      ? "w-8 bg-gradient-to-r from-[#0052cc] to-[#0172ff]"
                       : "w-2 bg-[#373a41]/70"
                   }`}
                 />

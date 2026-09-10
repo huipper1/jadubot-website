@@ -147,7 +147,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary flex w-full items-center justify-center gap-2 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(142,45,226,0.35)] transition-all hover:scale-[1.01] disabled:opacity-70"
+            className="btn-primary flex w-full items-center justify-center gap-2 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(1,114,255,0.35)] transition-all hover:scale-[1.01] disabled:opacity-70"
           >
             {loading ? (
               <span>Sending...</span>

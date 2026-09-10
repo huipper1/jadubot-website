@@ -40,7 +40,7 @@ export function PricingComparison() {
                   <th className="py-4 font-heading font-bold text-white">Feature</th>
                   <th className="py-4 font-heading font-bold text-white/80 text-center">Free Trial</th>
                   <th className="py-4 font-heading font-bold text-white/80 text-center">Starter</th>
-                  <th className="py-4 font-heading font-bold text-[#c084fc] text-center">Premium (Popular)</th>
+                  <th className="py-4 font-heading font-bold text-[#38bdf8] text-center">Premium (Popular)</th>
                   <th className="py-4 font-heading font-bold text-white/80 text-center">Business</th>
                 </tr>
               </thead>
@@ -72,10 +72,10 @@ export function PricingComparison() {
                         row.starter
                       )}
                     </td>
-                    <td className="py-3.5 text-center text-xs font-semibold text-[#c084fc] bg-[#8e2de2]/[0.06]">
+                    <td className="py-3.5 text-center text-xs font-semibold text-[#38bdf8] bg-[#0172ff]/[0.06]">
                       {typeof row.premium === "boolean" ? (
                         row.premium ? (
-                          <Check className="mx-auto h-4 w-4 text-[#c084fc]" />
+                          <Check className="mx-auto h-4 w-4 text-[#38bdf8]" />
                         ) : (
                           <Minus className="mx-auto h-4 w-4 text-[#cecfd2]/30" />
                         )

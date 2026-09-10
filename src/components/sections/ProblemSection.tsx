@@ -185,9 +185,9 @@ export function ProblemSection() {
         aria-hidden="true"
       />
 
-      {/* Royal purple ambient glow matching LazyChat website theme */}
+      {/* Jadubot blue ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[640px] rounded-full bg-[#4a00e0]/15 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[640px] rounded-full bg-[#0052cc]/15 blur-[140px]"
         aria-hidden="true"
       />
 
@@ -196,7 +196,7 @@ export function ProblemSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="solution-badge">
-            <AlertCircle className="h-3.5 w-3.5 text-[#c084fc]" />
+            <AlertCircle className="h-3.5 w-3.5 text-[#38bdf8]" />
             <span>Problem</span>
           </div>
 
@@ -221,21 +221,21 @@ export function ProblemSection() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#373a41] bg-[#12151c]/90 p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:border-[#8e2de2]/60 hover:bg-[#181d27] md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#373a41] bg-[#12151c]/90 p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:border-[#0172ff]/60 hover:bg-[#181d27] md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
-                {/* Subtle top edge accent glow line matching LazyChat cards */}
+                {/* Subtle top edge accent glow line matching cards */}
                 <div
-                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-[#8e2de2]/45 to-transparent"
+                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-[#0172ff]/45 to-transparent"
                   aria-hidden="true"
                 />
 
                 <div>
                   {/* Header: Icon & Number Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#8e2de2]/30 bg-[#8e2de2]/10 text-[#c084fc] transition-colors group-hover:bg-[#8e2de2] group-hover:text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#0172ff]/30 bg-[#0172ff]/10 text-[#38bdf8] transition-colors group-hover:bg-[#0172ff] group-hover:text-white">
                       <Icon className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#c084fc]/90 px-2 py-0.5 rounded border border-[#8e2de2]/25 bg-[#8e2de2]/10">
+                    <span className="font-mono text-xs font-bold text-[#38bdf8]/90 px-2 py-0.5 rounded border border-[#0172ff]/25 bg-[#0172ff]/10">
                       0{card.number}
                     </span>
                   </div>

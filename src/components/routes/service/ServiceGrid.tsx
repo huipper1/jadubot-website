@@ -22,7 +22,7 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
   switch (type) {
     case "messenger":
       return (
-        <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#0084ff] via-[#a855f7] to-[#00c6ff] p-0.5 shadow-[0_0_20px_rgba(0,132,255,0.6)] animate-float-slow">
+        <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#0084ff] via-[#0172ff] to-[#00c6ff] p-0.5 shadow-[0_0_20px_rgba(0,132,255,0.6)] animate-float-slow">
           <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0084ff]/90 backdrop-blur-md">
             <svg
               className="h-4 w-4 sm:h-5 sm:w-5 fill-white text-white drop-shadow-md"
@@ -45,29 +45,29 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
 
     case "lead":
       return (
-        <div className="absolute top-1/2 -left-2 sm:-left-3 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-purple-500/40 bg-[#1e1035]/90 p-1.5 shadow-[0_0_18px_rgba(168,85,247,0.45)] backdrop-blur-md animate-float-slow">
-          <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+        <div className="absolute top-1/2 -left-2 sm:-left-3 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-blue-500/40 bg-[#0b162b]/90 p-1.5 shadow-[0_0_18px_rgba(1,114,255,0.45)] backdrop-blur-md animate-float-slow">
+          <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
         </div>
       );
 
     case "store":
       return (
-        <div className="absolute -top-2 right-3 sm:-top-3 sm:right-5 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-purple-500/40 bg-[#1e1035]/90 p-1.5 shadow-[0_0_18px_rgba(168,85,247,0.45)] backdrop-blur-md animate-float-delayed">
-          <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+        <div className="absolute -top-2 right-3 sm:-top-3 sm:right-5 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-blue-500/40 bg-[#0b162b]/90 p-1.5 shadow-[0_0_18px_rgba(1,114,255,0.45)] backdrop-blur-md animate-float-delayed">
+          <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
         </div>
       );
 
     case "gps":
       return (
-        <div className="absolute top-2 -right-2 sm:top-3 sm:-right-3 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-purple-500/40 bg-[#1e1035]/90 p-1.5 shadow-[0_0_18px_rgba(168,85,247,0.45)] backdrop-blur-md animate-float-slow">
-          <Send className="h-4 w-4 sm:h-5 sm:w-5 text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+        <div className="absolute top-2 -right-2 sm:top-3 sm:-right-3 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-blue-500/40 bg-[#0b162b]/90 p-1.5 shadow-[0_0_18px_rgba(1,114,255,0.45)] backdrop-blur-md animate-float-slow">
+          <Send className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
         </div>
       );
 
     case "ai":
       return (
-        <div className="absolute bottom-2 -right-2 sm:bottom-3 sm:-right-3 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-purple-500/40 bg-[#1e1035]/90 p-1.5 shadow-[0_0_18px_rgba(168,85,247,0.45)] backdrop-blur-md animate-float-delayed">
-          <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+        <div className="absolute bottom-2 -right-2 sm:bottom-3 sm:-right-3 z-20 flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-2xl border border-blue-500/40 bg-[#0b162b]/90 p-1.5 shadow-[0_0_18px_rgba(1,114,255,0.45)] backdrop-blur-md animate-float-delayed">
+          <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
         </div>
       );
 
@@ -187,11 +187,11 @@ export function ServiceGrid() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 -z-10 h-[550px] w-[900px] rounded-full bg-[#4a00e0]/12 blur-[170px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 -z-10 h-[550px] w-[900px] rounded-full bg-[#0052cc]/12 blur-[170px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute right-0 top-2/3 -z-10 h-[500px] w-[500px] rounded-full bg-[#8e2de2]/10 blur-[160px]"
+        className="pointer-events-none absolute right-0 top-2/3 -z-10 h-[500px] w-[500px] rounded-full bg-[#0172ff]/10 blur-[160px]"
         aria-hidden="true"
       />
 
@@ -204,13 +204,13 @@ export function ServiceGrid() {
                 key={item.id}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   activeCardIndex === idx
-                    ? "w-8 sm:w-9 bg-gradient-to-r from-purple-500 to-brand"
+                    ? "w-8 sm:w-9 bg-gradient-to-r from-[#0052cc] to-[#0172ff]"
                     : "w-2.5 bg-[#373a41]/70"
                 }`}
               />
             ))}
           </div>
-          <span className="font-mono text-xs sm:text-sm font-semibold text-purple-300/80">
+          <span className="font-mono text-xs sm:text-sm font-semibold text-blue-300/80">
             0{activeCardIndex + 1} / 0{SERVICE_ITEMS.length}
           </span>
         </div>
@@ -232,9 +232,9 @@ export function ServiceGrid() {
                   zIndex: 10 * (index + 1)
                 }}
               >
-                <div className="group relative h-full w-full rounded-3xl border border-[#2d3142]/80 bg-gradient-to-b from-[#131524] via-[#0e101b] to-[#090b12] p-5 sm:p-6 md:p-7 lg:px-10 lg:py-6 xl:px-12 xl:py-7 shadow-[0_25px_70px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col justify-center transition-colors hover:border-purple-500/40">
+                <div className="group relative h-full w-full rounded-3xl border border-[#2d3142]/80 bg-gradient-to-b from-[#131524] via-[#0e101b] to-[#090b12] p-5 sm:p-6 md:p-7 lg:px-10 lg:py-6 xl:px-12 xl:py-7 shadow-[0_25px_70px_rgba(0,0,0,0.85)] backdrop-blur-2xl flex flex-col justify-center transition-colors hover:border-blue-500/40">
                   {/* Subtle Ambient Radial Lighting */}
-                  <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-[380px] w-[380px] rounded-full bg-purple-600/12 blur-[120px]" />
+                  <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-[380px] w-[380px] rounded-full bg-blue-600/12 blur-[120px]" />
                   <div className="pointer-events-none absolute -left-24 -bottom-24 -z-10 h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[110px]" />
 
                   {/* 2-Column Responsive Alternating Layout */}
@@ -249,10 +249,10 @@ export function ServiceGrid() {
                     >
                       {/* Step Badge & Icon */}
                       <div className="flex items-center gap-2.5 sm:gap-3">
-                        <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-purple-500/35 bg-[#1b1232]/80 text-purple-300 shadow-[0_0_18px_rgba(168,85,247,0.25)]">
-                          <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-purple-400" />
+                        <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-blue-500/35 bg-[#0b162b]/80 text-blue-300 shadow-[0_0_18px_rgba(1,114,255,0.25)]">
+                          <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5 text-blue-400" />
                         </div>
-                        <span className="text-xs sm:text-sm font-bold tracking-widest text-purple-400/90 font-mono">
+                        <span className="text-xs sm:text-sm font-bold tracking-widest text-blue-400/90 font-mono">
                           {service.number}
                         </span>
                       </div>
@@ -274,7 +274,7 @@ export function ServiceGrid() {
                             key={benefit}
                             className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm font-medium text-slate-200"
                           >
-                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-[0_0_8px_rgba(168,85,247,0.4)]">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#0052cc] to-[#0172ff] text-white shadow-[0_0_8px_rgba(1,114,255,0.4)]">
                               <Check className="h-2.5 w-2.5 stroke-[3]" />
                             </span>
                             <span className="leading-snug">{benefit}</span>
@@ -294,7 +294,7 @@ export function ServiceGrid() {
                       <div className="relative w-full overflow-visible flex items-center justify-center">
                         {/* Soft ambient lighting behind the graphic */}
                         <div
-                          className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-purple-600/15 via-brand/12 to-transparent blur-3xl"
+                          className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-gradient-to-tr from-blue-600/15 via-[#0172ff]/12 to-transparent blur-3xl"
                           aria-hidden="true"
                         />
 

@@ -22,9 +22,9 @@ export function Footer() {
         <div className="absolute inset-0 bg-[#0c0e12]/25" />
       </div>
 
-      {/* Top subtle purple ambient glow */}
+      {/* Top subtle blue ambient glow */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#8e2de2]/15 to-transparent z-[1]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0172ff]/15 to-transparent z-[1]"
         aria-hidden="true"
       />
 

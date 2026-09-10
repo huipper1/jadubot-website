@@ -19,27 +19,27 @@ export function HomeTrialCta() {
         aria-hidden="true"
       />
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 flex w-full justify-center">
-        <div className="h-80 w-[600px] rounded-full bg-[#8e2de2]/15 blur-[120px]" />
+        <div className="h-80 w-[600px] rounded-full bg-[#0172ff]/15 blur-[120px]" />
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={cardRef} className="w-full will-change-transform origin-center">
           <div
-            className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#8e2de2]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(142,45,226,0.2),_inset_0_0_24px_2px_rgba(142,45,226,0.08)] hover:-translate-y-1 p-8 sm:p-12 lg:p-16 w-full max-w-7xl mx-auto"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-[#373a41]/80 bg-[#12151c]/90 min-h-[380px] sm:min-h-[420px] transition-all duration-300 hover:border-[#0172ff]/50 hover:bg-[#181d27]/90 hover:shadow-[0_12px_36px_-8px_rgba(1,114,255,0.2),_inset_0_0_24px_2px_rgba(1,114,255,0.08)] hover:-translate-y-1 p-8 sm:p-12 lg:p-16 w-full max-w-7xl mx-auto"
             style={{
-              boxShadow: "inset 0 0 20px 1px rgba(158, 119, 237, 0.06)"
+              boxShadow: "inset 0 0 20px 1px rgba(1, 114, 255, 0.06)"
             }}
           >
             {/* Subtle top-right ambient flare inside the card */}
             <div
-              className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#8e2de2]/20 blur-[80px] group-hover:bg-[#8e2de2]/30 transition-all duration-500"
+              className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#0172ff]/20 blur-[80px] group-hover:bg-[#0172ff]/30 transition-all duration-500"
               aria-hidden="true"
             />
 
             {/* Top content block */}
             <div className="relative z-10 max-w-2xl">
               <div className="solution-badge inline-flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-[#c084fc]" />
+                <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
                 <span>Transform Your Social Commerce</span>
               </div>
 

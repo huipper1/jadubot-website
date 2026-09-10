@@ -19,7 +19,7 @@ export function ServiceCta() {
               href={CALENDLY_DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_25px_rgba(142,45,226,0.35)] transition-all hover:scale-[1.02]"
+              className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_25px_rgba(1,114,255,0.35)] transition-all hover:scale-[1.02]"
             >
               <span>Schedule Free Demo</span>
               <ArrowRight className="h-4 w-4" />

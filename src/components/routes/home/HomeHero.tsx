@@ -33,7 +33,7 @@ export function HomeHero() {
             </span>
             <span className="flex items-center gap-1 pr-2">
               recommendation engine
-              <ArrowRight className="h-3 w-3 text-[#c084fc]" />
+              <ArrowRight className="h-3 w-3 text-[#38bdf8]" />
             </span>
           </div>
 
@@ -77,7 +77,7 @@ export function HomeHero() {
         <div ref={mockupRef} className="relative mx-auto mt-14 sm:mt-18 max-w-6xl xl:max-w-7xl px-2 sm:px-4 will-change-transform origin-center">
           {/* Animated Inward-Outward Breathing Glow behind the mockup frame */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[80%] w-[92%] rounded-full bg-linear-to-r from-brand-purple-start/70 via-[#8e2de2]/85 to-brand-amber/65 animate-pulse-glow"
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[80%] w-[92%] rounded-full bg-linear-to-r from-[#0052cc]/70 via-[#0172ff]/85 to-[#38bdf8]/65 animate-pulse-glow"
             aria-hidden="true"
           />
           {/* Multi-channel subtle aura (Facebook blue, Instagram pink, WhatsApp mint) */}

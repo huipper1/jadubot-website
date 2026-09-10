@@ -42,7 +42,7 @@ export function PricingCards({
             className={cn(
               "h-full relative flex flex-col justify-between rounded-2xl p-7 transition-all duration-300",
               tier.isPopular
-                ? "border border-[#8e2de2]/50 bg-[#181d27] shadow-[0px_0px_36px_11px_rgba(142,_45,_226,_0.5)] scale-[1.02] z-10"
+                ? "border border-[#0172ff]/50 bg-[#181d27] shadow-[0px_0px_36px_11px_rgba(1,114,255,0.45)] scale-[1.02] z-10"
                 : "border border-[#373a41] bg-[#12151c]/90 hover:border-[#373a41] hover:bg-[#181d27]"
             )}
           >
@@ -52,7 +52,7 @@ export function PricingCards({
                   {tier.name}
                 </h3>
                 {tier.badge && (
-                  <span className="rounded-full bg-gradient-to-r from-[#4a00e0] to-[#8e2de2] px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
+                  <span className="rounded-full bg-gradient-to-r from-[#0052cc] to-[#0172ff] px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
                     {tier.badge}
                   </span>
                 )}
@@ -80,8 +80,8 @@ export function PricingCards({
                   className={cn(
                     "w-full text-center text-xs font-semibold py-3 px-4 rounded-xl transition-all duration-200 block",
                     tier.isPopular
-                      ? "btn-primary shadow-[0_0_20px_rgba(142,45,226,0.35)]"
-                      : "btn-black hover:border-[#8e2de2]/50 hover:text-white"
+                      ? "btn-primary shadow-[0_0_20px_rgba(1,114,255,0.35)]"
+                      : "btn-black hover:border-[#0172ff]/50 hover:text-white"
                   )}
                 >
                   Get Started
@@ -96,7 +96,7 @@ export function PricingCards({
                 <ul className="space-y-3 text-xs text-[#cecfd2]">
                   {tier.features.map((feat) => (
                     <li key={feat} className="flex items-start gap-2.5">
-                      <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#8e2de2]/15 text-[#c084fc]">
+                      <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0172ff]/15 text-[#38bdf8]">
                         <Check className="h-2.5 w-2.5 stroke-[3]" />
                       </div>
                       <span className="leading-snug">{feat}</span>

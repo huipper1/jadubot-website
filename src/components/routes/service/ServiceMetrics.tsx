@@ -95,7 +95,7 @@ export function ServiceMetrics() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[650px] rounded-full bg-[#8e2de2]/10 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[650px] rounded-full bg-[#0172ff]/10 blur-[140px]"
         aria-hidden="true"
       />
 
@@ -140,8 +140,8 @@ export function ServiceMetrics() {
                     }`}
                 >
                   {/* Circular Icon */}
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-purple-500/40 bg-[#160c29]/90 shadow-[0_0_22px_rgba(168,85,247,0.18)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400/60 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-purple-300 transition-colors group-hover:text-purple-200" />
+                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-blue-500/40 bg-[#0b162b]/90 shadow-[0_0_22px_rgba(1,114,255,0.18)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-blue-400/60 group-hover:shadow-[0_0_30px_rgba(1,114,255,0.3)]">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-blue-300 transition-colors group-hover:text-blue-200" />
                   </div>
 
                   {/* Number + Unit */}
@@ -150,7 +150,7 @@ export function ServiceMetrics() {
                       {counts[index]}
                       {metric.suffix}
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#a855f7]">
+                    <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#38bdf8]">
                       {metric.unit}
                     </span>
                   </div>
