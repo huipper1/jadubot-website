@@ -1,5 +1,11 @@
+export * from "./AffiliateMasthead";
 export * from "./AffiliateHero";
-export * from "./AffiliateBenefits";
-export * from "./AffiliateHowItWorks";
-export * from "./AffiliateRules";
+export * from "./AffiliateCalculator";
+export * from "./AffiliateAdvantages";
+export { AffiliateAdvantages as AffiliateBenefits } from "./AffiliateAdvantages";
+export * from "./AffiliateProcess";
+export { AffiliateProcess as AffiliateHowItWorks } from "./AffiliateProcess";
+export * from "./AffiliateGuidelines";
+export { AffiliateGuidelines as AffiliateRules } from "./AffiliateGuidelines";
+export * from "./AffiliateClosing";
 export * from "./AffiliateCta";

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import {
-  AffiliateHero,
-  AffiliateBenefits,
-  AffiliateHowItWorks,
-  AffiliateRules,
-  AffiliateCta
+  AffiliateMasthead,
+  AffiliateCalculator,
+  AffiliateAdvantages,
+  AffiliateProcess,
+  AffiliateGuidelines,
+  AffiliateClosing
 } from "@/components/routes/affiliate";
 import { siteConfig } from "@/config/site";
 
@@ -26,11 +27,12 @@ export const metadata: Metadata = {
 export default function AffiliatePage() {
   return (
     <>
-      <AffiliateHero />
-      <AffiliateBenefits />
-      <AffiliateHowItWorks />
-      <AffiliateRules />
-      <AffiliateCta />
+      <AffiliateMasthead />
+      <AffiliateCalculator />
+      <AffiliateAdvantages />
+      <AffiliateProcess />
+      <AffiliateGuidelines />
+      <AffiliateClosing />
     </>
   );
 }
