@@ -15,19 +15,19 @@ export function FaqMasthead() {
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
         <PopIn className="space-y-6">
           {/* Context Marker */}
-          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-400">
-            <span className="inline-flex items-center gap-1.5 text-[#38bdf8]">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5 text-primary">
               <HelpCircle className="h-3.5 w-3.5" />
               <span>Knowledge Base &amp; Support</span>
             </span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Instant Answers</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-400">Dhaka, Bangladesh</span>
+            <span className="text-muted-foreground/40">•</span>
+            <span>Instant Answers</span>
+            <span className="text-muted-foreground/40">•</span>
+            <span>Dhaka, Bangladesh</span>
           </div>
 
           {/* High-Contrast Editorial Headline */}
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
+          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
             Everything You Need to Know About{" "}
             <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent">
               Automating with Jadubot
@@ -35,24 +35,24 @@ export function FaqMasthead() {
           </h1>
 
           {/* Narrative Subtitle */}
-          <p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl font-normal">
+          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl font-normal">
             Clear, honest answers on Facebook Messenger automation, Instagram DM sales funnels, inside-chat eCommerce, CPA postbacks, Meta Graph API safety, and Bangladeshi payment options.
           </p>
 
           {/* Quick Assurance Badges */}
-          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-medium text-slate-300">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1.5 text-emerald-300">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-medium text-muted-foreground">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1.5 text-emerald-500">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
               <span>Official Meta Graph API Compliant</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-slate-300">
-              <RotateCcw className="h-3.5 w-3.5 text-sky-400" />
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3.5 py-1.5 text-muted-foreground">
+              <RotateCcw className="h-3.5 w-3.5 text-primary" />
               <span>7-Day Unconditional Refund Policy</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-slate-300">
-              <Zap className="h-3.5 w-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3.5 py-1.5 text-muted-foreground">
+              <Zap className="h-3.5 w-3.5 text-amber-500" />
               <span>Banglish &amp; Bengali Language Supported</span>
             </div>
           </div>

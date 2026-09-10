@@ -43,7 +43,7 @@ const STEPS = [
 
 export function ServiceProcess() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0c10] py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-background py-20 sm:py-24 lg:py-28">
       {/* Background Ambience */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px] opacity-60"
@@ -79,9 +79,16 @@ export function ServiceProcess() {
           {/* SVG Definitions for Specular Rim Highlight */}
           <svg className="absolute h-0 w-0" aria-hidden="true">
             <defs>
-              <linearGradient id="processRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              {/* Dark Mode: White to Ice Sky Highlight */}
+              <linearGradient id="processRimGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
                 <stop offset="60%" stopColor="#e0f2fe" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.85" />
+              </linearGradient>
+              {/* Light Mode: Electric Blue to Sky Highlight */}
+              <linearGradient id="processRimGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#0052cc" stopOpacity="1" />
+                <stop offset="60%" stopColor="#0172ff" stopOpacity="0.95" />
                 <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.85" />
               </linearGradient>
             </defs>
@@ -89,7 +96,7 @@ export function ServiceProcess() {
 
           {/* Horizontal Connecting Timeline Line (Desktop) */}
           <div
-            className="hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-[1.5px] bg-gradient-to-r from-blue-500/30 via-blue-400/70 to-blue-500/30 shadow-[0_0_12px_rgba(1,114,255,0.4)] z-0"
+            className="hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-[1.5px] bg-gradient-to-r from-blue-500/25 via-primary/50 to-blue-500/25 dark:from-blue-500/30 dark:via-blue-400/70 dark:to-blue-500/30 shadow-[0_0_12px_rgba(1,114,255,0.2)] dark:shadow-[0_0_12px_rgba(1,114,255,0.4)] z-0"
             aria-hidden="true"
           />
 
@@ -98,19 +105,19 @@ export function ServiceProcess() {
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[25%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[50%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
             className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[75%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
             aria-hidden="true"
           >
-            <div className="h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
 
           {/* 4 Process Step Columns */}
@@ -127,13 +134,7 @@ export function ServiceProcess() {
                   className="group relative flex flex-col items-center text-center"
                 >
                   {/* Glowing Circular Step Node */}
-                  <div className="relative flex h-20 w-20 sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-blue-500/35 bg-[#081226] shadow-[0_0_25px_rgba(1,114,255,0.25)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-blue-400/60 group-hover:shadow-[0_0_35px_rgba(1,114,255,0.4)]">
-                    {/* Progressive Circular Stroke (starts at 12 o'clock):
-                        01: 0% to 25% (strokeDasharray="25 75")
-                        02: 0% to 50% (strokeDasharray="50 50")
-                        03: 0% to 75% (strokeDasharray="75 25")
-                        04: 0% to 100% (strokeDasharray="100 0")
-                    */}
+                  <div className="relative flex h-20 w-20 sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-slate-200 bg-card shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(1,114,255,0.25)] dark:border-blue-500/35 dark:bg-background dark:shadow-[0_0_25px_rgba(1,114,255,0.25)] dark:backdrop-blur-md dark:group-hover:border-blue-400/60 dark:group-hover:shadow-[0_0_35px_rgba(1,114,255,0.4)]">
                     <svg
                       className="pointer-events-none absolute inset-0 h-full w-full -rotate-90 overflow-visible"
                       viewBox="0 0 88 88"
@@ -145,41 +146,55 @@ export function ServiceProcess() {
                         cx="44"
                         cy="44"
                         r="41"
-                        stroke="rgba(1, 114, 255, 0.2)"
+                        stroke="currentColor"
                         strokeWidth="2"
-                        className="transition-colors duration-300 group-hover:stroke-blue-500/35"
+                        className="text-slate-200 group-hover:text-primary/30 dark:text-blue-500/20 dark:group-hover:text-blue-500/35 transition-colors duration-300"
                       />
 
-                      {/* Progressive highlighted stroke */}
+                      {/* Progressive highlighted stroke - Light Mode */}
                       <circle
                         cx="44"
                         cy="44"
                         r="41"
                         pathLength={100}
-                        stroke="url(#processRimGrad)"
+                        stroke="url(#processRimGradLight)"
                         strokeWidth="2.5"
                         strokeDasharray={step.strokeDasharray}
                         strokeDashoffset={0}
                         strokeLinecap="round"
-                        className="transition-all duration-500 group-hover:stroke-white"
+                        className="dark:hidden transition-all duration-500 group-hover:stroke-primary group-hover:drop-shadow-[0_0_6px_rgba(1,114,255,0.5)]"
+                      />
+
+                      {/* Progressive highlighted stroke - Dark Mode */}
+                      <circle
+                        cx="44"
+                        cy="44"
+                        r="41"
+                        pathLength={100}
+                        stroke="url(#processRimGradDark)"
+                        strokeWidth="2.5"
+                        strokeDasharray={step.strokeDasharray}
+                        strokeDashoffset={0}
+                        strokeLinecap="round"
+                        className="hidden dark:block transition-all duration-500 group-hover:stroke-white group-hover:drop-shadow-[0_0_8px_#38bdf8]"
                       />
                     </svg>
 
-                    <Icon className="relative z-10 h-7 w-7 text-blue-100 transition-all duration-300 group-hover:scale-110 group-hover:text-white" />
+                    <Icon className="relative z-10 h-7 w-7 text-slate-700 transition-all duration-300 group-hover:scale-110 group-hover:text-primary dark:text-blue-100 dark:group-hover:text-white" />
                   </div>
 
                   {/* Step Number */}
-                  <span className="mt-5 text-base sm:text-lg font-bold font-mono text-blue-400/90 tracking-wider">
+                  <span className="mt-5 text-base sm:text-lg font-bold font-mono text-primary dark:text-sky-400 tracking-wider">
                     {step.step}
                   </span>
 
                   {/* Step Title */}
-                  <h3 className="mt-2 font-heading text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
+                  <h3 className="mt-2 font-heading text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
                     {step.title}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400 max-w-[250px] sm:max-w-[270px] mx-auto">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground max-w-[250px] sm:max-w-[270px] mx-auto">
                     {step.description}
                   </p>
                 </div>

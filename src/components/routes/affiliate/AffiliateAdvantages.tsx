@@ -36,7 +36,7 @@ const ADVANTAGES = [
 
 export function AffiliateAdvantages() {
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 border-t border-white/[0.08]">
+    <section className="relative py-16 sm:py-20 md:py-24 border-t border-border">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           {/* Left Column: Editorial Narrative (5 cols) */}
@@ -47,20 +47,20 @@ export function AffiliateAdvantages() {
                 <span>PARTNER ADVANTAGES</span>
               </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
                 Why Marketers &amp; Agencies Partner with Jadubot
               </h2>
 
-              <p className="font-bengali text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+              <p className="font-bengali text-base sm:text-lg text-muted-foreground leading-relaxed font-normal">
                 ডিজিটাল মার্কেটার, ফ্রিল্যান্সার, ড্রপশিপার এবং এজেন্সি মালিকদের জন্য জাদুবট তৈরি করেছে বাংলাদেশের সবচেয়ে নিরাপদ ও লাভজনক রিকারিং ইনকাম মডেল।
               </p>
 
               <div className="rounded-2xl border border-sky-500/20 bg-sky-500/5 p-5">
-                <div className="flex items-center gap-2 text-sky-300 font-semibold text-sm">
+                <div className="flex items-center gap-2 text-sky-400 font-semibold text-sm">
                   <Gift className="h-4 w-4" />
                   <span className="font-bengali">বিশেষ সাইন-আপ বোনাস</span>
                 </div>
-                <p className="mt-2 text-xs sm:text-sm text-slate-400 font-bengali leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-bengali leading-relaxed">
                   পার্টনার রেজিস্ট্রেশন করলেই আপনি পাচ্ছেন Jadubot Standard প্যাকেজ (মূল্য ৳১,৫০০) সম্পূর্ণ ফ্রি ১ মাসের জন্য।
                 </p>
               </div>
@@ -69,7 +69,7 @@ export function AffiliateAdvantages() {
 
           {/* Right Column: Unboxed Feature Rows with Fine Dividers (7 cols - NOT CARDS!) */}
           <div className="lg:col-span-7">
-            <PopIn className="divide-y divide-white/[0.08]">
+            <PopIn className="divide-y divide-border">
               {ADVANTAGES.map((adv, idx) => {
                 const Icon = adv.icon;
 
@@ -80,22 +80,22 @@ export function AffiliateAdvantages() {
                   >
                     <div className="flex items-start gap-4 sm:gap-5">
                       {/* Accent Index Node */}
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/[0.04] border border-white/[0.08] text-sky-400 transition-colors group-hover:bg-[#0172ff]/15 group-hover:border-[#0172ff]/40">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-muted border border-border text-primary transition-colors group-hover:bg-[#0172ff]/15 group-hover:border-[#0172ff]/40">
                         <Icon className="h-5 w-5" />
                       </div>
 
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-mono font-bold text-sky-400/90 tracking-wider">
+                          <span className="text-xs font-mono font-bold text-sky-400 tracking-wider">
                             0{idx + 1} // {adv.subtitle}
                           </span>
                         </div>
 
-                        <h3 className="mt-1.5 text-lg sm:text-xl font-bold text-white font-bengali group-hover:text-sky-300 transition-colors">
+                        <h3 className="mt-1.5 text-lg sm:text-xl font-bold text-foreground font-bengali group-hover:text-primary transition-colors">
                           {adv.title}
                         </h3>
 
-                        <p className="mt-2 text-sm sm:text-base text-slate-400 font-bengali leading-relaxed">
+                        <p className="mt-2 text-sm sm:text-base text-muted-foreground font-bengali leading-relaxed">
                           {adv.description}
                         </p>
                       </div>

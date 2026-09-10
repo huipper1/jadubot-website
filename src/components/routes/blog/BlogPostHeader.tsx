@@ -43,23 +43,23 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-1.5 text-xs text-slate-400 mb-6 flex-wrap"
+          className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap"
         >
           <Link
             href="/"
-            className="transition-colors hover:text-white"
+            className="transition-colors hover:text-foreground"
           >
             Home
           </Link>
-          <ChevronRight className="h-3 w-3 text-slate-600" />
+          <ChevronRight className="h-3 w-3 text-muted-foreground/60" />
           <Link
             href="/blog/"
-            className="transition-colors hover:text-white"
+            className="transition-colors hover:text-foreground"
           >
             Blog
           </Link>
-          <ChevronRight className="h-3 w-3 text-slate-600" />
-          <span className="text-slate-300 line-clamp-1 max-w-xs sm:max-w-md">
+          <ChevronRight className="h-3 w-3 text-muted-foreground/60" />
+          <span className="text-foreground/80 line-clamp-1 max-w-xs sm:max-w-md">
             {meta.title}
           </span>
         </nav>
@@ -68,7 +68,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <Link
             href="/blog/"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 transition-colors hover:text-[#38bdf8]"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Back to articles</span>
@@ -80,47 +80,47 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         </div>
 
         {/* Title */}
-        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-white leading-[1.25] [text-wrap:balance]">
+        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-foreground leading-[1.25] [text-wrap:balance]">
           <FormattedBlogTitle title={meta.title} />
         </h1>
 
         {/* Lead excerpt if present */}
         {meta.excerpt && (
-          <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-300/90 font-normal">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground font-normal">
             {meta.excerpt}
           </p>
         )}
 
         {/* Metadata & Quick Share Bar */}
-        <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-white/10">
-          <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-slate-400">
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-border">
+          <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-[#0052cc] to-[#0172ff] text-white font-bold text-xs">
                 <User className="h-3.5 w-3.5" />
               </div>
-              <span className="font-medium text-slate-200">
+              <span className="font-medium text-foreground">
                 {meta.author || "Jadubot Editorial"}
               </span>
             </div>
 
-            <span className="hidden sm:inline text-slate-600">•</span>
+            <span className="hidden sm:inline text-muted-foreground/40">•</span>
 
             <span className="inline-flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5 text-slate-400" />
+              <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
               {formattedDate}
             </span>
 
-            <span className="hidden sm:inline text-slate-600">•</span>
+            <span className="hidden sm:inline text-muted-foreground/40">•</span>
 
-            <span className="inline-flex items-center gap-1.5 text-slate-300">
+            <span className="inline-flex items-center gap-1.5 text-muted-foreground">
               <Clock className="h-3.5 w-3.5 text-[#38bdf8]" />
               {readTime} min read
             </span>
 
             {wordCount && (
               <>
-                <span className="hidden sm:inline text-slate-600">•</span>
-                <span className="inline-flex items-center gap-1.5 text-slate-400">
+                <span className="hidden sm:inline text-muted-foreground/40">•</span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground">
                   <FileText className="h-3.5 w-3.5" />
                   {wordCount.toLocaleString()} words
                 </span>
@@ -136,7 +136,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         </div>
 
         {/* Featured Image */}
-        <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#070b13] shadow-2xl shadow-black/50">
+        <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-border bg-card shadow-elevated">
           <Image
             src={meta.featuredImage || "/assets/images/shared/jadubot-logo.png"}
             alt={meta.title}
@@ -145,7 +145,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
             sizes="(max-width: 1024px) 100vw, 1000px"
             className="object-cover"
           />
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+          <div className="absolute inset-0 ring-1 ring-inset ring-border/40 rounded-2xl pointer-events-none" />
         </div>
       </PopIn>
     </header>

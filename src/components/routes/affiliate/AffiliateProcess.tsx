@@ -36,18 +36,18 @@ const STEPS = [
 
 export function AffiliateProcess() {
   return (
-    <section id="how-it-works" className="relative py-16 sm:py-20 md:py-24 border-t border-white/[0.08]">
+    <section id="how-it-works" className="relative py-16 sm:py-20 md:py-24 border-t border-border">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
         <PopIn className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8] uppercase tracking-wider">
             <span>Simple 4-Step Pipeline</span>
           </div>
 
-          <h2 className="mt-2 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="mt-2 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
             কীভাবে শুরু করবেন আপনার <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent">এফিলিয়েট পার্টনারশিপ</span>?
           </h2>
 
-          <p className="font-bengali mt-3 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="font-bengali mt-3 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             কোনো জটিলতা ছাড়াই মাত্র ৪টি সহজ ধাপে শুরু করুন আপনার স্থায়ী ডিজিটাল আয়ের নতুন অধ্যায়।
           </p>
         </PopIn>
@@ -73,8 +73,8 @@ export function AffiliateProcess() {
                   className="group relative flex flex-col items-center text-center px-2"
                 >
                   {/* Circular Node */}
-                  <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-500/35 bg-[#081226] text-sky-400 shadow-[0_0_20px_rgba(1,114,255,0.25)] transition-all duration-300 group-hover:border-sky-400/70 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]">
-                    <Icon className="h-6 w-6 text-white" />
+                  <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-500/35 bg-background text-primary shadow-[0_0_20px_rgba(1,114,255,0.25)] transition-all duration-300 group-hover:border-sky-400/70 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
 
                   {/* Step Phase Number */}
@@ -82,19 +82,19 @@ export function AffiliateProcess() {
                     <span className="font-mono text-xs font-bold text-sky-400 tracking-wider">
                       PHASE {s.num}
                     </span>
-                    <span className="text-slate-600">•</span>
-                    <span className="font-bengali text-xs text-slate-400 font-medium">
+                    <span className="text-muted-foreground/40">•</span>
+                    <span className="font-bengali text-xs text-muted-foreground font-medium">
                       ধাপ {s.step}
                     </span>
                   </div>
 
                   {/* Step Title */}
-                  <h3 className="mt-2 font-bengali text-base sm:text-lg font-bold text-white tracking-tight leading-snug group-hover:text-sky-300 transition-colors">
+                  <h3 className="mt-2 font-bengali text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug group-hover:text-primary transition-colors">
                     {s.title}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400 font-bengali max-w-[240px]">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground font-bengali max-w-[240px]">
                     {s.description}
                   </p>
                 </div>

@@ -87,7 +87,7 @@ export function ServiceMetrics() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#0c0e12] py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden bg-background py-20 sm:py-24 lg:py-28"
     >
       {/* Background Ambience */}
       <div
@@ -122,7 +122,7 @@ export function ServiceMetrics() {
               return (
                 <div
                   key={metric.title}
-                  className={`group relative flex flex-col justify-start py-8 px-4 sm:px-6 lg:px-8 xl:px-10 border-[#2d3142]/70 ${
+                  className={`group relative flex flex-col justify-start py-8 px-4 sm:px-6 lg:px-8 xl:px-10 border-border/70 ${
                     // Mobile (1-column): border-b on all except last
                     "border-b last:border-b-0"
                     } ${
@@ -140,28 +140,28 @@ export function ServiceMetrics() {
                     }`}
                 >
                   {/* Circular Icon */}
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-blue-500/40 bg-[#0b162b]/90 shadow-[0_0_22px_rgba(1,114,255,0.18)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-blue-400/60 group-hover:shadow-[0_0_30px_rgba(1,114,255,0.3)]">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-blue-300 transition-colors group-hover:text-blue-200" />
+                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-primary/40 bg-primary/10 shadow-[0_0_22px_rgba(1,114,255,0.18)] backdrop-blur-md transition-all duration-300 group-hover:scale-105 group-hover:border-primary/60 group-hover:shadow-[0_0_30px_rgba(1,114,255,0.3)]">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary transition-colors group-hover:text-primary/80" />
                   </div>
 
                   {/* Number + Unit */}
                   <div className="mt-6 sm:mt-8 flex items-baseline gap-2.5">
-                    <span className="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-none">
+                    <span className="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-none">
                       {counts[index]}
                       {metric.suffix}
                     </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-[#38bdf8]">
+                    <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-primary">
                       {metric.unit}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-3 font-heading text-base sm:text-lg font-bold text-white tracking-tight">
+                  <h3 className="mt-3 font-heading text-base sm:text-lg font-bold text-foreground tracking-tight">
                     {metric.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                     {metric.description}
                   </p>
                 </div>

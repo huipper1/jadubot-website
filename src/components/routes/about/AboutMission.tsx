@@ -31,39 +31,39 @@ const PRINCIPLES = [
 
 export function AboutMission() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-white/10 bg-[#070a10]">
+    <section className="relative py-16 md:py-24 border-t border-border bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <PopIn className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#38bdf8]">
+          <span className="text-xs font-bold uppercase tracking-widest text-primary">
             Core Principles
           </span>
-          <h2 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
             How we engineer conversational technology.
           </h2>
-          <p className="mt-4 text-base text-slate-400">
+          <p className="mt-4 text-base text-muted-foreground">
             No superficial marketing shortcuts. Four uncompromising commitments behind every message and order processed by Jadubot.
           </p>
         </PopIn>
 
         {/* Numbered Hairline-Divided List - Absolutely NO boxy cards */}
-        <PopIn stagger={0.08} className="mt-12 sm:mt-16 divide-y divide-white/10 border-y border-white/10">
+        <PopIn stagger={0.08} className="mt-12 sm:mt-16 divide-y divide-border border-y border-border">
           {PRINCIPLES.map((principle) => (
             <div
               key={principle.num}
-              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline transition-colors hover:bg-white/[0.015]"
+              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline transition-colors hover:bg-muted/30"
             >
               <div className="md:col-span-2">
-                <span className="font-mono text-xl sm:text-2xl font-bold text-[#38bdf8]/80">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-primary">
                   {principle.num}
                 </span>
               </div>
               <div className="md:col-span-4">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-white">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground">
                   {principle.title}
                 </h3>
               </div>
               <div className="md:col-span-6">
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {principle.summary}
                 </p>
               </div>

@@ -53,13 +53,13 @@ function DefaultBadgeIcon({ className }: { className?: string }) {
 // Unified standardized typography matching the site design
 const TITLE_STYLES = {
   default:
-    "font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white leading-tight",
-  sm: "font-heading text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight",
-  lg: "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-extrabold tracking-tight text-white leading-[1.15]"
+    "font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight text-foreground leading-tight",
+  sm: "font-heading text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-tight",
+  lg: "font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-extrabold tracking-tight text-foreground leading-[1.15]"
 };
 
 const DEFAULT_GRADIENT =
-  "bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]";
+  "bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]";
 
 export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
   (
@@ -90,9 +90,9 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
       if (React.isValidElement(badgeIcon)) return badgeIcon;
       if (typeof badgeIcon === "function") {
         const IconComponent = badgeIcon as React.ComponentType<{ className?: string }>;
-        return <IconComponent className="h-3.5 w-3.5 text-blue-400" />;
+        return <IconComponent className="h-3.5 w-3.5 text-primary" />;
       }
-      return <DefaultBadgeIcon className="h-3.5 w-3.5 text-blue-400" />;
+      return <DefaultBadgeIcon className="h-3.5 w-3.5 text-primary" />;
     };
 
     return (
@@ -110,7 +110,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         {badge && (
           <div
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border border-blue-500/35 bg-[#0b162b]/80 px-4 py-1.5 text-xs font-semibold tracking-wider text-blue-300 shadow-[0_0_15px_rgba(1,114,255,0.2)] backdrop-blur-md",
+              "solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-primary shadow-sm backdrop-blur-md",
               badgeClassName
             )}
           >
@@ -144,7 +144,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         {description && (
           <p
             className={cn(
-              "mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-400",
+              "mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-muted-foreground",
               isCenter && "mx-auto",
               descriptionClassName
             )}

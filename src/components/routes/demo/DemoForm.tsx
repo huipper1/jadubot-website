@@ -38,7 +38,7 @@ export function DemoForm() {
 
   if (isBooked && scheduledDetails) {
     return (
-      <div className="glass-card rounded-2xl p-8 border-white/10 text-center py-12">
+      <div className="glass-card rounded-2xl p-8 border-border text-center py-12">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
           <CheckCircle2 className="h-8 w-8" />
         </div>
@@ -48,7 +48,7 @@ export function DemoForm() {
           <strong className="text-foreground">{scheduledDetails.business}</strong>.
         </p>
 
-        <div className="mx-auto mt-6 max-w-sm rounded-xl border border-white/10 bg-white/5 p-4 text-left space-y-2 text-xs">
+        <div className="mx-auto mt-6 max-w-sm rounded-xl border border-border bg-white/5 p-4 text-left space-y-2 text-xs">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Preferred Date:</span>
             <span className="font-semibold text-foreground">{scheduledDetails.date}</span>
@@ -82,7 +82,7 @@ export function DemoForm() {
   }
 
   return (
-    <div className="glass-card rounded-2xl p-8 border-white/10">
+    <div className="glass-card rounded-2xl p-8 border-border">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
@@ -95,7 +95,7 @@ export function DemoForm() {
               type="text"
               required
               placeholder="e.g. Mahfuzur Rahman"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             />
           </div>
 
@@ -109,7 +109,7 @@ export function DemoForm() {
               type="text"
               required
               placeholder="e.g. Dhaka Artisan Leather"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             />
           </div>
         </div>
@@ -125,7 +125,7 @@ export function DemoForm() {
               type="email"
               required
               placeholder="name@business.com"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             />
           </div>
 
@@ -139,7 +139,7 @@ export function DemoForm() {
               type="tel"
               required
               placeholder="+880 1XXXXXXXXX"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export function DemoForm() {
             name="pageLink"
             type="url"
             placeholder="https://facebook.com/yourpagename"
-            className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+            className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
           />
         </div>
 
@@ -167,7 +167,7 @@ export function DemoForm() {
               name="date"
               type="date"
               required
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             />
           </div>
 
@@ -180,7 +180,7 @@ export function DemoForm() {
               name="time"
               required
               defaultValue="11:00 AM – 12:00 PM (Morning)"
-              className="mt-2 w-full rounded-xl border border-white/10 bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
             >
               <option value="11:00 AM – 12:00 PM (Morning)" className="bg-surface text-foreground">
                 11:00 AM – 12:00 PM (Morning)

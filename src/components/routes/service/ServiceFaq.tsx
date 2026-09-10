@@ -12,7 +12,7 @@ import { SERVICE_FAQS } from "./service-data";
 
 export function ServiceFaq() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-[#373a41]/60">
+    <section className="relative py-16 md:py-24 border-t border-border/60">
       <div className="container mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl">
           <SectionHeader

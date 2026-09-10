@@ -13,32 +13,38 @@ export function HomeHero() {
     <section className="relative overflow-hidden pt-36 pb-0 md:pt-44 md:pb-0">
       {/* Hero Background Grid Pattern */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        {/* Dark Mode Checkerboard Background */}
         <Image
           src="/assets/images/home/hero-bg.png"
           alt=""
           fill
           priority
           quality={90}
-          className="object-cover object-top opacity-50"
+          className="hidden dark:block object-cover object-top opacity-50"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-[#0c0e12]/40 via-transparent to-[#0c0e12]" />
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+
+        {/* Light Mode Elegant Architectural Grid & Ambient Glow */}
+        <div className="dark:hidden absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_65%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70" />
+        <div className="dark:hidden absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[800px] rounded-full bg-gradient-to-b from-primary/12 via-sky-300/8 to-transparent blur-3xl pointer-events-none" />
+        <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10 text-center">
         <div ref={contentRef} className="mx-auto max-w-6xl will-change-transform origin-center">
           {/* LazyChat Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-md border border-[#373a41] bg-[#0c0e12] p-1 text-xs font-medium text-[#cecfd2] shadow-sm">
-            <span className="rounded-sm bg-[#181d27] px-2.5 py-1 text-white font-semibold">
+          <div className="inline-flex items-center gap-2 rounded-md border border-border bg-background p-1 text-xs font-medium text-muted-foreground shadow-sm">
+            <span className="rounded-sm bg-card px-2.5 py-1 text-foreground font-semibold">
               New feature
             </span>
             <span className="flex items-center gap-1 pr-2">
               recommendation engine
-              <ArrowRight className="h-3 w-3 text-[#38bdf8]" />
+              <ArrowRight className="h-3 w-3 text-primary" />
             </span>
           </div>
 
           {/* 1:1 Headline with Channel Styling */}
-          <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-white sm:text-6xl leading-[1.12]">
+          <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-6xl leading-[1.12]">
             Your #1 AI Sales Agent on{" "}
             <span className="text-[#38c5ff]">Facebook</span>,{" "}
             <span className="text-[#fe78e1]">Instagram</span> &amp;{" "}
@@ -46,7 +52,7 @@ export function HomeHero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#cecfd2] sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Let Jadubot talk to your customers, take orders, and close sales; so you can finally focus on growing your business.
           </p>
 
@@ -58,7 +64,7 @@ export function HomeHero() {
               rel="noopener noreferrer"
               className="btn-black"
             >
-              <Play className="h-4 w-4 fill-current text-white" />
+              <Play className="h-4 w-4 fill-current text-current" />
               <span>Watch Demo</span>
             </a>
 
@@ -97,7 +103,7 @@ export function HomeHero() {
             />
             {/* Subtle bottom fade blending the overflow edge into the background */}
             <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-linear-to-t from-[#0c0e12] via-[#0c0e12]/40 to-transparent"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-background via-background/40 to-transparent"
               aria-hidden="true"
             />
           </div>

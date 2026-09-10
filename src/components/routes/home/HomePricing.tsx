@@ -9,7 +9,7 @@ export function HomePricing() {
   return (
     <section
       id="pricing"
-      className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]"
+      className="relative py-20 md:py-32 border-t border-border/60 bg-background"
     >
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
@@ -18,10 +18,10 @@ export function HomePricing() {
           className="mx-auto max-w-2xl text-center will-change-transform origin-center"
         >
           <div className="solution-badge">Pricing</div>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Simple, transparent pricing
           </h2>
-          <p className="mt-4 text-base text-[#cecfd2]">
+          <p className="mt-4 text-base text-muted-foreground">
             Pick the plan that suits you best and start engaging customers effortlessly. No hidden fees.
           </p>
         </div>

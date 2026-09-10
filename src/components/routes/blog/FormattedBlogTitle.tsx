@@ -17,7 +17,7 @@ export function FormattedBlogTitle({ title, className = "" }: FormattedBlogTitle
         <span className="text-slate-500 font-light mx-2 sm:mx-3 select-none" aria-hidden="true">
           –
         </span>
-        <span className="text-white">{rest.join(delimiter)}</span>
+        <span className="text-foreground">{rest.join(delimiter)}</span>
       </span>
     );
   }
@@ -34,7 +34,7 @@ export function FormattedBlogTitle({ title, className = "" }: FormattedBlogTitle
         <span className="text-slate-500 font-light mx-2 sm:mx-3 select-none" aria-hidden="true">
           :
         </span>
-        <span className="text-white">{rest.join(": ")}</span>
+        <span className="text-foreground">{rest.join(": ")}</span>
       </span>
     );
   }
@@ -45,7 +45,7 @@ export function FormattedBlogTitle({ title, className = "" }: FormattedBlogTitle
     <span className={className}>
       {words.map((word, idx) => {
         const clean = word.replace(/[^a-zA-Z]/g, "").toLowerCase();
-        let colorClass = "text-white";
+        let colorClass = "text-foreground";
 
         if (clean === "facebook") {
           colorClass = "text-[#38c5ff]";

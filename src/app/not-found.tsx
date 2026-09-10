@@ -36,7 +36,7 @@ export default function NotFound() {
 
           <Link
             href="/faq/"
-            className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-white/10"
+            className="inline-flex items-center justify-center rounded-xl border border-border bg-white/5 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-white/10"
           >
             <HelpCircle className="mr-2 h-4 w-4 text-brand-orange" />
             Check FAQs

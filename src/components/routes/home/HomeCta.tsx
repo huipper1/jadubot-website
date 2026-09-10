@@ -9,10 +9,10 @@ export function HomeCta() {
   return (
     <section className="relative py-24 md:py-32">
       <div className="container mx-auto max-w-7xl">
-        <PopIn className="relative overflow-hidden rounded-3xl border border-[#373a41] bg-gradient-to-br from-[#0052cc]/20 via-[#181d27] to-[#0c0e12] p-10 text-center shadow-[0_0_60px_rgba(1,114,255,0.15)] md:p-20">
+        <PopIn className="relative overflow-hidden rounded-3xl border border-border bg-card dark:bg-gradient-to-br dark:from-[#0052cc]/20 dark:via-[#181d27] dark:to-[#0c0e12] p-10 text-center shadow-elevated md:p-20">
           {/* Ambient Glow */}
           <div
-            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-[#0172ff]/25 blur-[100px]"
+            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-96 rounded-full bg-primary/25 blur-[100px]"
             aria-hidden="true"
           />
 
@@ -22,12 +22,12 @@ export function HomeCta() {
               <span>Transform Your Social Commerce</span>
             </span>
 
-            <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl leading-tight">
+            <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-tight">
               Ready to automate your chats and{" "}
               <span className="text-gradient">skyrocket your sales?</span>
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-[#cecfd2] sm:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
               Start engaging customers with instant replies, smart product suggestions, and
               automated checkout right inside Facebook Messenger, Instagram, and WhatsApp.
             </p>
@@ -45,7 +45,7 @@ export function HomeCta() {
 
               <Link
                 href="/service"
-                className="btn-black inline-flex w-full items-center justify-center gap-2 px-7 py-4 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 sm:w-auto"
+                className="btn-black inline-flex w-full items-center justify-center gap-2 px-7 py-4 text-sm font-semibold backdrop-blur-md transition-all duration-200 sm:w-auto"
               >
                 <span>View All Services</span>
               </Link>

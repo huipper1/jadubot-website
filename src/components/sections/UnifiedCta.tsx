@@ -55,7 +55,7 @@ export function UnifiedCta({
   return (
     <section
       id={id}
-      className={`relative py-20 sm:py-24 md:py-28 overflow-hidden bg-[#0a0c10] border-t border-white/[0.08] ${className}`}
+      className={`relative py-20 sm:py-24 md:py-28 overflow-hidden bg-background border-t border-border ${className}`}
     >
       {/* Dynamic atmospheric ambient glow */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
@@ -63,19 +63,19 @@ export function UnifiedCta({
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative mx-auto max-w-5xl rounded-3xl border border-white/10 bg-gradient-to-b from-[#0d1424]/90 via-[#0a0f1c]/90 to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-[0_0_50px_rgba(1,114,255,0.15)] backdrop-blur-2xl">
+        <div className="relative mx-auto max-w-5xl rounded-3xl border border-border bg-card dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-elevated backdrop-blur-2xl">
           <PopIn>
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-[#0b162b]/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-sky-300 backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-sky-400" />
+            <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur-md">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
               <span>{badge}</span>
             </div>
 
             {/* Main Heading with Brand Gradient */}
-            <h2 className="mt-6 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl leading-[1.15]">
+            <h2 className="mt-6 font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.15]">
               {title}{" "}
               {highlightedTitle && (
-                <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
                   {highlightedTitle}
                 </span>
               )}{" "}
@@ -83,7 +83,7 @@ export function UnifiedCta({
             </h2>
 
             {/* Subtitle Description */}
-            <p className="mx-auto mt-5 max-w-2xl text-base text-slate-300 sm:text-lg leading-relaxed">
+            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
               {description}
             </p>
 
@@ -111,36 +111,35 @@ export function UnifiedCta({
                 </Link>
               )}
 
-              {secondaryCta &&
-                (secondaryCta.external ? (
-                  <a
-                    href={secondaryCta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all hover:border-[#0172ff]/50 hover:bg-[#0172ff]/10 hover:text-white"
-                  >
-                    {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-sky-400" />}
-                    <span>{secondaryText}</span>
-                  </a>
-                ) : (
-                  <Link
-                    href={secondaryCta.href}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all hover:border-[#0172ff]/50 hover:bg-[#0172ff]/10 hover:text-white"
-                  >
-                    {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-sky-400" />}
-                    <span>{secondaryText}</span>
-                  </Link>
-                ))}
+              {secondaryCta.external ? (
+                <a
+                  href={secondaryCta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary/50 hover:bg-muted/70 hover:scale-[1.02]"
+                >
+                  {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-primary" />}
+                  <span>{secondaryText}</span>
+                </a>
+              ) : (
+                <Link
+                  href={secondaryCta.href}
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary/50 hover:bg-muted/70 hover:scale-[1.02]"
+                >
+                  {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-primary" />}
+                  <span>{secondaryText}</span>
+                </Link>
+              )}
             </div>
 
-            {/* Trust Highlights */}
+            {/* Trust Badges Bar */}
             {trustBadges && trustBadges.length > 0 && (
-              <div className="mt-9 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 border-t border-white/[0.08] pt-6">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pt-6 border-t border-border/40">
                 {trustBadges.map((badgeText, idx) => (
-                  <span key={idx} className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-sky-400" />
+                  <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
                     <span>{badgeText}</span>
-                  </span>
+                  </div>
                 ))}
               </div>
             )}

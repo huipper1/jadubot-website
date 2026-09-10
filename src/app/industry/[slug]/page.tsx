@@ -129,7 +129,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0c0e12] text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

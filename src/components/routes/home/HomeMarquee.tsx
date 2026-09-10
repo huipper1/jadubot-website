@@ -20,9 +20,9 @@ export function HomeMarquee() {
   ];
 
   return (
-    <section className="relative border-y border-[#373a41]/60 bg-[#0c0e12] py-10 backdrop-blur-md overflow-hidden">
+    <section className="relative border-y border-border/60 bg-background py-10 backdrop-blur-md overflow-hidden">
       <div className="container mx-auto max-w-7xl mb-6 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#cecfd2]/60">
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
           Trusted by 500+ growing eCommerce & retail brands in Bangladesh
         </p>
       </div>

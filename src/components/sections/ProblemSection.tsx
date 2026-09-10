@@ -171,7 +171,7 @@ export function ProblemSection() {
     <section
       ref={sectionRef}
       id="problem"
-      className="relative bg-[#0c0e12] overflow-hidden mt-6 md:mt-10"
+      className="relative bg-background overflow-hidden mt-6 md:mt-10"
     >
       {/* Subtle Dotted Grid Background */}
       <div
@@ -181,7 +181,7 @@ export function ProblemSection() {
 
       {/* Subtle Top & Bottom Vignette for seamless transitions */}
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#0c0e12] via-transparent to-[#0c0e12]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background via-transparent to-background"
         aria-hidden="true"
       />
 
@@ -200,11 +200,11 @@ export function ProblemSection() {
             <span>Problem</span>
           </div>
 
-          <h2 className="mt-4 font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="mt-4 font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
             You are losing sales because of missed messages and late replies
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-[#cecfd2] font-normal">
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground font-normal">
             That leads to ...
           </p>
         </div>
@@ -221,7 +221,7 @@ export function ProblemSection() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#373a41] bg-[#12151c]/90 p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.45)] backdrop-blur-md transition-colors hover:border-[#0172ff]/60 hover:bg-[#181d27] md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/90 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-[#0172ff]/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
                 {/* Subtle top edge accent glow line matching cards */}
                 <div
@@ -241,25 +241,25 @@ export function ProblemSection() {
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="mt-4 font-heading text-base sm:text-lg font-bold text-white tracking-tight">
+                  <h3 className="mt-4 font-heading text-base sm:text-lg font-bold text-foreground tracking-tight">
                     {card.title}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-[#cecfd2]/80">
+                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground/80">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Card Footer Tag */}
-                <div className="mt-5 pt-3 border-t border-[#373a41]/50 flex items-center justify-between text-[11px]">
+                <div className="mt-5 pt-3 border-t border-border/50 flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#fe78e1] animate-pulse" />
                     <span className="text-[#fe78e1]/90 font-medium">
                       Critical bottleneck
                     </span>
                   </span>
-                  <span className="font-mono text-[10px] text-[#cecfd2]/40 uppercase tracking-wider">
+                  <span className="font-mono text-[10px] text-muted-foreground/40 uppercase tracking-wider">
                     Loss 0{card.number}
                   </span>
                 </div>

@@ -171,7 +171,7 @@ export function CpaWorkflow() {
     <section
       ref={sectionRef}
       id="cpa-workflow"
-      className="relative bg-[#080b11] overflow-hidden py-16 md:py-24 border-t border-white/10"
+      className="relative bg-card overflow-hidden py-16 md:py-24 border-t border-border"
     >
       {/* Subtle Dotted Background Grid */}
       <div
@@ -181,7 +181,7 @@ export function CpaWorkflow() {
 
       {/* Top & Bottom Vignette */}
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#080b11] via-transparent to-[#080b11]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background via-transparent to-background"
         aria-hidden="true"
       />
 
@@ -194,15 +194,15 @@ export function CpaWorkflow() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/25 bg-[#0b162b]/80 px-3.5 py-1 text-xs font-semibold text-[#38bdf8] shadow-sm">
+          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/25 bg-card/80 px-3.5 py-1 text-xs font-semibold text-primary shadow-sm">
             Automated Conversion Cycle
           </div>
 
-          <h2 className="mt-4 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="mt-4 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
             The 3-Step CPA Growth Loop
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-slate-300">
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
             How Jadubot turns casual social media engagements into tracked, high-paying CPA network conversions.
           </p>
         </div>
@@ -219,45 +219,45 @@ export function CpaWorkflow() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0d121c]/95 p-6 sm:p-7 shadow-[0_16px_36px_rgba(0,0,0,0.5)] backdrop-blur-md transition-colors hover:border-[#0172ff]/60 hover:bg-[#111724] md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/95 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
                 {/* Subtle top edge accent glow line */}
                 <div
-                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-[#0172ff]/50 to-transparent"
+                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"
                   aria-hidden="true"
                 />
 
                 <div>
                   {/* Header: Icon & Number Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#0172ff]/30 bg-[#0172ff]/10 text-[#38bdf8] transition-colors group-hover:bg-[#0172ff] group-hover:text-white">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#38bdf8] px-2 py-0.5 rounded border border-[#0172ff]/25 bg-[#0172ff]/10">
+                    <span className="font-mono text-xs font-bold text-primary px-2 py-0.5 rounded border border-primary/25 bg-primary/10">
                       Step 0{step.number}
                     </span>
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="mt-4 font-heading text-lg font-bold text-white tracking-tight">
+                  <h3 className="mt-4 font-heading text-lg font-bold text-foreground tracking-tight">
                     {step.title}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-slate-300">
+                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
 
                 {/* Card Footer Tag */}
-                <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
+                <div className="mt-6 pt-3 border-t border-border flex items-center justify-between text-[11px]">
                   <span className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-                    <span className="text-slate-400 font-medium">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                    <span className="text-muted-foreground font-medium">
                       {step.tag}
                     </span>
                   </span>
-                  <ArrowRight className="h-3 w-3 text-slate-600 transition-transform group-hover:translate-x-1 group-hover:text-[#38bdf8]" />
+                  <ArrowRight className="h-3 w-3 text-muted-foreground/60 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                 </div>
               </div>
             );

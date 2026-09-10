@@ -16,21 +16,21 @@ export function CpaMasthead() {
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
         <PopIn className="space-y-6 text-center sm:text-left">
           {/* Subtle Category Context Marker */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-[#0b162b]/85 px-3.5 py-1 text-xs font-semibold text-[#38bdf8] backdrop-blur-md">
+          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/85 px-3.5 py-1 text-xs font-semibold text-primary backdrop-blur-md">
             <Zap className="h-3 w-3" />
             <span>Performance Marketing Infrastructure • Meta &amp; CPA Automation</span>
           </div>
 
           {/* Bold Editorial Headline - No generic marketing void */}
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.14]">
+          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.14]">
             Turn Social Engagement Into Automated,{" "}
-            <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
               Trackable CPA Conversions
             </span>
           </h1>
 
           {/* Subtitle with deep performance substance */}
-          <p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl font-normal">
+          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl font-normal">
             Built specifically for affiliate media buyers and performance marketing teams. Automatically turn comment engagement into inbox offer funnels, route traffic by GEO and device, and fire instant server-to-server (S2S) postbacks into your tracking platform.
           </p>
 
@@ -48,15 +48,15 @@ export function CpaMasthead() {
               href={CALENDLY_DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-black px-6 py-3.5 text-sm font-semibold border border-white/15 hover:border-[#0172ff]/50 hover:text-white flex items-center gap-2"
+              className="btn-black px-6 py-3.5 text-sm font-semibold border border-border hover:border-primary/50 hover:text-foreground flex items-center gap-2"
             >
-              <PhoneCall className="h-4 w-4 text-[#38bdf8]" />
+              <PhoneCall className="h-4 w-4 text-primary" />
               <span>Book Strategy Call</span>
             </a>
           </div>
 
           {/* Technical Performance Proof Strip */}
-          <div className="pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div className="pt-6 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2.5">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 <ShieldCheck className="h-3.5 w-3.5" />

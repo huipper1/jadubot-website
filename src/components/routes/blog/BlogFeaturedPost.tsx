@@ -13,12 +13,12 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
   const formattedDate = formatBlogDate(post.date);
 
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#0f172a]/90 to-[#0b101d]/90 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-[#0172ff]/40 hover:shadow-[0_12px_40px_rgba(1,114,255,0.18)]">
+    <article className="group relative overflow-hidden rounded-3xl border border-border bg-card backdrop-blur-md shadow-elevated transition-all duration-300 hover:border-[#0172ff]/40 hover:shadow-card">
       <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
         {/* Left: Featured Visual */}
         <Link
           href={`/${post.slug}/`}
-          className="relative aspect-[16/9] lg:aspect-auto lg:col-span-7 overflow-hidden bg-[#070b13] min-h-[260px] sm:min-h-[340px] lg:min-h-full block"
+          className="relative aspect-[16/9] lg:aspect-auto lg:col-span-7 overflow-hidden bg-background min-h-[260px] sm:min-h-[340px] lg:min-h-full block"
         >
           <Image
             src={post.featuredImage || "/assets/images/shared/jadubot-logo.png"}
@@ -28,8 +28,8 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
             sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0b101d] via-transparent to-transparent opacity-70 lg:hidden" />
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-70 lg:hidden" />
+          <div className="absolute inset-0 ring-1 ring-inset ring-border/40 pointer-events-none" />
         </Link>
 
         {/* Right: Content Column */}
@@ -42,33 +42,33 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
                 Featured playbook
               </span>
 
-              <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-xs text-slate-300">
+              <span className="inline-flex items-center rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs text-muted-foreground">
                 {post.topic}
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="font-heading mt-4 text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-snug transition-colors [text-wrap:balance]">
+            <h2 className="font-heading mt-4 text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground leading-snug transition-colors [text-wrap:balance]">
               <Link href={`/${post.slug}/`} className="hover:opacity-95">
                 <FormattedBlogTitle title={post.title} />
               </Link>
             </h2>
 
             {/* Excerpt */}
-            <p className="mt-3 text-sm text-slate-300/90 leading-relaxed line-clamp-3">
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
               {post.excerpt}
             </p>
           </div>
 
           {/* Footer Meta & Action */}
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3 text-xs text-slate-400">
+          <div className="mt-8 pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 text-slate-400" />
+                <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
                 {formattedDate}
               </span>
               <span>•</span>
-              <span className="inline-flex items-center gap-1.5 text-slate-300">
+              <span className="inline-flex items-center gap-1.5 text-muted-foreground">
                 <Clock className="h-3.5 w-3.5 text-[#38bdf8]" />
                 {post.readTimeMinutes} min read
               </span>

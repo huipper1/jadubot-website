@@ -20,7 +20,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
   const currentCase = useCases[activeIndex];
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-28 bg-[#090d16] border-t border-white/5 overflow-hidden">
+    <section className="relative py-20 sm:py-24 md:py-28 bg-background border-t border-border/60 overflow-hidden">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-[#0172ff]/5 blur-3xl" />
@@ -31,14 +31,14 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <PopIn>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-[#0b162b]/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300 backdrop-blur-md">
+            <div className="solution-badge">
               <MessageSquare className="h-3.5 w-3.5 text-blue-400" />
               <span>LIVE CONVERSATION AGENTS</span>
             </div>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Real-World Conversations in Action
             </h2>
-            <p className="mt-4 text-base text-slate-300 sm:text-lg">
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Experience how Jadubot handles complex {industry.name} customer interactions in natural language.
             </p>
           </PopIn>
@@ -49,7 +49,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
           {/* Left Column: Tab list of scenarios */}
           <div className="space-y-3 lg:col-span-5">
             <PopIn>
-              <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2 px-1">
+              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 px-1">
                 Select Interaction Scenario
               </div>
               {useCases.map((scenario: IndustryUseCase, idx: number) => {
@@ -63,14 +63,14 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                     className={cn(
                       "w-full text-left rounded-2xl p-5 border transition-all duration-200",
                       isActive
-                        ? "border-[#0172ff]/60 bg-[#0c1833]/90 shadow-[0_0_25px_rgba(1,114,255,0.2)]"
-                        : "border-white/5 bg-[#0b101c]/60 hover:bg-white/[0.03] hover:border-white/10"
+                        ? "border-[#0172ff]/60 bg-card/90 shadow-card"
+                        : "border-border/60 bg-card/40 hover:bg-card/70 hover:border-border"
                     )}
                   >
                     <div className="flex items-center justify-between">
                       <span className={cn(
                         "text-xs font-semibold uppercase tracking-wider",
-                        isActive ? "text-blue-400" : "text-slate-400"
+                        isActive ? "text-primary" : "text-muted-foreground"
                       )}>
                         Scenario 0{idx + 1}
                       </span>
@@ -81,13 +81,13 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
 
                     <div className={cn(
                       "mt-2 text-base font-bold",
-                      isActive ? "text-white" : "text-slate-300"
+                      isActive ? "text-foreground" : "text-muted-foreground"
                     )}>
                       {scenario.title}
                     </div>
 
-                    <div className="mt-2 text-xs text-slate-400 line-clamp-2">
-                      <span className="text-slate-500 font-medium">Trigger: </span>
+                    <div className="mt-2 text-xs text-muted-foreground line-clamp-2">
+                      <span className="text-muted-foreground/70 font-medium">Trigger: </span>
                       {scenario.trigger}
                     </div>
                   </button>
@@ -99,11 +99,11 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
           {/* Right Column: Live Chat Simulation Device */}
           <div className="lg:col-span-7">
             <PopIn delay={0.15}>
-              <div className="relative rounded-3xl border border-blue-500/30 bg-[#080d16] p-4 sm:p-6 shadow-[0_0_40px_rgba(1,114,255,0.15)] backdrop-blur-xl">
+              <div className="relative rounded-3xl border border-primary/25 bg-card p-4 sm:p-6 shadow-elevated backdrop-blur-xl">
                 {/* Chat Top Bar */}
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center justify-between border-b border-border pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-600/20 border border-blue-500/30">
+                    <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 border border-primary/30">
                       <Image
                         src="/assets/images/shared/jadubot-logo.png"
                         alt="Jadubot"
@@ -111,16 +111,16 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                         height={24}
                         className="object-contain"
                       />
-                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-[#080d16]" />
+                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-background" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white flex items-center gap-1.5">
+                      <div className="text-sm font-bold text-foreground flex items-center gap-1.5">
                         <span>Jadubot AI Specialist</span>
-                        <span className="rounded bg-blue-500/20 px-1.5 py-0.2 text-[10px] font-semibold text-blue-300">
+                        <span className="rounded bg-primary/15 px-1.5 py-0.2 text-[10px] font-semibold text-primary">
                           VERIFIED
                         </span>
                       </div>
-                      <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                      <div className="text-xs text-emerald-500 font-medium flex items-center gap-1">
                         <span>Online</span>
                         <span>•</span>
                         <span>Avg. reply &lt; 2s</span>
@@ -128,7 +128,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                     </div>
                   </div>
 
-                  <div className="text-xs text-slate-400 hidden sm:block">
+                  <div className="text-xs text-muted-foreground hidden sm:block">
                     Omnichannel Stream
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                           className={cn(
                             "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
                             isUser
-                              ? "bg-slate-700 text-slate-300 border border-white/10"
+                              ? "bg-muted text-muted-foreground border border-border"
                               : "bg-[#0172ff] text-white shadow-[0_0_12px_rgba(1,114,255,0.5)]"
                           )}
                         >
@@ -161,9 +161,9 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                         {/* Speech Bubble */}
                         <div
                           className={cn(
-                            "max-w-[82%] sm:max-w-[75%] rounded-2xl p-4 text-sm leading-relaxed shadow-md",
+                            "max-w-[82%] sm:max-w-[75%] rounded-2xl p-4 text-sm leading-relaxed shadow-sm",
                             isUser
-                              ? "rounded-tr-sm bg-[#1e293b] text-slate-200 border border-slate-700/60"
+                              ? "rounded-tr-sm bg-muted text-foreground border border-border"
                               : "rounded-tl-sm bg-gradient-to-r from-[#0172ff] to-[#0052cc] text-white font-normal shadow-[0_0_20px_rgba(1,114,255,0.25)]"
                           )}
                         >
@@ -171,7 +171,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                           <span
                             className={cn(
                               "mt-1.5 block text-[10px]",
-                              isUser ? "text-slate-400 text-right" : "text-blue-200 text-left"
+                              isUser ? "text-muted-foreground text-right" : "text-blue-100 text-left"
                             )}
                           >
                             {isUser ? "Customer" : "Jadubot AI"} • Just now
@@ -183,12 +183,12 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
                 </div>
 
                 {/* Result / Benefit Banner */}
-                <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/20 p-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-500">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Outcome / Business Impact</span>
                   </div>
-                  <p className="mt-1.5 text-sm font-medium text-slate-200">
+                  <p className="mt-1.5 text-sm font-medium text-foreground">
                     {currentCase.benefit}
                   </p>
                 </div>

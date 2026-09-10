@@ -94,7 +94,7 @@ export function BlogShareButtons({
   if (compact) {
     return (
       <div className={`flex items-center gap-2 ${className}`}>
-        <span className="text-xs font-medium text-slate-400">Share:</span>
+        <span className="text-xs font-medium text-muted-foreground">Share:</span>
         <div className="flex items-center gap-1.5">
           {shareLinks.map((link) => (
             <a
@@ -103,7 +103,7 @@ export function BlogShareButtons({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Share on ${link.name}`}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-[#0e1422] text-slate-400 transition-colors hover:border-[#0172ff]/50 hover:bg-[#151f33] hover:text-[#38bdf8]"
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary/50 hover:bg-card hover:text-primary"
             >
               {link.icon}
             </a>
@@ -112,7 +112,7 @@ export function BlogShareButtons({
             type="button"
             onClick={handleCopyLink}
             aria-label="Copy link"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-[#0e1422] text-slate-400 transition-colors hover:border-[#0172ff]/50 hover:bg-[#151f33] hover:text-[#38bdf8]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary/50 hover:bg-card hover:text-primary"
           >
             {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
           </button>
@@ -122,9 +122,9 @@ export function BlogShareButtons({
   }
 
   return (
-    <div className={`flex flex-wrap items-center justify-between gap-4 py-4 border-y border-white/5 ${className}`}>
-      <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
-        <Share2 className="h-4 w-4 text-slate-400" />
+    <div className={`flex flex-wrap items-center justify-between gap-4 py-4 border-y border-border/60 ${className}`}>
+      <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+        <Share2 className="h-4 w-4 text-muted-foreground" />
         <span>Share this guide</span>
       </div>
 
@@ -136,7 +136,7 @@ export function BlogShareButtons({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Share on ${link.name}`}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-[#0e1422] px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-[#0172ff]/50 hover:bg-[#151f33] hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:bg-card hover:text-foreground"
           >
             {link.icon}
             <span>{link.name}</span>
@@ -146,7 +146,7 @@ export function BlogShareButtons({
         <button
           type="button"
           onClick={handleCopyLink}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-[#0e1422] px-3 py-1.5 text-xs font-medium text-slate-300 transition-colors hover:border-[#0172ff]/50 hover:bg-[#151f33] hover:text-white"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:bg-card hover:text-foreground"
         >
           {copied ? (
             <>
@@ -165,7 +165,7 @@ export function BlogShareButtons({
           <button
             type="button"
             onClick={handleNativeShare}
-            className="sm:hidden inline-flex items-center gap-1.5 rounded-lg border border-[#0172ff]/30 bg-[#0172ff]/10 px-3 py-1.5 text-xs font-medium text-[#38bdf8]"
+            className="sm:hidden inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary"
           >
             <Share2 className="h-3.5 w-3.5" />
             <span>More</span>

@@ -56,7 +56,7 @@ export function BlogPostBody({
             {/* In-Article Mid/End Value Callout */}
             <PopIn delay={0.05}>
               <section
-                className="my-14 rounded-2xl border border-[#0172ff]/30 bg-gradient-to-b from-[#0e1626] to-[#0a0e1a] p-6 sm:p-8 backdrop-blur-sm relative overflow-hidden"
+                className="my-14 rounded-2xl border border-border bg-card p-6 sm:p-8 backdrop-blur-sm relative overflow-hidden"
                 aria-label="Jadubot Automation Callout"
               >
                 <div
@@ -70,15 +70,15 @@ export function BlogPostBody({
                     Grow your business with automation
                   </span>
 
-                  <h3 className="mt-2.5 text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                  <h3 className="mt-2.5 text-xl sm:text-2xl font-bold text-foreground tracking-tight leading-snug">
                     Never miss another customer comment or late-night message
                   </h3>
 
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed max-w-xl">
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">
                     Over 1,200+ Bangladeshi F-commerce brands and businesses use Jadubot to auto-reply to comments, send instant Messenger quotes, and close orders 24/7.
                   </p>
 
-                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-300">
+                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
                       <span>Free starter plan included</span>
@@ -123,9 +123,9 @@ export function BlogPostBody({
 
             {/* Author Profile Box */}
             <PopIn delay={0.1}>
-              <div className="mt-12 rounded-2xl border border-white/10 bg-[#0e1422]/60 p-6 sm:p-7 backdrop-blur-sm">
+              <div className="mt-12 rounded-2xl border border-border bg-card/60 p-6 sm:p-7 backdrop-blur-sm">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div className="relative h-14 w-14 shrink-0 rounded-2xl border border-white/10 bg-[#080d16] p-2 flex items-center justify-center">
+                  <div className="relative h-14 w-14 shrink-0 rounded-2xl border border-border bg-background p-2 flex items-center justify-center">
                     <Image
                       src="/assets/images/shared/jadubot-logo.png"
                       alt="Jadubot"
@@ -136,14 +136,14 @@ export function BlogPostBody({
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-white">
+                      <h4 className="text-sm font-bold text-foreground">
                         {meta.author || "Jadubot Editorial Team"}
                       </h4>
                       <span className="rounded-full bg-[#0172ff]/15 px-2 py-0.5 text-[10px] font-medium text-[#38bdf8]">
                         Growth &amp; Tech
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-slate-400 leading-relaxed">
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
                       Practical automation insights, F-commerce strategies, and customer engagement blueprints published by Jadubot&apos;s product and marketing team in Dhaka, Bangladesh.
                     </p>
                   </div>
@@ -164,37 +164,37 @@ export function BlogPostBody({
           <aside className="hidden lg:block lg:col-span-4 sticky top-28 space-y-6">
             {/* Article Overview Widget */}
             <PopIn delay={0.05}>
-              <div className="rounded-2xl border border-white/10 bg-[#0e1422]/75 p-5 backdrop-blur-md shadow-xl shadow-black/20">
-                <h3 className="text-xs font-semibold text-slate-200 pb-3 border-b border-white/5">
+              <div className="rounded-2xl border border-border bg-card/75 p-5 backdrop-blur-md shadow-card">
+                <h3 className="text-xs font-semibold text-foreground pb-3 border-b border-border/60">
                   Article details
                 </h3>
-                <div className="mt-3.5 space-y-3 text-xs text-slate-300">
+                <div className="mt-3.5 space-y-3 text-xs text-muted-foreground">
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400 flex items-center gap-1.5">
+                    <span className="text-muted-foreground flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5 text-[#38bdf8]" />
                       Read time
                     </span>
-                    <span className="font-semibold text-white">
+                    <span className="font-semibold text-foreground">
                       {stats.readTimeMinutes} minutes
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400 flex items-center gap-1.5">
+                    <span className="text-muted-foreground flex items-center gap-1.5">
                       <FileText className="h-3.5 w-3.5 text-[#38bdf8]" />
                       Total words
                     </span>
-                    <span className="font-semibold text-white">
+                    <span className="font-semibold text-foreground">
                       {stats.words.toLocaleString()}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-400 flex items-center gap-1.5">
+                    <span className="text-muted-foreground flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5 text-[#38bdf8]" />
                       Published
                     </span>
-                    <span className="font-medium text-slate-200">
+                    <span className="font-medium text-foreground">
                       {formattedDate}
                     </span>
                   </div>
@@ -207,22 +207,22 @@ export function BlogPostBody({
 
             {/* Fast Sidebar Setup Widget */}
             <PopIn delay={0.15}>
-              <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-b from-[#0e192f]/90 to-[#0c1220]/90 p-5 backdrop-blur-md">
+              <div className="rounded-2xl border border-primary/20 bg-card p-5 backdrop-blur-md">
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0172ff]/20 text-[#38bdf8]">
                     <Bot className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white">
+                    <h4 className="text-xs font-bold text-foreground">
                       Automate your Facebook Page
                     </h4>
-                    <p className="text-[11px] text-slate-400">
+                    <p className="text-[11px] text-muted-foreground">
                       Free starter plan available
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-3 text-xs leading-relaxed text-slate-300">
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                   Set up 24/7 instant replies, comment-to-inbox, and automated order flows today.
                 </p>
 
@@ -240,7 +240,7 @@ export function BlogPostBody({
                     href={CALENDLY_DEMO_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full block text-center text-xs text-slate-400 hover:text-[#38bdf8] transition-colors py-1.5 font-medium"
+                    className="w-full block text-center text-xs text-muted-foreground hover:text-primary transition-colors py-1.5 font-medium"
                   >
                     Schedule a quick demo
                   </Link>

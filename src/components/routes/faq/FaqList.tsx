@@ -17,16 +17,16 @@ export function FaqList() {
           {FAQ_CATEGORIES.map((category, catIdx) => (
             <PopIn key={category.category} delay={catIdx * 0.05}>
               {/* Category Header */}
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-6">
+              <div className="flex items-center justify-between border-b border-border pb-3.5 mb-6">
                 <div className="flex items-center gap-3">
                   <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#0172ff]/15 text-[11px] font-bold font-mono text-sky-400">
                     0{catIdx + 1}
                   </span>
-                  <h2 className="text-lg sm:text-xl font-bold text-white font-heading">
+                  <h2 className="text-lg sm:text-xl font-bold text-foreground font-heading">
                     {category.category}
                   </h2>
                 </div>
-                <span className="text-xs text-slate-500 font-mono">
+                <span className="text-xs text-muted-foreground font-mono">
                   {category.items.length} {category.items.length === 1 ? "question" : "questions"}
                 </span>
               </div>
@@ -45,12 +45,12 @@ export function FaqList() {
                     <AccordionItem
                       key={itemKey}
                       value={itemKey}
-                      className="rounded-2xl border border-white/10 bg-[#0d121c]/80 backdrop-blur-md transition-all duration-300 hover:border-white/20 data-[state=open]:border-[#0172ff]/50 data-[state=open]:bg-[#0d1422]/95 data-[state=open]:shadow-[0_4px_24px_rgba(1,114,255,0.15)]"
+                      className="rounded-2xl border border-border bg-card/80 backdrop-blur-md transition-all duration-300 hover:border-primary/40 data-[state=open]:border-primary/50 data-[state=open]:bg-card data-[state=open]:shadow-card"
                     >
-                      <AccordionTrigger className="p-5 text-left text-sm sm:text-base font-semibold text-white hover:text-[#93c5fd]">
+                      <AccordionTrigger className="p-5 text-left text-sm sm:text-base font-semibold text-foreground hover:text-primary">
                         {item.question}
                       </AccordionTrigger>
-                      <AccordionContent className="px-5 pb-5 pt-0 text-xs sm:text-sm leading-relaxed text-slate-300">
+                      <AccordionContent className="px-5 pb-5 pt-0 text-xs sm:text-sm leading-relaxed text-muted-foreground">
                         <p>{item.answer}</p>
                       </AccordionContent>
                     </AccordionItem>

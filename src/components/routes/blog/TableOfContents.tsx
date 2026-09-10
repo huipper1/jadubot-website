@@ -56,7 +56,7 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
   return (
     <>
       {/* Mobile Sticky Bar & Drawer */}
-      <div className="lg:hidden my-6 rounded-xl border border-white/10 bg-[#0e1422]/90 p-4 backdrop-blur-md">
+      <div className="lg:hidden my-6 rounded-xl border border-border bg-card/90 p-4 backdrop-blur-md">
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -74,7 +74,7 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
         </button>
 
         {mobileOpen && (
-          <nav className="mt-3 pt-3 border-t border-white/5 max-h-72 overflow-y-auto space-y-1 text-xs">
+          <nav className="mt-3 pt-3 border-t border-border/60 max-h-72 overflow-y-auto space-y-1 text-xs">
             {headings.map((h) => {
               const isActive = activeId === h.id;
               return (
@@ -103,8 +103,8 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
         aria-label="Table of contents"
         className={`hidden lg:block ${className}`}
       >
-        <div className="rounded-2xl border border-white/10 bg-[#0e1422]/75 p-5 backdrop-blur-md shadow-xl shadow-black/20">
-          <div className="flex items-center gap-2 pb-3 border-b border-white/5">
+        <div className="rounded-2xl border border-border bg-card/75 p-5 backdrop-blur-md shadow-xl shadow-black/20">
+          <div className="flex items-center gap-2 pb-3 border-b border-border/60">
             <ListTree className="h-4 w-4 text-[#38bdf8]" />
             <h2 className="text-xs font-semibold tracking-wide text-slate-200">
               Table of contents

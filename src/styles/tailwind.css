@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -21,6 +21,7 @@
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -34,6 +35,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-subtle: var(--card-subtle);
+  --color-surface-ground: var(--surface-ground);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-elevated: var(--surface-elevated);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-blue-start: #0052cc;
@@ -53,39 +58,92 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #0c0e12;
-  --foreground: #f7f7f7;
-  --card: #12151c;
-  --card-foreground: #f7f7f7;
-  --popover: #12151c;
-  --popover-foreground: #f7f7f7;
+
+  /* Surfaces */
+  --background: #ffffff;
+  --foreground: #090d16;
+  --surface-ground: #f8fafc;
+  --surface-subtle: #f1f5f9;
+  --surface-elevated: #ffffff;
+
+  /* Cards */
+  --card: #ffffff;
+  --card-foreground: #090d16;
+  --card-subtle: #f8fafc;
+  --card-hover: #ffffff;
+
+  /* Popover */
+  --popover: #ffffff;
+  --popover-foreground: #090d16;
+
+  /* Brand / Primary */
   --primary: #0172ff;
   --primary-foreground: #ffffff;
-  --secondary: #181d27;
-  --secondary-foreground: #cecfd2;
-  --muted: #181d27;
-  --muted-foreground: #cecfd2;
-  --accent: #181d27;
-  --accent-foreground: #ffffff;
+  --primary-hover: #0052cc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #334155;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #090d16;
   --destructive: #ef4444;
-  --border: #373a41;
-  --input: #373a41;
+
+  /* Borders & Inputs */
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-hover: #cbd5e1;
+  --input: #e2e8f0;
   --ring: #0172ff;
 
+  /* Brand tokens */
   --brand: #0172ff;
   --brand-foreground: #ffffff;
-  --brand-glow: rgba(1, 114, 255, 0.28);
+  --brand-glow: rgba(1, 114, 255, 0.12);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: #e2e8f0;
+  --glass-hover-bg: rgba(255, 255, 255, 0.95);
+  --glass-hover-border: rgba(1, 114, 255, 0.4);
+
+  /* Badges */
+  --badge-bg: rgba(1, 114, 255, 0.08);
+  --badge-border: rgba(1, 114, 255, 0.25);
+  --badge-text: #0052cc;
+
+  /* Semantic Text */
+  --text-primary: #090d16;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-elevated: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown: 0 12px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
 }
 
 .dark {
+  /* Surfaces */
   --background: #0c0e12;
   --foreground: #f7f7f7;
+  --surface-ground: #080d16;
+  --surface-subtle: #0d1422;
+  --surface-elevated: #181d27;
+
+  /* Cards */
   --card: #12151c;
   --card-foreground: #f7f7f7;
+  --card-subtle: #181d27;
+  --card-hover: #1e2533;
+
+  /* Popover */
   --popover: #12151c;
   --popover-foreground: #f7f7f7;
+
+  /* Brand / Primary */
   --primary: #0172ff;
   --primary-foreground: #ffffff;
+  --primary-hover: #0052cc;
   --secondary: #181d27;
   --secondary-foreground: #cecfd2;
   --muted: #181d27;
@@ -93,34 +151,79 @@
   --accent: #181d27;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
+
+  /* Borders & Inputs */
   --border: #373a41;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(1, 114, 255, 0.4);
   --input: #373a41;
   --ring: #0172ff;
 
+  /* Brand tokens */
   --brand: #0172ff;
   --brand-foreground: #ffffff;
   --brand-glow: rgba(1, 114, 255, 0.28);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(18, 21, 28, 0.7);
+  --glass-border: #373a41;
+  --glass-hover-bg: rgba(24, 29, 39, 0.85);
+  --glass-hover-border: rgba(1, 114, 255, 0.4);
+
+  /* Badges */
+  --badge-bg: rgba(1, 114, 255, 0.12);
+  --badge-border: rgba(1, 114, 255, 0.35);
+  --badge-text: #93c5fd;
+
+  /* Semantic Text */
+  --text-primary: #f7f7f7;
+  --text-secondary: #cecfd2;
+  --text-muted: #94a3b8;
+
+  /* Shadows */
+  --shadow-card: none;
+  --shadow-elevated: 0 10px 30px -10px rgba(1, 114, 255, 0.25);
+  --shadow-dropdown: 0 12px 36px -4px rgba(0, 0, 0, 0.7);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    background-color: #0c0e12;
-    color: #f7f7f7;
-    font-family: var(--font-inter), sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-space-grotesk), sans-serif;
-    color: #f7f7f7;
+    color: var(--foreground);
   }
+
   button {
     @apply cursor-pointer;
   }
+
   .container {
     @apply mx-auto px-4;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Scoped to AnimatedThemeToggler — the toggler sets the data-attribute and the variable only during a theme toggle. */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
 }
 
 /* Primary Button with Jadubot Electric Blue Gradient */
@@ -231,13 +334,23 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .animate-marquee {
@@ -249,11 +362,14 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(0.88);
     opacity: 0.4;
     filter: blur(45px);
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.15);
     opacity: 0.85;
@@ -278,6 +394,7 @@
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-accordion-content-height);
   }
@@ -287,6 +404,7 @@
   from {
     height: var(--radix-accordion-content-height);
   }
+
   to {
     height: 0;
   }
@@ -301,9 +419,12 @@
 }
 
 @keyframes float-levitate {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(1.5deg);
   }
@@ -469,3 +590,455 @@
   color: #f1f5f9;
 }
 
+/* ==========================================================================
+   LIGHT MODE DESIGN SYSTEM (frontend-design-uiux)
+   Activated dynamically when <html> does NOT have .dark class
+   ========================================================================== */
+
+/* 1. Base Document & Sections */
+html:not(.dark) body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: var(--foreground);
+}
+
+/* 2. Deep Outer Section Backgrounds -> Porcelain White & Subdued Slate */
+html:not(.dark) .bg-\[\#0c0e12\],
+html:not(.dark) .bg-\[\#0a0c10\],
+html:not(.dark) .bg-\[\#070b13\],
+html:not(.dark) .bg-\[\#080d16\],
+html:not(.dark) .bg-\[\#070a10\],
+html:not(.dark) .bg-\[\#06080d\],
+html:not(.dark) .bg-\[\#05070D\],
+html:not(.dark) .bg-\[\#090d14\],
+html:not(.dark) .bg-\[\#090d15\],
+html:not(.dark) .bg-\[\#090d16\],
+html:not(.dark) .bg-\[\#090c13\],
+html:not(.dark) .bg-\[\#060a12\],
+html:not(.dark) .bg-\[\#071120\],
+html:not(.dark) .bg-\[\#060c18\],
+html:not(.dark) .bg-\[\#081226\],
+html:not(.dark) .bg-\[\#0b101c\] {
+  background-color: var(--background) !important;
+}
+
+/* Tonal rhythm for alternating sections */
+html:not(.dark) section.bg-\[\#080d16\],
+html:not(.dark) div.bg-\[\#080d16\],
+html:not(.dark) section.bg-\[\#070a10\] {
+  background-color: var(--surface-ground) !important;
+}
+
+/* Dotted grid texture in Light Mode */
+html:not(.dark) [class*="radial-gradient(rgba(255,255,255"] {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+}
+
+/* 3. Card & Elevated Container Backgrounds -> Crisp Elevated Porcelain */
+html:not(.dark) .bg-\[\#12151c\],
+html:not(.dark) .bg-\[\#181d27\],
+html:not(.dark) .bg-\[\#0d121c\],
+html:not(.dark) .bg-\[\#0c1018\],
+html:not(.dark) .bg-\[\#0c1017\],
+html:not(.dark) .bg-\[\#080b11\],
+html:not(.dark) .bg-\[\#0e1422\],
+html:not(.dark) .bg-\[\#121b2d\],
+html:not(.dark) .bg-\[\#151f33\],
+html:not(.dark) .bg-\[\#111a2e\],
+html:not(.dark) .bg-\[\#111726\],
+html:not(.dark) .bg-\[\#111724\],
+html:not(.dark) .bg-\[\#0d1422\],
+html:not(.dark) .bg-\[\#0d1627\],
+html:not(.dark) .bg-\[\#08101e\],
+html:not(.dark) .bg-\[\#0a0e17\],
+html:not(.dark) .bg-\[\#08152c\],
+html:not(.dark) .bg-\[\#0c1833\],
+html:not(.dark) .bg-\[\#091529\],
+html:not(.dark) .bg-\[\#081733\],
+html:not(.dark) .bg-\[\#0d151c\],
+html:not(.dark) .bg-\[\#0e1625\],
+html:not(.dark) .bg-\[\#140b1e\],
+html:not(.dark) .bg-\[\#1e293b\] {
+  background-color: var(--card) !important;
+  box-shadow: var(--shadow-card);
+}
+
+/* 3b. Dark Gradient Cards -> Soft Porcelain Gradients */
+html:not(.dark) .from-\[\#0e172a\],
+html:not(.dark) .from-\[\#0d1424\],
+html:not(.dark) .from-\[\#0a0f1c\],
+html:not(.dark) .from-\[\#070b14\],
+html:not(.dark) .from-\[\#0b162b\],
+html:not(.dark) .from-\[\#111927\],
+html:not(.dark) .from-\[\#111927\]\/90,
+html:not(.dark) .from-\[\#090d14\],
+html:not(.dark) .from-\[\#0c121e\],
+html:not(.dark) .from-\[\#0c121e\]\/90,
+html:not(.dark) .from-\[\#0a0f19\],
+html:not(.dark) .from-\[\#070b12\],
+html:not(.dark) .from-\[\#101726\],
+html:not(.dark) .from-\[\#101726\]\/90,
+html:not(.dark) .from-\[\#0d1527\],
+html:not(.dark) .from-\[\#11192b\],
+html:not(.dark) .from-\[\#0c1815\],
+html:not(.dark) .from-\[\#0a1210\],
+html:not(.dark) .from-\[\#0b1424\],
+html:not(.dark) .from-\[\#090d16\],
+html:not(.dark) .from-\[\#0e1626\],
+html:not(.dark) .from-\[\#0a0e1a\],
+html:not(.dark) .from-\[\#0e192f\],
+html:not(.dark) .from-\[\#0e192f\]\/90,
+html:not(.dark) .from-\[\#0c1220\],
+html:not(.dark) .from-\[\#0f172a\],
+html:not(.dark) .from-\[\#0f172a\]\/90,
+html:not(.dark) .from-\[\#0b101d\],
+html:not(.dark) .from-\[\#0c182a\],
+html:not(.dark) .from-\[\#080e18\],
+html:not(.dark) .from-\[\#131524\] {
+  --tw-gradient-from: #ffffff var(--tw-gradient-from-position) !important;
+}
+
+html:not(.dark) .to-\[\#090d14\],
+html:not(.dark) .to-\[\#090d14\]\/90,
+html:not(.dark) .to-\[\#070b12\],
+html:not(.dark) .to-\[\#070b12\]\/95,
+html:not(.dark) .to-\[\#080d16\],
+html:not(.dark) .to-\[\#080d16\]\/95,
+html:not(.dark) .to-\[\#0d121c\],
+html:not(.dark) .to-\[\#090d15\],
+html:not(.dark) .to-\[\#0a1210\],
+html:not(.dark) .to-\[\#090d16\],
+html:not(.dark) .to-\[\#0a0e1a\],
+html:not(.dark) .to-\[\#0c1220\],
+html:not(.dark) .to-\[\#0c1220\]\/90,
+html:not(.dark) .to-\[\#0b101d\],
+html:not(.dark) .to-\[\#0b101d\]\/90,
+html:not(.dark) .to-\[\#080e18\],
+html:not(.dark) .to-\[\#090b12\] {
+  --tw-gradient-to: #f8fafc var(--tw-gradient-to-position) !important;
+}
+
+html:not(.dark) .via-\[\#0a0f1c\],
+html:not(.dark) .via-\[\#0a0f1c\]\/90,
+html:not(.dark) .via-\[\#0a0f19\],
+html:not(.dark) .via-\[\#0a0f19\]\/90,
+html:not(.dark) .via-\[\#0e1422\],
+html:not(.dark) .via-\[\#0b1120\],
+html:not(.dark) .via-\[\#0e101b\],
+html:not(.dark) .via-\[\#181d27\] {
+  --tw-gradient-via: #ffffff var(--tw-gradient-via-position) !important;
+}
+
+/* 3c. Hero and Page Top/Bottom Fade Gradients */
+html:not(.dark) .from-\[\#0c0e12\],
+html:not(.dark) .from-\[\#080b11\],
+html:not(.dark) .from-\[\#080d16\] {
+  --tw-gradient-from: var(--background) var(--tw-gradient-from-position) !important;
+}
+
+html:not(.dark) .to-\[\#0c0e12\],
+html:not(.dark) .to-\[\#080b11\],
+html:not(.dark) .to-\[\#080d16\] {
+  --tw-gradient-to: var(--background) var(--tw-gradient-to-position) !important;
+}
+
+html:not(.dark) .from-\[\#0c0e12\]\/40,
+html:not(.dark) .from-\[\#0c0e12\]\/50,
+html:not(.dark) .from-\[\#0c0e12\]\/60 {
+  --tw-gradient-from: rgba(255, 255, 255, 0.4) var(--tw-gradient-from-position) !important;
+}
+
+html:not(.dark) .to-\[\#0c0e12\]\/80,
+html:not(.dark) .to-\[\#0c0e12\]\/90 {
+  --tw-gradient-to: rgba(255, 255, 255, 0.9) var(--tw-gradient-to-position) !important;
+}
+
+/* 4. Translucent Containers & Opacity Overlays */
+html:not(.dark) .bg-\[\#0c0e12\]\/80 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+html:not(.dark) .bg-\[\#0c0e12\]\/95,
+html:not(.dark) .bg-\[\#0c0e12\]\/98 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+html:not(.dark) .bg-\[\#0d1424\]\/90,
+html:not(.dark) .bg-\[\#0a0f1c\]\/90,
+html:not(.dark) .bg-\[\#070b14\]\/95 {
+  background-color: var(--card) !important;
+}
+
+html:not(.dark) .bg-\[\#0b162b\]\/80 {
+  background-color: var(--surface-subtle) !important;
+}
+
+html:not(.dark) .bg-white\/5,
+html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-white\/\[0\.02\],
+html:not(.dark) .bg-white\/\[0\.03\],
+html:not(.dark) .bg-white\/\[0\.04\],
+html:not(.dark) .bg-white\/\[0\.05\],
+html:not(.dark) .bg-white\/\[0\.06\],
+html:not(.dark) .bg-white\/\[0\.08\] {
+  background-color: var(--surface-subtle) !important;
+}
+
+/* 5. Structural Borders */
+html:not(.dark) .border-\[\#373a41\],
+html:not(.dark) .border-\[\#2e3440\],
+html:not(.dark) .border-\[\#2d3142\],
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/10,
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20,
+html:not(.dark) .border-white\/\[0\.05\],
+html:not(.dark) .border-white\/\[0\.06\],
+html:not(.dark) .border-white\/\[0\.07\],
+html:not(.dark) .border-white\/\[0\.08\],
+html:not(.dark) .border-white\/\[0\.1\],
+html:not(.dark) .border-white\/\[0\.12\],
+html:not(.dark) .border-white\/\[0\.15\] {
+  border-color: var(--border) !important;
+}
+
+html:not(.dark) .hover\:border-\[\#373a41\]:hover,
+html:not(.dark) .hover\:border-white\/20:hover,
+html:not(.dark) .hover\:border-white\/30:hover {
+  border-color: var(--border-hover) !important;
+}
+
+/* 6. Typography & Text Hierarchy */
+html:not(.dark) .text-white:not(.btn-primary):not(.btn-primary *):not([class*="bg-brand"]):not([class*="bg-brand"] *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *):not([class*="bg-[#0052cc]"]):not([class*="bg-[#0052cc]"] *):not([class*="bg-blue-"]):not([class*="bg-blue-"] *):not([class*="bg-emerald-"]):not([class*="bg-emerald-"] *):not([class*="bg-indigo-"]):not([class*="bg-indigo-"] *) {
+  color: var(--foreground) !important;
+}
+
+html:not(.dark) .text-\[\#f7f7f7\]:not(.btn-primary):not(.btn-primary *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *) {
+  color: var(--foreground) !important;
+}
+
+html:not(.dark) .text-\[\#cecfd2\],
+html:not(.dark) .text-\[\#94a3b8\],
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+html:not(.dark) .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+html:not(.dark) .hover\:text-white:hover {
+  color: var(--foreground) !important;
+}
+
+html:not(.dark) .group:hover .group-hover\:text-white {
+  color: var(--foreground) !important;
+}
+
+/* 7. Components & Micro-interactions */
+html:not(.dark) .btn-primary {
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(1, 114, 255, 0.3);
+}
+
+html:not(.dark) .btn-black {
+  background-color: var(--surface-subtle);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+html:not(.dark) .btn-black:hover {
+  background-color: #e2e8f0;
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+html:not(.dark) .solution-badge {
+  background-color: var(--badge-bg);
+  border-color: var(--badge-border);
+  color: var(--badge-text);
+}
+
+html:not(.dark) .glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-card);
+}
+
+html:not(.dark) .glass-card-hover:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  box-shadow: var(--shadow-elevated);
+}
+
+html:not(.dark) .text-gradient {
+  background: linear-gradient(135deg, #090d16 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html:not(.dark) .hero-gradient {
+  opacity: 0.14;
+  filter: blur(120px);
+}
+
+html:not(.dark) .animate-pulse-glow {
+  opacity: 0.2;
+}
+
+/* 8. Header & Navigation */
+html:not(.dark) header.bg-\[\#0c0e12\]\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom-color: var(--border) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) div.bg-\[\#0c0e12\]\/95 {
+  background-color: #ffffff !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+}
+
+html:not(.dark) div.bg-\[\#0c0e12\]\/98 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+}
+
+html:not(.dark) nav a.bg-\[\#0172ff\]\/15 {
+  background-color: rgba(1, 114, 255, 0.1) !important;
+  color: #0172ff !important;
+  border-color: rgba(1, 114, 255, 0.25) !important;
+  box-shadow: 0 0 12px rgba(1, 114, 255, 0.12) !important;
+}
+
+/* 9. Unified CTA */
+html:not(.dark) section#cta-section {
+  background-color: var(--surface-ground) !important;
+  border-top-color: var(--border) !important;
+}
+
+html:not(.dark) section#cta-section .bg-gradient-to-b {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%) !important;
+  border-color: rgba(1, 114, 255, 0.2) !important;
+  box-shadow: 0 20px 50px -15px rgba(1, 114, 255, 0.15) !important;
+}
+
+html:not(.dark) section#cta-section .bg-\[\#0b162b\]\/80 {
+  background-color: rgba(1, 114, 255, 0.08) !important;
+  border-color: rgba(1, 114, 255, 0.25) !important;
+  color: #0052cc !important;
+}
+
+/* 10. Footer */
+html:not(.dark) footer.bg-\[\#0c0e12\] {
+  background-color: #f8fafc !important;
+  border-top-color: var(--border) !important;
+}
+
+html:not(.dark) footer .bg-\[\#0c0e12\]\/25 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html:not(.dark) footer .from-\[\#0172ff\]\/15 {
+  --tw-gradient-from: rgba(1, 114, 255, 0.06) var(--tw-gradient-from-position) !important;
+}
+
+/* 11. Form Inputs & Textareas */
+html:not(.dark) input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html:not(.dark) textarea,
+html:not(.dark) select {
+  background-color: #ffffff;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* 12. Editorial Blog Prose */
+html:not(.dark) .article-prose {
+  color: #334155;
+}
+
+html:not(.dark) .article-prose p {
+  color: #334155;
+}
+
+html:not(.dark) .article-prose h2 {
+  color: #090d16;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html:not(.dark) .article-prose h3 {
+  color: #0f172a;
+}
+
+html:not(.dark) .article-prose h4 {
+  color: #1e293b;
+}
+
+html:not(.dark) .article-prose strong,
+html:not(.dark) .article-prose b {
+  color: #090d16;
+}
+
+html:not(.dark) .article-prose a {
+  color: #0172ff;
+}
+
+html:not(.dark) .article-prose a:hover {
+  color: #0052cc;
+}
+
+html:not(.dark) .article-prose li {
+  color: #334155;
+}
+
+html:not(.dark) .article-prose blockquote {
+  background: rgba(1, 114, 255, 0.05);
+  border-left-color: #0172ff;
+  color: #475569;
+}
+
+html:not(.dark) .article-prose img {
+  border-color: #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html:not(.dark) .article-prose th {
+  background: #f1f5f9;
+  color: #090d16;
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) .article-prose td {
+  border-color: #e2e8f0;
+  color: #334155;
+}
+
+html:not(.dark) .article-prose code {
+  background: #f1f5f9;
+  color: #0052cc;
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) .article-prose pre {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+html:not(.dark) .article-prose pre code {
+  color: #090d16;
+}

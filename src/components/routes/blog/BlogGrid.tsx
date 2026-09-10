@@ -60,20 +60,20 @@ export function BlogGrid({ posts }: BlogGridProps) {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative flex-1 max-w-md">
-              <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search guides, tutorials & strategies..."
-                className="w-full rounded-xl border border-white/10 bg-[#0e1422]/90 pl-10 pr-10 py-2.5 text-xs sm:text-sm text-white placeholder-slate-400 backdrop-blur-md outline-none transition-all focus:border-[#0172ff] focus:ring-1 focus:ring-[#0172ff]"
+                className="w-full rounded-xl border border-border bg-card/90 pl-10 pr-10 py-2.5 text-xs sm:text-sm text-foreground placeholder-muted-foreground backdrop-blur-md outline-none transition-all focus:border-[#0172ff] focus:ring-1 focus:ring-[#0172ff]"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -81,10 +81,10 @@ export function BlogGrid({ posts }: BlogGridProps) {
             </div>
 
             {/* Results Count Info */}
-            <div className="flex items-center gap-2 text-xs text-slate-400">
-              <SlidersHorizontal className="h-3.5 w-3.5 text-slate-400" />
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <SlidersHorizontal className="h-3.5 w-3.5 text-muted-foreground" />
               <span>
-                Showing <strong className="text-white">{filteredPosts.length}</strong> of{" "}
+                Showing <strong className="text-foreground">{filteredPosts.length}</strong> of{" "}
                 {posts.length} articles
               </span>
             </div>
@@ -101,7 +101,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
                   onClick={() => setSelectedTopic(topic)}
                   className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-medium transition-all ${isActive
                     ? "bg-[#0172ff] text-white shadow-md shadow-[#0172ff]/25"
-                    : "border border-white/10 bg-[#0e1422]/70 text-slate-300 hover:border-white/20 hover:bg-[#151f33] hover:text-white"
+                    : "border border-border bg-card/70 text-muted-foreground hover:border-primary/30 hover:bg-card hover:text-foreground"
                     }`}
                 >
                   {topic}
@@ -120,12 +120,12 @@ export function BlogGrid({ posts }: BlogGridProps) {
 
         {/* Empty State */}
         {filteredPosts.length === 0 ? (
-          <PopIn className="my-16 rounded-3xl border border-white/10 bg-[#0e1422]/60 p-12 text-center backdrop-blur-md max-w-xl mx-auto">
+          <PopIn className="my-16 rounded-3xl border border-border bg-card/60 p-12 text-center backdrop-blur-md max-w-xl mx-auto">
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0172ff]/15 text-[#38bdf8] mb-4">
               <BookOpen className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">No matching articles found</h3>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <h3 className="text-lg font-bold text-foreground">No matching articles found</h3>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
               We couldn&apos;t find any articles matching &ldquo;{searchQuery}&rdquo; under &ldquo;{selectedTopic}&rdquo;.
             </p>
             <button

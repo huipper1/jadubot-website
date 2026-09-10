@@ -30,7 +30,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
           }}
         />
         {/* Bottom fade to page background */}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0c0e12] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,13 +39,13 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
           <div className="text-center lg:col-span-7 lg:text-left">
             <PopIn>
               {/* Glowing Pill Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/35 bg-[#0b162b]/85 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-200 shadow-[0_0_20px_rgba(1,114,255,0.25)] backdrop-blur-md">
+              <div className="solution-badge">
                 <Sparkles className="h-3.5 w-3.5 text-blue-400" />
                 <span>{hero.badge}</span>
               </div>
 
               {/* Dynamic H1 Headline with Electric Blue Gradient */}
-              <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-5xl lg:text-[56px] leading-[1.12]">
+              <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-5xl lg:text-[56px] leading-[1.12]">
                 {hero.titleStart}{" "}
                 <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
                   {hero.titleHighlight}
@@ -54,7 +54,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
               </h1>
 
               {/* Subtitle */}
-              <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg lg:max-w-xl">
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg lg:max-w-xl">
                 {hero.subtitle}
               </p>
 
@@ -75,7 +75,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
                   href={CALENDLY_DEMO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-medium text-slate-200 backdrop-blur-sm transition-all hover:border-[#0172ff]/50 hover:bg-[#0172ff]/10 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
                 >
                   <Calendar className="h-4 w-4 text-blue-400" />
                   <span>{hero.secondaryCtaText}</span>
@@ -84,15 +84,15 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
 
               {/* Omnichannel Platforms Row */}
               {hero.platforms && hero.platforms.length > 0 && (
-                <div className="mt-10 border-t border-white/5 pt-6">
-                  <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                <div className="mt-10 border-t border-border/60 pt-6">
+                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     Seamless omnichannel integration
                   </span>
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
                     {hero.platforms.map((platform) => (
                       <span
                         key={platform}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium text-slate-300"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground"
                       >
                         <CheckCircle2 className="h-3 w-3 text-blue-400" />
                         {platform}
@@ -107,12 +107,12 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
           {/* Right Column: 3D Thematic Visual with Floating Stat Badges */}
           <div className="relative mx-auto w-full max-w-lg lg:col-span-5 lg:max-w-none">
             <PopIn delay={0.15}>
-              <div className="relative rounded-3xl border border-blue-500/20 bg-gradient-to-b from-[#101726]/90 to-[#0c0e12]/90 p-3 shadow-[0_0_50px_rgba(1,114,255,0.2)] backdrop-blur-xl">
+              <div className="relative rounded-3xl border border-border bg-card p-3 shadow-elevated backdrop-blur-xl">
                 {/* Glow ring behind visual */}
                 <div className="absolute -inset-1 -z-10 rounded-3xl bg-gradient-to-r from-blue-600/30 via-sky-400/20 to-blue-700/30 blur-xl opacity-75" />
 
                 {/* 3D Illustration Graphic */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#06080d]">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-background">
                   <Image
                     src={hero.image}
                     alt={`${industry.name} AI Automation Solution`}
@@ -122,7 +122,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
                     className="object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
                   {/* Subtle inner overlay for dark mode contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e12]/70 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Floating Metric Badges */}
@@ -130,12 +130,12 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
                   {hero.statHighlights.map((stat, idx) => (
                     <div
                       key={idx}
-                      className="flex flex-col items-center justify-center rounded-xl border border-blue-500/20 bg-[#08101e]/80 p-2.5 text-center backdrop-blur-md transition-all hover:border-blue-400/40"
+                      className="flex flex-col items-center justify-center rounded-xl border border-primary/20 bg-card/80 p-2.5 text-center backdrop-blur-md transition-all hover:border-primary/40"
                     >
-                      <span className="font-mono text-base sm:text-lg font-bold text-[#38bdf8] drop-shadow-[0_0_12px_rgba(56,189,248,0.5)]">
+                      <span className="font-mono text-base sm:text-lg font-bold text-primary">
                         {stat.value}
                       </span>
-                      <span className="mt-0.5 text-[10px] sm:text-xs font-medium text-slate-300 line-clamp-1">
+                      <span className="mt-0.5 text-[10px] sm:text-xs font-medium text-muted-foreground line-clamp-1">
                         {stat.label}
                       </span>
                     </div>

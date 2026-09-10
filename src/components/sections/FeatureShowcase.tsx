@@ -155,7 +155,7 @@ export function FeatureShowcase() {
     <section
       ref={sectionRef}
       id="features"
-      className="relative bg-[#0c0e12] overflow-hidden py-8 sm:py-12 lg:py-24 border-t border-[#373a41]/60"
+      className="relative bg-background overflow-hidden py-8 sm:py-12 lg:py-24 border-t border-border/60"
     >
       {/* Background Ambience */}
       <div
@@ -181,7 +181,7 @@ export function FeatureShowcase() {
               </div>
 
               {/* Static Main Section Title */}
-              <h2 className="mt-2.5 sm:mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              <h2 className="mt-2.5 sm:mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
                 What Jadubot does
               </h2>
             </div>
@@ -200,12 +200,12 @@ export function FeatureShowcase() {
                     <span className="font-mono text-[11px] sm:text-xs font-bold text-[#38bdf8] px-2 sm:px-2.5 py-0.5 rounded-full border border-[#0172ff]/30 bg-[#0172ff]/10">
                       {feat.number}
                     </span>
-                    <h3 className="font-heading text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="font-heading text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground tracking-tight">
                       {feat.name}
                     </h3>
                   </div>
 
-                  <p className="mt-2 sm:mt-3 lg:mt-4 text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed text-[#cecfd2]/85 max-w-xl lg:max-w-md">
+                  <p className="mt-2 sm:mt-3 lg:mt-4 text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed text-muted-foreground/85 max-w-xl lg:max-w-md">
                     {feat.description}
                   </p>
                 </div>
@@ -219,8 +219,8 @@ export function FeatureShowcase() {
                   key={feat.id}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeFeatureIndex === idx
-                      ? "w-8 bg-gradient-to-r from-[#0052cc] to-[#0172ff]"
-                      : "w-2 bg-[#373a41]/70"
+                      ? "w-8 bg-gradient-to-r from-primary to-sky-400"
+                      : "w-2 bg-muted"
                   }`}
                 />
               ))}
@@ -239,7 +239,7 @@ export function FeatureShowcase() {
                   className="absolute inset-0 flex items-start justify-center gap-3 sm:gap-4 xl:gap-6 will-change-transform pt-1 sm:pt-2"
                 >
                   {/* Left card of the pair (positioned higher) */}
-                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-[#373a41]/90 bg-[#12151c]">
+                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-border/90 bg-card">
                     <Image
                       src={feat.image}
                       alt={feat.alt}
@@ -251,7 +251,7 @@ export function FeatureShowcase() {
                   </div>
 
                   {/* Right card of the pair (staggered lower - not aligned with left card) */}
-                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-[#373a41]/90 bg-[#12151c] mt-4 sm:mt-6 lg:mt-8 xl:mt-10">
+                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-border/90 bg-card mt-4 sm:mt-6 lg:mt-8 xl:mt-10">
                     <Image
                       src={feat.secondaryImage}
                       alt={feat.secondaryAlt}

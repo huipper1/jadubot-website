@@ -25,7 +25,7 @@ export function BlogHero() {
           </div>
 
           {/* Publication Title */}
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12] [text-wrap:balance]">
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] [text-wrap:balance]">
             Jadubot Playbooks &amp;{" "}
             <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
               Marketing Insights
@@ -33,7 +33,7 @@ export function BlogHero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-300">
+          <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground">
             Proven automation blueprints,{" "}
             <span className="text-[#38c5ff] font-medium">Facebook</span> &amp;{" "}
             <span className="text-[#fe78e1] font-medium">Instagram</span> chatbot workflows, and{" "}

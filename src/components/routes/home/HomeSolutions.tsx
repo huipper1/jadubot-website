@@ -80,19 +80,19 @@ export function HomeSolutions() {
   };
 
   return (
-    <section id="solutions" className="relative py-16 md:py-28 overflow-hidden bg-[#0c0e12]">
+    <section id="solutions" className="relative py-16 md:py-28 overflow-hidden bg-background">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Left-aligned matching screenshot */}
         <div className="max-w-3xl text-left">
-          <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-[#0c2417] px-3.5 py-1 text-xs font-semibold text-emerald-400">
+          <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 dark:bg-[#0c2417] px-3.5 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
             Solutions
           </div>
 
-          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.18] max-w-2xl">
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.18] max-w-2xl">
             Jadubot replies to all of your customers so that you can focus on growth
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-[#cecfd2]/80 font-normal">
+          <p className="mt-3 text-base sm:text-lg text-muted-foreground/80 font-normal">
             Just like your superhuman sales agent
           </p>
         </div>
@@ -102,7 +102,7 @@ export function HomeSolutions() {
           {/* Left Column (Items with one continuous vertical progress bar) */}
           <div className="order-2 lg:order-1 lg:col-span-5 relative pl-7 sm:pl-8">
             {/* Single continuous background vertical track */}
-            <div className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-white/10 overflow-hidden">
+            <div className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-muted overflow-hidden">
               {/* Green progress bar increasing over time */}
               <div
                 ref={progressFillRef}
@@ -126,7 +126,7 @@ export function HomeSolutions() {
                     <h3
                       className={cn(
                         "font-heading text-base sm:text-lg font-semibold transition-colors duration-200",
-                        isActive ? "text-white" : "text-white/80 group-hover:text-white"
+                        isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                       )}
                     >
                       {item.title}
@@ -136,8 +136,8 @@ export function HomeSolutions() {
                       className={cn(
                         "mt-1.5 text-xs sm:text-sm leading-relaxed max-w-md transition-colors duration-200",
                         isActive
-                          ? "text-[#cecfd2]"
-                          : "text-[#cecfd2]/55 group-hover:text-[#cecfd2]/75"
+                          ? "text-muted-foreground"
+                          : "text-muted-foreground/55 group-hover:text-muted-foreground/75"
                       )}
                     >
                       {item.description}

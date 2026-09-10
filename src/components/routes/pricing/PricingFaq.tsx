@@ -14,16 +14,16 @@ import { PRICING_FAQS } from "./pricing-data";
 
 export function PricingFaq() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-white/5 bg-[#080b11]">
+    <section className="relative py-16 md:py-24 border-t border-border/60 bg-card">
       <div className="container mx-auto max-w-7xl px-4">
         <PopIn className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/25 bg-[#0b162b]/80 px-3.5 py-1 text-xs font-semibold text-blue-200 shadow-sm">
+          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/25 bg-card/80 px-3.5 py-1 text-xs font-semibold text-primary shadow-sm">
             Frequently Asked Questions
           </div>
-          <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+          <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Billing &amp; Pricing Questions
           </h2>
-          <p className="mt-3 text-sm text-slate-300">
+          <p className="mt-3 text-sm text-muted-foreground">
             Clear answers about payments, plan limits, Meta compliance, and our money-back guarantee.
           </p>
         </PopIn>
@@ -34,12 +34,12 @@ export function PricingFaq() {
               <AccordionItem
                 key={item.question}
                 value={`item-${idx}`}
-                className="rounded-2xl border border-white/10 bg-[#0d121c]/90 px-5 sm:px-6 py-1 backdrop-blur-md transition-colors data-[state=open]:border-[#0172ff]/50 data-[state=open]:bg-[#111726]"
+                className="rounded-2xl border border-border bg-card/90 px-5 sm:px-6 py-1 shadow-card backdrop-blur-md transition-colors data-[state=open]:border-primary/50 data-[state=open]:bg-card"
               >
-                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-white hover:no-underline py-4">
+                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-foreground hover:text-primary hover:no-underline py-4">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-xs sm:text-sm text-slate-300 leading-relaxed pb-4">
+                <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed pb-4">
                   <p>{item.answer}</p>
                 </AccordionContent>
               </AccordionItem>
@@ -47,12 +47,12 @@ export function PricingFaq() {
           </Accordion>
 
           {/* Need help or custom plan prompt */}
-          <div className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-r from-[#0d1527] to-[#0d121c] p-6 text-center sm:text-left sm:flex sm:items-center sm:justify-between gap-6">
+          <div className="mt-12 rounded-2xl border border-border bg-card dark:bg-gradient-to-r dark:from-[#0d1527] dark:to-[#0d121c] p-6 text-center sm:text-left sm:flex sm:items-center sm:justify-between gap-6 shadow-card">
             <div>
-              <h4 className="font-heading text-base font-bold text-white">
+              <h4 className="font-heading text-base font-bold text-foreground">
                 Have a custom requirement or question?
               </h4>
-              <p className="mt-1 text-xs text-slate-300">
+              <p className="mt-1 text-xs text-muted-foreground">
                 Our Bangladeshi solutions team is available to help you pick the right plan.
               </p>
             </div>
@@ -70,7 +70,7 @@ export function PricingFaq() {
                 href="https://wa.me/8801700000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-black text-xs py-2.5 px-4 flex items-center gap-1.5 border border-white/15 hover:border-[#6dffae]/50 hover:text-[#6dffae]"
+                className="btn-black text-xs py-2.5 px-4 flex items-center gap-1.5 border border-border hover:border-[#6dffae]/50 hover:text-[#6dffae]"
               >
                 <MessageCircle className="h-3.5 w-3.5 text-[#6dffae]" />
                 <span>WhatsApp Support</span>

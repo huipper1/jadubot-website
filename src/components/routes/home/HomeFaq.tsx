@@ -54,7 +54,7 @@ export function HomeFaq() {
   });
 
   return (
-    <section className="relative py-20 md:py-32 border-t border-[#373a41]/60 bg-[#0c0e12]">
+    <section className="relative py-20 md:py-32 border-t border-border/60 bg-background">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div
@@ -62,10 +62,10 @@ export function HomeFaq() {
           className="mx-auto max-w-2xl text-center will-change-transform origin-center"
         >
           <div className="solution-badge">Knowledge Base</div>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-base text-[#cecfd2]">
+          <p className="mt-4 text-base text-muted-foreground">
             Everything you need to know about Jadubot platform capabilities, billing, and setup.
           </p>
         </div>
@@ -84,7 +84,7 @@ export function HomeFaq() {
                 <AccordionItem value={`faq-${idx}`}>
                   <AccordionTrigger>{faq.question}</AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-sm leading-relaxed text-[#cecfd2]">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {faq.answer}
                     </p>
                   </AccordionContent>

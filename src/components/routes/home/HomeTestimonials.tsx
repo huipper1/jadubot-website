@@ -37,7 +37,7 @@ const TESTIMONIALS = [
 
 export function HomeTestimonials() {
   return (
-    <section className="relative py-24 md:py-32 bg-[#05070D]/40">
+    <section className="relative py-24 md:py-32 bg-background/40">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <PopIn className="mx-auto max-w-3xl text-center">
@@ -74,7 +74,7 @@ export function HomeTestimonials() {
               </div>
 
               {/* Author Footer */}
-              <div className="mt-8 flex items-center gap-4 border-t border-white/5 pt-5">
+              <div className="mt-8 flex items-center gap-4 border-t border-border/60 pt-5">
                 <figure className="relative h-11 w-11 overflow-hidden rounded-full border border-brand/30">
                   <Image
                     src={item.avatar}
