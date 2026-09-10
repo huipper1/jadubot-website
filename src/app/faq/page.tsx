@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { FaqHero, FaqList, FAQ_CATEGORIES } from "@/components/routes/faq";
+import {
+  FaqMasthead,
+  FaqList,
+  FaqSupportMatrix,
+  FAQ_CATEGORIES
+} from "@/components/routes/faq";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -60,8 +65,9 @@ export default function FaqPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <FaqHero />
+      <FaqMasthead />
       <FaqList />
+      <FaqSupportMatrix />
     </>
   );
 }

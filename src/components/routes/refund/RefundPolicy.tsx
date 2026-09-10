@@ -103,7 +103,7 @@ export function RefundPolicy() {
               <div>
                 <h4 className="font-semibold text-foreground text-sm">Need immediate assistance?</h4>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Reach out directly to our support engineers or submit a ticket.
+                  Reach out directly to our support engineers via email or WhatsApp.
                 </p>
               </div>
 
@@ -116,10 +116,10 @@ export function RefundPolicy() {
                   support@jadubot.com
                 </a>
                 <Link
-                  href="/ticket/"
+                  href="/contact/"
                   className="inline-flex items-center gap-1.5 rounded-lg bg-brand-orange px-4 py-2 text-xs font-semibold text-white hover:bg-brand-orange/90"
                 >
-                  Submit Ticket
+                  Contact Support
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>

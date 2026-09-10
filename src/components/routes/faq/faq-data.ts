@@ -120,7 +120,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "What is your refund policy?",
         answer:
-          "Jadubot provides an unconditional 7-day money-back guarantee on all paid plans. If you are not completely satisfied with the platform, simply submit a ticket through our portal within 7 days for a prompt refund."
+          "Jadubot provides an unconditional 7-day money-back guarantee on all paid plans. If you are not completely satisfied with the platform, simply message our support team on WhatsApp or email info@jadubot.com within 7 days for a prompt refund."
       }
     ]
   }

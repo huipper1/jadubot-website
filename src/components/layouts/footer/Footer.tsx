@@ -135,11 +135,6 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-[#cecfd2]/80">
               <li>
-                <Link href="/ticket" className="transition-colors hover:text-white">
-                  Support Ticket
-                </Link>
-              </li>
-              <li>
                 <Link href="/faq" className="transition-colors hover:text-white">
                   FAQ
                 </Link>

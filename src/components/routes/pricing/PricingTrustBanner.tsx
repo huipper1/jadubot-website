@@ -96,7 +96,7 @@ export function PricingTrustBanner() {
                 Dedicated Bengali Support
               </h4>
               <p className="mt-2 text-xs leading-relaxed text-slate-300">
-                Get hands-on onboarding, flow troubleshooting, and integration guidance from our Dhaka-based support team over WhatsApp, phone, or live ticket.
+                Get hands-on onboarding, flow troubleshooting, and integration guidance from our Dhaka-based support team over WhatsApp, phone, or live chat.
               </p>
             </div>
           </div>
