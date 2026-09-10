@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   PricingHero,
   PricingCards,
+  PricingTrustBanner,
   PricingComparison,
   PricingFaq,
   PRICING_TIERS
@@ -73,6 +74,7 @@ export default function PricingPage() {
       />
       <PricingHero />
       <PricingCards />
+      <PricingTrustBanner />
       <PricingComparison />
       <PricingFaq />
     </>

@@ -1,7 +1,16 @@
 import { Check, Minus } from "lucide-react";
 import { PopIn } from "@/components/animations";
 
-const COMPARISON_ROWS = [
+interface ComparisonRow {
+  feature: string;
+  category?: string;
+  free: string | boolean;
+  starter: string | boolean;
+  premium: string | boolean;
+  business: string | boolean;
+}
+
+const COMPARISON_ROWS: ComparisonRow[] = [
   { feature: "Connected Accounts", free: "1", starter: "3", premium: "3", business: "Unlimited" },
   { feature: "Facebook Page Automation", free: true, starter: true, premium: true, business: true },
   { feature: "Instagram DM Automation", free: false, starter: false, premium: true, business: true },
@@ -20,53 +29,70 @@ const COMPARISON_ROWS = [
 
 export function PricingComparison() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-[#373a41]/60 bg-[#0c0e12]">
-      <div className="container mx-auto max-w-7xl">
+    <section className="relative py-16 md:py-24 border-t border-white/5 bg-[#080b11]">
+      <div className="container mx-auto max-w-7xl px-4">
         <PopIn className="mx-auto max-w-3xl text-center">
-          <div className="solution-badge">Comparison</div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/25 bg-[#0b162b]/80 px-3.5 py-1 text-xs font-semibold text-blue-200 shadow-sm">
+            Feature Comparison
+          </div>
           <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
-            Compare Plan Features
+            Compare Plan Capabilities
           </h2>
-          <p className="mt-3 text-sm text-[#cecfd2]">
-            A detailed breakdown of every capability across all 4 Jadubot tiers.
+          <p className="mt-3 text-sm text-slate-300">
+            A comprehensive breakdown of every feature, quota, and integration across all 4 Jadubot tiers.
           </p>
         </PopIn>
 
-        <PopIn className="mt-12 overflow-x-auto" start="top 82%">
-          <div className="min-w-[720px] rounded-2xl border border-[#373a41] bg-[#12151c]/90 p-6 backdrop-blur-md">
+        <PopIn className="mt-12 overflow-x-auto" start="top 85%">
+          <div className="min-w-[760px] rounded-2xl border border-white/10 bg-[#0d121c]/90 p-6 backdrop-blur-md">
             <table className="w-full text-left text-sm" aria-label="Feature Comparison Table">
               <thead>
-                <tr className="border-b border-[#373a41] pb-4">
-                  <th className="py-4 font-heading font-bold text-white">Feature</th>
-                  <th className="py-4 font-heading font-bold text-white/80 text-center">Free Trial</th>
-                  <th className="py-4 font-heading font-bold text-white/80 text-center">Starter</th>
-                  <th className="py-4 font-heading font-bold text-[#38bdf8] text-center">Premium (Popular)</th>
-                  <th className="py-4 font-heading font-bold text-white/80 text-center">Business</th>
+                <tr className="border-b border-white/10 pb-4">
+                  <th className="py-4 font-heading font-bold text-white w-1/3">Feature</th>
+                  <th className="py-4 font-heading font-bold text-slate-300 text-center w-1/6">
+                    <div>Free Trial</div>
+                    <div className="text-[11px] font-normal text-slate-400 mt-0.5">৳FREE</div>
+                  </th>
+                  <th className="py-4 font-heading font-bold text-slate-300 text-center w-1/6">
+                    <div>Starter</div>
+                    <div className="text-[11px] font-normal text-slate-400 mt-0.5">৳1,000 / mo</div>
+                  </th>
+                  <th className="py-4 font-heading font-bold text-[#38bdf8] text-center w-1/6 bg-[#0172ff]/10 rounded-t-xl">
+                    <div className="flex items-center justify-center gap-1">
+                      <span>Premium</span>
+                      <span className="rounded-sm bg-[#0172ff] px-1.5 py-0.2 text-[9px] font-bold text-white uppercase">Popular</span>
+                    </div>
+                    <div className="text-[11px] font-medium text-[#38bdf8] mt-0.5">৳3,000 / mo</div>
+                  </th>
+                  <th className="py-4 font-heading font-bold text-slate-300 text-center w-1/6">
+                    <div>Business</div>
+                    <div className="text-[11px] font-normal text-slate-400 mt-0.5">৳5,000 / mo</div>
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#373a41]/40">
+              <tbody className="divide-y divide-white/5">
                 {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.feature} className="hover:bg-white/[0.02]">
+                  <tr key={row.feature} className="hover:bg-white/[0.02] transition-colors">
                     <td className="py-3.5 text-xs font-medium text-white/90">
                       {row.feature}
                     </td>
-                    <td className="py-3.5 text-center text-xs text-[#cecfd2]/80">
+                    <td className="py-3.5 text-center text-xs text-slate-300">
                       {typeof row.free === "boolean" ? (
                         row.free ? (
                           <Check className="mx-auto h-4 w-4 text-emerald-400" />
                         ) : (
-                          <Minus className="mx-auto h-4 w-4 text-[#cecfd2]/30" />
+                          <Minus className="mx-auto h-4 w-4 text-slate-600" />
                         )
                       ) : (
                         row.free
                       )}
                     </td>
-                    <td className="py-3.5 text-center text-xs text-[#cecfd2]/80">
+                    <td className="py-3.5 text-center text-xs text-slate-300">
                       {typeof row.starter === "boolean" ? (
                         row.starter ? (
                           <Check className="mx-auto h-4 w-4 text-emerald-400" />
                         ) : (
-                          <Minus className="mx-auto h-4 w-4 text-[#cecfd2]/30" />
+                          <Minus className="mx-auto h-4 w-4 text-slate-600" />
                         )
                       ) : (
                         row.starter
@@ -77,18 +103,18 @@ export function PricingComparison() {
                         row.premium ? (
                           <Check className="mx-auto h-4 w-4 text-[#38bdf8]" />
                         ) : (
-                          <Minus className="mx-auto h-4 w-4 text-[#cecfd2]/30" />
+                          <Minus className="mx-auto h-4 w-4 text-slate-600" />
                         )
                       ) : (
                         row.premium
                       )}
                     </td>
-                    <td className="py-3.5 text-center text-xs text-[#cecfd2]/80">
+                    <td className="py-3.5 text-center text-xs text-slate-300">
                       {typeof row.business === "boolean" ? (
                         row.business ? (
                           <Check className="mx-auto h-4 w-4 text-emerald-400" />
                         ) : (
-                          <Minus className="mx-auto h-4 w-4 text-[#cecfd2]/30" />
+                          <Minus className="mx-auto h-4 w-4 text-slate-600" />
                         )
                       ) : (
                         row.business
