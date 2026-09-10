@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import {
-  AboutHero,
+  AboutMasthead,
   AboutStats,
+  AboutStory,
   AboutMission,
-  AboutStory
+  AboutLocation,
+  AboutCta
 } from "@/components/routes/about";
 import { siteConfig } from "@/config/site";
 
@@ -88,10 +90,12 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <AboutHero />
+      <AboutMasthead />
       <AboutStats />
-      <AboutMission />
       <AboutStory />
+      <AboutMission />
+      <AboutLocation />
+      <AboutCta />
     </>
   );
 }
