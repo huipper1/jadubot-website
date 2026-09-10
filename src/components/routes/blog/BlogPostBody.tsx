@@ -155,7 +155,7 @@ export function BlogPostBody({
             <div className="mt-8">
               <BlogShareButtons
                 title={meta.title}
-                url={`/blog/${meta.fileSlug}/`}
+                url={`/${meta.slug}/`}
               />
             </div>
           </main>

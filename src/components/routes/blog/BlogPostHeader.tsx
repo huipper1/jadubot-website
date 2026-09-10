@@ -130,7 +130,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
 
           <BlogShareButtons
             title={meta.title}
-            url={`/blog/${meta.fileSlug}/`}
+            url={`/${meta.slug}/`}
             compact
           />
         </div>

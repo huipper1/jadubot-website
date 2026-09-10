@@ -24,13 +24,22 @@ export function getBlogPostBySlug(
     const posts = getAllBlogPosts();
     const decodedSlug = decodeURIComponent(slug);
 
-    const post = posts.find(
-      (p) =>
+    const post = posts.find((p) => {
+      let pDecoded = p.slug;
+      try {
+        pDecoded = decodeURIComponent(p.slug);
+      } catch {
+        // ignore
+      }
+      return (
         p.slug === slug ||
         p.fileSlug === slug ||
         p.canonicalSlug === slug ||
-        p.slug === decodedSlug
-    );
+        pDecoded === slug ||
+        p.slug === decodedSlug ||
+        pDecoded === decodedSlug
+      );
+    });
 
     if (!post) {
       return null;

@@ -131,7 +131,7 @@ export default function BlogPage() {
         "hasPart": posts.map((post) => ({
           "@type": "BlogPosting",
           "headline": post.title,
-          "url": `${siteConfig.url}/blog/${post.fileSlug}/`,
+          "url": `${siteConfig.url}/${post.slug}/`,
           "datePublished": post.date,
           "image": `${siteConfig.url}${post.featuredImage}`,
           "timeRequired": `PT${post.readTimeMinutes}M`

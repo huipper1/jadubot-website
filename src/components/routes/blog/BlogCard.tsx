@@ -15,7 +15,7 @@ export function BlogCard({ post }: BlogCardProps) {
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1422]/80 backdrop-blur-md transition-all duration-300 hover:border-[#0172ff]/40 hover:bg-[#121b2d]/90 hover:shadow-[0_10px_30px_rgba(1,114,255,0.12)] hover:-translate-y-0.5">
       {/* Visual Header */}
       <Link
-        href={`/blog/${post.fileSlug}/`}
+        href={`/${post.slug}/`}
         className="relative aspect-[16/9] w-full overflow-hidden bg-[#070a10] block"
       >
         <Image
@@ -43,7 +43,7 @@ export function BlogCard({ post }: BlogCardProps) {
 
         {/* Title */}
         <h3 className="text-base sm:text-lg font-bold leading-snug text-white transition-colors group-hover:text-[#38bdf8] line-clamp-2">
-          <Link href={`/blog/${post.fileSlug}/`}>
+          <Link href={`/${post.slug}/`}>
             {post.title}
           </Link>
         </h3>
@@ -61,7 +61,7 @@ export function BlogCard({ post }: BlogCardProps) {
           </span>
 
           <Link
-            href={`/blog/${post.fileSlug}/`}
+            href={`/${post.slug}/`}
             className="inline-flex items-center text-xs font-semibold text-[#0172ff] group-hover:text-[#38bdf8] transition-colors"
           >
             <span>Read guide</span>

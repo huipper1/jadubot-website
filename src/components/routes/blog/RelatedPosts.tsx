@@ -41,10 +41,10 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
 
           return (
             <article
-              key={post.fileSlug}
+              key={post.slug}
               className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0e1422]/80 backdrop-blur-md transition-all duration-300 hover:border-[#0172ff]/40 hover:bg-[#111a2e]/90 hover:shadow-[0_8px_30px_rgba(1,114,255,0.15)]"
             >
-              <Link href={`/blog/${post.fileSlug}/`} className="relative aspect-[16/9] w-full overflow-hidden bg-[#070a10]">
+              <Link href={`/${post.slug}/`} className="relative aspect-[16/9] w-full overflow-hidden bg-[#070a10]">
                 <Image
                   src={post.featuredImage || "/assets/images/shared/jadubot-logo.png"}
                   alt={post.title}
@@ -66,7 +66,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
                 </div>
 
                 <h3 className="mt-2.5 text-sm font-bold text-white line-clamp-2 leading-snug group-hover:text-[#38bdf8] transition-colors">
-                  <Link href={`/blog/${post.fileSlug}/`}>
+                  <Link href={`/${post.slug}/`}>
                     {post.title}
                   </Link>
                 </h3>
@@ -77,7 +77,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
 
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <Link
-                    href={`/blog/${post.fileSlug}/`}
+                    href={`/${post.slug}/`}
                     className="inline-flex items-center text-xs font-semibold text-[#0172ff] hover:text-[#38bdf8] transition-colors"
                   >
                     <span>Read guide</span>

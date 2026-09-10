@@ -88,12 +88,30 @@ export function getAllBlogPostsWithStats(): EnrichedBlogPostMeta[] {
  */
 export function getRelatedBlogPosts(currentSlug: string, limit = 3): BlogPostMeta[] {
   const allPosts = getAllBlogPosts();
+  let decodedCurrent = currentSlug;
+  try {
+    decodedCurrent = decodeURIComponent(currentSlug);
+  } catch {
+    // ignore
+  }
+
   return allPosts
-    .filter(
-      (post) =>
+    .filter((post) => {
+      let decodedPost = post.slug;
+      try {
+        decodedPost = decodeURIComponent(post.slug);
+      } catch {
+        // ignore
+      }
+
+      return (
         post.fileSlug !== currentSlug &&
         post.slug !== currentSlug &&
-        post.canonicalSlug !== currentSlug
-    )
+        post.canonicalSlug !== currentSlug &&
+        decodedPost !== currentSlug &&
+        post.slug !== decodedCurrent &&
+        decodedPost !== decodedCurrent
+      );
+    })
     .slice(0, limit);
 }

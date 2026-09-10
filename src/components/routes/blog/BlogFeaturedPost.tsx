@@ -17,7 +17,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
         {/* Left: Featured Visual */}
         <Link
-          href={`/blog/${post.fileSlug}/`}
+          href={`/${post.slug}/`}
           className="relative aspect-[16/9] lg:aspect-auto lg:col-span-7 overflow-hidden bg-[#070b13] min-h-[260px] sm:min-h-[340px] lg:min-h-full block"
         >
           <Image
@@ -49,7 +49,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
 
             {/* Title */}
             <h2 className="font-heading mt-4 text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-snug transition-colors [text-wrap:balance]">
-              <Link href={`/blog/${post.fileSlug}/`} className="hover:opacity-95">
+              <Link href={`/${post.slug}/`} className="hover:opacity-95">
                 <FormattedBlogTitle title={post.title} />
               </Link>
             </h2>
@@ -75,7 +75,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
             </div>
 
             <Link
-              href={`/blog/${post.fileSlug}/`}
+              href={`/${post.slug}/`}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#0172ff] hover:bg-[#0052cc] px-4 py-2 rounded-xl transition-all shadow-md shadow-[#0172ff]/25 group-hover:translate-x-0.5"
             >
               <span>Read playbook</span>
