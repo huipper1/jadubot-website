@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  CpaHero,
+  CpaMasthead,
   CpaFeatures,
   CpaWorkflow,
   CpaPricing,
@@ -84,7 +84,7 @@ export default function CpaMarketingAutomationPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CpaHero />
+      <CpaMasthead />
       <CpaFeatures />
       <CpaWorkflow />
       <CpaPricing />

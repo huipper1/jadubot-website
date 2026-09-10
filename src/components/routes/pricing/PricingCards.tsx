@@ -51,10 +51,19 @@ export function PricingCards({
             >
               {/* Subtle top rim glow on Popular card */}
               {isHighlight && (
-                <div
-                  className="pointer-events-none absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#38bdf8] to-transparent"
-                  aria-hidden="true"
-                />
+                <>
+                  <div
+                    className="pointer-events-none absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#38bdf8] to-transparent"
+                    aria-hidden="true"
+                  />
+                  {/* Top-Center Floating Most Popular Tag */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#0172ff] to-[#38bdf8] px-3.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(1,114,255,0.45)] whitespace-nowrap">
+                      <Sparkles className="h-2.5 w-2.5 text-white" />
+                      <span>{tier.badge || "Most Popular"}</span>
+                    </span>
+                  </div>
+                </>
               )}
 
               <div>
@@ -63,16 +72,8 @@ export function PricingCards({
                   <h3 className="font-heading text-lg font-bold text-white">
                     {tier.name}
                   </h3>
-                  {tier.badge && (
-                    <span
-                      className={cn(
-                        "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider shadow-sm",
-                        isHighlight
-                          ? "bg-gradient-to-r from-[#0172ff] to-[#38bdf8] text-white shadow-[0_0_12px_rgba(1,114,255,0.4)]"
-                          : "border border-white/10 bg-white/5 text-slate-300"
-                      )}
-                    >
-                      {isHighlight && <Sparkles className="h-2.5 w-2.5 text-white" />}
+                  {!isHighlight && tier.badge && (
+                    <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-300 shadow-sm">
                       {tier.badge}
                     </span>
                   )}

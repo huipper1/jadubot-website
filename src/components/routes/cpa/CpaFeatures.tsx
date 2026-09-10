@@ -1,66 +1,84 @@
-import { Zap, Link2, Filter, BarChart3 } from "lucide-react";
+"use client";
+
 import { PopIn } from "@/components/animations";
 
-const CPA_FEATURES = [
+const CAPABILITIES = [
   {
+    num: "01",
     title: "Comment-to-Postback Funnels",
+    tag: "Instant DM Injection",
     description:
-      "When users engage with your affiliate promotion posts, Jadubot filters warm traffic and routes them directly to high-converting CPA landers with dynamic clickID tracking.",
-    icon: Link2
+      "When users comment on your sponsored posts or dark ads, Jadubot instantly likes the comment, drops a public engagement reply to boost organic viral reach, and delivers a private DM with dynamic {clickid} parameters directly into their inbox."
   },
   {
+    num: "02",
     title: "Server-to-Server (S2S) Postbacks",
+    tag: "Zero Pixel Loss",
     description:
-      "Real-time webhook and S2S integration with MaxBounty, ClickDealer, Mobidea, and custom tracking platforms (Voluum, RedTrack, BeMob).",
-    icon: Zap
+      "Real-time server-side webhook syncing with Voluum, RedTrack, BeMob, MaxBounty, ClickDealer, and Everflow. Bypasses browser ad blockers, third-party cookie restrictions, and iOS privacy drop-offs with 100% conversion accuracy."
   },
   {
-    title: "Smart Traffic & Geo Filtering",
+    num: "03",
+    title: "Smart Traffic & Geo Routing",
+    tag: "Dynamic Targeting",
     description:
-      "Route visitors to location-specific affiliate offers based on country, device type (iOS vs Android), and connection carrier automatically.",
-    icon: Filter
+      "Automatically route prospects to location-specific CPA offers based on country, device operating system (iOS vs Android), and carrier connection. Ensure zero wasted ad spend on unqualified clicks."
   },
   {
-    title: "Real-time Conversion Analytics",
+    num: "04",
+    title: "Anti-Ban Algorithmic Pacing",
+    tag: "Meta API Safe",
     description:
-      "Live dashboards showing message open rates, affiliate link click-through rates (CTR), earnings per click (EPC), and overall campaign ROI.",
-    icon: BarChart3
+      "Engineered with randomized delay intervals, spintax message spinning, and simulated human typing indicators. Keeps sending velocity looking entirely organic and well within official Meta Graph API rate thresholds."
   }
 ];
 
 export function CpaFeatures() {
   return (
-    <section className="relative py-16 md:py-24">
-      <div className="container mx-auto max-w-7xl">
-        <PopIn className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Engineered for High-Volume Affiliate Campaigns
+    <section className="relative py-16 md:py-24 border-t border-white/10 bg-[#070a10]">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+        <PopIn className="max-w-3xl">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#38bdf8]">
+            Technical Capabilities
+          </span>
+          <h2 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+            Engineered for high-volume affiliate campaigns.
           </h2>
-          <p className="mt-4 text-base text-muted-foreground">
-            Eliminate wasted ad clicks and drive motivated prospects directly into high-payout offers.
+          <p className="mt-4 text-base text-slate-400">
+            Eliminate wasted ad clicks, bypass manual inbox limitations, and route motivated prospects straight into your highest-converting CPA funnels.
           </p>
         </PopIn>
 
-        <PopIn stagger={0.1} className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {CPA_FEATURES.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="glass-card glass-card-hover group rounded-2xl p-8 transition-all duration-300"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand transition-transform group-hover:scale-110">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-foreground group-hover:text-brand">
+        {/* Unboxed Technical Capabilities Matrix - Zero Cards */}
+        <PopIn stagger={0.08} className="mt-12 sm:mt-16 divide-y divide-white/10 border-y border-white/10">
+          {CAPABILITIES.map((item) => (
+            <div
+              key={item.num}
+              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline transition-colors hover:bg-white/[0.015]"
+            >
+              <div className="md:col-span-2 flex items-center gap-3">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-[#38bdf8]/80">
+                  {item.num}
+                </span>
+                <span className="inline-block md:hidden rounded-full border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#38bdf8]">
+                  {item.tag}
+                </span>
+              </div>
+              <div className="md:col-span-4 space-y-1.5">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <span className="hidden md:inline-block rounded-full border border-blue-500/20 bg-blue-500/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#38bdf8]">
+                  {item.tag}
+                </span>
+              </div>
+              <div className="md:col-span-6">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
                   {item.description}
                 </p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </PopIn>
       </div>
     </section>
