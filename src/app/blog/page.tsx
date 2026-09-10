@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { BlogHero, BlogGrid } from "@/components/routes/blog";
-import { getAllBlogPosts } from "@/lib/content";
+import { getAllBlogPostsWithStats } from "@/lib/content";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Blog - Jadubot",
+  title: "Blog & Insights | Jadubot",
   description:
     "Jadubot-এর ব্লগে পড়ুন AI, চ্যাটবট, মার্কেটিং এবং অটোমেশন সম্পর্কিত ইনসাইটস এবং স্ট্র্যাটেজি। Level up your digital presence!",
   keywords: [
-    "Banglaeshi AI-powered chatbot service provider",
+    "Bangladeshi AI-powered chatbot service provider",
     "marketing automation services",
     "Facebook Messenger automation",
     "Instagram DM automation",
@@ -17,29 +17,10 @@ export const metadata: Metadata = {
     "SMS marketing",
     "জাদুবট",
     "email marketing",
-    "জাদুবট.কম",
     "auto-comments",
     "auto-replies",
-    "sales assistance",
-    "customer engagement",
-    "e-commerce integration",
-    "chatbot marketing",
-    "automated marketing campaigns",
-    "AI marketing tools",
-    "business automation",
-    "social media automation",
-    "comment automation",
     "customer support automation",
-    "অটোমেশন টুল",
-    "lead generation automation",
-    "predictive analytics in marketing",
-    "marketing workflow automation",
-    "automate for small businesses",
-    "মার্কেটিং টুল",
-    "AI-driven marketing",
-    "automated customer interactions",
-    "marketing automate tools for businesses",
-    "automated chatbots for sales"
+    "অটোমেশন টুল"
   ],
   robots: {
     index: true,
@@ -52,9 +33,9 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/blog/`
   },
   openGraph: {
-    title: "Blog Jadubot – AI Automation Tips, Tutorials & Marketing Tricks",
+    title: "Blog & Playbooks – Jadubot AI Automation",
     description:
-      "Explore Jadubot-এর ব্লগ যেখানে আপনি পাবেন AI chatbot, automation tools, Facebook Messenger marketing এবং digital growth নিয়ে টিপস ও ট্রিকস! Stay ahead in smart business with Jadubot.",
+      "Explore Jadubot-এর ব্লগ যেখানে আপনি পাবেন AI chatbot, automation tools, Facebook Messenger marketing এবং digital growth নিয়ে টিপস ও ট্রিকস!",
     url: `${siteConfig.url}/blog/`,
     siteName: "Jadubot",
     locale: "en_US",
@@ -72,16 +53,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog Jadubot – AI Automation Tips, Tutorials & Marketing Tricks",
+    title: "Blog & Playbooks – Jadubot AI Automation",
     description:
-      "Explore Jadubot-এর ব্লগ যেখানে আপনি পাবেন AI chatbot, automation tools, Facebook Messenger marketing এবং digital growth নিয়ে টিপস ও ট্রিকস! Stay ahead in smart business with Jadubot.",
+      "Explore Jadubot-এর ব্লগ যেখানে আপনি পাবেন AI chatbot, automation tools, Facebook Messenger marketing এবং digital growth নিয়ে টিপস ও ট্রিকস!",
     site: "@jadubot",
     images: [`${siteConfig.url}/assets/images/blog/Jadubot-Social-Preview-blog.jpg`]
   }
 };
 
 export default function BlogPage() {
-  const posts = getAllBlogPosts();
+  const posts = getAllBlogPostsWithStats();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -136,7 +117,7 @@ export default function BlogPage() {
         "@type": "CollectionPage",
         "@id": `${siteConfig.url}/blog/#webpage`,
         "url": `${siteConfig.url}/blog/`,
-        "name": "Blog - Jadubot",
+        "name": "Blog & Playbooks - Jadubot",
         "isPartOf": {
           "@id": `${siteConfig.url}/#website`
         },
@@ -145,13 +126,14 @@ export default function BlogPage() {
           "@id": `${siteConfig.url}/blog/#breadcrumb`
         },
         "description":
-          "Jadubot-এর ব্লগে পড়ুন AI, চ্যাটবট, মার্কেটিং এবং অটোমেশন সম্পর্কিত ইনসাইটস এবং স্ট্র্যাটেজি। Level up your digital presence!",
+          "Jadubot-এর ব্লগে পড়ুন AI, চ্যাটবট, মার্কেটিং এবং অটোমেশন সম্পর্কিত ইনসাইটস এবং স্ট্র্যাটেজি।",
         "hasPart": posts.map((post) => ({
           "@type": "BlogPosting",
           "headline": post.title,
           "url": `${siteConfig.url}/blog/${post.fileSlug}/`,
           "datePublished": post.date,
-          "image": `${siteConfig.url}${post.featuredImage}`
+          "image": `${siteConfig.url}${post.featuredImage}`,
+          "timeRequired": `PT${post.readTimeMinutes}M`
         }))
       }
     ]

@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, User, Clock, FileText, ChevronRight } from "lucide-react";
 import type { BlogPostMeta } from "@/types/content";
-import type { BlogStats } from "@/lib/content";
-import { formatBlogDate } from "@/lib/content";
+import type { BlogStats } from "@/lib/content/blog-utils";
+import { formatBlogDate } from "@/lib/content/blog-utils";
 import { BlogShareButtons } from "./BlogShareButtons";
+import { FormattedBlogTitle } from "./FormattedBlogTitle";
+import { PopIn } from "@/components/animations";
 
 interface BlogPostHeaderProps {
   meta: BlogPostMeta;
@@ -37,7 +39,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto max-w-5xl px-4 sm:px-6">
+      <PopIn className="container mx-auto max-w-5xl px-4 sm:px-6">
         {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
@@ -78,8 +80,8 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-white leading-[1.2] [text-wrap:balance]">
-          {meta.title}
+        <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-white leading-[1.25] [text-wrap:balance]">
+          <FormattedBlogTitle title={meta.title} />
         </h1>
 
         {/* Lead excerpt if present */}
@@ -145,7 +147,7 @@ export function BlogPostHeader({ meta, stats }: BlogPostHeaderProps) {
           />
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
         </div>
-      </div>
+      </PopIn>
     </header>
   );
 }

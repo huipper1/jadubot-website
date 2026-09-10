@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ListTree, ChevronDown } from "lucide-react";
-import type { BlogHeading } from "@/lib/content";
+import type { BlogHeading } from "@/lib/content/blog-utils";
 
 interface TableOfContentsProps {
   headings: BlogHeading[];

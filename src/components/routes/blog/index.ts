@@ -7,3 +7,6 @@ export * from "./ReadingProgress";
 export * from "./TableOfContents";
 export * from "./BlogShareButtons";
 export * from "./RelatedPosts";
+export * from "./BlogFeaturedPost";
+export * from "./BlogCtaBanner";
+export * from "./FormattedBlogTitle";

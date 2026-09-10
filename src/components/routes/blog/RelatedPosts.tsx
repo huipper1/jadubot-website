@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, ArrowRight, BookOpen } from "lucide-react";
 import type { BlogPostMeta } from "@/types/content";
-import { formatBlogDate } from "@/lib/content";
+import { formatBlogDate } from "@/lib/content/blog-utils";
+import { PopIn } from "@/components/animations";
 
 interface RelatedPostsProps {
   posts: BlogPostMeta[];
@@ -15,7 +16,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
 
   return (
     <section className="mt-20 pt-16 border-t border-white/10" aria-labelledby="related-posts-heading">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <PopIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8]">
             <BookOpen className="h-3.5 w-3.5" />
@@ -32,9 +33,9 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
           <span>View all articles</span>
           <ArrowRight className="ml-1 h-3.5 w-3.5" />
         </Link>
-      </div>
+      </PopIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <PopIn stagger={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts.map((post) => {
           const dateStr = formatBlogDate(post.date);
 
@@ -87,7 +88,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
             </article>
           );
         })}
-      </div>
+      </PopIn>
     </section>
   );
 }

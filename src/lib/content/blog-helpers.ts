@@ -1,23 +1,18 @@
+import fs from "node:fs";
+import path from "node:path";
 import { Marked } from "marked";
 import { getAllBlogPosts } from "./get-blog-posts";
 import type { BlogPostMeta } from "@/types/content";
+import {
+  BlogHeading,
+  BlogStats,
+  ParsedBlogContent,
+  EnrichedBlogPostMeta,
+  getBlogTopic,
+  formatBlogDate
+} from "./blog-utils";
 
-export interface BlogHeading {
-  id: string;
-  text: string;
-  level: number;
-}
-
-export interface BlogStats {
-  words: number;
-  readTimeMinutes: number;
-}
-
-export interface ParsedBlogContent {
-  html: string;
-  headings: BlogHeading[];
-  stats: BlogStats;
-}
+export * from "./blog-utils";
 
 /**
  * Parses markdown into accessible HTML with anchor IDs for headings (H2, H3),
@@ -64,6 +59,31 @@ export function parseBlogMarkdown(rawContent: string): ParsedBlogContent {
 }
 
 /**
+ * Retrieves all blog posts enriched with calculated reading time and topic classification
+ */
+export function getAllBlogPostsWithStats(): EnrichedBlogPostMeta[] {
+  const posts = getAllBlogPosts();
+  return posts.map((post) => {
+    let readTimeMinutes = 6;
+    try {
+      const mdxPath = path.join(process.cwd(), "content", "blog", `${post.fileSlug}.mdx`);
+      if (fs.existsSync(mdxPath)) {
+        const raw = fs.readFileSync(mdxPath, "utf8");
+        const words = raw.trim().split(/\s+/).filter(Boolean).length;
+        readTimeMinutes = Math.max(1, Math.ceil(words / 180));
+      }
+    } catch {
+      // fallback
+    }
+    return {
+      ...post,
+      readTimeMinutes,
+      topic: getBlogTopic(post.fileSlug, post.title)
+    };
+  });
+}
+
+/**
  * Returns related blog posts excluding the active post
  */
 export function getRelatedBlogPosts(currentSlug: string, limit = 3): BlogPostMeta[] {
@@ -76,21 +96,4 @@ export function getRelatedBlogPosts(currentSlug: string, limit = 3): BlogPostMet
         post.canonicalSlug !== currentSlug
     )
     .slice(0, limit);
-}
-
-/**
- * Safe date formatter
- */
-export function formatBlogDate(dateString: string): string {
-  try {
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString;
-    return new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric"
-    }).format(date);
-  } catch {
-    return dateString;
-  }
 }
