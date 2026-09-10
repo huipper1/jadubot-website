@@ -429,7 +429,7 @@ export function Header() {
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <AnimatedThemeToggler
             theme={currentTheme}
             onThemeChange={(newTheme) => setTheme(newTheme)}
