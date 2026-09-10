@@ -106,9 +106,9 @@ export default function HomePage() {
       <HomeSolutions />
       <HomeFeatures />
       <HomeProcess />
-      <HomeTrialCta />
       <HomePricing />
       <HomeFaq />
+      <HomeTrialCta />
     </>
   );
 }

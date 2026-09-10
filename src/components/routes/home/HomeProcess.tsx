@@ -107,16 +107,6 @@ export function HomeProcess() {
         >
           {/* Central Logo & Radial Glow */}
           <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center w-[200px] h-[200px]">
-            {/* Diffuse Conic/Radial Glow behind logo */}
-            <div
-              className="absolute w-[280px] h-[280px] rounded-full opacity-65 blur-[45px] pointer-events-none"
-              style={{
-                background:
-                  "conic-gradient(from 180deg at 50% 50%, #93c5fd 63deg, #0052cc 140deg, #0172ff 180deg, #38bdf8 238deg, #e0f2fe 305deg, #2563eb 360deg)"
-              }}
-            />
-            <div className="absolute w-[180px] h-[180px] rounded-full bg-[#0172ff]/40 blur-[30px] pointer-events-none" />
-
             {/* Crisp Logo Image */}
             <Image
               src="/assets/images/home/three-steps/step-logo.png"
