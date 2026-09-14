@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { BlogHero, BlogGrid } from "@/components/routes/blog";
+import { BlogCtaBanner, BlogGrid } from "@/components/routes/blog";
 import { getAllBlogPostsWithStats } from "@/lib/content";
 import { siteConfig } from "@/config/site";
+import { PopIn } from "@/components/animations";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Jadubot",
@@ -145,14 +146,13 @@ export default function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogHero />
       <BlogGrid posts={posts} />
-      {/* <UnifiedCta
-        badge="GET STARTED WITH JADUBOT"
-        title="Ready to Automate Your Business and"
-        highlightedTitle="Scale Conversions?"
-        description="Launch your AI assistant on Facebook, Instagram, and Messenger in minutes. No coding required."
-      /> */}
+      {/* 4. Editorial CTA Banner */}
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+        <PopIn delay={0.1}>
+          <BlogCtaBanner />
+        </PopIn>
+      </div>
     </>
   );
 }

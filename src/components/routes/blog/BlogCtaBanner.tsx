@@ -14,16 +14,16 @@ export function BlogCtaBanner() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-snug">
           Ready to put your Facebook &amp; Instagram sales on autopilot?
         </h2>
 
-        <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
+        <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
           Join over 1,200+ Bangladeshi merchants using Jadubot to reply to comments within seconds, send product prices directly to Messenger inboxes, and capture midnight orders effortlessly.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-muted-foreground">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-muted-foreground">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
             <span>Free forever starter plan</span>
@@ -38,7 +38,7 @@ export function BlogCtaBanner() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href="https://app.jadubot.com/"
             target="_blank"
