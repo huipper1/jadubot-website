@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Hind_Siliguri } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, Hind_Siliguri } from "next/font/google";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -14,10 +14,10 @@ import { Providers } from "@/providers";
 
 import "@/tailwind";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700"]
+  weight: ["500", "600", "700", "800"]
 });
 
 const inter = Inter({
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={siteConfig.locale} suppressHydrationWarning className="dark">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${hindSiliguri.variable} font-sans flex min-h-screen w-full flex-col bg-background text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
+        className={`${plusJakartaSans.variable} ${inter.variable} ${hindSiliguri.variable} font-sans flex min-h-screen w-full flex-col bg-background text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
       >
         <Providers>
           <Header />
