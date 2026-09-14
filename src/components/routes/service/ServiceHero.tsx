@@ -1,57 +1,59 @@
 "use client";
 
-import Image from "next/image";
 import { PopIn } from "@/components/animations";
+import { CALENDLY_DEMO_URL } from "@/config/site";
+import { ServiceGrid } from "./ServiceGrid";
 
 export function ServiceHero() {
   return (
-    <section className="relative flex min-h-[560px] md:min-h-[620px] lg:min-h-[680px] items-start justify-center overflow-hidden pt-32 pb-20 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32">
-      {/* Background Graphic with Orbital Social Icons and Glowing Horizon */}
-      <div className="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
-        {/* Dark Mode Background Graphic */}
-        <Image
-          src="/assets/images/service/hero-bg.png"
-          alt="Jadubot Services Background"
-          fill
-          priority
-          quality={95}
-          className="hidden dark:block object-cover object-center"
-        />
-        {/* Dark Mode Overlays */}
-        <div className="hidden dark:block absolute inset-0 bg-background/15" />
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80" />
-        <div className="hidden dark:block absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/60 to-transparent" />
-
-        {/* Light Mode High-Contrast Background Graphic */}
-        <Image
-          src="/assets/images/service/hero-bg-light.png"
-          alt="Jadubot Services Background"
-          fill
-          priority
-          quality={95}
-          className="block dark:hidden object-cover object-center"
-        />
-        {/* Light Mode Overlays */}
-        <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/90" />
-        <div className="dark:hidden absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent" />
+    <section className="relative pt-28 sm:pt-32 md:pt-36 pb-4 sm:pb-6 overflow-visible">
+      {/* Ambient background glow without background images */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[550px] -z-10 select-none overflow-hidden">
+        {/* Dark Mode Ambient Radial Glow */}
+        <div className="hidden dark:block absolute top-12 left-1/2 -translate-x-1/2 h-[420px] w-[800px] rounded-full bg-[#0172ff]/15 blur-[140px]" />
+        
+        {/* Light Mode Soft Sky Ambient Glow */}
+        <div className="dark:hidden absolute top-8 left-1/2 -translate-x-1/2 h-[380px] w-[750px] rounded-full bg-gradient-to-b from-primary/12 via-sky-300/10 to-transparent blur-3xl" />
       </div>
-    
+
       <div className="container relative z-10 mx-auto max-w-7xl px-4 text-center">
-        <PopIn className="mx-auto max-w-3xl">
-          {/* Main Headline */}
-          <h1 className="font-sans text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
-            Powerful Automations <br />
-            for{" "}
-            <span className="bg-gradient-to-r from-primary via-[#0052cc] to-primary dark:from-[#93c5fd] dark:via-[#38bdf8] dark:to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(21,93,252,0.3)]">
-              Modern Businesses
+        <PopIn className="mx-auto max-w-4xl">
+          {/* Main Headline with Jadubot Signature Gradient */}
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-extrabold tracking-tight text-foreground leading-[1.12] [text-wrap:balance]">
+            Automate your business. <br />
+            <span className="bg-gradient-to-r from-primary via-[#0052cc] to-primary dark:from-[#93c5fd] dark:via-[#38bdf8] dark:to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(21,93,252,0.3)]">
+              Save hours every day.
             </span>
           </h1>
 
-          {/* Subtitle Paragraph */}
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
-            From customer engagement to lead conversion, our automation solutions help you save time, boost sales, and grow faster.
+          {/* Subtitle with Theme Typography */}
+          <p className="mx-auto mt-4 sm:mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
+            We design and deploy AI systems that eliminate manual work, reduce costs, and scale your operations — fast.
           </p>
+
+          {/* Dual Pill CTA Buttons matching Website Theme */}
+          <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+            <a
+              href={CALENDLY_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_25px_rgba(1,114,255,0.4)] transition-all hover:scale-[1.02]"
+            >
+              <span>Book a free call</span>
+            </a>
+            <a
+              href="#services-showcase"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-card/80 hover:bg-card text-foreground px-7 py-3.5 text-sm font-semibold backdrop-blur-md transition-all hover:border-primary/50 shadow-sm hover:scale-[1.02]"
+            >
+              <span>See how it works</span>
+            </a>
+          </div>
         </PopIn>
+      </div>
+
+      {/* Service Grid Showcase Stage - Positioned right below hero CTA buttons */}
+      <div className="mt-6 sm:mt-8">
+        <ServiceGrid />
       </div>
     </section>
   );

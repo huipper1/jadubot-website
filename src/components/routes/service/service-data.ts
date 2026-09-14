@@ -124,7 +124,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     imageAlt: "Enterprise & Custom AI Training with glowing 3D AI neural core",
     imageWidth: 763,
     imageHeight: 301,
-    layout: "content-left",
+    layout: "content-right",
     iconType: "ai"
   }
 ];
