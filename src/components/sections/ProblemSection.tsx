@@ -196,7 +196,7 @@ export function ProblemSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="solution-badge">
-            <AlertCircle className="h-3.5 w-3.5 text-[#38bdf8]" />
+            <AlertCircle className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
             <span>Problem</span>
           </div>
 
@@ -221,21 +221,21 @@ export function ProblemSection() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/90 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-[#0172ff]/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/90 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
                 {/* Subtle top edge accent glow line matching cards */}
                 <div
-                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-[#0172ff]/45 to-transparent"
+                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-primary/45 to-transparent"
                   aria-hidden="true"
                 />
 
                 <div>
                   {/* Header: Icon & Number Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#0172ff]/30 bg-[#0172ff]/10 text-[#38bdf8] transition-colors group-hover:bg-[#0172ff] group-hover:text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary dark:text-[#38bdf8] transition-colors group-hover:bg-primary group-hover:text-white">
                       <Icon className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#38bdf8]/90 px-2 py-0.5 rounded border border-[#0172ff]/25 bg-[#0172ff]/10">
+                    <span className="font-mono text-xs font-bold text-primary dark:text-[#38bdf8]/90 px-2 py-0.5 rounded border border-primary/25 bg-primary/10">
                       0{card.number}
                     </span>
                   </div>

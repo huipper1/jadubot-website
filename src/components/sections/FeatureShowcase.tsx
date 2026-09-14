@@ -176,7 +176,7 @@ export function FeatureShowcase() {
             <div>
               {/* Static Eyebrow Badge */}
               <div className="solution-badge inline-flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
+                <Sparkles className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
                 <span>Features</span>
               </div>
 
@@ -197,7 +197,7 @@ export function FeatureShowcase() {
                   className="absolute inset-0 flex flex-col justify-start"
                 >
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-[11px] sm:text-xs font-bold text-[#38bdf8] px-2 sm:px-2.5 py-0.5 rounded-full border border-[#0172ff]/30 bg-[#0172ff]/10">
+                    <span className="font-mono text-[11px] sm:text-xs font-bold text-primary dark:text-[#38bdf8] px-2 sm:px-2.5 py-0.5 rounded-full border border-primary/30 bg-primary/10">
                       {feat.number}
                     </span>
                     <h3 className="font-heading text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground tracking-tight">

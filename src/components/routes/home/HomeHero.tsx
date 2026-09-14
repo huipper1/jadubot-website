@@ -25,19 +25,19 @@ export function HomeHero() {
         <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
 
         {/* Light Mode Elegant Architectural Grid & Ambient Glow */}
-        <div className="dark:hidden absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_65%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70" />
-        <div className="dark:hidden absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[800px] rounded-full bg-gradient-to-b from-primary/12 via-sky-300/8 to-transparent blur-3xl pointer-events-none" />
+        <div className="dark:hidden absolute inset-0 bg-[linear-gradient(to_right,#dbeafe_1px,transparent_1px),linear-gradient(to_bottom,#dbeafe_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_65%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60" />
+        <div className="dark:hidden absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[800px] rounded-full bg-gradient-to-b from-primary/15 via-sky-300/10 to-transparent blur-3xl pointer-events-none" />
         <div className="dark:hidden absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10 text-center">
         <div ref={contentRef} className="mx-auto max-w-6xl will-change-transform origin-center">
-          {/* LazyChat Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-md border border-border bg-background p-1 text-xs font-medium text-muted-foreground shadow-sm">
-            <span className="rounded-sm bg-card px-2.5 py-1 text-foreground font-semibold">
+          {/* Pill Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+            <span className="rounded-full bg-primary/10 text-primary px-2.5 py-0.5 font-semibold">
               New feature
             </span>
-            <span className="flex items-center gap-1 pr-2">
+            <span className="flex items-center gap-1 pr-1">
               recommendation engine
               <ArrowRight className="h-3 w-3 text-primary" />
             </span>

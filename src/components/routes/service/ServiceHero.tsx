@@ -41,7 +41,7 @@ export function ServiceHero() {
         <PopIn className="mx-auto max-w-3xl">
           {/* Glowing Pill Badge */}
           <div className="solution-badge">
-            <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+            <Sparkles className="h-3.5 w-3.5 text-primary dark:text-blue-400" />
             <span>OUR SERVICES</span>
           </div>
 
@@ -49,7 +49,7 @@ export function ServiceHero() {
           <h1 className="font-sans mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
             Powerful Automations <br />
             for{" "}
-            <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
+            <span className="bg-gradient-to-r from-primary via-[#0052cc] to-primary dark:from-[#93c5fd] dark:via-[#38bdf8] dark:to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(21,93,252,0.3)]">
               Modern Businesses
             </span>
           </h1>

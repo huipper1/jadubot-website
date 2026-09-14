@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useSyncExternalStore } from "react"
 import { Moon, Sun } from "lucide-react"
 import { flushSync } from "react-dom"
 
@@ -150,6 +150,23 @@ function getThemeTransitionClipPaths(
   }
 }
 
+const subscribeDarkTheme = (callback: () => void) => {
+  if (typeof document === "undefined") return () => {}
+  const observer = new MutationObserver(callback)
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  })
+  return () => observer.disconnect()
+}
+
+const getDarkSnapshot = () =>
+  typeof document !== "undefined"
+    ? document.documentElement.classList.contains("dark")
+    : true
+
+const getServerDarkSnapshot = () => true
+
 export const AnimatedThemeToggler = ({
   className,
   duration = 400,
@@ -161,8 +178,12 @@ export const AnimatedThemeToggler = ({
 }: AnimatedThemeTogglerProps) => {
   const shape = variant ?? "circle"
   const isControlled = theme !== undefined
-  const [internalIsDark, setInternalIsDark] = useState(false)
-  const isDark = isControlled ? theme === "dark" : internalIsDark
+  const externalIsDark = useSyncExternalStore(
+    subscribeDarkTheme,
+    getDarkSnapshot,
+    getServerDarkSnapshot
+  )
+  const isDark = isControlled ? theme === "dark" : externalIsDark
   const buttonRef = useRef<HTMLButtonElement>(null)
   const isTransitioningRef = useRef(false)
   const activeAnimRef = useRef<Animation | null>(null)
@@ -191,27 +212,11 @@ export const AnimatedThemeToggler = ({
       document.documentElement.classList.remove("dark")
       document.documentElement.classList.add("light")
       document.documentElement.style.colorScheme = "light"
-      setInternalIsDark(false)
     } else if (savedTheme === "dark") {
       document.documentElement.classList.add("dark")
       document.documentElement.classList.remove("light")
       document.documentElement.style.colorScheme = "dark"
-      setInternalIsDark(true)
-    } else {
-      setInternalIsDark(document.documentElement.classList.contains("dark"))
     }
-
-    const updateTheme = () => {
-      setInternalIsDark(document.documentElement.classList.contains("dark"))
-    }
-
-    const observer = new MutationObserver(updateTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    })
-
-    return () => observer.disconnect()
   }, [isControlled])
 
   const toggleTheme = useCallback(() => {
@@ -254,7 +259,6 @@ export const AnimatedThemeToggler = ({
       if (isControlled) {
         onThemeChange?.(newTheme ? "dark" : "light")
       } else {
-        setInternalIsDark(newTheme)
         localStorage.setItem("theme", newTheme ? "dark" : "light")
       }
     }

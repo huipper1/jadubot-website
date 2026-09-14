@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -101,20 +101,22 @@ const RESOURCE_LINKS = [
   }
 ];
 
+const emptySubscribe = () => () => {};
+
 export function Header() {
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<"industries" | "resources" | null>(null);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const currentTheme = mounted ? (resolvedTheme === "light" ? "light" : "dark") : "dark";
 
@@ -433,14 +435,14 @@ export function Header() {
           <AnimatedThemeToggler
             theme={currentTheme}
             onThemeChange={(newTheme) => setTheme(newTheme)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card/60 text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
             aria-label="Toggle theme"
           />
           <a
             href="https://app.jadubot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-medium text-muted-foreground hover:text-foreground px-3 py-1.5 transition-colors"
+            className="text-xs font-medium rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-foreground/85 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-200"
           >
             Portal Login
           </a>
@@ -448,7 +450,7 @@ export function Header() {
             href={CALENDLY_DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs !py-2 !px-4 shadow-[0_0_20px_rgba(1,114,255,0.35)]"
+            className="btn-primary text-xs !py-2 !px-4 shadow-[0_4px_16px_rgba(21,93,252,0.3)]"
           >
             <span>Book a live demo</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -460,13 +462,13 @@ export function Header() {
           <AnimatedThemeToggler
             theme={currentTheme}
             onThemeChange={(newTheme) => setTheme(newTheme)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card/60 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
             aria-label="Toggle theme"
           />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card/60 text-foreground transition-colors hover:border-primary"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-foreground transition-colors hover:border-primary"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -669,7 +671,7 @@ export function Header() {
                 <AnimatedThemeToggler
                   theme={currentTheme}
                   onThemeChange={(newTheme) => setTheme(newTheme)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
                   aria-label="Toggle theme"
                 />
               </div>

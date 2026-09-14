@@ -87,7 +87,7 @@ export function AffiliateAdvantages() {
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-mono font-bold text-sky-400 tracking-wider">
-                            0{idx + 1} // {adv.subtitle}
+                            {`0${idx + 1} // ${adv.subtitle}`}
                           </span>
                         </div>
 

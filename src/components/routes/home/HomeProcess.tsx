@@ -85,7 +85,7 @@ export function HomeProcess() {
         {/* Section Header */}
         <div ref={headerRef} className="mx-auto max-w-3xl text-center lg:pb-10 will-change-transform origin-center">
           <div className="solution-badge inline-flex items-center gap-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
+            <Sparkles className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
             <span>AI-Powered Automation</span>
           </div>
 

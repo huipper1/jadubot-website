@@ -47,20 +47,20 @@ export function Footer() {
         >
           <defs>
             <linearGradient id="footerWave1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0172ff" stopOpacity="0.12" />
+              <stop offset="0%" stopColor="#155dfc" stopOpacity="0.12" />
               <stop offset="35%" stopColor="#0284c7" stopOpacity="0.4" />
               <stop offset="70%" stopColor="#38bdf8" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#0172ff" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#155dfc" stopOpacity="0.18" />
             </linearGradient>
             <linearGradient id="footerWave2" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.08" />
-              <stop offset="45%" stopColor="#0172ff" stopOpacity="0.32" />
+              <stop offset="45%" stopColor="#155dfc" stopOpacity="0.32" />
               <stop offset="85%" stopColor="#2563eb" stopOpacity="0.22" />
               <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.08" />
             </linearGradient>
             <linearGradient id="footerWaveFill" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#0172ff" stopOpacity="0.015" />
-              <stop offset="100%" stopColor="#0172ff" stopOpacity="0.06" />
+              <stop offset="0%" stopColor="#155dfc" stopOpacity="0.015" />
+              <stop offset="100%" stopColor="#155dfc" stopOpacity="0.06" />
             </linearGradient>
           </defs>
 
