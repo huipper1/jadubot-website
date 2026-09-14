@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, ShieldCheck, CreditCard, Users, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, CreditCard, Users, CheckCircle2 } from "lucide-react";
 import { PopIn } from "@/components/animations";
 
 export function PricingHero() {
@@ -13,14 +13,8 @@ export function PricingHero() {
 
       <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
         <PopIn>
-          {/* Glide-style pill badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary shadow-xs backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>Transparent BDT Pricing • Zero Setup Fees</span>
-          </div>
-
           {/* Glide-style Headline */}
-          <h1 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.12]">
+          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.12]">
             Simple plans for every team
           </h1>
 

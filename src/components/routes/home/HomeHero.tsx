@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { usePopAnimation } from "@/lib/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
@@ -13,15 +13,9 @@ export function HomeHero() {
     <section className="relative overflow-hidden pt-36 pb-0 md:pt-44 md:pb-0">
       {/* Hero Background Grid Pattern */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        {/* Dark Mode Checkerboard Background */}
-        <Image
-          src="/assets/images/home/hero-bg.png"
-          alt=""
-          fill
-          priority
-          quality={90}
-          className="hidden dark:block object-cover object-top opacity-50"
-        />
+        {/* Dark Mode Grid Pattern */}
+        <div className="hidden dark:block absolute inset-0 bg-[linear-gradient(to_right,#1f293d_1px,transparent_1px),linear-gradient(to_bottom,#1f293d_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25" />
+        <div className="hidden dark:block absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[1000px] rounded-full bg-[#0172ff]/20 blur-[120px]" />
         <div className="hidden dark:block absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
 
         {/* Light Mode Elegant Architectural Grid & Ambient Glow */}
@@ -32,19 +26,8 @@ export function HomeHero() {
 
       <div className="container mx-auto max-w-7xl relative z-10 text-center">
         <div ref={contentRef} className="mx-auto max-w-6xl will-change-transform origin-center">
-          {/* Pill Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
-            <span className="rounded-full bg-primary/10 text-primary px-2.5 py-0.5 font-semibold">
-              New feature
-            </span>
-            <span className="flex items-center gap-1 pr-1">
-              recommendation engine
-              <ArrowRight className="h-3 w-3 text-primary" />
-            </span>
-          </div>
-
           {/* 1:1 Headline with Channel Styling */}
-          <h1 className="mt-8 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-6xl leading-[1.12]">
+          <h1 className="mt-0 font-heading text-4xl font-bold tracking-tight text-foreground sm:text-6xl leading-[1.12]">
             Your #1 AI Sales Agent on{" "}
             <span className="text-[#38c5ff]">Facebook</span>,{" "}
             <span className="text-[#fe78e1]">Instagram</span> &amp;{" "}

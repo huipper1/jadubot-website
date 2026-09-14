@@ -29,26 +29,6 @@ export interface SectionHeaderProps
   descriptionClassName?: string;
 }
 
-function DefaultBadgeIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className || "h-3.5 w-3.5 text-blue-400"}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="17" cy="7" r="2.5" />
-      <circle cx="7" cy="17" r="2.5" />
-      <circle cx="17" cy="17" r="2.5" />
-      <path d="M14.5 7.5L9.5 14.5" />
-      <path d="M9.5 17h5" />
-    </svg>
-  );
-}
 
 // Unified standardized typography matching the site design
 const TITLE_STYLES = {
@@ -82,18 +62,10 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
     },
     ref
   ) => {
+    void badge;
+    void badgeIcon;
+    void badgeClassName;
     const isCenter = align === "center";
-
-    // Resolve badge icon: null/false means no icon, undefined means default icon
-    const renderBadgeIcon = () => {
-      if (badgeIcon === false || badgeIcon === null) return null;
-      if (React.isValidElement(badgeIcon)) return badgeIcon;
-      if (typeof badgeIcon === "function") {
-        const IconComponent = badgeIcon as React.ComponentType<{ className?: string }>;
-        return <IconComponent className="h-3.5 w-3.5 text-primary" />;
-      }
-      return <DefaultBadgeIcon className="h-3.5 w-3.5 text-primary" />;
-    };
 
     return (
       <div
@@ -106,27 +78,10 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         )}
         {...props}
       >
-        {/* Badge */}
-        {badge && (
-          <div
-            className={cn(
-              "solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-primary shadow-sm backdrop-blur-md",
-              badgeClassName
-            )}
-          >
-            {renderBadgeIcon()}
-            {typeof badge === "string" ? (
-              <span className="font-mono uppercase">{badge}</span>
-            ) : (
-              badge
-            )}
-          </div>
-        )}
-
         {/* Title */}
         <h2
           className={cn(
-            badge ? "mt-5" : "mt-0",
+            "mt-0",
             TITLE_STYLES[size],
             titleClassName
           )}

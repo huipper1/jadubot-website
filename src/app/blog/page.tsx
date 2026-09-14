@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { BlogHero, BlogGrid } from "@/components/routes/blog";
-import { UnifiedCta } from "@/components/sections";
 import { getAllBlogPostsWithStats } from "@/lib/content";
 import { siteConfig } from "@/config/site";
 
@@ -148,12 +147,12 @@ export default function BlogPage() {
       />
       <BlogHero />
       <BlogGrid posts={posts} />
-      <UnifiedCta
+      {/* <UnifiedCta
         badge="GET STARTED WITH JADUBOT"
         title="Ready to Automate Your Business and"
         highlightedTitle="Scale Conversions?"
         description="Launch your AI assistant on Facebook, Instagram, and Messenger in minutes. No coding required."
-      />
+      /> */}
     </>
   );
 }

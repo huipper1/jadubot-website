@@ -15,12 +15,6 @@ export function CpaMasthead() {
 
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
         <PopIn className="space-y-6 text-center sm:text-left">
-          {/* Subtle Category Context Marker */}
-          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/85 px-3.5 py-1 text-xs font-semibold text-primary backdrop-blur-md">
-            <Zap className="h-3 w-3" />
-            <span>Performance Marketing Infrastructure • Meta &amp; CPA Automation</span>
-          </div>
-
           {/* Bold Editorial Headline - No generic marketing void */}
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.14]">
             Turn Social Engagement Into Automated,{" "}

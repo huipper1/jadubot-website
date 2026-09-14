@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
 import { PopIn } from "@/components/animations";
 
 export function ServiceHero() {
@@ -39,14 +38,8 @@ export function ServiceHero() {
     
       <div className="container relative z-10 mx-auto max-w-7xl px-4 text-center">
         <PopIn className="mx-auto max-w-3xl">
-          {/* Glowing Pill Badge */}
-          <div className="solution-badge">
-            <Sparkles className="h-3.5 w-3.5 text-primary dark:text-blue-400" />
-            <span>OUR SERVICES</span>
-          </div>
-
           {/* Main Headline */}
-          <h1 className="font-sans mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
+          <h1 className="font-sans text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
             Powerful Automations <br />
             for{" "}
             <span className="bg-gradient-to-r from-primary via-[#0052cc] to-primary dark:from-[#93c5fd] dark:via-[#38bdf8] dark:to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(21,93,252,0.3)]">

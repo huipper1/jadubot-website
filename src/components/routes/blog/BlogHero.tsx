@@ -1,6 +1,5 @@
 "use client";
 
-import { BookOpen } from "lucide-react";
 import { PopIn } from "@/components/animations";
 
 export function BlogHero() {
@@ -18,12 +17,6 @@ export function BlogHero() {
 
       <div className="container mx-auto max-w-5xl px-4 sm:px-6 text-center">
         <PopIn className="mx-auto max-w-4xl">
-          {/* Editorial Subtitle Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#0172ff]/30 bg-[#0172ff]/10 px-3.5 py-1 text-xs font-medium text-[#38bdf8] mb-6">
-            <BookOpen className="h-3.5 w-3.5" />
-            <span>Knowledge &amp; Strategy Guides</span>
-          </div>
-
           {/* Publication Title */}
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] [text-wrap:balance]">
             Jadubot Playbooks &amp;{" "}

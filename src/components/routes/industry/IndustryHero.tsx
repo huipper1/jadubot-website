@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Calendar, CheckCircle2, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Calendar, CheckCircle2, Zap } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import type { IndustryData } from "./industry-data";
@@ -38,14 +38,8 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
           {/* Left Column: Copy, CTAs, Platforms */}
           <div className="text-center lg:col-span-7 lg:text-left">
             <PopIn>
-              {/* Glowing Pill Badge */}
-              <div className="solution-badge">
-                <Sparkles className="h-3.5 w-3.5 text-blue-400" />
-                <span>{hero.badge}</span>
-              </div>
-
               {/* Dynamic H1 Headline with Electric Blue Gradient */}
-              <h1 className="mt-6 font-sans text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-5xl lg:text-[56px] leading-[1.12]">
+              <h1 className="font-sans text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-5xl lg:text-[56px] leading-[1.12]">
                 {hero.titleStart}{" "}
                 <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
                   {hero.titleHighlight}

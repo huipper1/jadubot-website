@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
 import { gsap, useGSAP } from "@/lib/animations";
 
 export interface FeatureItem {
@@ -171,17 +170,11 @@ export function FeatureShowcase() {
         {/* Unified Layout: Column on mobile/phone, 2-column grid on desktop */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center min-h-[520px] lg:min-h-[580px]">
           
-          {/* Top (Mobile) / Left (Desktop) Column: Eyebrow + Heading + Cross-fading feature name/description */}
+          {/* Top (Mobile) / Left (Desktop) Column: Heading + Cross-fading feature name/description */}
           <div className="w-full lg:col-span-5 flex flex-col justify-center text-left">
             <div>
-              {/* Static Eyebrow Badge */}
-              <div className="solution-badge inline-flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
-                <span>Features</span>
-              </div>
-
               {/* Static Main Section Title */}
-              <h2 className="mt-2.5 sm:mt-4 font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
                 What Jadubot does
               </h2>
             </div>

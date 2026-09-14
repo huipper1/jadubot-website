@@ -194,11 +194,7 @@ export function CpaWorkflow() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/25 bg-card/80 px-3.5 py-1 text-xs font-semibold text-primary shadow-sm">
-            Automated Conversion Cycle
-          </div>
-
-          <h2 className="mt-4 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
             The 3-Step CPA Growth Loop
           </h2>
 

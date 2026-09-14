@@ -17,8 +17,7 @@ export function HomePricing() {
           ref={headerRef}
           className="mx-auto max-w-2xl text-center will-change-transform origin-center"
         >
-          <div className="solution-badge">Pricing</div>
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Simple, transparent pricing
           </h2>
           <p className="mt-4 text-base text-muted-foreground">

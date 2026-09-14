@@ -81,7 +81,6 @@ export default function PricingPage() {
       <PricingTestimonial />
       <PricingFaq />
       <UnifiedCta
-        badge="START TODAY WITHOUT RISK"
         title=" Automate your social sales"
         highlightedTitle="today"
         description=" Sign up for our free tier in 60 seconds with zero credit card, or book a personalized walkthrough with our automation specialists."

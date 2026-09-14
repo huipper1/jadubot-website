@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Star, BadgeCheck } from "lucide-react";
 import { TESTIMONIAL_DATA } from "./pricing-data";
 import { PopIn } from "@/components/animations";

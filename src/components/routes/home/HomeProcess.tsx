@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
 import { usePopAnimation } from "@/lib/animations";
 
 export interface ProcessStep {
@@ -84,12 +83,7 @@ export function HomeProcess() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div ref={headerRef} className="mx-auto max-w-3xl text-center lg:pb-10 will-change-transform origin-center">
-          <div className="solution-badge inline-flex items-center gap-1.5">
-            <Sparkles className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
-            <span>AI-Powered Automation</span>
-          </div>
-
-          <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-[1.15]">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-[1.15]">
             Start in 3-simple Steps
           </h2>
 

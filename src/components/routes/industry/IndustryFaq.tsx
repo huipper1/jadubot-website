@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
 import type { IndustryData, IndustryFaqItem } from "./industry-data";
@@ -31,11 +31,7 @@ export function IndustryFaq({ industry }: IndustryFaqProps) {
         {/* Header */}
         <div className="text-center">
           <PopIn>
-            <div className="solution-badge">
-              <HelpCircle className="h-3.5 w-3.5 text-blue-400" />
-              <span>FREQUENTLY ASKED QUESTIONS</span>
-            </div>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               {industry.name} Automation FAQs
             </h2>
             <p className="mt-4 text-base text-muted-foreground">

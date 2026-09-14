@@ -6,7 +6,6 @@ import {
   Cpu,
   Zap,
   TrendingUp,
-  Activity,
   CheckCircle2,
   ShieldCheck,
   Radio,
@@ -69,12 +68,7 @@ export function IndustryWorkflow({ industry }: IndustryWorkflowProps) {
         {/* Editorial Header */}
         <div className="mx-auto max-w-3xl text-center">
           <PopIn>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary dark:text-sky-300 backdrop-blur-md">
-              <Activity className="h-3.5 w-3.5 text-primary dark:text-sky-400" />
-              <span>{workflow.badge || `${industry.name} Automation Pipeline`}</span>
-            </div>
-
-            <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               {workflow.title || (
                 <>
                   How Jadubot Powers{" "}

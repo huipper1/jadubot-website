@@ -195,12 +195,7 @@ export function ProblemSection() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="solution-badge">
-            <AlertCircle className="h-3.5 w-3.5 text-primary dark:text-[#38bdf8]" />
-            <span>Problem</span>
-          </div>
-
-          <h2 className="mt-4 font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
             You are losing sales because of missed messages and late replies
           </h2>
 

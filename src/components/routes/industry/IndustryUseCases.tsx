@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Bot, CheckCircle2, MessageSquare, User } from "lucide-react";
+import { Bot, CheckCircle2, User } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
 import type { IndustryData, IndustryUseCase } from "./industry-data";
@@ -31,11 +31,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <PopIn>
-            <div className="solution-badge">
-              <MessageSquare className="h-3.5 w-3.5 text-blue-400" />
-              <span>LIVE CONVERSATION AGENTS</span>
-            </div>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Real-World Conversations in Action
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">

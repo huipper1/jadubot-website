@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
@@ -17,12 +17,7 @@ export function HomeCta() {
           />
 
           <div className="relative z-10 mx-auto max-w-3xl">
-            <span className="solution-badge">
-              <Sparkles className="h-3.5 w-3.5 inline mr-1" />
-              <span>Transform Your Social Commerce</span>
-            </span>
-
-            <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-tight">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-tight">
               Ready to automate your chats and{" "}
               <span className="text-gradient">skyrocket your sales?</span>
             </h2>

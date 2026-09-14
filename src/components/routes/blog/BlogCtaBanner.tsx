@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Bot, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function BlogCtaBanner() {
@@ -15,11 +15,6 @@ export function BlogCtaBanner() {
       />
 
       <div className="relative z-10 max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#0172ff]/30 bg-[#0172ff]/10 px-3 py-1 text-xs font-semibold text-[#38bdf8] mb-4">
-          <Bot className="h-3.5 w-3.5" />
-          <span>F-commerce Automation</span>
-        </div>
-
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-snug">
           Ready to put your Facebook &amp; Instagram sales on autopilot?
         </h2>

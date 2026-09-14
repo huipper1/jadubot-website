@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, Cpu, TrendingUp, Sparkles } from "lucide-react";
+import { AlertCircle, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
 import type { IndustryData, IndustryShowcaseItem } from "./industry-data";
@@ -24,11 +24,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <PopIn>
-            <div className="solution-badge">
-              <Cpu className="h-3.5 w-3.5 text-blue-400" />
-              <span>INDUSTRY BLUEPRINTS</span>
-            </div>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Engineered Specifically for{" "}
               <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent">
                 {industry.name} Operations

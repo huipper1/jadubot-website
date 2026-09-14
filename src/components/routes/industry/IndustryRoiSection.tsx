@@ -1,6 +1,6 @@
 "use client";
 
-import { Calculator, Sparkles, TrendingUp } from "lucide-react";
+import { Sparkles, TrendingUp } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import type { IndustryData } from "./industry-data";
 
@@ -24,11 +24,7 @@ export function IndustryRoiSection({ industry }: IndustryRoiSectionProps) {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <PopIn>
-            <div className="solution-badge">
-              <Calculator className="h-3.5 w-3.5 text-blue-400" />
-              <span>RETURN ON INVESTMENT</span>
-            </div>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               {roi.heading}
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">

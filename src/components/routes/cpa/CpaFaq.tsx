@@ -14,10 +14,7 @@ export function CpaFaq() {
     <section className="relative py-16 md:py-24 border-t border-border bg-card">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/25 bg-card/80 px-3.5 py-1 text-xs font-semibold text-primary shadow-sm">
-            Frequently Asked Questions
-          </div>
-          <h2 className="mt-4 font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
             CPA Automation Technical Details
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">

@@ -84,11 +84,7 @@ export function HomeSolutions() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Left-aligned matching screenshot */}
         <div className="max-w-3xl text-left">
-          <div className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 dark:bg-[#0c2417] px-3.5 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-            Solutions
-          </div>
-
-          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.18] max-w-2xl">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.18] max-w-2xl">
             Jadubot replies to all of your customers so that you can focus on growth
           </h2>
 

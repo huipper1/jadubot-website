@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Calendar, CheckCircle2, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Calendar, CheckCircle2, Zap } from "lucide-react";
 import { PopIn } from "@/components/animations";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
@@ -27,14 +27,14 @@ export interface UnifiedCtaProps {
 }
 
 export function UnifiedCta({
-  badge = "START YOUR AUTOMATION TODAY",
+  badge,
   title = "Ready to Turn Conversational Traffic Into",
   highlightedTitle = "Round-the-Clock Revenue?",
   titleEnd,
   description = "Join over 1,200+ Bangladeshi businesses automating Messenger replies, Instagram DM orders, and CPA campaigns with Jadubot.",
   primaryCta = {
-    text: "Start Free Trial",
-    href: "https://app.jadubot.com/",
+    text: "Get Started Free",
+    href: "https://app.jadubot.com/register",
     external: true
   },
   secondaryCta = {
@@ -44,12 +44,14 @@ export function UnifiedCta({
   },
   trustBadges = [
     "No credit card required",
-    "5-minute zero-code setup",
-    "Official Meta Graph API partner"
+    "Instant 5-minute setup",
+    "Official Meta Graph API partner",
+    "24/7 dedicated support"
   ],
   className = "",
-  id = "cta-section"
+  id
 }: UnifiedCtaProps) {
+  void badge;
   const primaryText = primaryCta?.text || primaryCta?.label || "Start Free Trial";
   const secondaryText = secondaryCta?.text || secondaryCta?.label || "Schedule 1-on-1 Demo";
   return (
@@ -65,13 +67,8 @@ export function UnifiedCta({
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative mx-auto max-w-5xl rounded-3xl border border-border bg-card dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-elevated backdrop-blur-2xl">
-            {/* Pill Badge */}
-            <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur-md">
-              <span>{badge}</span>
-            </div>
-
             {/* Main Heading with Brand Gradient */}
-            <h2 className="mt-6 font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.15]">
+            <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.15]">
               {title}{" "}
               {highlightedTitle && (
                 <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
