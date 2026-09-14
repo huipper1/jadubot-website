@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import {
   PricingHero,
   PricingCards,
-  PricingTrustBanner,
+  PricingLogoMarquee,
   PricingComparison,
+  PricingTestimonial,
   PricingFaq,
   PRICING_TIERS
 } from "@/components/routes/pricing";
-import { UnifiedCta } from "@/components/sections";
 import { siteConfig } from "@/config/site";
+import { UnifiedCta } from "@/components/sections";
 
 export const metadata: Metadata = {
   title: "Pricing & Plans – Chatbot Automation | Jadubot",
@@ -75,14 +76,30 @@ export default function PricingPage() {
       />
       <PricingHero />
       <PricingCards />
-      <PricingTrustBanner />
+      <PricingLogoMarquee />
       <PricingComparison />
+      <PricingTestimonial />
       <PricingFaq />
       <UnifiedCta
         badge="START TODAY WITHOUT RISK"
-        title="Ready to Scale Your Automation and"
-        highlightedTitle="Supercharge Conversions?"
-        description="Sign up for our free tier in 60 seconds or book a walkthrough with our automation specialists to find the perfect plan for your business."
+        title=" Automate your social sales"
+        highlightedTitle="today"
+        description=" Sign up for our free tier in 60 seconds with zero credit card, or book a personalized walkthrough with our automation specialists."
+        primaryCta={{
+          text: "Start Free Forever",
+          href: "https://app.jadubot.com/",
+          external: true
+        }}
+        secondaryCta={{
+          text: "Book a Live Demo",
+          href: "https://calendly.com/jadubot-com/30min?month=2026-09",
+          external: true
+        }}
+        trustBadges={[
+          "No credit card required",
+          "Instant setup",
+          "7-day unconditional money-back guarantee"
+        ]}
       />
     </>
   );

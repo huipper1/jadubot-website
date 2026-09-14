@@ -57,17 +57,16 @@ export function UnifiedCta({
       id={id}
       className={`relative py-20 sm:py-24 md:py-28 overflow-hidden bg-background border-t border-border ${className}`}
     >
-      {/* Dynamic atmospheric ambient glow */}
-      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[850px] max-w-full rounded-full bg-gradient-to-r from-blue-600/12 via-sky-500/8 to-blue-600/12 blur-3xl" />
-      </div>
+      <PopIn>
+        {/* Dynamic atmospheric ambient glow */}
+        <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[850px] max-w-full rounded-full bg-gradient-to-r from-blue-600/12 via-sky-500/8 to-blue-600/12 blur-3xl" />
+        </div>
 
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative mx-auto max-w-5xl rounded-3xl border border-border bg-card dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-elevated backdrop-blur-2xl">
-          <PopIn>
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-5xl rounded-3xl border border-border bg-card dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-elevated backdrop-blur-2xl">
             {/* Pill Badge */}
             <div className="solution-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
               <span>{badge}</span>
             </div>
 
@@ -143,9 +142,9 @@ export function UnifiedCta({
                 ))}
               </div>
             )}
-          </PopIn>
+          </div>
         </div>
-      </div>
+      </PopIn>
     </section>
   );
 }

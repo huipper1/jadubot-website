@@ -601,12 +601,12 @@ html:not(.dark) body {
   color: var(--foreground);
 }
 
-html:not(.dark) h1,
-html:not(.dark) h2,
-html:not(.dark) h3,
-html:not(.dark) h4,
-html:not(.dark) h5,
-html:not(.dark) h6 {
+html:not(.dark) h1:not(.dark-surface *),
+html:not(.dark) h2:not(.dark-surface *),
+html:not(.dark) h3:not(.dark-surface *),
+html:not(.dark) h4:not(.dark-surface *),
+html:not(.dark) h5:not(.dark-surface *),
+html:not(.dark) h6:not(.dark-surface *) {
   color: var(--foreground);
 }
 
@@ -781,14 +781,14 @@ html:not(.dark) .bg-\[\#0b162b\]\/80 {
   background-color: var(--surface-subtle) !important;
 }
 
-html:not(.dark) .bg-white\/5,
-html:not(.dark) .bg-white\/10,
-html:not(.dark) .bg-white\/\[0\.02\],
-html:not(.dark) .bg-white\/\[0\.03\],
-html:not(.dark) .bg-white\/\[0\.04\],
-html:not(.dark) .bg-white\/\[0\.05\],
-html:not(.dark) .bg-white\/\[0\.06\],
-html:not(.dark) .bg-white\/\[0\.08\] {
+html:not(.dark) .bg-white\/5:not(.dark-surface *),
+html:not(.dark) .bg-white\/10:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.02\]:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.03\]:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.04\]:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.05\]:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.06\]:not(.dark-surface *),
+html:not(.dark) .bg-white\/\[0\.08\]:not(.dark-surface *) {
   background-color: var(--surface-subtle) !important;
 }
 
@@ -796,17 +796,17 @@ html:not(.dark) .bg-white\/\[0\.08\] {
 html:not(.dark) .border-\[\#373a41\],
 html:not(.dark) .border-\[\#2e3440\],
 html:not(.dark) .border-\[\#2d3142\],
-html:not(.dark) .border-white\/5,
-html:not(.dark) .border-white\/10,
-html:not(.dark) .border-white\/15,
-html:not(.dark) .border-white\/20,
-html:not(.dark) .border-white\/\[0\.05\],
-html:not(.dark) .border-white\/\[0\.06\],
-html:not(.dark) .border-white\/\[0\.07\],
-html:not(.dark) .border-white\/\[0\.08\],
-html:not(.dark) .border-white\/\[0\.1\],
-html:not(.dark) .border-white\/\[0\.12\],
-html:not(.dark) .border-white\/\[0\.15\] {
+html:not(.dark) .border-white\/5:not(.dark-surface *),
+html:not(.dark) .border-white\/10:not(.dark-surface *),
+html:not(.dark) .border-white\/15:not(.dark-surface *),
+html:not(.dark) .border-white\/20:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.05\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.06\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.07\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.08\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.1\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.12\]:not(.dark-surface *),
+html:not(.dark) .border-white\/\[0\.15\]:not(.dark-surface *) {
   border-color: var(--border) !important;
 }
 
@@ -817,18 +817,18 @@ html:not(.dark) .hover\:border-white\/30:hover {
 }
 
 /* 6. Typography & Text Hierarchy */
-html:not(.dark) .text-white:not(.btn-primary):not(.btn-primary *):not([class*="bg-brand"]):not([class*="bg-brand"] *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *):not([class*="bg-[#0052cc]"]):not([class*="bg-[#0052cc]"] *):not([class*="bg-blue-"]):not([class*="bg-blue-"] *):not([class*="bg-emerald-"]):not([class*="bg-emerald-"] *):not([class*="bg-indigo-"]):not([class*="bg-indigo-"] *) {
+html:not(.dark) .text-white:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not([class*="bg-brand"]):not([class*="bg-brand"] *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *):not([class*="bg-[#0052cc]"]):not([class*="bg-[#0052cc]"] *):not([class*="bg-blue-"]):not([class*="bg-blue-"] *):not([class*="bg-emerald-"]):not([class*="bg-emerald-"] *):not([class*="bg-indigo-"]):not([class*="bg-indigo-"] *) {
   color: var(--foreground) !important;
 }
 
-html:not(.dark) .text-\[\#f7f7f7\]:not(.btn-primary):not(.btn-primary *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *) {
+html:not(.dark) .text-\[\#f7f7f7\]:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *) {
   color: var(--foreground) !important;
 }
 
-html:not(.dark) .text-\[\#cecfd2\],
-html:not(.dark) .text-\[\#94a3b8\],
-html:not(.dark) .text-slate-300,
-html:not(.dark) .text-slate-400 {
+html:not(.dark) .text-\[\#cecfd2\]:not(.dark-surface *),
+html:not(.dark) .text-\[\#94a3b8\]:not(.dark-surface *),
+html:not(.dark) .text-slate-300:not(.dark-surface *),
+html:not(.dark) .text-slate-400:not(.dark-surface *) {
   color: var(--text-secondary) !important;
 }
 
@@ -1086,4 +1086,88 @@ html:not(.dark) .article-prose pre {
 
 html:not(.dark) .article-prose pre code {
   color: #090d16;
+}
+
+/* 13. Dedicated Dark Surface Isolator (for intentionally dark cards / banners in Light Mode) */
+.dark-surface,
+html:not(.dark) .dark-surface {
+  background-color: #020617 !important;
+  color: #ffffff !important;
+}
+
+.dark-surface h1,
+.dark-surface h2,
+.dark-surface h3,
+.dark-surface h4,
+.dark-surface h5,
+.dark-surface h6,
+html:not(.dark) .dark-surface h1,
+html:not(.dark) .dark-surface h2,
+html:not(.dark) .dark-surface h3,
+html:not(.dark) .dark-surface h4,
+html:not(.dark) .dark-surface h5,
+html:not(.dark) .dark-surface h6 {
+  color: #ffffff !important;
+}
+
+.dark-surface p,
+html:not(.dark) .dark-surface p {
+  color: #cbd5e1 !important;
+}
+
+.dark-surface .text-white,
+html:not(.dark) .dark-surface .text-white {
+  color: #ffffff !important;
+}
+
+.dark-surface .text-slate-300,
+html:not(.dark) .dark-surface .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+.dark-surface .text-slate-400,
+html:not(.dark) .dark-surface .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.dark-surface .spec-pill,
+html:not(.dark) .dark-surface .spec-pill {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+}
+
+.dark-surface .spec-pill span,
+html:not(.dark) .dark-surface .spec-pill span {
+  color: #ffffff !important;
+}
+
+.dark-surface .cta-badge,
+html:not(.dark) .dark-surface .cta-badge {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.dark-surface .cta-badge span,
+html:not(.dark) .dark-surface .cta-badge span {
+  color: #ffffff !important;
+}
+
+.dark-surface .btn-white-pill,
+html:not(.dark) .dark-surface .btn-white-pill {
+  background-color: #ffffff !important;
+  color: #020617 !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark-surface .btn-white-pill:hover,
+html:not(.dark) .dark-surface .btn-white-pill:hover {
+  background-color: #f1f5f9 !important;
+  color: #020617 !important;
+}
+
+.dark-surface .btn-white-pill span,
+html:not(.dark) .dark-surface .btn-white-pill span {
+  color: #020617 !important;
 }

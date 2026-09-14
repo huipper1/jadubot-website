@@ -101,7 +101,7 @@ const RESOURCE_LINKS = [
   }
 ];
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 
 export function Header() {
   const pathname = usePathname();
