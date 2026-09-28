@@ -4,15 +4,13 @@ import { siteConfig } from "@/config/site";
 
 import {
   HomeFaq,
-  HomeFeatures,
   HomeHero,
   HomeMarquee,
   HomePricing,
-  HomeProblem,
   HomeProcess,
   HomeSolutions
 } from "@/components/routes/home";
-import { UnifiedCta } from "@/components/sections";
+import { FeatureShowcase, ProblemSection, UnifiedCta } from "@/components/sections";
 
 export const metadata: Metadata = {
   title: "Jadubot | #1 AI-Powered Chatbot & Marketing Automation Tool",
@@ -100,9 +98,9 @@ export default function HomePage() {
       />
       <HomeHero />
       <HomeMarquee />
-      <HomeProblem />
+      <ProblemSection />
       <HomeSolutions />
-      <HomeFeatures />
+      <FeatureShowcase />
       <HomeProcess />
       <HomePricing />
       <HomeFaq />

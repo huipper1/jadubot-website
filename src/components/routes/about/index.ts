@@ -1,5 +1,4 @@
 export * from "./AboutMasthead";
-export * from "./AboutHero";
 export * from "./AboutStats";
 export * from "./AboutStory";
 export * from "./AboutMission";
