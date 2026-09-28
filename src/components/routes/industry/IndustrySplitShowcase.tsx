@@ -1,8 +1,10 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
+import { AlertCircle, CheckCircle2, Sparkles, TrendingUp } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
+
 import type { IndustryData, IndustryShowcaseItem } from "./industry-data";
 
 interface IndustrySplitShowcaseProps {
@@ -13,11 +15,11 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
   const { showcases } = industry;
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-28 bg-card/70 border-t border-border/60">
+    <section className="relative border-t border-border/60 bg-card/70 py-20 sm:py-24 md:py-28">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[20%] left-[-10%] h-[500px] w-[500px] rounded-full bg-[#0172ff]/5 blur-3xl" />
-        <div className="absolute bottom-[20%] right-[-10%] h-[500px] w-[500px] rounded-full bg-[#38bdf8]/5 blur-3xl" />
+        <div className="absolute right-[-10%] bottom-[20%] h-[500px] w-[500px] rounded-full bg-[#38bdf8]/5 blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,7 +33,8 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
               </span>
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Compare outdated manual workflows against Jadubot&apos;s automated conversational AI pipelines.
+              Compare outdated manual workflows against Jadubot&apos;s automated conversational AI
+              pipelines.
             </p>
           </PopIn>
         </div>
@@ -57,7 +60,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                   )}
                 >
                   <PopIn delay={0.1}>
-                    <div className="inline-flex items-center gap-2 rounded-lg bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-400 border border-blue-500/20">
+                    <div className="inline-flex items-center gap-2 rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-400">
                       <span>Module 0{idx + 1}</span>
                       <span>•</span>
                       <span>{item.subtitle}</span>
@@ -71,7 +74,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                     <div className="mt-6 space-y-4">
                       {/* Outdated Way */}
                       <div className="rounded-xl border border-rose-500/20 bg-rose-500/10 p-4 transition-all hover:border-rose-500/30">
-                        <div className="flex items-center gap-2 text-rose-500 text-xs font-semibold uppercase tracking-wider">
+                        <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-rose-500 uppercase">
                           <AlertCircle className="h-4 w-4 shrink-0" />
                           <span>The Challenge / Legacy Bottleneck</span>
                         </div>
@@ -82,7 +85,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
 
                       {/* Jadubot Way */}
                       <div className="rounded-xl border border-primary/30 bg-card p-4 shadow-card transition-all hover:border-primary/50">
-                        <div className="flex items-center gap-2 text-[#38bdf8] text-xs font-semibold uppercase tracking-wider">
+                        <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#38bdf8] uppercase">
                           <Sparkles className="h-4 w-4 shrink-0 text-blue-400" />
                           <span>The Jadubot Autonomous Solution</span>
                         </div>
@@ -108,12 +111,12 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                   )}
                 >
                   <PopIn delay={0.2}>
-                    <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8 backdrop-blur-xl shadow-elevated">
+                    <div className="shadow-elevated relative overflow-hidden rounded-2xl border border-border bg-card p-6 backdrop-blur-xl sm:p-8">
                       {/* Ambient corner glow */}
-                      <div className="absolute -top-16 -right-16 h-36 w-36 rounded-full bg-[#0172ff]/20 blur-2xl pointer-events-none" />
+                      <div className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-[#0172ff]/20 blur-2xl" />
 
                       <div className="flex items-center justify-between border-b border-border pb-4">
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                        <h4 className="text-sm font-semibold tracking-wider text-foreground uppercase">
                           Key Automation Capabilities
                         </h4>
                         <span className="rounded-full bg-blue-500/10 px-2.5 py-0.5 font-mono text-xs font-medium text-blue-400">
@@ -145,9 +148,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                           </span>
-                          <span className="font-medium text-foreground">
-                            Active 24/7 Engine
-                          </span>
+                          <span className="font-medium text-foreground">Active 24/7 Engine</span>
                         </div>
                         <span className="font-mono text-muted-foreground">
                           0 Human Agents Required

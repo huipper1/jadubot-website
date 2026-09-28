@@ -1,4 +1,5 @@
 import { notFound, permanentRedirect } from "next/navigation";
+
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/content";
 
 interface LegacyBlogPostPageProps {
@@ -19,9 +20,7 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function LegacyBlogPostPage({
-  params
-}: LegacyBlogPostPageProps) {
+export default async function LegacyBlogPostPage({ params }: LegacyBlogPostPageProps) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 

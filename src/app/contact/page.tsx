@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import {
-  ContactMasthead,
-  ContactForm,
-  ContactInfo,
-  ContactMap
-} from "@/components/routes/contact";
+
 import { siteConfig } from "@/config/site";
+
+import { ContactForm, ContactInfo, ContactMap, ContactMasthead } from "@/components/routes/contact";
 
 export const metadata: Metadata = {
   title: "Contact Us – 24/7 Support & Inquiries | Jadubot",
@@ -28,50 +25,50 @@ export default function ContactPage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Contact",
-            "item": `${siteConfig.url}/contact/`
+            position: 2,
+            name: "Contact",
+            item: `${siteConfig.url}/contact/`
           }
         ]
       },
       {
         "@type": "ContactPage",
         "@id": `${siteConfig.url}/contact/#webpage`,
-        "url": `${siteConfig.url}/contact/`,
-        "name": "Contact Jadubot Support & Sales",
-        "description":
+        url: `${siteConfig.url}/contact/`,
+        name: "Contact Jadubot Support & Sales",
+        description:
           "Official contact channels for Jadubot Technologies in Bangladesh: telephone helpline, email, physical address, and community support.",
-        "mainEntity": {
+        mainEntity: {
           "@type": "Organization",
-          "name": "Jadubot",
-          "url": siteConfig.url,
-          "telephone": siteConfig.phone,
-          "email": siteConfig.email,
-          "address": {
+          name: "Jadubot",
+          url: siteConfig.url,
+          telephone: siteConfig.phone,
+          email: siteConfig.email,
+          address: {
             "@type": "PostalAddress",
-            "streetAddress": "Daffodil Smart City (DSC), Birulia",
-            "addressLocality": "Savar",
-            "addressRegion": "Dhaka",
-            "postalCode": "1216",
-            "addressCountry": "BD"
+            streetAddress: "Daffodil Smart City (DSC), Birulia",
+            addressLocality: "Savar",
+            addressRegion: "Dhaka",
+            postalCode: "1216",
+            addressCountry: "BD"
           },
-          "contactPoint": [
+          contactPoint: [
             {
               "@type": "ContactPoint",
-              "telephone": siteConfig.phone,
-              "contactType": "customer service",
-              "email": siteConfig.email,
-              "availableLanguage": ["Bengali", "English"],
-              "hoursAvailable": "Mo-Su 09:00-23:00"
+              telephone: siteConfig.phone,
+              contactType: "customer service",
+              email: siteConfig.email,
+              availableLanguage: ["Bengali", "English"],
+              hoursAvailable: "Mo-Su 09:00-23:00"
             }
           ]
         }
@@ -88,7 +85,7 @@ export default function ContactPage() {
       <ContactMasthead />
       <section className="relative pt-4 pb-16 sm:pb-20 md:pb-24">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <ContactForm />
             </div>

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+
 import { gsap, useGSAP } from "@/lib/animations";
 
 export interface FeatureItem {
@@ -24,8 +25,7 @@ export const FEATURES: FeatureItem[] = [
     description:
       "Jadubot is the only AI in the world that can recognize product images and reply with the exact item, price, and options.",
     image: "/assets/images/temp-placeholders/features/image-recognition-1.png",
-    secondaryImage:
-      "/assets/images/temp-placeholders/features/image-recognition-2.png",
+    secondaryImage: "/assets/images/temp-placeholders/features/image-recognition-2.png",
     alt: "Jadubot Image Recognition showcase",
     secondaryAlt: "Product ordering chat conversation with image recognition"
   },
@@ -36,8 +36,7 @@ export const FEATURES: FeatureItem[] = [
     description:
       "Jadubot replies naturally in the language your customers use. That can be Bangla, English, Banglish.",
     image: "/assets/images/temp-placeholders/features/multi-lingual-1.png",
-    secondaryImage:
-      "/assets/images/temp-placeholders/features/multi-lingual-2.gif",
+    secondaryImage: "/assets/images/temp-placeholders/features/multi-lingual-2.gif",
     alt: "Jadubot Multi Lingual conversational automation",
     secondaryAlt: "Multilingual translation and dialect support"
   },
@@ -48,8 +47,7 @@ export const FEATURES: FeatureItem[] = [
     description:
       "Whenever a customer reports a problem, Jadubot detects it and sorts those chats into a 'Complaint' section; making follow-ups fast and easy.",
     image: "/assets/images/temp-placeholders/features/complaint-handling-1.png",
-    secondaryImage:
-      "/assets/images/temp-placeholders/features/complaint-handling-2.png",
+    secondaryImage: "/assets/images/temp-placeholders/features/complaint-handling-2.png",
     alt: "Jadubot Complaint ticket dashboard",
     secondaryAlt: "Smartphone screen with order issue notifications"
   },
@@ -60,8 +58,7 @@ export const FEATURES: FeatureItem[] = [
     description:
       "Jadubot is available on both the App Store and Play Store. Manage customer chats, track orders, and check analytics from anywhere.",
     image: "/assets/images/temp-placeholders/features/app-support-1.png",
-    secondaryImage:
-      "/assets/images/temp-placeholders/features/app-support-2.png",
+    secondaryImage: "/assets/images/temp-placeholders/features/app-support-2.png",
     alt: "Jadubot Web and Mobile Dashboard",
     secondaryAlt: "Jadubot Mobile App on tablet and smartphone"
   }
@@ -75,9 +72,7 @@ export function FeatureShowcase() {
 
   useGSAP(
     () => {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       if (prefersReducedMotion) {
         return;
@@ -107,7 +102,11 @@ export function FeatureShowcase() {
       const getNavbarHeight = () => {
         if (typeof window === "undefined") return 72;
         const header = document.querySelector("header");
-        return header ? Math.round(header.getBoundingClientRect().height) : (window.innerWidth < 1024 ? 72 : 88);
+        return header
+          ? Math.round(header.getBoundingClientRect().height)
+          : window.innerWidth < 1024
+            ? 72
+            : 88;
       };
 
       const tl = gsap.timeline({
@@ -120,10 +119,7 @@ export function FeatureShowcase() {
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            const idx = Math.min(
-              FEATURES.length - 1,
-              Math.floor(self.progress * FEATURES.length)
-            );
+            const idx = Math.min(FEATURES.length - 1, Math.floor(self.progress * FEATURES.length));
             setActiveFeatureIndex(idx);
           }
         }
@@ -134,17 +130,17 @@ export function FeatureShowcase() {
         .to(textBlocks[0], { opacity: 0, y: -20, ease: "power1.out", duration: 0.4 }, 0.2)
         .to(textBlocks[1], { opacity: 1, y: 0, ease: "power1.out", duration: 0.5 }, 0.5)
 
-      // Phase 2: Card 2 ("Complaint Handling") slides from bottom and stacks on top of Card 1
+        // Phase 2: Card 2 ("Complaint Handling") slides from bottom and stacks on top of Card 1
         .to(cardPairs[2], { y: "0%", ease: "none", duration: 1 }, 1.4)
         .to(textBlocks[1], { opacity: 0, y: -20, ease: "power1.out", duration: 0.4 }, 1.4)
         .to(textBlocks[2], { opacity: 1, y: 0, ease: "power1.out", duration: 0.5 }, 1.7)
 
-      // Phase 3: Card 3 ("App Support") slides from bottom and stacks on top of Card 2
+        // Phase 3: Card 3 ("App Support") slides from bottom and stacks on top of Card 2
         .to(cardPairs[3], { y: "0%", ease: "none", duration: 1 }, 2.6)
         .to(textBlocks[2], { opacity: 0, y: -20, ease: "power1.out", duration: 0.4 }, 2.6)
         .to(textBlocks[3], { opacity: 1, y: 0, ease: "power1.out", duration: 0.5 }, 2.9)
 
-      // Buffer hold at the end while viewing final feature before unpinning
+        // Buffer hold at the end while viewing final feature before unpinning
         .to({}, { duration: 0.5 });
     },
     { scope: sectionRef }
@@ -154,7 +150,7 @@ export function FeatureShowcase() {
     <section
       ref={sectionRef}
       id="features"
-      className="relative bg-background overflow-hidden py-8 sm:py-12 lg:py-24 border-t border-border/60"
+      className="relative overflow-hidden border-t border-border/60 bg-background py-8 sm:py-12 lg:py-24"
     >
       {/* Background Ambience */}
       <div
@@ -162,25 +158,24 @@ export function FeatureShowcase() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[400px] w-[650px] rounded-full bg-[#0052cc]/15 blur-[150px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[400px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052cc]/15 blur-[150px]"
         aria-hidden="true"
       />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Unified Layout: Column on mobile/phone, 2-column grid on desktop */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center min-h-[520px] lg:min-h-[580px]">
-          
+        <div className="flex min-h-[520px] flex-col lg:grid lg:min-h-[580px] lg:grid-cols-12 lg:items-center lg:gap-12">
           {/* Top (Mobile) / Left (Desktop) Column: Heading + Cross-fading feature name/description */}
-          <div className="w-full lg:col-span-5 flex flex-col justify-center text-left">
+          <div className="flex w-full flex-col justify-center text-left lg:col-span-5">
             <div>
               {/* Static Main Section Title */}
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
+              <h2 className="font-heading text-2xl leading-[1.15] font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl xl:text-5xl">
                 What Jadubot does
               </h2>
             </div>
 
             {/* Dynamic Swap Container: Feature Name + Description */}
-            <div className="relative mt-4 sm:mt-6 lg:mt-10 min-h-[90px] sm:min-h-[110px] lg:min-h-[200px] w-full">
+            <div className="relative mt-4 min-h-[90px] w-full sm:mt-6 sm:min-h-[110px] lg:mt-10 lg:min-h-[200px]">
               {FEATURES.map((feat, idx) => (
                 <div
                   key={feat.id}
@@ -190,15 +185,15 @@ export function FeatureShowcase() {
                   className="absolute inset-0 flex flex-col justify-start"
                 >
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-[11px] sm:text-xs font-bold text-primary dark:text-[#38bdf8] px-2 sm:px-2.5 py-0.5 rounded-full border border-primary/30 bg-primary/10">
+                    <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[11px] font-bold text-primary sm:px-2.5 sm:text-xs dark:text-[#38bdf8]">
                       {feat.number}
                     </span>
-                    <h3 className="font-heading text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground tracking-tight">
+                    <h3 className="font-heading text-lg font-bold tracking-tight text-foreground sm:text-xl lg:text-2xl xl:text-3xl">
                       {feat.name}
                     </h3>
                   </div>
 
-                  <p className="mt-2 sm:mt-3 lg:mt-4 text-xs sm:text-sm lg:text-base xl:text-lg leading-relaxed text-muted-foreground/85 max-w-xl lg:max-w-md">
+                  <p className="mt-2 max-w-xl text-xs leading-relaxed text-muted-foreground/85 sm:mt-3 sm:text-sm lg:mt-4 lg:max-w-md lg:text-base xl:text-lg">
                     {feat.description}
                   </p>
                 </div>
@@ -206,7 +201,7 @@ export function FeatureShowcase() {
             </div>
 
             {/* Feature Step Dots Indicator */}
-            <div className="mt-3 sm:mt-5 lg:mt-8 flex items-center gap-2">
+            <div className="mt-3 flex items-center gap-2 sm:mt-5 lg:mt-8">
               {FEATURES.map((feat, idx) => (
                 <div
                   key={feat.id}
@@ -221,18 +216,18 @@ export function FeatureShowcase() {
           </div>
 
           {/* Bottom (Mobile) / Right (Desktop) Column: Stack of Card Pairs sliding from bottom to stack on top of previous */}
-          <div className="w-full lg:col-span-7 relative flex items-center justify-center mt-5 sm:mt-8 lg:mt-0">
-            <div className="relative w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[620px] xl:max-w-[650px] h-[260px] sm:h-[320px] lg:h-[500px] xl:h-[540px] overflow-hidden rounded-2xl sm:rounded-3xl">
+          <div className="relative mt-5 flex w-full items-center justify-center sm:mt-8 lg:col-span-7 lg:mt-0">
+            <div className="relative h-[260px] w-full max-w-[340px] overflow-hidden rounded-2xl sm:h-[320px] sm:max-w-[440px] sm:rounded-3xl lg:h-[500px] lg:max-w-[620px] xl:h-[540px] xl:max-w-[650px]">
               {FEATURES.map((feat, idx) => (
                 <div
                   key={feat.id}
                   ref={(el) => {
                     if (el) cardPairsRef.current[idx] = el;
                   }}
-                  className="absolute inset-0 flex items-start justify-center gap-3 sm:gap-4 xl:gap-6 will-change-transform pt-1 sm:pt-2"
+                  className="absolute inset-0 flex items-start justify-center gap-3 pt-1 will-change-transform sm:gap-4 sm:pt-2 xl:gap-6"
                 >
                   {/* Left card of the pair (positioned higher) */}
-                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-border/90 bg-card">
+                  <div className="relative aspect-[5/7] w-[47%] overflow-hidden rounded-xl border border-border/90 bg-card sm:w-[48%] sm:rounded-2xl xl:rounded-3xl">
                     <Image
                       src={feat.image}
                       alt={feat.alt}
@@ -244,7 +239,7 @@ export function FeatureShowcase() {
                   </div>
 
                   {/* Right card of the pair (staggered lower - not aligned with left card) */}
-                  <div className="w-[47%] sm:w-[48%] aspect-[5/7] relative overflow-hidden rounded-xl sm:rounded-2xl xl:rounded-3xl border border-border/90 bg-card mt-4 sm:mt-6 lg:mt-8 xl:mt-10">
+                  <div className="relative mt-4 aspect-[5/7] w-[47%] overflow-hidden rounded-xl border border-border/90 bg-card sm:mt-6 sm:w-[48%] sm:rounded-2xl lg:mt-8 xl:mt-10 xl:rounded-3xl">
                     <Image
                       src={feat.secondaryImage}
                       alt={feat.secondaryAlt}
@@ -258,7 +253,6 @@ export function FeatureShowcase() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

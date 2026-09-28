@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
-import {
-  BlogPostHeader,
-  BlogPostBody,
-  ReadingProgress
-} from "@/components/routes/blog";
+
+import { siteConfig } from "@/config/site";
+
 import {
   getAllBlogPosts,
   getBlogPostBySlug,
-  parseBlogMarkdown,
-  getRelatedBlogPosts
+  getRelatedBlogPosts,
+  parseBlogMarkdown
 } from "@/lib/content";
+
+import { BlogPostBody, BlogPostHeader, ReadingProgress } from "@/components/routes/blog";
 import { UnifiedCta } from "@/components/sections";
-import { siteConfig } from "@/config/site";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -37,9 +36,7 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({
-  params
-}: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
@@ -109,51 +106,51 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": `${siteConfig.url}/blog/`
+            position: 2,
+            name: "Blog",
+            item: `${siteConfig.url}/blog/`
           },
           {
             "@type": "ListItem",
-            "position": 3,
-            "name": post.meta.title,
-            "item": postUrl
+            position: 3,
+            name: post.meta.title,
+            item: postUrl
           }
         ]
       },
       {
         "@type": "BlogPosting",
-        "headline": post.meta.title,
-        "description": post.meta.excerpt,
-        "datePublished": post.meta.date,
-        "dateModified": post.meta.date,
-        "wordCount": stats.words,
-        "timeRequired": `PT${stats.readTimeMinutes}M`,
-        "author": {
+        headline: post.meta.title,
+        description: post.meta.excerpt,
+        datePublished: post.meta.date,
+        dateModified: post.meta.date,
+        wordCount: stats.words,
+        timeRequired: `PT${stats.readTimeMinutes}M`,
+        author: {
           "@type": "Person",
-          "name": post.meta.author || siteConfig.author
+          name: post.meta.author || siteConfig.author
         },
-        "publisher": {
+        publisher: {
           "@type": "Organization",
-          "name": "Jadubot",
-          "logo": {
+          name: "Jadubot",
+          logo: {
             "@type": "ImageObject",
-            "url": `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+            url: `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
           }
         },
-        "image": post.meta.featuredImage
+        image: post.meta.featuredImage
           ? `${siteConfig.url}${post.meta.featuredImage}`
           : `${siteConfig.url}/assets/images/shared/jadubot-logo.png`,
-        "mainEntityOfPage": {
+        mainEntityOfPage: {
           "@type": "WebPage",
           "@id": postUrl
         }

@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
+
 import { cn } from "@/lib/utils";
 
-export interface SectionHeaderProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+export interface SectionHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   /** Optional badge text or custom element (e.g. "REAL IMPACT", "HOW IT WORKS") */
   badge?: React.ReactNode;
   /** Optional icon for the badge. Pass a component, element, or false to hide */
@@ -28,7 +28,6 @@ export interface SectionHeaderProps
   /** Custom classes for the description element */
   descriptionClassName?: string;
 }
-
 
 // Unified standardized typography matching the site design
 const TITLE_STYLES = {
@@ -73,19 +72,13 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         className={cn(
           "mb-14 sm:mb-16 lg:mb-20",
           maxWidth,
-          isCenter ? "text-center mx-auto" : "text-left mr-auto",
+          isCenter ? "mx-auto text-center" : "mr-auto text-left",
           className
         )}
         {...props}
       >
         {/* Title */}
-        <h2
-          className={cn(
-            "mt-0",
-            TITLE_STYLES[size],
-            titleClassName
-          )}
-        >
+        <h2 className={cn("mt-0", TITLE_STYLES[size], titleClassName)}>
           {title}
           {gradientTitle && (
             <>
@@ -99,7 +92,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         {description && (
           <p
             className={cn(
-              "mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-muted-foreground",
+              "mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base",
               isCenter && "mx-auto",
               descriptionClassName
             )}

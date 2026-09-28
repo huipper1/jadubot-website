@@ -1,12 +1,14 @@
 import Link from "next/link";
+
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function BlogCtaBanner() {
   return (
     <section
       aria-label="Try Jadubot Automation"
-      className="mt-16 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:p-12 relative overflow-hidden shadow-card"
+      className="relative mt-16 overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-card sm:p-10 lg:p-12"
     >
       {/* Background glow */}
       <div
@@ -14,16 +16,18 @@ export function BlogCtaBanner() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-snug">
+      <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <h2 className="text-2xl leading-snug font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
           Ready to put your Facebook &amp; Instagram sales on autopilot?
         </h2>
 
-        <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-          Join over 1,200+ Bangladeshi merchants using Jadubot to reply to comments within seconds, send product prices directly to Messenger inboxes, and capture midnight orders effortlessly.
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Join over 1,200+ Bangladeshi merchants using Jadubot to reply to comments within seconds,
+          send product prices directly to Messenger inboxes, and capture midnight orders
+          effortlessly.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-muted-foreground">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-emerald-400" />
             <span>Free forever starter plan</span>
@@ -43,7 +47,7 @@ export function BlogCtaBanner() {
             href="https://app.jadubot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2 text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-[#0172ff]/25 hover:scale-[1.02] transition-transform"
+            className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-xs font-semibold shadow-lg shadow-[#0172ff]/25 transition-transform hover:scale-[1.02] sm:text-sm"
           >
             <span>Start Free Starter Plan</span>
             <ArrowRight className="h-4 w-4" />
@@ -53,7 +57,7 @@ export function BlogCtaBanner() {
             href={CALENDLY_DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-black inline-flex items-center text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-xl hover:text-[#38bdf8] transition-colors"
+            className="btn-black inline-flex items-center rounded-xl px-6 py-3.5 text-xs font-semibold transition-colors hover:text-[#38bdf8] sm:text-sm"
           >
             <span>Book a Free 1-on-1 Demo</span>
           </Link>

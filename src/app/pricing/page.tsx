@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import {
-  PricingHero,
-  PricingCards,
-  PricingLogoMarquee,
-  PricingComparison,
-  PricingTestimonial,
-  PricingFaq,
-  PRICING_TIERS
-} from "@/components/routes/pricing";
+
 import { siteConfig } from "@/config/site";
+
+import {
+  PRICING_TIERS,
+  PricingCards,
+  PricingComparison,
+  PricingFaq,
+  PricingHero,
+  PricingLogoMarquee,
+  PricingTestimonial
+} from "@/components/routes/pricing";
 import { UnifiedCta } from "@/components/sections";
 
 export const metadata: Metadata = {
@@ -32,37 +34,37 @@ export default function PricingPage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Pricing",
-            "item": `${siteConfig.url}/pricing/`
+            position: 2,
+            name: "Pricing",
+            item: `${siteConfig.url}/pricing/`
           }
         ]
       },
       {
         "@type": "Product",
-        "name": "Jadubot Social Automation Plans",
-        "description":
+        name: "Jadubot Social Automation Plans",
+        description:
           "AI chatbot and marketing automation packages for Facebook Messenger, Instagram DM, and Messenger Commerce.",
-        "brand": {
+        brand: {
           "@type": "Brand",
-          "name": "Jadubot"
+          name: "Jadubot"
         },
-        "offers": PRICING_TIERS.map((tier) => ({
+        offers: PRICING_TIERS.map((tier) => ({
           "@type": "Offer",
-          "name": tier.name,
-          "price": tier.price === "৳FREE" ? "0" : tier.price.replace(/[^0-9]/g, ""),
-          "priceCurrency": "BDT",
-          "availability": "https://schema.org/InStock",
-          "url": `${siteConfig.url}/pricing/`
+          name: tier.name,
+          price: tier.price === "৳FREE" ? "0" : tier.price.replace(/[^0-9]/g, ""),
+          priceCurrency: "BDT",
+          availability: "https://schema.org/InStock",
+          url: `${siteConfig.url}/pricing/`
         }))
       }
     ]

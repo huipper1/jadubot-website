@@ -1,8 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
 import { ArrowRight, Calendar, Clock } from "lucide-react";
+
 import type { EnrichedBlogPostMeta } from "@/lib/content/blog-utils";
 import { formatBlogDate } from "@/lib/content/blog-utils";
+
 import { FormattedBlogTitle } from "./FormattedBlogTitle";
 
 interface BlogFeaturedPostProps {
@@ -13,12 +16,12 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
   const formattedDate = formatBlogDate(post.date);
 
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-border bg-card backdrop-blur-md shadow-card transition-all duration-300 hover:border-[#0172ff]/40 hover:shadow-elevated">
+    <article className="group hover:shadow-elevated relative overflow-hidden rounded-3xl border border-border bg-card shadow-card backdrop-blur-md transition-all duration-300 hover:border-[#0172ff]/40">
       <div className="flex flex-col">
         {/* Top: Cinematic Visual Header */}
         <Link
           href={`/${post.slug}/`}
-          className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-background block"
+          className="relative block aspect-[16/9] w-full overflow-hidden bg-background sm:aspect-[21/9]"
         >
           <Image
             src={post.featuredImage || "/assets/images/shared/jadubot-logo.png"}
@@ -33,7 +36,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
         </Link>
 
         {/* Bottom: Editorial Content */}
-        <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+        <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
           <div>
             {/* Meta Row: Topic & Read Time (Zero pill badges) */}
             <div className="flex items-center gap-3 text-xs font-semibold">
@@ -41,26 +44,24 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
                 Featured Playbook
               </span>
               <span className="text-muted-foreground">•</span>
-              <span className="text-muted-foreground font-medium">
-                {post.topic}
-              </span>
+              <span className="font-medium text-muted-foreground">{post.topic}</span>
             </div>
 
             {/* Post Title */}
-            <h2 className="font-heading mt-3.5 text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground leading-snug transition-colors group-hover:text-[#0172ff] dark:group-hover:text-[#38bdf8] [text-wrap:balance]">
+            <h2 className="mt-3.5 font-heading text-xl leading-snug font-bold tracking-tight [text-wrap:balance] text-foreground transition-colors group-hover:text-[#0172ff] sm:text-2xl lg:text-3xl dark:group-hover:text-[#38bdf8]">
               <Link href={`/${post.slug}/`} className="hover:opacity-95">
                 <FormattedBlogTitle title={post.title} />
               </Link>
             </h2>
 
             {/* Excerpt */}
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
               {post.excerpt}
             </p>
           </div>
 
           {/* Footer Row: Date, Read Time & CTA */}
-          <div className="mt-6 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
@@ -75,7 +76,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
 
             <Link
               href={`/${post.slug}/`}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#0172ff] hover:bg-[#0052cc] px-4.5 py-2.5 rounded-xl transition-all shadow-md shadow-[#0172ff]/25 group-hover:translate-x-0.5"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#0172ff] px-4.5 py-2.5 text-xs font-semibold text-white shadow-md shadow-[#0172ff]/25 transition-all group-hover:translate-x-0.5 hover:bg-[#0052cc]"
             >
               <span>Read playbook</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />

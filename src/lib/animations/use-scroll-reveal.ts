@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -25,22 +26,14 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     const element = ref.current;
     if (!element) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) {
       gsap.set(element, { opacity: 1, y: 0 });
       return;
     }
 
-    const {
-      y = 30,
-      duration = 0.7,
-      delay = 0,
-      stagger = 0,
-      threshold = "top 85%"
-    } = options;
+    const { y = 30, duration = 0.7, delay = 0, stagger = 0, threshold = "top 85%" } = options;
 
     const targets = element.children.length > 0 && stagger > 0 ? element.children : element;
 

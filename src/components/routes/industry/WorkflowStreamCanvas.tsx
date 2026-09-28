@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import * as THREE from "three";
 
 interface WorkflowStreamCanvasProps {
@@ -8,10 +9,7 @@ interface WorkflowStreamCanvasProps {
   totalSteps?: number;
 }
 
-export function WorkflowStreamCanvas({
-  activeStep,
-  totalSteps = 4
-}: WorkflowStreamCanvasProps) {
+export function WorkflowStreamCanvas({ activeStep, totalSteps = 4 }: WorkflowStreamCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const activeStepRef = useRef(activeStep);
 
@@ -24,9 +22,7 @@ export function WorkflowStreamCanvas({
     if (!canvas) return;
 
     // Respect reduced motion preference
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) return;
 
@@ -150,10 +146,7 @@ export function WorkflowStreamCanvas({
 
     // Inner glowing core
     const coreGeom = new THREE.BufferGeometry();
-    coreGeom.setAttribute(
-      "position",
-      new THREE.BufferAttribute(new Float32Array([0, 0, 0]), 3)
-    );
+    coreGeom.setAttribute("position", new THREE.BufferAttribute(new Float32Array([0, 0, 0]), 3));
     const coreMat = new THREE.PointsMaterial({
       size: 3.2,
       map: particleTexture,
@@ -257,8 +250,7 @@ export function WorkflowStreamCanvas({
       nodeMaterial.size = 1.6 + Math.sin(elapsed * 2.5) * 0.25;
 
       // Smooth damped lerp of active holographic beacon towards target step
-      const targetCoord =
-        stepCoordinates[activeStepRef.current] || stepCoordinates[0];
+      const targetCoord = stepCoordinates[activeStepRef.current] || stepCoordinates[0];
       currentBeaconPos.lerp(targetCoord, 0.075);
       beaconGroup.position.copy(currentBeaconPos);
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePopAnimation } from "@/lib/animations";
+
 import { PricingCards } from "@/components/routes/pricing";
 
 export function HomePricing() {
@@ -9,19 +10,20 @@ export function HomePricing() {
   return (
     <section
       id="pricing"
-      className="relative py-20 md:py-32 border-t border-border/60 bg-background"
+      className="relative border-t border-border/60 bg-background py-20 md:py-32"
     >
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div
           ref={headerRef}
-          className="mx-auto max-w-2xl text-center will-change-transform origin-center"
+          className="mx-auto max-w-2xl origin-center text-center will-change-transform"
         >
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Simple, transparent pricing
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Pick the plan that suits you best and start engaging customers effortlessly. No hidden fees.
+            Pick the plan that suits you best and start engaging customers effortlessly. No hidden
+            fees.
           </p>
         </div>
 

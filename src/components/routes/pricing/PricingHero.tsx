@@ -1,17 +1,18 @@
 "use client";
 
-import { ShieldCheck, CreditCard, Users, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, CreditCard, ShieldCheck, Users } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 
 export function PricingHero() {
   return (
     <section className="relative overflow-hidden pt-28 pb-6 sm:pt-32 sm:pb-8 md:pt-36 lg:pt-40">
       {/* Ambient background glow */}
-      <div className="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[340px] w-[600px] rounded-full bg-primary/10 blur-[120px] dark:bg-primary/15" />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none">
+        <div className="absolute top-1/4 left-1/2 h-[340px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px] dark:bg-primary/15" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
+      <div className="relative z-10 container mx-auto max-w-5xl px-4 text-center">
         <PopIn>
           {/* Glide-style Headline */}
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.12]">
@@ -19,8 +20,9 @@ export function PricingHero() {
           </h1>
 
           {/* Glide-style Subtitle */}
-          <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Plans for individuals and growing businesses automating sales on Facebook, Instagram, and WhatsApp.
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Plans for individuals and growing businesses automating sales on Facebook, Instagram,
+            and WhatsApp.
           </p>
 
           {/* Trust badges */}

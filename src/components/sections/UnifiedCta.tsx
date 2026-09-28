@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+
 import { ArrowRight, Calendar, CheckCircle2, Zap } from "lucide-react";
-import { PopIn } from "@/components/animations";
+
 import { CALENDLY_DEMO_URL } from "@/config/site";
+
+import { PopIn } from "@/components/animations";
 
 export interface UnifiedCtaAction {
   text?: string;
@@ -57,18 +60,18 @@ export function UnifiedCta({
   return (
     <section
       id={id}
-      className={`relative py-20 sm:py-24 md:py-28 overflow-hidden bg-background border-t border-border ${className}`}
+      className={`relative overflow-hidden border-t border-border bg-background py-20 sm:py-24 md:py-28 ${className}`}
     >
       <PopIn>
         {/* Dynamic atmospheric ambient glow */}
         <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[850px] max-w-full rounded-full bg-gradient-to-r from-blue-600/12 via-sky-500/8 to-blue-600/12 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 h-[450px] w-[850px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-600/12 via-sky-500/8 to-blue-600/12 blur-3xl" />
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative mx-auto max-w-5xl rounded-3xl border border-border bg-card dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95 p-8 sm:p-12 md:p-16 text-center shadow-elevated backdrop-blur-2xl">
+          <div className="shadow-elevated relative mx-auto max-w-5xl rounded-3xl border border-border bg-card p-8 text-center backdrop-blur-2xl sm:p-12 md:p-16 dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95">
             {/* Main Heading with Brand Gradient */}
-            <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-[1.15]">
+            <h2 className="font-heading text-3xl leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {title}{" "}
               {highlightedTitle && (
                 <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
@@ -79,7 +82,7 @@ export function UnifiedCta({
             </h2>
 
             {/* Subtitle Description */}
-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg leading-relaxed">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {description}
             </p>
 
@@ -112,7 +115,7 @@ export function UnifiedCta({
                   href={secondaryCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary/50 hover:bg-muted/70 hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:scale-[1.02] hover:border-primary/50 hover:bg-muted/70"
                 >
                   {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-primary" />}
                   <span>{secondaryText}</span>
@@ -120,7 +123,7 @@ export function UnifiedCta({
               ) : (
                 <Link
                   href={secondaryCta.href}
-                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary/50 hover:bg-muted/70 hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-muted/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:scale-[1.02] hover:border-primary/50 hover:bg-muted/70"
                 >
                   {secondaryCta.icon ?? <Calendar className="h-4 w-4 text-primary" />}
                   <span>{secondaryText}</span>
@@ -130,10 +133,13 @@ export function UnifiedCta({
 
             {/* Trust Badges Bar */}
             {trustBadges && trustBadges.length > 0 && (
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pt-6 border-t border-border/40">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-border/40 pt-6">
                 {trustBadges.map((badgeText, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-xs font-medium text-muted-foreground"
+                  >
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
                     <span>{badgeText}</span>
                   </div>
                 ))}

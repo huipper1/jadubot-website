@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import {
-  FaqMasthead,
-  FaqList,
-  FaqSupportMatrix,
-  FAQ_CATEGORIES
-} from "@/components/routes/faq";
+
 import { siteConfig } from "@/config/site";
+
+import { FAQ_CATEGORIES, FaqList, FaqMasthead, FaqSupportMatrix } from "@/components/routes/faq";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Jadubot",
@@ -30,29 +27,29 @@ export default function FaqPage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "FAQ",
-            "item": `${siteConfig.url}/faq/`
+            position: 2,
+            name: "FAQ",
+            item: `${siteConfig.url}/faq/`
           }
         ]
       },
       {
         "@type": "FAQPage",
-        "mainEntity": allQuestions.map((item) => ({
+        mainEntity: allQuestions.map((item) => ({
           "@type": "Question",
-          "name": item.question,
-          "acceptedAnswer": {
+          name: item.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": item.answer
+            text: item.answer
           }
         }))
       }

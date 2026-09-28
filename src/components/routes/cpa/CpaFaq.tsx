@@ -1,24 +1,21 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent
-} from "@/ui";
 import { PopIn } from "@/components/animations";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/ui";
+
 import { CPA_FAQS } from "./cpa-data";
 
 export function CpaFaq() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-border bg-card">
+    <section className="relative border-t border-border bg-card py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-2xl leading-tight font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             CPA Automation Technical Details
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-            Direct answers on comment-to-inbox mechanics, anti-ban pacing algorithms, and S2S postback attribution.
+          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+            Direct answers on comment-to-inbox mechanics, anti-ban pacing algorithms, and S2S
+            postback attribution.
           </p>
         </div>
 
@@ -28,12 +25,12 @@ export function CpaFaq() {
               <AccordionItem
                 key={faq.question}
                 value={`cpa-faq-${idx}`}
-                className="rounded-2xl border border-border bg-card/90 px-5 sm:px-6 py-1 shadow-card backdrop-blur-md transition-colors data-[state=open]:border-primary/50 data-[state=open]:bg-card"
+                className="rounded-2xl border border-border bg-card/90 px-5 py-1 shadow-card backdrop-blur-md transition-colors data-[state=open]:border-primary/50 data-[state=open]:bg-card sm:px-6"
               >
-                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-foreground hover:text-primary hover:no-underline py-4">
+                <AccordionTrigger className="py-4 text-left text-sm font-semibold text-foreground hover:text-primary hover:no-underline sm:text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-xs sm:text-sm text-muted-foreground leading-relaxed pb-4">
+                <AccordionContent className="pb-4 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                   <p>{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>

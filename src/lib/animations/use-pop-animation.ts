@@ -1,6 +1,7 @@
 "use client";
 
 import { RefObject, useRef } from "react";
+
 import { gsap, useGSAP } from "./gsap-init";
 
 export interface PopAnimationOptions {
@@ -61,9 +62,7 @@ export function usePopAnimation<T extends HTMLElement = HTMLDivElement>(
   useGSAP(
     () => {
       if (typeof window === "undefined") return;
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion) return;
 
       let targets: HTMLElement[] = [];
@@ -147,14 +146,9 @@ export function usePopAnimation<T extends HTMLElement = HTMLDivElement>(
 /**
  * Imperative helper function to animate targets with the pop effect.
  */
-export function animatePop(
-  targets: gsap.TweenTarget,
-  options: PopAnimationOptions = {}
-) {
+export function animatePop(targets: gsap.TweenTarget, options: PopAnimationOptions = {}) {
   if (typeof window === "undefined") return;
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefersReducedMotion) return;
 
   const {

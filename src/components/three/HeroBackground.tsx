@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import * as THREE from "three";
 
 export function HeroBackground() {
@@ -11,9 +12,7 @@ export function HeroBackground() {
     if (!canvas) return;
 
     // Respect user's motion preferences
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) {
       return;
@@ -50,10 +49,7 @@ export function HeroBackground() {
       scales[i] = Math.random() * 0.8 + 0.3;
     }
 
-    geometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(positions, 3)
-    );
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
 
     // Particle texture

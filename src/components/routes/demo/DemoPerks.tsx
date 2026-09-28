@@ -1,4 +1,4 @@
-import { Bot, ShoppingCart, MessageSquare, TrendingUp } from "lucide-react";
+import { Bot, MessageSquare, ShoppingCart, TrendingUp } from "lucide-react";
 
 const PERKS = [
   {
@@ -30,7 +30,7 @@ const PERKS = [
 export function DemoPerks() {
   return (
     <div className="space-y-6">
-      <div className="glass-card rounded-2xl p-6 border-border">
+      <div className="glass-card rounded-2xl border-border p-6">
         <h3 className="text-lg font-bold text-foreground">What You’ll Discover</h3>
         <p className="mt-1 text-xs text-muted-foreground">
           In this 30-minute personalized call, our senior strategist will cover:
@@ -46,7 +46,9 @@ export function DemoPerks() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-foreground">{p.title}</h4>
-                  <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">{p.description}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                    {p.description}
+                  </p>
                 </div>
               </div>
             );
@@ -54,7 +56,7 @@ export function DemoPerks() {
         </div>
       </div>
 
-      <div className="glass-card rounded-2xl p-6 border-border">
+      <div className="glass-card rounded-2xl border-border p-6">
         <h4 className="text-sm font-bold text-foreground">Have quick questions before booking?</h4>
         <p className="mt-1 text-xs text-muted-foreground">
           You can chat with our team right away on WhatsApp:

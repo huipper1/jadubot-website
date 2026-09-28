@@ -166,4 +166,3 @@ export const SERVICE_FAQS: ServiceFaqItem[] = [
       "Jadubot provides dedicated CPA automation tools including instant S2S (server-to-server) postback triggers, automated comment-to-DM funnels, multi-account routing, and affiliate lead tagging designed for high-volume performance marketing."
   }
 ];
-

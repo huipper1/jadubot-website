@@ -2,7 +2,9 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { MessageCircle, Send, CheckCircle2, ArrowRight } from "lucide-react";
+
+import { ArrowRight, CheckCircle2, MessageCircle, Send } from "lucide-react";
+
 import { gsap, useGSAP } from "@/lib/animations";
 
 const STEP_ICONS = [MessageCircle, Send, CheckCircle2];
@@ -49,9 +51,7 @@ export function CpaWorkflow() {
 
       // Desktop layout: Pinned scroll-scrubbed reveal where cards start out of visible width and enter one after another
       mm.add("(min-width: 768px)", () => {
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (prefersReducedMotion) {
           gsap.set(cardElements, { opacity: 1, x: 0, y: 0, scale: 1 });
@@ -133,9 +133,7 @@ export function CpaWorkflow() {
 
       // Mobile layout: Stacked vertically, each card glides in as it enters viewport
       mm.add("(max-width: 767px)", () => {
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (prefersReducedMotion) {
           gsap.set(cardElements, { opacity: 1, x: 0, y: 0, scale: 1 });
@@ -171,7 +169,7 @@ export function CpaWorkflow() {
     <section
       ref={sectionRef}
       id="cpa-workflow"
-      className="relative bg-card overflow-hidden py-16 md:py-24 border-t border-border"
+      className="relative overflow-hidden border-t border-border bg-card py-16 md:py-24"
     >
       {/* Subtle Dotted Background Grid */}
       <div
@@ -187,24 +185,25 @@ export function CpaWorkflow() {
 
       {/* Ambient Cobalt Glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[640px] rounded-full bg-[#0052cc]/15 blur-[140px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052cc]/15 blur-[140px]"
         aria-hidden="true"
       />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-2xl leading-tight font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             The 3-Step CPA Growth Loop
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-            How Jadubot turns casual social media engagements into tracked, high-paying CPA network conversions.
+          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+            How Jadubot turns casual social media engagements into tracked, high-paying CPA network
+            conversions.
           </p>
         </div>
 
         {/* Diagonal Cascade Container */}
-        <div className="relative mt-12 md:mt-16 flex flex-col gap-6 md:block md:min-h-[440px] lg:min-h-[480px] w-full max-w-7xl mx-auto">
+        <div className="relative mx-auto mt-12 flex w-full max-w-7xl flex-col gap-6 md:mt-16 md:block md:min-h-[440px] lg:min-h-[480px]">
           {steps.map((step, index) => {
             const Icon = STEP_ICONS[index] || MessageCircle;
             const diagonalPos = STEP_DIAGONAL_CLASSES[index] || "";
@@ -215,11 +214,11 @@ export function CpaWorkflow() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/95 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/95 p-6 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card sm:p-7 md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
                 {/* Subtle top edge accent glow line */}
                 <div
-                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"
+                  className="pointer-events-none absolute top-0 right-4 left-4 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"
                   aria-hidden="true"
                 />
 
@@ -229,29 +228,27 @@ export function CpaWorkflow() {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-primary px-2 py-0.5 rounded border border-primary/25 bg-primary/10">
+                    <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-bold text-primary">
                       Step 0{step.number}
                     </span>
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="mt-4 font-heading text-lg font-bold text-foreground tracking-tight">
+                  <h3 className="mt-4 font-heading text-lg font-bold tracking-tight text-foreground">
                     {step.title}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-[13px]">
                     {step.description}
                   </p>
                 </div>
 
                 {/* Card Footer Tag */}
-                <div className="mt-6 pt-3 border-t border-border flex items-center justify-between text-[11px]">
+                <div className="mt-6 flex items-center justify-between border-t border-border pt-3 text-[11px]">
                   <span className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-muted-foreground font-medium">
-                      {step.tag}
-                    </span>
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+                    <span className="font-medium text-muted-foreground">{step.tag}</span>
                   </span>
                   <ArrowRight className="h-3 w-3 text-muted-foreground/60 transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                 </div>

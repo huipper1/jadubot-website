@@ -6,38 +6,42 @@ export function AboutStory() {
   return (
     <section className="relative py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
-        <PopIn className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <PopIn className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column (5 cols): Editorial Anchor & Pull Quote */}
-          <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+          <div className="space-y-8 lg:sticky lg:top-32 lg:col-span-5">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-primary">
+              <span className="text-xs font-bold tracking-widest text-primary uppercase">
                 Origin &amp; Mission
               </span>
-              <h2 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+              <h2 className="mt-3 font-heading text-2xl leading-tight font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
                 Why we set out to build Jadubot.
               </h2>
             </div>
 
             {/* Asymmetric Editorial Pull Quote */}
-            <div className="border-l-2 border-primary pl-5 sm:pl-6 py-2">
-              <blockquote className="text-lg sm:text-xl font-medium leading-snug text-foreground italic">
-                &ldquo;In Bangladesh, social media inboxes aren&apos;t just customer support—they are the entire storefront. When reply latency stretches to hours, over half of all potential orders evaporate.&rdquo;
+            <div className="border-l-2 border-primary py-2 pl-5 sm:pl-6">
+              <blockquote className="text-lg leading-snug font-medium text-foreground italic sm:text-xl">
+                &ldquo;In Bangladesh, social media inboxes aren&apos;t just customer support—they
+                are the entire storefront. When reply latency stretches to hours, over half of all
+                potential orders evaporate.&rdquo;
               </blockquote>
             </div>
 
             {/* Grounded Local Facts Strip - No Cards */}
-            <div className="space-y-3 pt-4 border-t border-border text-xs text-muted-foreground">
-              <div className="flex justify-between py-1 border-b border-border/60">
+            <div className="space-y-3 border-t border-border pt-4 text-xs text-muted-foreground">
+              <div className="flex justify-between border-b border-border/60 py-1">
                 <span className="text-muted-foreground/70">Headquarters</span>
                 <span className="font-semibold text-foreground">Savar, Dhaka, Bangladesh</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-border/60">
+              <div className="flex justify-between border-b border-border/60 py-1">
                 <span className="text-muted-foreground/70">Core Engineering</span>
                 <span className="font-semibold text-foreground">Daffodil Smart City (DSC)</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-border/60">
+              <div className="flex justify-between border-b border-border/60 py-1">
                 <span className="text-muted-foreground/70">Architecture</span>
-                <span className="font-semibold text-foreground">Meta Graph &amp; WhatsApp Cloud APIs</span>
+                <span className="font-semibold text-foreground">
+                  Meta Graph &amp; WhatsApp Cloud APIs
+                </span>
               </div>
               <div className="flex justify-between py-1">
                 <span className="text-muted-foreground/70">Active Ecosystem</span>
@@ -47,40 +51,59 @@ export function AboutStory() {
           </div>
 
           {/* Right Column (7 cols): Editorial Narrative Prose */}
-          <div className="lg:col-span-7 space-y-8 text-muted-foreground leading-relaxed text-base sm:text-lg">
+          <div className="space-y-8 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
             <div className="space-y-4">
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+              <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
                 The Latency Crisis in Social Commerce
               </h3>
               <p>
-                In Bangladesh, commerce lives inside social media inboxes. Unlike Western markets dominated by standalone websites, over 400,000 local merchants run their primary livelihoods through Facebook Pages, Messenger inboxes, and Instagram Direct.
+                In Bangladesh, commerce lives inside social media inboxes. Unlike Western markets
+                dominated by standalone websites, over 400,000 local merchants run their primary
+                livelihoods through Facebook Pages, Messenger inboxes, and Instagram Direct.
               </p>
               <p>
-                Yet as soon as a brand begins to scale with ads or viral posts, founders hit an exhausting wall: <strong className="text-foreground font-semibold">human reply latency</strong>. Teams find themselves overwhelmed by thousands of repetitive messages asking the exact same questions: <em>&ldquo;Price koto?&rdquo;</em>, <em>&ldquo;Stock ache?&rdquo;</em>, <em>&ldquo;Delivery charge koto?&rdquo;</em>. When it takes 45 minutes to answer, an excited customer has already moved on to the next shop.
+                Yet as soon as a brand begins to scale with ads or viral posts, founders hit an
+                exhausting wall:{" "}
+                <strong className="font-semibold text-foreground">human reply latency</strong>.
+                Teams find themselves overwhelmed by thousands of repetitive messages asking the
+                exact same questions: <em>&ldquo;Price koto?&rdquo;</em>,{" "}
+                <em>&ldquo;Stock ache?&rdquo;</em>, <em>&ldquo;Delivery charge koto?&rdquo;</em>.
+                When it takes 45 minutes to answer, an excited customer has already moved on to the
+                next shop.
               </p>
             </div>
 
-            <div className="space-y-4 pt-4 border-t border-border">
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+            <div className="space-y-4 border-t border-border pt-4">
+              <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
                 Engineered for Bangla, Banglish &amp; Local Reality
               </h3>
               <p>
-                Foreign SaaS chatbots consistently fail in Bangladesh. They don&apos;t understand colloquial Banglish, phonetic spellings, or the domestic buying psychology that demands Cash on Delivery (COD), phone number verification, and courier logistics integration.
+                Foreign SaaS chatbots consistently fail in Bangladesh. They don&apos;t understand
+                colloquial Banglish, phonetic spellings, or the domestic buying psychology that
+                demands Cash on Delivery (COD), phone number verification, and courier logistics
+                integration.
               </p>
               <p>
-                We built <strong className="text-foreground font-semibold">Jadubot</strong> specifically to master these nuances. Our system understands local phrasing, automatically collects delivery addresses, sends instant payment prompts, and syncs orders directly to Google Sheets and internal inventory.
+                We built <strong className="font-semibold text-foreground">Jadubot</strong>{" "}
+                specifically to master these nuances. Our system understands local phrasing,
+                automatically collects delivery addresses, sends instant payment prompts, and syncs
+                orders directly to Google Sheets and internal inventory.
               </p>
             </div>
 
-            <div className="space-y-4 pt-4 border-t border-border">
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+            <div className="space-y-4 border-t border-border pt-4">
+              <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
                 Our Vision: Leveling the Playing Field
               </h3>
               <p>
-                We believe a solo entrepreneur running a boutique fashion brand from home should have the exact same conversational firepower, response speed, and customer satisfaction as a multi-million-taka enterprise.
+                We believe a solo entrepreneur running a boutique fashion brand from home should
+                have the exact same conversational firepower, response speed, and customer
+                satisfaction as a multi-million-taka enterprise.
               </p>
               <p>
-                By automating the repetitive 80% of routine inquiries, Jadubot gives business owners their time back—allowing them to focus on product quality, creative marketing, and genuine customer relationships.
+                By automating the repetitive 80% of routine inquiries, Jadubot gives business owners
+                their time back—allowing them to focus on product quality, creative marketing, and
+                genuine customer relationships.
               </p>
             </div>
           </div>

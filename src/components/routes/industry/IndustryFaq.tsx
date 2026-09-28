@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+
 import { ChevronDown } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
+
 import type { IndustryData, IndustryFaqItem } from "./industry-data";
 
 interface IndustryFaqProps {
@@ -21,10 +24,10 @@ export function IndustryFaq({ industry }: IndustryFaqProps) {
   };
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-28 bg-background overflow-hidden">
+    <section className="relative overflow-hidden bg-background py-20 sm:py-24 md:py-28">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 h-[400px] w-[700px] rounded-full bg-[#0172ff]/5 blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#0172ff]/5 blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -49,7 +52,7 @@ export function IndustryFaq({ industry }: IndustryFaqProps) {
               <PopIn key={index} delay={index * 0.05}>
                 <div
                   className={cn(
-                    "rounded-2xl border transition-all duration-300 overflow-hidden",
+                    "overflow-hidden rounded-2xl border transition-all duration-300",
                     isOpen
                       ? "border-primary/40 bg-card/90 shadow-card"
                       : "border-border/60 bg-card/40 hover:border-border hover:bg-card/70"
@@ -58,17 +61,17 @@ export function IndustryFaq({ industry }: IndustryFaqProps) {
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
-                    className="flex w-full items-center justify-between p-5 sm:p-6 text-left"
+                    className="flex w-full items-center justify-between p-5 text-left sm:p-6"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-base sm:text-lg font-semibold text-foreground pr-4">
+                    <span className="pr-4 text-base font-semibold text-foreground sm:text-lg">
                       {faq.question}
                     </span>
                     <div
                       className={cn(
                         "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-transform duration-300",
                         isOpen
-                          ? "border-primary bg-primary/20 text-primary rotate-180"
+                          ? "rotate-180 border-primary bg-primary/20 text-primary"
                           : "border-border bg-muted text-muted-foreground"
                       )}
                     >
@@ -77,7 +80,7 @@ export function IndustryFaq({ industry }: IndustryFaqProps) {
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 pt-1 text-sm sm:text-base leading-relaxed text-muted-foreground border-t border-border/60 animate-in fade-in-50 duration-200">
+                    <div className="animate-in border-t border-border/60 px-5 pt-1 pb-6 text-sm leading-relaxed text-muted-foreground duration-200 fade-in-50 sm:px-6 sm:text-base">
                       <p>{faq.answer}</p>
                     </div>
                   )}

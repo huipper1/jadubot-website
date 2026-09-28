@@ -5,7 +5,15 @@ import { defineConfig, globalIgnores } from "eslint/config";
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", "scratch/**", "scripts/**", "content/**"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "scratch/**",
+    "scripts/**",
+    "content/**"
+  ]),
   {
     rules: {
       "jsx-a11y/anchor-is-valid": [

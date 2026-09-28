@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+
 import type { BlogPostMeta } from "@/types/content";
 
 export function getAllBlogPosts(): BlogPostMeta[] {
@@ -17,9 +18,7 @@ export function getAllBlogPosts(): BlogPostMeta[] {
   }
 }
 
-export function getBlogPostBySlug(
-  slug: string
-): { meta: BlogPostMeta; content: string } | null {
+export function getBlogPostBySlug(slug: string): { meta: BlogPostMeta; content: string } | null {
   try {
     const posts = getAllBlogPosts();
     const decodedSlug = decodeURIComponent(slug);
@@ -45,12 +44,7 @@ export function getBlogPostBySlug(
       return null;
     }
 
-    const mdxPath = path.join(
-      process.cwd(),
-      "content",
-      "blog",
-      `${post.fileSlug}.mdx`
-    );
+    const mdxPath = path.join(process.cwd(), "content", "blog", `${post.fileSlug}.mdx`);
 
     if (!fs.existsSync(mdxPath)) {
       return null;

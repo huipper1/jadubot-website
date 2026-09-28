@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { CLIENT_LOGOS } from "./pricing-data";
 
 const BRAND_LOGOS = [
@@ -34,7 +35,7 @@ export function PricingLogoMarquee() {
       `}</style>
 
       <div className="container mx-auto max-w-7xl px-4 text-center">
-        <p className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-muted-foreground">
+        <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase sm:text-sm">
           Trusted by 500+ high-performing Bangladeshi brands &amp; merchants
         </p>
 
@@ -65,15 +66,15 @@ export function PricingLogoMarquee() {
                 key={idx}
                 className="flex shrink-0 items-center gap-3 rounded-full border border-border bg-card/70 px-5 py-2.5 shadow-xs transition-all hover:border-primary/40 hover:bg-card"
               >
-                <div className="relative h-6 w-16 sm:h-7 sm:w-20 shrink-0">
+                <div className="relative h-6 w-16 shrink-0 sm:h-7 sm:w-20">
                   <Image
                     src={brand.src}
                     alt={brand.name}
                     fill
-                    className="object-contain filter grayscale contrast-125 dark:brightness-150 transition-all hover:grayscale-0"
+                    className="object-contain contrast-125 grayscale filter transition-all hover:grayscale-0 dark:brightness-150"
                   />
                 </div>
-                <span className="text-xs font-semibold text-foreground/80 tracking-tight whitespace-nowrap">
+                <span className="text-xs font-semibold tracking-tight whitespace-nowrap text-foreground/80">
                   {brand.name}
                 </span>
               </div>

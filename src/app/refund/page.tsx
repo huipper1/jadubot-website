@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { RefundHero, RefundPolicy } from "@/components/routes/refund";
+
 import { siteConfig } from "@/config/site";
+
+import { RefundHero, RefundPolicy } from "@/components/routes/refund";
 
 export const metadata: Metadata = {
   title: "Refund Policy – Hassle-Free Satisfaction Guarantee | Jadubot",

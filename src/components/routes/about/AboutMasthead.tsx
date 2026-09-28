@@ -1,14 +1,15 @@
 "use client";
 
-import { Sparkles, MapPin } from "lucide-react";
+import { MapPin, Sparkles } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 
 export function AboutMasthead() {
   return (
-    <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 md:pt-40 md:pb-20 overflow-hidden">
+    <section className="relative overflow-hidden pt-32 pb-12 sm:pt-36 sm:pb-16 md:pt-40 md:pb-20">
       {/* Subtle atmospheric ambient glow, completely unobtrusive */}
       <div
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 -z-10 h-96 w-[720px] rounded-full bg-gradient-to-b from-[#0172ff]/12 via-[#38bdf8]/5 to-transparent blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-96 w-[720px] -translate-x-1/2 rounded-full bg-gradient-to-b from-[#0172ff]/12 via-[#38bdf8]/5 to-transparent blur-3xl"
         aria-hidden="true"
       />
 
@@ -28,7 +29,7 @@ export function AboutMasthead() {
           </div>
 
           {/* Bold Editorial Headline - No generic marketing hero image */}
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.12]">
+          <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[64px]">
             Building the Conversational Sales Backbone for{" "}
             <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
               Bangladeshi Social Commerce
@@ -36,10 +37,11 @@ export function AboutMasthead() {
           </h1>
 
           {/* Grounded Editorial Narrative Opening */}
-          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl font-normal">
-            Jadubot was born in Dhaka to solve a silent killer in online retail: human reply latency.
-            Today, our AI sales agents empower over 1,200+ local merchants to answer customer questions,
-            capture orders, and drive revenue 24/7 across Facebook, Instagram, and WhatsApp.
+          <p className="max-w-3xl text-base leading-relaxed font-normal text-muted-foreground sm:text-lg md:text-xl">
+            Jadubot was born in Dhaka to solve a silent killer in online retail: human reply
+            latency. Today, our AI sales agents empower over 1,200+ local merchants to answer
+            customer questions, capture orders, and drive revenue 24/7 across Facebook, Instagram,
+            and WhatsApp.
           </p>
         </PopIn>
       </div>

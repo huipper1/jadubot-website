@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+
 import type { PageContent } from "@/types/content";
 
 export function getPageContent(slug: string): PageContent | null {

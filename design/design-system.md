@@ -1,5 +1,6 @@
 # Jadubot Design System & Motion Specification
-*Reverse-engineered from LazyChat (lazychat.io) and customized for Jadubot*
+
+_Reverse-engineered from LazyChat (lazychat.io) and customized for Jadubot_
 
 ---
 
@@ -19,15 +20,17 @@ The Jadubot design system translates the visual rhythm, micro-interactions, and 
 ## 2. Layout, Grid & Spacing Rhythm
 
 ### 2.1 Container & Breakpoints
-| Breakpoint | Min-Width | Max Container Width | Horizontal Padding |
-|---|---|---|---|
-| **Mobile (`sm`)** | `360px` | `100%` | `1rem (16px)` |
-| **Tablet (`md`)** | `768px` | `720px` | `1.5rem (24px)` |
-| **Desktop (`lg`)** | `1024px` | `960px` | `2rem (32px)` |
-| **Wide Desktop (`xl`)** | `1280px` | `1200px` | `2.5rem (40px)` |
-| **Ultra-wide (`2xl`)**| `1536px` | `1280px` | `3rem (48px)` |
+
+| Breakpoint              | Min-Width | Max Container Width | Horizontal Padding |
+| ----------------------- | --------- | ------------------- | ------------------ |
+| **Mobile (`sm`)**       | `360px`   | `100%`              | `1rem (16px)`      |
+| **Tablet (`md`)**       | `768px`   | `720px`             | `1.5rem (24px)`    |
+| **Desktop (`lg`)**      | `1024px`  | `960px`             | `2rem (32px)`      |
+| **Wide Desktop (`xl`)** | `1280px`  | `1200px`            | `2.5rem (40px)`    |
+| **Ultra-wide (`2xl`)**  | `1536px`  | `1280px`            | `3rem (48px)`      |
 
 ### 2.2 Vertical Section Rhythm
+
 - **Hero Section**: `pt-32 pb-20 md:pt-40 md:pb-28`
 - **Standard Content Sections**: `py-20 md:py-32`
 - **Compact Interstitial Sections** (e.g., Marquee, Callout Badges): `py-10 md:py-16`
@@ -43,34 +46,36 @@ The Jadubot design system translates the visual rhythm, micro-interactions, and 
 LazyChat utilizes a cold indigo-violet glow. Jadubot replaces this with an **energetic electric-amber and warm-orange gradient** inspired by Jadubot's brand identity.
 
 ### 3.1 OKLCH Color Tokens (Tailwind CSS v4 `@theme`)
+
 ```css
 @theme inline {
   /* Brand Accents */
-  --color-brand-primary: oklch(0.68 0.22 45);       /* #FF6B00 Electric Orange */
-  --color-brand-secondary: oklch(0.78 0.18 65);     /* #FFA336 Luminous Amber */
-  --color-brand-glow: oklch(0.68 0.22 45 / 0.25);   /* Ambient Glow */
-  --color-brand-dark: oklch(0.48 0.19 38);          /* Deep Orange */
+  --color-brand-primary: oklch(0.68 0.22 45); /* #FF6B00 Electric Orange */
+  --color-brand-secondary: oklch(0.78 0.18 65); /* #FFA336 Luminous Amber */
+  --color-brand-glow: oklch(0.68 0.22 45 / 0.25); /* Ambient Glow */
+  --color-brand-dark: oklch(0.48 0.19 38); /* Deep Orange */
 
   /* Surface / Canvas (Dark Mode Default) */
-  --color-canvas-bg: oklch(0.12 0.015 260);         /* Deep Charcoal #070A11 */
-  --color-canvas-surface: oklch(0.16 0.018 260);    /* #0E131F Card Background */
-  --color-canvas-elevated: oklch(0.20 0.022 260);   /* #151C2C Elevated Surface */
-  --color-canvas-border: oklch(0.25 0.02 260 / 0.4);/* Border Subtle */
+  --color-canvas-bg: oklch(0.12 0.015 260); /* Deep Charcoal #070A11 */
+  --color-canvas-surface: oklch(0.16 0.018 260); /* #0E131F Card Background */
+  --color-canvas-elevated: oklch(0.2 0.022 260); /* #151C2C Elevated Surface */
+  --color-canvas-border: oklch(0.25 0.02 260 / 0.4); /* Border Subtle */
 
   /* Text & Foreground */
-  --color-text-primary: oklch(0.98 0.005 260);      /* #F8FAFC White Heading */
-  --color-text-secondary: oklch(0.75 0.015 260);    /* #94A3B8 Muted Body */
-  --color-text-tertiary: oklch(0.55 0.02 260);     /* #64748B Subtle Subtext */
+  --color-text-primary: oklch(0.98 0.005 260); /* #F8FAFC White Heading */
+  --color-text-secondary: oklch(0.75 0.015 260); /* #94A3B8 Muted Body */
+  --color-text-tertiary: oklch(0.55 0.02 260); /* #64748B Subtle Subtext */
 
   /* Accents & States */
-  --color-accent-green: oklch(0.72 0.17 145);       /* Live / Active indicator */
-  --color-accent-blue: oklch(0.65 0.18 240);        /* Facebook Messenger Blue */
-  --color-accent-pink: oklch(0.68 0.22 340);        /* Instagram Magenta */
-  --color-accent-emerald: oklch(0.70 0.19 155);     /* WhatsApp Green */
+  --color-accent-green: oklch(0.72 0.17 145); /* Live / Active indicator */
+  --color-accent-blue: oklch(0.65 0.18 240); /* Facebook Messenger Blue */
+  --color-accent-pink: oklch(0.68 0.22 340); /* Instagram Magenta */
+  --color-accent-emerald: oklch(0.7 0.19 155); /* WhatsApp Green */
 }
 ```
 
 ### 3.2 Gradient Presets
+
 - **Hero Ambient Glow**: `radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 107, 0, 0.28), rgba(255, 163, 54, 0.08) 50%, transparent 80%)`
 - **Primary Button Gradient**: `linear-gradient(135deg, #FF6B00 0%, #FF8A00 50%, #FFA336 100%)`
 - **Border Glow Hover**: `linear-gradient(135deg, rgba(255, 107, 0, 0.6), rgba(255, 163, 54, 0.2), rgba(255, 255, 255, 0.05))`
@@ -84,16 +89,16 @@ LazyChat utilizes a cold indigo-violet glow. Jadubot replaces this with an **ene
 - **Code & Numeric Badges**: `Geist Mono` (tabular numbers for animated counters).
 - **Bengali (Bangla) Typography**: `Hind Siliguri` (clean, modern sans-serif with perfect metrics matching Geist).
 
-| Style | Desktop Size / Line-Height | Mobile Size / Line-Height | Tracking | Weight |
-|---|---|---|---|---|
-| **Display H1** | `64px / 1.1` | `38px / 1.15` | `-0.03em` | Bold (`700`) |
-| **Section H2** | `44px / 1.2` | `30px / 1.25` | `-0.025em` | SemiBold (`600`) |
-| **Card H3** | `24px / 1.3` | `20px / 1.35` | `-0.02em` | SemiBold (`600`) |
-| **Feature Title H4** | `20px / 1.4` | `18px / 1.4` | `-0.015em` | Medium (`500`) |
-| **Lead Subhead** | `20px / 1.6` | `16px / 1.6` | `0` | Regular (`400`) |
-| **Body Large** | `18px / 1.6` | `16px / 1.6` | `0` | Regular (`400`) |
-| **Body Base** | `15px / 1.6` | `14px / 1.6` | `0` | Regular (`400`) |
-| **Small / Badge** | `13px / 1.4` | `12px / 1.4` | `+0.04em` | Medium (`500`) |
+| Style                | Desktop Size / Line-Height | Mobile Size / Line-Height | Tracking   | Weight           |
+| -------------------- | -------------------------- | ------------------------- | ---------- | ---------------- |
+| **Display H1**       | `64px / 1.1`               | `38px / 1.15`             | `-0.03em`  | Bold (`700`)     |
+| **Section H2**       | `44px / 1.2`               | `30px / 1.25`             | `-0.025em` | SemiBold (`600`) |
+| **Card H3**          | `24px / 1.3`               | `20px / 1.35`             | `-0.02em`  | SemiBold (`600`) |
+| **Feature Title H4** | `20px / 1.4`               | `18px / 1.4`              | `-0.015em` | Medium (`500`)   |
+| **Lead Subhead**     | `20px / 1.6`               | `16px / 1.6`              | `0`        | Regular (`400`)  |
+| **Body Large**       | `18px / 1.6`               | `16px / 1.6`              | `0`        | Regular (`400`)  |
+| **Body Base**        | `15px / 1.6`               | `14px / 1.6`              | `0`        | Regular (`400`)  |
+| **Small / Badge**    | `13px / 1.4`               | `12px / 1.4`              | `+0.04em`  | Medium (`500`)   |
 
 ---
 
@@ -120,9 +125,9 @@ Matching LazyChat's exact 1:1 structure and section rhythm:
    - Pill Badge: `Problem`.
    - H2: "You are losing sales because of missed messages and late replies."
    - 3 Glass Cards with numbered gradient badges (1, 2, 3):
-     1. *Lost Customers*: Competitors reply in 30 seconds; delayed responses lose the deal.
-     2. *Missed Opportunities*: High ad-spend leads rot in overflowing unread inboxes.
-     3. *Repetitive Tasks*: Staff spends hours typing the same pricing and delivery questions.
+     1. _Lost Customers_: Competitors reply in 30 seconds; delayed responses lose the deal.
+     2. _Missed Opportunities_: High ad-spend leads rot in overflowing unread inboxes.
+     3. _Repetitive Tasks_: Staff spends hours typing the same pricing and delivery questions.
 5. **"Solutions" 3-Tab Showcase with Looping Video Demos**:
    - Pill Badge: `Solutions`.
    - H2: "Jadubot replies to all of your customers so that you can focus on growth."
@@ -161,6 +166,7 @@ Matching LazyChat's exact 1:1 structure and section rhythm:
 ## 6. Motion & Interaction System (GSAP & Three.js)
 
 ### 6.1 GSAP Timings & Easing Standards
+
 - **Standard Reveal Transition**: `power3.out`, duration `0.7s`, opacity `0 -> 1`, y `30 -> 0`.
 - **Stagger Delay**: `0.08s` between sibling cards or grid items.
 - **ScrollTrigger Trigger Points**: `start: "top 85%"`, `toggleActions: "play none none reverse"`.
@@ -168,6 +174,7 @@ Matching LazyChat's exact 1:1 structure and section rhythm:
 - **Counter Animation**: `power2.out`, duration `1.8s` with `ScrollTrigger.once`.
 
 ### 6.2 Ambient Three.js Hero Scene (`HeroBackground.tsx`)
+
 - Lightweight procedural particle field with `THREE.Points` or glowing sine wave grid.
 - Driven by `THREE.Timer` in a `setAnimationLoop`.
 - Automatic detection of `window.matchMedia("(prefers-reduced-motion: reduce)")` — pauses WebGL animation and displays a CSS radial gradient fallback.
@@ -178,9 +185,11 @@ Matching LazyChat's exact 1:1 structure and section rhythm:
 ## 7. Component & File Architecture (Adhering to AGENT.md)
 
 To strictly satisfy the user's architectural requirement:
-> *"devide all the codes into smaller components like every route should have their dedicated component folder for the component that are only being used in that route and then use that component in the page.tsx for that route, also do same for any subroute or dynamic routes. also only use 'use client' where it is necessary 100%"*
+
+> _"devide all the codes into smaller components like every route should have their dedicated component folder for the component that are only being used in that route and then use that component in the page.tsx for that route, also do same for any subroute or dynamic routes. also only use 'use client' where it is necessary 100%"_
 
 ### 7.1 Folder Hierarchy:
+
 ```
 src/
 ├── app/

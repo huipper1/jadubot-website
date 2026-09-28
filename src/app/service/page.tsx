@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+
+import { siteConfig } from "@/config/site";
+
 import {
+  SERVICE_FAQS,
+  ServiceCta,
+  ServiceFaq,
   ServiceHero,
   ServiceMetrics,
-  ServiceProcess,
-  ServiceFaq,
-  ServiceCta,
-  SERVICE_FAQS
+  ServiceProcess
 } from "@/components/routes/service";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Services & Chatbot Automation Solutions | Jadubot",
@@ -30,78 +32,78 @@ export default function ServicePage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": `${siteConfig.url}/service/`
+            position: 2,
+            name: "Services",
+            item: `${siteConfig.url}/service/`
           }
         ]
       },
       {
         "@type": "Service",
-        "name": "Jadubot Social Commerce & Chatbot Automation Services",
-        "provider": {
+        name: "Jadubot Social Commerce & Chatbot Automation Services",
+        provider: {
           "@type": "Organization",
-          "name": "Jadubot",
-          "url": siteConfig.url,
-          "telephone": siteConfig.phone,
-          "email": siteConfig.email
+          name: "Jadubot",
+          url: siteConfig.url,
+          telephone: siteConfig.phone,
+          email: siteConfig.email
         },
-        "description":
+        description:
           "All-in-one conversational AI automation services for Facebook Messenger, Instagram DM, Comment-to-Inbox lead generation, In-Messenger eCommerce stores, and CPA marketing.",
-        "areaServed": "Bangladesh",
-        "hasOfferCatalog": {
+        areaServed: "Bangladesh",
+        hasOfferCatalog: {
           "@type": "OfferCatalog",
-          "name": "Chatbot Automation Services",
-          "itemListElement": [
+          name: "Chatbot Automation Services",
+          itemListElement: [
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Facebook Messenger Automation"
+                name: "Facebook Messenger Automation"
               }
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Instagram DM & Story Automation"
+                name: "Instagram DM & Story Automation"
               }
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Content, AI & Sales Lead Generator"
+                name: "Content, AI & Sales Lead Generator"
               }
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Messenger Store & Cart System"
+                name: "Messenger Store & Cart System"
               }
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "GPS Marketing Automation"
+                name: "GPS Marketing Automation"
               }
             },
             {
               "@type": "Offer",
-              "itemOffered": {
+              itemOffered: {
                 "@type": "Service",
-                "name": "Enterprise & Custom AI Training"
+                name: "Enterprise & Custom AI Training"
               }
             }
           ]
@@ -109,12 +111,12 @@ export default function ServicePage() {
       },
       {
         "@type": "FAQPage",
-        "mainEntity": SERVICE_FAQS.map((faq) => ({
+        mainEntity: SERVICE_FAQS.map((faq) => ({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
+          name: faq.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.answer
+            text: faq.answer
           }
         }))
       }

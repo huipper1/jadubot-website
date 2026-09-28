@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check, Share2 } from "lucide-react";
+
+import { Check, Copy, Share2 } from "lucide-react";
 import { toast } from "sonner";
 
 interface BlogShareButtonsProps {
@@ -114,7 +115,11 @@ export function BlogShareButtons({
             aria-label="Copy link"
             className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary/50 hover:bg-card hover:text-primary"
           >
-            {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied ? (
+              <Check className="h-3.5 w-3.5 text-emerald-400" />
+            ) : (
+              <Copy className="h-3.5 w-3.5" />
+            )}
           </button>
         </div>
       </div>
@@ -122,7 +127,9 @@ export function BlogShareButtons({
   }
 
   return (
-    <div className={`flex flex-wrap items-center justify-between gap-4 py-4 border-y border-border/60 ${className}`}>
+    <div
+      className={`flex flex-wrap items-center justify-between gap-4 border-y border-border/60 py-4 ${className}`}
+    >
       <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
         <Share2 className="h-4 w-4 text-muted-foreground" />
         <span>Share this guide</span>
@@ -165,7 +172,7 @@ export function BlogShareButtons({
           <button
             type="button"
             onClick={handleNativeShare}
-            className="sm:hidden inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary sm:hidden"
           >
             <Share2 className="h-3.5 w-3.5" />
             <span>More</span>

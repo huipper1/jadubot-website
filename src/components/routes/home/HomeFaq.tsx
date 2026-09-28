@@ -1,13 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent
-} from "@/ui";
+
 import { usePopAnimation } from "@/lib/animations";
+
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/ui";
 
 const FAQS = [
   {
@@ -54,12 +51,12 @@ export function HomeFaq() {
   });
 
   return (
-    <section className="relative py-20 md:py-32 border-t border-border/60 bg-background">
+    <section className="relative border-t border-border/60 bg-background py-20 md:py-32">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div
           ref={headerRef}
-          className="mx-auto max-w-2xl text-center will-change-transform origin-center"
+          className="mx-auto max-w-2xl origin-center text-center will-change-transform"
         >
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Frequently asked questions
@@ -78,14 +75,12 @@ export function HomeFaq() {
                 ref={(el) => {
                   if (el) itemsRef.current[idx] = el;
                 }}
-                className="will-change-transform origin-center"
+                className="origin-center will-change-transform"
               >
                 <AccordionItem value={`faq-${idx}`}>
                   <AccordionTrigger>{faq.question}</AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {faq.answer}
-                    </p>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               </div>

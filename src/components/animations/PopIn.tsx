@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
+
+import { PopAnimationOptions, usePopAnimation } from "@/lib/animations";
+
 import { cn } from "@/utils";
-import { usePopAnimation, PopAnimationOptions } from "@/lib/animations";
 
 export interface PopInProps extends PopAnimationOptions {
   children: React.ReactNode;
@@ -34,8 +36,7 @@ export function PopIn({
 }: PopInProps & React.HTMLAttributes<HTMLElement>) {
   const containerRef = useRef<HTMLElement | null>(null);
 
-  const shouldAnimateChildren =
-    animateChildren || (typeof stagger === "number" && stagger > 0);
+  const shouldAnimateChildren = animateChildren || (typeof stagger === "number" && stagger > 0);
 
   usePopAnimation(containerRef, {
     animateChildren: shouldAnimateChildren,
@@ -54,10 +55,7 @@ export function PopIn({
   return (
     <Component
       ref={containerRef}
-      className={cn(
-        !shouldAnimateChildren && "will-change-transform origin-center",
-        className
-      )}
+      className={cn(!shouldAnimateChildren && "origin-center will-change-transform", className)}
       {...props}
     >
       {children}

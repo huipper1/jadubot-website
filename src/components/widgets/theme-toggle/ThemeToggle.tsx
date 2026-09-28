@@ -1,8 +1,9 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { useTheme } from "next-themes";
+
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const emptySubscribe = () => () => {};
 
@@ -29,7 +30,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 dark:bg-white/5 text-muted-foreground transition-all duration-200 hover:border-brand/40 hover:bg-brand/10 hover:text-brand focus:outline-none"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-all duration-200 hover:border-brand/40 hover:bg-brand/10 hover:text-brand focus:outline-none dark:bg-white/5"
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
     >
       {isDark ? (

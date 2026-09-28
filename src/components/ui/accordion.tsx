@@ -1,13 +1,13 @@
 "use client";
 
 import * as React from "react";
+
 import { ChevronDown } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
+
 import { cn } from "@/lib/utils";
 
-function Accordion({
-  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+function Accordion({ ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
@@ -19,7 +19,7 @@ function AccordionItem({
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "group rounded-xl border border-border bg-card/80 transition-all duration-300 hover:border-primary/50 data-[state=open]:border-primary/60 data-[state=open]:bg-card data-[state=open]:shadow-card overflow-hidden",
+        "group overflow-hidden rounded-xl border border-border bg-card/80 transition-all duration-300 hover:border-primary/50 data-[state=open]:border-primary/60 data-[state=open]:bg-card data-[state=open]:shadow-card",
         className
       )}
       {...props}
@@ -37,7 +37,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "flex flex-1 items-center justify-between gap-4 p-5 text-left text-base font-semibold text-foreground transition-all duration-200 outline-none hover:no-underline hover:text-primary disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:text-primary",
+          "flex flex-1 items-center justify-between gap-4 p-5 text-left text-base font-semibold text-foreground transition-all duration-200 outline-none hover:text-primary hover:no-underline disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:text-primary",
           className
         )}
         {...props}
@@ -60,7 +60,9 @@ function AccordionContent({
       className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       {...props}
     >
-      <div className={cn("px-5 pb-5 pt-1 text-sm leading-relaxed text-muted-foreground", className)}>
+      <div
+        className={cn("px-5 pt-1 pb-5 text-sm leading-relaxed text-muted-foreground", className)}
+      >
         {children}
       </div>
     </AccordionPrimitive.Content>
@@ -68,4 +70,3 @@ function AccordionContent({
 }
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
-

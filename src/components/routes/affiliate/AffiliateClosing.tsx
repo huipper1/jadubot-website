@@ -1,6 +1,7 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
+
 import { UnifiedCta } from "@/components/sections";
 
 export function AffiliateClosing() {
@@ -30,4 +31,3 @@ export function AffiliateClosing() {
     />
   );
 }
-

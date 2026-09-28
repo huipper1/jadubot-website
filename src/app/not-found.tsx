@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Home, HelpCircle, Bot } from "lucide-react";
+
+import { Bot, HelpCircle, Home } from "lucide-react";
+
 import { Badge } from "@/ui";
 
 export default function NotFound() {
@@ -9,7 +11,7 @@ export default function NotFound() {
 
       <div className="mx-auto max-w-md">
         <Badge variant="default" className="px-3.5 py-1 text-xs">
-          <Bot className="h-3 w-3 mr-1 text-brand-orange" />
+          <Bot className="mr-1 h-3 w-3 text-brand-orange" />
           Error 404
         </Badge>
 
@@ -17,18 +19,17 @@ export default function NotFound() {
           <span className="text-gradient">404</span>
         </h1>
 
-        <h2 className="mt-3 text-xl font-bold text-foreground sm:text-2xl">
-          Page Not Found
-        </h2>
+        <h2 className="mt-3 text-xl font-bold text-foreground sm:text-2xl">Page Not Found</h2>
 
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          The page you are looking for might have been moved, removed, or is temporarily unavailable.
+          The page you are looking for might have been moved, removed, or is temporarily
+          unavailable.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-xl bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-orange/20 transition-all hover:bg-brand-orange/90 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-orange/20 transition-all hover:scale-[1.02] hover:bg-brand-orange/90 active:scale-[0.98]"
           >
             <Home className="mr-2 h-4 w-4" />
             Return Home

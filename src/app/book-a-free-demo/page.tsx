@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+
 import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {

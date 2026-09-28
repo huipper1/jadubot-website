@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ListTree, ChevronDown } from "lucide-react";
+
+import { ChevronDown, ListTree } from "lucide-react";
+
 import type { BlogHeading } from "@/lib/content/blog-utils";
 
 interface TableOfContentsProps {
@@ -56,7 +58,7 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
   return (
     <>
       {/* Mobile Sticky Bar & Drawer */}
-      <div className="lg:hidden my-6 rounded-xl border border-border bg-card/90 p-4 backdrop-blur-md">
+      <div className="my-6 rounded-xl border border-border bg-card/90 p-4 backdrop-blur-md lg:hidden">
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -74,7 +76,7 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
         </button>
 
         {mobileOpen && (
-          <nav className="mt-3 pt-3 border-t border-border/60 max-h-72 overflow-y-auto space-y-1 text-xs">
+          <nav className="mt-3 max-h-72 space-y-1 overflow-y-auto border-t border-border/60 pt-3 text-xs">
             {headings.map((h) => {
               const isActive = activeId === h.id;
               return (
@@ -82,11 +84,11 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
                   key={h.id}
                   type="button"
                   onClick={() => handleScrollTo(h.id)}
-                  className={`block w-full text-left py-1.5 transition-colors line-clamp-1 ${
+                  className={`line-clamp-1 block w-full py-1.5 text-left transition-colors ${
                     h.level === 3 ? "pl-4" : "pl-1 font-medium"
                   } ${
                     isActive
-                      ? "text-[#38bdf8] font-semibold"
+                      ? "font-semibold text-[#38bdf8]"
                       : "text-slate-400 hover:text-slate-200"
                   }`}
                 >
@@ -99,19 +101,16 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
       </div>
 
       {/* Desktop Sticky Navigation */}
-      <nav
-        aria-label="Table of contents"
-        className={`hidden lg:block ${className}`}
-      >
-        <div className="rounded-2xl border border-border bg-card/75 p-5 backdrop-blur-md shadow-xl shadow-black/20">
-          <div className="flex items-center gap-2 pb-3 border-b border-border/60">
+      <nav aria-label="Table of contents" className={`hidden lg:block ${className}`}>
+        <div className="rounded-2xl border border-border bg-card/75 p-5 shadow-xl shadow-black/20 backdrop-blur-md">
+          <div className="flex items-center gap-2 border-b border-border/60 pb-3">
             <ListTree className="h-4 w-4 text-[#38bdf8]" />
             <h2 className="text-xs font-semibold tracking-wide text-slate-200">
               Table of contents
             </h2>
           </div>
 
-          <div className="mt-3 max-h-[calc(100vh-240px)] overflow-y-auto pr-1 space-y-1 text-xs scrollbar-thin scrollbar-thumb-white/10">
+          <div className="scrollbar-thin scrollbar-thumb-white/10 mt-3 max-h-[calc(100vh-240px)] space-y-1 overflow-y-auto pr-1 text-xs">
             {headings.map((h) => {
               const isActive = activeId === h.id;
               return (
@@ -119,17 +118,17 @@ export function TableOfContents({ headings, className = "" }: TableOfContentsPro
                   key={h.id}
                   type="button"
                   onClick={() => handleScrollTo(h.id)}
-                  className={`group relative flex w-full text-left py-1.5 transition-all leading-snug rounded-md px-2 ${
+                  className={`group relative flex w-full rounded-md px-2 py-1.5 text-left leading-snug transition-all ${
                     h.level === 3 ? "pl-5 text-[11.5px]" : "font-medium"
                   } ${
                     isActive
-                      ? "bg-[#0172ff]/10 text-[#38bdf8] font-semibold"
+                      ? "bg-[#0172ff]/10 font-semibold text-[#38bdf8]"
                       : "text-slate-400 hover:bg-white/[0.03] hover:text-slate-200"
                   }`}
                 >
                   {isActive && (
                     <span
-                      className="absolute left-0 top-1.5 bottom-1.5 w-[2.5px] rounded-full bg-[#0172ff]"
+                      className="absolute top-1.5 bottom-1.5 left-0 w-[2.5px] rounded-full bg-[#0172ff]"
                       aria-hidden="true"
                     />
                   )}

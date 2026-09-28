@@ -11,8 +11,7 @@ export function ReadingProgress() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const totalHeight =
-            document.documentElement.scrollHeight - window.innerHeight;
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
           if (totalHeight > 0) {
             const currentProgress = (window.scrollY / totalHeight) * 100;
             setProgress(Math.min(100, Math.max(0, currentProgress)));
@@ -31,11 +30,11 @@ export function ReadingProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-white/[0.04] pointer-events-none"
+      className="pointer-events-none fixed top-0 right-0 left-0 z-50 h-[3px] bg-white/[0.04]"
       aria-hidden="true"
     >
       <div
-        className="h-full bg-gradient-to-r from-[#0172ff] via-[#38bdf8] to-[#0172ff] transition-[width] duration-150 ease-out shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+        className="h-full bg-gradient-to-r from-[#0172ff] via-[#38bdf8] to-[#0172ff] shadow-[0_0_10px_rgba(56,189,248,0.5)] transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

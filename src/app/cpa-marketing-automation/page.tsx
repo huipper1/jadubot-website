@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+
+import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
+
 import {
-  CpaMasthead,
-  CpaFeatures,
-  CpaWorkflow,
-  CpaPricing,
-  CpaFaq,
   CPA_FAQS,
-  CPA_PLANS
+  CPA_PLANS,
+  CpaFaq,
+  CpaFeatures,
+  CpaMasthead,
+  CpaPricing,
+  CpaWorkflow
 } from "@/components/routes/cpa";
 import { UnifiedCta } from "@/components/sections";
-import { siteConfig, CALENDLY_DEMO_URL } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "CPA Marketing Automation – Maximize Social Lead Flow | Jadubot",
@@ -32,47 +34,47 @@ export default function CpaMarketingAutomationPage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "CPA Automation",
-            "item": `${siteConfig.url}/cpa-marketing-automation/`
+            position: 2,
+            name: "CPA Automation",
+            item: `${siteConfig.url}/cpa-marketing-automation/`
           }
         ]
       },
       {
         "@type": "Product",
-        "name": "Jadubot CPA Marketing Automation",
-        "description":
+        name: "Jadubot CPA Marketing Automation",
+        description:
           "High-volume comment-to-inbox auto-reply suite, multi-account routing, and server-to-server postback integration for CPA affiliate campaigns.",
-        "brand": {
+        brand: {
           "@type": "Brand",
-          "name": "Jadubot"
+          name: "Jadubot"
         },
-        "offers": CPA_PLANS.map((plan) => ({
+        offers: CPA_PLANS.map((plan) => ({
           "@type": "Offer",
-          "name": plan.name,
-          "price": plan.price.replace(/[^0-9]/g, ""),
-          "priceCurrency": "BDT",
-          "url": plan.ctaUrl,
-          "availability": "https://schema.org/InStock"
+          name: plan.name,
+          price: plan.price.replace(/[^0-9]/g, ""),
+          priceCurrency: "BDT",
+          url: plan.ctaUrl,
+          availability: "https://schema.org/InStock"
         }))
       },
       {
         "@type": "FAQPage",
-        "mainEntity": CPA_FAQS.map((faq) => ({
+        mainEntity: CPA_FAQS.map((faq) => ({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
+          name: faq.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.answer
+            text: faq.answer
           }
         }))
       }

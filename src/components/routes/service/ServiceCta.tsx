@@ -1,7 +1,8 @@
 "use client";
 
-import { UnifiedCta } from "@/components/sections";
 import { CALENDLY_DEMO_URL } from "@/config/site";
+
+import { UnifiedCta } from "@/components/sections";
 
 export function ServiceCta() {
   return (

@@ -33,21 +33,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1683",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1683", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1683",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -133,21 +125,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1661",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1661", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1661",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -233,21 +217,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1581",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1581", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1581",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -333,21 +309,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1172",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1172", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1172",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -427,21 +395,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1170",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1170", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1170",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -521,21 +481,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1168",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1168", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1168",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -621,21 +573,13 @@
     "meta": {
       "footnotes": ""
     },
-    "class_list": [
-      "post-1166",
-      "page",
-      "type-page",
-      "status-publish",
-      "hentry"
-    ],
+    "class_list": ["post-1166", "page", "type-page", "status-publish", "hentry"],
     "_links": {
       "self": [
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/1166",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -728,9 +672,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/718",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -835,9 +777,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/715",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -942,9 +882,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/709",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1049,9 +987,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/595",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1156,9 +1092,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/217",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1263,9 +1197,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/205",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1370,9 +1302,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/128",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1477,9 +1407,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/119",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1584,9 +1512,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/114",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1691,9 +1617,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/111",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],
@@ -1798,9 +1722,7 @@
         {
           "href": "https://jadubot.com/wp-json/wp/v2/pages/91",
           "targetHints": {
-            "allow": [
-              "GET"
-            ]
+            "allow": ["GET"]
           }
         }
       ],

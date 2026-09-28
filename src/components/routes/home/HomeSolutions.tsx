@@ -1,26 +1,24 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { cn } from "@/utils";
 
 const SOLUTIONS_ITEMS = [
   {
     id: "sales",
     title: "Increased Sales",
-    description:
-      "Jadubot attends to your customer's queries 24/7 and closes more sales."
+    description: "Jadubot attends to your customer's queries 24/7 and closes more sales."
   },
   {
     id: "replies",
     title: "Instant Replies",
-    description:
-      "Jadubot instantly answers across all platforms and organize the messages for you."
+    description: "Jadubot instantly answers across all platforms and organize the messages for you."
   },
   {
     id: "productivity",
     title: "Increased Productivity",
-    description:
-      "Jadubot handles customers all day, so you can focus on your business growth."
+    description: "Jadubot handles customers all day, so you can focus on your business growth."
   }
 ];
 
@@ -80,29 +78,29 @@ export function HomeSolutions() {
   };
 
   return (
-    <section id="solutions" className="relative py-16 md:py-28 overflow-hidden bg-background">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="solutions" className="relative overflow-hidden bg-background py-16 md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header - Left-aligned matching screenshot */}
         <div className="max-w-3xl text-left">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.18] max-w-2xl">
+          <h2 className="max-w-2xl font-heading text-3xl leading-[1.18] font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Jadubot replies to all of your customers so that you can focus on growth
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-muted-foreground/80 font-normal">
+          <p className="mt-3 text-base font-normal text-muted-foreground/80 sm:text-lg">
             Just like your superhuman sales agent
           </p>
         </div>
 
         {/* 2-Column Layout: Mobile = Video Top, Items Bottom; Desktop = Items Left, Video Right */}
-        <div className="mt-12 lg:mt-16 grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:items-center">
           {/* Left Column (Items with one continuous vertical progress bar) */}
-          <div className="order-2 lg:order-1 lg:col-span-5 relative pl-7 sm:pl-8">
+          <div className="relative order-2 pl-7 sm:pl-8 lg:order-1 lg:col-span-5">
             {/* Single continuous background vertical track */}
-            <div className="absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-muted overflow-hidden">
+            <div className="absolute top-1.5 bottom-1.5 left-0 w-[3px] overflow-hidden rounded-full bg-muted">
               {/* Green progress bar increasing over time */}
               <div
                 ref={progressFillRef}
-                className="w-full bg-emerald-400 rounded-full shadow-[0_0_12px_rgba(52,211,153,0.7)] will-change-[height]"
+                className="w-full rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)] will-change-[height]"
                 style={{ height: "0%" }}
               />
             </div>
@@ -117,12 +115,14 @@ export function HomeSolutions() {
                     key={item.id}
                     type="button"
                     onClick={() => handleTabClick(idx)}
-                    className="relative w-full text-left group cursor-pointer transition-all duration-200 block"
+                    className="group relative block w-full cursor-pointer text-left transition-all duration-200"
                   >
                     <h3
                       className={cn(
-                        "font-heading text-base sm:text-lg font-semibold transition-colors duration-200",
-                        isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
+                        "font-heading text-base font-semibold transition-colors duration-200 sm:text-lg",
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground group-hover:text-foreground"
                       )}
                     >
                       {item.title}
@@ -130,7 +130,7 @@ export function HomeSolutions() {
 
                     <p
                       className={cn(
-                        "mt-1.5 text-xs sm:text-sm leading-relaxed max-w-md transition-colors duration-200",
+                        "mt-1.5 max-w-md text-xs leading-relaxed transition-colors duration-200 sm:text-sm",
                         isActive
                           ? "text-muted-foreground"
                           : "text-muted-foreground/55 group-hover:text-muted-foreground/75"
@@ -145,14 +145,14 @@ export function HomeSolutions() {
           </div>
 
           {/* Right Column (Video / Phone) - on mobile: order-1 (top); on desktop: order-2 (right) */}
-          <div className="order-1 lg:order-2 lg:col-span-7 flex justify-center items-center">
+          <div className="order-1 flex items-center justify-center lg:order-2 lg:col-span-7">
             <video
               src="/assets/videos/solution-instant-reply.mp4"
               autoPlay
               loop
               muted
               playsInline
-              className="w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[520px] object-contain select-none pointer-events-none"
+              className="pointer-events-none w-full max-w-[380px] object-contain select-none sm:max-w-[440px] lg:max-w-[520px]"
             />
           </div>
         </div>

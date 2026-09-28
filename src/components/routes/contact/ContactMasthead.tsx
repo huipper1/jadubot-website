@@ -1,14 +1,15 @@
 "use client";
 
-import { MessageSquare, Clock, MapPin, Zap } from "lucide-react";
+import { Clock, MapPin, MessageSquare, Zap } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 
 export function ContactMasthead() {
   return (
-    <section className="relative pt-32 pb-10 sm:pt-36 sm:pb-14 md:pt-40 md:pb-16 overflow-hidden">
+    <section className="relative overflow-hidden pt-32 pb-10 sm:pt-36 sm:pb-14 md:pt-40 md:pb-16">
       {/* Subtle atmospheric ambient glow */}
       <div
-        className="pointer-events-none absolute -top-28 left-1/2 -translate-x-1/2 -z-10 h-96 w-[760px] rounded-full bg-gradient-to-b from-[#0172ff]/12 via-[#38bdf8]/5 to-transparent blur-3xl"
+        className="pointer-events-none absolute -top-28 left-1/2 -z-10 h-96 w-[760px] -translate-x-1/2 rounded-full bg-gradient-to-b from-[#0172ff]/12 via-[#38bdf8]/5 to-transparent blur-3xl"
         aria-hidden="true"
       />
 
@@ -28,7 +29,7 @@ export function ContactMasthead() {
           </div>
 
           {/* High-Contrast Editorial Headline */}
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px] leading-[1.12]">
+          <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px]">
             Talk to the Team Behind{" "}
             <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
               Bangladesh&apos;s Smartest Sales AI
@@ -36,12 +37,14 @@ export function ContactMasthead() {
           </h1>
 
           {/* Grounded Narrative Subtitle */}
-          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl font-normal">
-            Whether you are scaling an F-commerce storefront to thousands of monthly orders, running high-velocity CPA campaigns, or seeking dedicated enterprise automation — our Dhaka engineering and customer success specialists are ready to guide you.
+          <p className="max-w-3xl text-base leading-relaxed font-normal text-muted-foreground sm:text-lg md:text-xl">
+            Whether you are scaling an F-commerce storefront to thousands of monthly orders, running
+            high-velocity CPA campaigns, or seeking dedicated enterprise automation — our Dhaka
+            engineering and customer success specialists are ready to guide you.
           </p>
 
           {/* Live Readiness Strip */}
-          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-medium text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-medium text-muted-foreground sm:gap-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1.5 text-emerald-600 dark:text-emerald-300">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />

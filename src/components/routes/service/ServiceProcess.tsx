@@ -1,4 +1,5 @@
-import { Link2, Database, Bot, TrendingUp } from "lucide-react";
+import { Bot, Database, Link2, TrendingUp } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 import { SectionHeader } from "@/ui";
 
@@ -50,11 +51,11 @@ export function ServiceProcess() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[750px] rounded-full bg-blue-600/10 blur-[140px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[750px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[140px]"
         aria-hidden="true"
       />
 
-      <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <SectionHeader
           badge="HOW IT WORKS"
@@ -68,8 +69,8 @@ export function ServiceProcess() {
           description={
             <>
               A smooth, hassle-free process to get your automation up and running —
-              <br className="hidden sm:inline" />{" "}
-              so you can focus on what matters most, growing your business.
+              <br className="hidden sm:inline" /> so you can focus on what matters most, growing
+              your business.
             </>
           }
         />
@@ -96,25 +97,25 @@ export function ServiceProcess() {
 
           {/* Horizontal Connecting Timeline Line (Desktop) */}
           <div
-            className="hidden lg:block absolute top-11 left-[12.5%] right-[12.5%] h-[1.5px] bg-gradient-to-r from-blue-500/25 via-primary/50 to-blue-500/25 dark:from-blue-500/30 dark:via-blue-400/70 dark:to-blue-500/30 shadow-[0_0_12px_rgba(1,114,255,0.2)] dark:shadow-[0_0_12px_rgba(1,114,255,0.4)] z-0"
+            className="absolute top-11 right-[12.5%] left-[12.5%] z-0 hidden h-[1.5px] bg-gradient-to-r from-blue-500/25 via-primary/50 to-blue-500/25 shadow-[0_0_12px_rgba(1,114,255,0.2)] lg:block dark:from-blue-500/30 dark:via-blue-400/70 dark:to-blue-500/30 dark:shadow-[0_0_12px_rgba(1,114,255,0.4)]"
             aria-hidden="true"
           />
 
           {/* Intermediate Glowing Dots between steps (Desktop) */}
           <div
-            className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[25%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
+            className="pointer-events-none absolute top-11 left-[25%] z-0 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex"
             aria-hidden="true"
           >
             <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
-            className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[50%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
+            className="pointer-events-none absolute top-11 left-[50%] z-0 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex"
             aria-hidden="true"
           >
             <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
           </div>
           <div
-            className="hidden lg:flex absolute top-11 -translate-y-1/2 left-[75%] -translate-x-1/2 z-0 items-center justify-center pointer-events-none"
+            className="pointer-events-none absolute top-11 left-[75%] z-0 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex"
             aria-hidden="true"
           >
             <div className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(1,114,255,0.6)] dark:bg-white dark:shadow-[0_0_8px_#ffffff,0_0_18px_rgba(1,114,255,0.9),0_0_30px_rgba(1,114,255,0.6)]" />
@@ -134,7 +135,7 @@ export function ServiceProcess() {
                   className="group relative flex flex-col items-center text-center"
                 >
                   {/* Glowing Circular Step Node */}
-                  <div className="relative flex h-20 w-20 sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-slate-200 bg-card shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(1,114,255,0.25)] dark:border-blue-500/35 dark:bg-background dark:shadow-[0_0_25px_rgba(1,114,255,0.25)] dark:backdrop-blur-md dark:group-hover:border-blue-400/60 dark:group-hover:shadow-[0_0_35px_rgba(1,114,255,0.4)]">
+                  <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-slate-200 bg-card shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(1,114,255,0.25)] sm:h-[88px] sm:w-[88px] dark:border-blue-500/35 dark:bg-background dark:shadow-[0_0_25px_rgba(1,114,255,0.25)] dark:backdrop-blur-md dark:group-hover:border-blue-400/60 dark:group-hover:shadow-[0_0_35px_rgba(1,114,255,0.4)]">
                     <svg
                       className="pointer-events-none absolute inset-0 h-full w-full -rotate-90 overflow-visible"
                       viewBox="0 0 88 88"
@@ -148,7 +149,7 @@ export function ServiceProcess() {
                         r="41"
                         stroke="currentColor"
                         strokeWidth="2"
-                        className="text-slate-200 group-hover:text-primary/30 dark:text-blue-500/20 dark:group-hover:text-blue-500/35 transition-colors duration-300"
+                        className="text-slate-200 transition-colors duration-300 group-hover:text-primary/30 dark:text-blue-500/20 dark:group-hover:text-blue-500/35"
                       />
 
                       {/* Progressive highlighted stroke - Light Mode */}
@@ -162,7 +163,7 @@ export function ServiceProcess() {
                         strokeDasharray={step.strokeDasharray}
                         strokeDashoffset={0}
                         strokeLinecap="round"
-                        className="dark:hidden transition-all duration-500 group-hover:stroke-primary group-hover:drop-shadow-[0_0_6px_rgba(1,114,255,0.5)]"
+                        className="transition-all duration-500 group-hover:stroke-primary group-hover:drop-shadow-[0_0_6px_rgba(1,114,255,0.5)] dark:hidden"
                       />
 
                       {/* Progressive highlighted stroke - Dark Mode */}
@@ -176,7 +177,7 @@ export function ServiceProcess() {
                         strokeDasharray={step.strokeDasharray}
                         strokeDashoffset={0}
                         strokeLinecap="round"
-                        className="hidden dark:block transition-all duration-500 group-hover:stroke-white group-hover:drop-shadow-[0_0_8px_#38bdf8]"
+                        className="hidden transition-all duration-500 group-hover:stroke-white group-hover:drop-shadow-[0_0_8px_#38bdf8] dark:block"
                       />
                     </svg>
 
@@ -184,17 +185,17 @@ export function ServiceProcess() {
                   </div>
 
                   {/* Step Number */}
-                  <span className="mt-5 text-base sm:text-lg font-bold font-mono text-primary dark:text-sky-400 tracking-wider">
+                  <span className="mt-5 font-mono text-base font-bold tracking-wider text-primary sm:text-lg dark:text-sky-400">
                     {step.step}
                   </span>
 
                   {/* Step Title */}
-                  <h3 className="mt-2 font-heading text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
+                  <h3 className="mt-2 font-heading text-base leading-snug font-bold tracking-tight text-foreground sm:text-lg">
                     {step.title}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground max-w-[250px] sm:max-w-[270px] mx-auto">
+                  <p className="mx-auto mt-2 max-w-[250px] text-xs leading-relaxed text-muted-foreground sm:max-w-[270px] sm:text-sm">
                     {step.description}
                   </p>
                 </div>

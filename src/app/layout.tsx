@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter, Hind_Siliguri } from "next/font/google";
+import { Hind_Siliguri, Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -8,7 +8,7 @@ import { seoConfig } from "@/config/seo";
 import { siteConfig } from "@/config/site";
 import { env } from "@/env";
 
-import { Header, Footer } from "@/components/layouts";
+import { Footer, Header } from "@/components/layouts";
 import { Toaster } from "@/ui";
 import { Providers } from "@/providers";
 
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={siteConfig.locale} suppressHydrationWarning className="dark">
       <body
-        className={`${plusJakartaSans.variable} ${inter.variable} ${hindSiliguri.variable} font-sans flex min-h-screen w-full flex-col bg-background text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
+        className={`${plusJakartaSans.variable} ${inter.variable} ${hindSiliguri.variable} flex min-h-screen w-full flex-col bg-background font-sans text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
       >
         <Providers>
           <Header />

@@ -35,45 +35,49 @@ const CAPABILITIES = [
 
 export function CpaFeatures() {
   return (
-    <section className="relative py-16 md:py-24 border-t border-border bg-background">
+    <section className="relative border-t border-border bg-background py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <PopIn className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-primary">
+          <span className="text-xs font-bold tracking-widest text-primary uppercase">
             Technical Capabilities
           </span>
-          <h2 className="mt-3 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
+          <h2 className="mt-3 font-heading text-2xl leading-tight font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
             Engineered for high-volume affiliate campaigns.
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Eliminate wasted ad clicks, bypass manual inbox limitations, and route motivated prospects straight into your highest-converting CPA funnels.
+            Eliminate wasted ad clicks, bypass manual inbox limitations, and route motivated
+            prospects straight into your highest-converting CPA funnels.
           </p>
         </PopIn>
 
         {/* Unboxed Technical Capabilities Matrix - Zero Cards */}
-        <PopIn stagger={0.08} className="mt-12 sm:mt-16 divide-y divide-border border-y border-border">
+        <PopIn
+          stagger={0.08}
+          className="mt-12 divide-y divide-border border-y border-border sm:mt-16"
+        >
           {CAPABILITIES.map((item) => (
             <div
               key={item.num}
-              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline transition-colors hover:bg-muted/30"
+              className="grid grid-cols-1 items-baseline gap-4 py-8 transition-colors hover:bg-muted/30 sm:py-10 md:grid-cols-12 md:gap-8"
             >
-              <div className="md:col-span-2 flex items-center gap-3">
-                <span className="font-mono text-xl sm:text-2xl font-bold text-primary/80">
+              <div className="flex items-center gap-3 md:col-span-2">
+                <span className="font-mono text-xl font-bold text-primary/80 sm:text-2xl">
                   {item.num}
                 </span>
-                <span className="inline-block md:hidden rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary">
+                <span className="inline-block rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary md:hidden">
                   {item.tag}
                 </span>
               </div>
-              <div className="md:col-span-4 space-y-1.5">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground">
+              <div className="space-y-1.5 md:col-span-4">
+                <h3 className="font-heading text-lg font-bold text-foreground sm:text-xl">
                   {item.title}
                 </h3>
-                <span className="hidden md:inline-block rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary">
+                <span className="hidden rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary md:inline-block">
                   {item.tag}
                 </span>
               </div>
               <div className="md:col-span-6">
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {item.description}
                 </p>
               </div>

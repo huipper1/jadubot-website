@@ -28,8 +28,10 @@ export interface EnrichedBlogPostMeta extends BlogPostMeta {
 export function getBlogTopic(slug: string, title: string = ""): string {
   const combined = `${slug} ${title}`.toLowerCase();
   if (combined.includes("instagram") || combined.includes("dm")) return "Instagram DMs";
-  if (combined.includes("facebook") || combined.includes("page") || combined.includes("ফেসবুক")) return "Facebook automation";
-  if (combined.includes("free") || combined.includes("টপ 1") || combined.includes("ফ্রি")) return "Free tools & guides";
+  if (combined.includes("facebook") || combined.includes("page") || combined.includes("ফেসবুক"))
+    return "Facebook automation";
+  if (combined.includes("free") || combined.includes("টপ 1") || combined.includes("ফ্রি"))
+    return "Free tools & guides";
   if (
     combined.includes("cpa") ||
     combined.includes("marketing") ||

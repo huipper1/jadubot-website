@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
+
 import { Calendar, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 
 export function DemoForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,7 +39,7 @@ export function DemoForm() {
 
   if (isBooked && scheduledDetails) {
     return (
-      <div className="glass-card rounded-2xl p-8 border-border text-center py-12">
+      <div className="glass-card rounded-2xl border-border p-8 py-12 text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
           <CheckCircle2 className="h-8 w-8" />
         </div>
@@ -48,7 +49,7 @@ export function DemoForm() {
           <strong className="text-foreground">{scheduledDetails.business}</strong>.
         </p>
 
-        <div className="mx-auto mt-6 max-w-sm rounded-xl border border-border bg-white/5 p-4 text-left space-y-2 text-xs">
+        <div className="mx-auto mt-6 max-w-sm space-y-2 rounded-xl border border-border bg-white/5 p-4 text-left text-xs">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Preferred Date:</span>
             <span className="font-semibold text-foreground">{scheduledDetails.date}</span>
@@ -59,12 +60,15 @@ export function DemoForm() {
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">Platform:</span>
-            <span className="font-semibold text-brand-orange">Google Meet (Link sent via Email/WhatsApp)</span>
+            <span className="font-semibold text-brand-orange">
+              Google Meet (Link sent via Email/WhatsApp)
+            </span>
           </div>
         </div>
 
-        <p className="mt-6 text-xs text-muted-foreground max-w-md mx-auto">
-          Our senior marketing technologist will contact you shortly to confirm your slot and share your calendar invitation.
+        <p className="mx-auto mt-6 max-w-md text-xs text-muted-foreground">
+          Our senior marketing technologist will contact you shortly to confirm your slot and share
+          your calendar invitation.
         </p>
 
         <button
@@ -82,7 +86,7 @@ export function DemoForm() {
   }
 
   return (
-    <div className="glass-card rounded-2xl p-8 border-border">
+    <div className="glass-card rounded-2xl border-border p-8">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
@@ -95,7 +99,7 @@ export function DemoForm() {
               type="text"
               required
               placeholder="e.g. Mahfuzur Rahman"
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             />
           </div>
 
@@ -109,7 +113,7 @@ export function DemoForm() {
               type="text"
               required
               placeholder="e.g. Dhaka Artisan Leather"
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             />
           </div>
         </div>
@@ -125,7 +129,7 @@ export function DemoForm() {
               type="email"
               required
               placeholder="name@business.com"
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             />
           </div>
 
@@ -139,7 +143,7 @@ export function DemoForm() {
               type="tel"
               required
               placeholder="+880 1XXXXXXXXX"
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             />
           </div>
         </div>
@@ -153,7 +157,7 @@ export function DemoForm() {
             name="pageLink"
             type="url"
             placeholder="https://facebook.com/yourpagename"
-            className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+            className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
           />
         </div>
 
@@ -167,7 +171,7 @@ export function DemoForm() {
               name="date"
               type="date"
               required
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             />
           </div>
 
@@ -180,12 +184,15 @@ export function DemoForm() {
               name="time"
               required
               defaultValue="11:00 AM – 12:00 PM (Morning)"
-              className="mt-2 w-full rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+              className="bg-surface/80 mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm text-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange focus:outline-none"
             >
               <option value="11:00 AM – 12:00 PM (Morning)" className="bg-surface text-foreground">
                 11:00 AM – 12:00 PM (Morning)
               </option>
-              <option value="03:00 PM – 04:00 PM (Afternoon)" className="bg-surface text-foreground">
+              <option
+                value="03:00 PM – 04:00 PM (Afternoon)"
+                className="bg-surface text-foreground"
+              >
                 03:00 PM – 04:00 PM (Afternoon)
               </option>
               <option value="06:00 PM – 07:00 PM (Evening)" className="bg-surface text-foreground">
@@ -199,24 +206,38 @@ export function DemoForm() {
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-foreground mb-2">
+          <label className="mb-2 block text-xs font-semibold text-foreground">
             What features are you most interested in?
           </label>
-          <div className="grid gap-3 sm:grid-cols-2 text-xs">
-            <label className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer">
-              <input type="checkbox" defaultChecked className="rounded border-white/20 text-brand-orange focus:ring-0" />
+          <div className="grid gap-3 text-xs sm:grid-cols-2">
+            <label className="flex cursor-pointer items-center gap-2 text-muted-foreground hover:text-foreground">
+              <input
+                type="checkbox"
+                defaultChecked
+                className="rounded border-white/20 text-brand-orange focus:ring-0"
+              />
               Comment to Inbox auto-reply
             </label>
-            <label className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer">
-              <input type="checkbox" defaultChecked className="rounded border-white/20 text-brand-orange focus:ring-0" />
+            <label className="flex cursor-pointer items-center gap-2 text-muted-foreground hover:text-foreground">
+              <input
+                type="checkbox"
+                defaultChecked
+                className="rounded border-white/20 text-brand-orange focus:ring-0"
+              />
               24/7 AI customer FAQ bot
             </label>
-            <label className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer">
-              <input type="checkbox" className="rounded border-white/20 text-brand-orange focus:ring-0" />
+            <label className="flex cursor-pointer items-center gap-2 text-muted-foreground hover:text-foreground">
+              <input
+                type="checkbox"
+                className="rounded border-white/20 text-brand-orange focus:ring-0"
+              />
               Messenger Store & checkout
             </label>
-            <label className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer">
-              <input type="checkbox" className="rounded border-white/20 text-brand-orange focus:ring-0" />
+            <label className="flex cursor-pointer items-center gap-2 text-muted-foreground hover:text-foreground">
+              <input
+                type="checkbox"
+                className="rounded border-white/20 text-brand-orange focus:ring-0"
+              />
               Instagram DM automation
             </label>
           </div>
@@ -226,7 +247,7 @@ export function DemoForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center rounded-xl bg-brand-orange px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-orange/20 transition-all hover:bg-brand-orange/90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-orange px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-orange/20 transition-all hover:scale-[1.02] hover:bg-brand-orange/90 active:scale-[0.98] disabled:opacity-50"
           >
             {isSubmitting ? (
               <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />

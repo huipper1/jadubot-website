@@ -14,7 +14,7 @@ export function FormattedBlogTitle({ title, className = "" }: FormattedBlogTitle
         <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(1,114,255,0.35)]">
           {lead}
         </span>
-        <span className="text-slate-500 font-light mx-2 sm:mx-3 select-none" aria-hidden="true">
+        <span className="mx-2 font-light text-slate-500 select-none sm:mx-3" aria-hidden="true">
           –
         </span>
         <span className="text-foreground">{rest.join(delimiter)}</span>
@@ -31,7 +31,7 @@ export function FormattedBlogTitle({ title, className = "" }: FormattedBlogTitle
         <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(1,114,255,0.35)]">
           {lead}
         </span>
-        <span className="text-slate-500 font-light mx-2 sm:mx-3 select-none" aria-hidden="true">
+        <span className="mx-2 font-light text-slate-500 select-none sm:mx-3" aria-hidden="true">
           :
         </span>
         <span className="text-foreground">{rest.join(": ")}</span>

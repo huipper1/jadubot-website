@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/config/site";
+
 import {
+  HomeFaq,
+  HomeFeatures,
   HomeHero,
   HomeMarquee,
-  HomeProblem,
-  HomeSolutions,
-  HomeFeatures,
-  HomeProcess,
   HomePricing,
-  HomeFaq
+  HomeProblem,
+  HomeProcess,
+  HomeSolutions
 } from "@/components/routes/home";
 import { UnifiedCta } from "@/components/sections";
-import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Jadubot | #1 AI-Powered Chatbot & Marketing Automation Tool",
@@ -44,35 +45,32 @@ export default function HomePage() {
       {
         "@type": "Organization",
         "@id": `${siteConfig.url}/#organization`,
-        "name": "Jadubot",
-        "url": siteConfig.url,
-        "telephone": siteConfig.phone,
-        "email": siteConfig.email,
-        "sameAs": [
-          siteConfig.social.facebook,
-          siteConfig.social.twitter
-        ].filter(Boolean),
-        "logo": {
+        name: "Jadubot",
+        url: siteConfig.url,
+        telephone: siteConfig.phone,
+        email: siteConfig.email,
+        sameAs: [siteConfig.social.facebook, siteConfig.social.twitter].filter(Boolean),
+        logo: {
           "@type": "ImageObject",
-          "url": `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+          url: `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
         },
-        "address": {
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Daffodil Smart City (DSC), Birulia",
-          "addressLocality": "Savar",
-          "addressRegion": "Dhaka",
-          "postalCode": "1216",
-          "addressCountry": "BD"
+          streetAddress: "Daffodil Smart City (DSC), Birulia",
+          addressLocality: "Savar",
+          addressRegion: "Dhaka",
+          postalCode: "1216",
+          addressCountry: "BD"
         }
       },
       {
         "@type": "SoftwareApplication",
-        "name": "Jadubot",
-        "operatingSystem": "Web",
-        "applicationCategory": "BusinessApplication",
-        "description":
+        name: "Jadubot",
+        operatingSystem: "Web",
+        applicationCategory: "BusinessApplication",
+        description:
           "AI-Powered Chatbot and Marketing Automation Platform for Facebook Messenger, Instagram DMs, Messenger eCommerce, and CPA marketing.",
-        "featureList": [
+        featureList: [
           "Facebook Messenger Automation",
           "Instagram DM & Story Automation",
           "Comment-to-Inbox Lead Converter",
@@ -80,15 +78,15 @@ export default function HomePage() {
           "CPA Marketing Automation & Postbacks",
           "SMS & Email Campaign Broadcasting"
         ],
-        "aggregateRating": {
+        aggregateRating: {
           "@type": "AggregateRating",
-          "ratingValue": "4.7",
-          "reviewCount": "120"
+          ratingValue: "4.7",
+          reviewCount: "120"
         },
-        "offers": {
+        offers: {
           "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "BDT"
+          price: "0",
+          priceCurrency: "BDT"
         }
       }
     ]

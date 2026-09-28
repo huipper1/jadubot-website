@@ -1,12 +1,18 @@
 import type { MetadataRoute } from "next";
-import { getAllBlogPosts } from "@/lib/content";
+
 import { siteConfig } from "@/config/site";
+
+import { getAllBlogPosts } from "@/lib/content";
+
+import { aiAgentData } from "@/data/ai-agent-data";
+import { platformData } from "@/data/platform-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/`, changeFrequency: "daily", priority: 1.0 },
+    { url: `${baseUrl}/ai-agents/`, changeFrequency: "daily", priority: 0.95 },
     { url: `${baseUrl}/service/`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/pricing/`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/cpa-marketing-automation/`, changeFrequency: "weekly", priority: 0.8 },
@@ -19,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog/`, changeFrequency: "daily", priority: 0.8 }
   ];
 
+  const platformRoutes: MetadataRoute.Sitemap = platformData.map((platform) => ({
+    url: `${baseUrl}/platform/${platform.slug}/`,
+    changeFrequency: "weekly",
+    priority: 0.9
+  }));
+
+  const agentRoutes: MetadataRoute.Sitemap = aiAgentData.map((agent) => ({
+    url: `${baseUrl}/ai-agents/${agent.slug}/`,
+    changeFrequency: "weekly",
+    priority: 0.9
+  }));
+
   const blogPosts = getAllBlogPosts();
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/${post.slug}/`,
@@ -27,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...platformRoutes, ...agentRoutes, ...blogRoutes];
 }

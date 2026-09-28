@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  INDUSTRIES,
-  getIndustryBySlug,
-  IndustryHero,
-  IndustrySplitShowcase,
-  IndustryRoiSection,
-  IndustryWorkflow,
-  IndustryUseCases,
-  IndustryFaq,
-  IndustryCta
-} from "@/components/routes/industry";
+
 import { siteConfig } from "@/config/site";
+
+import {
+  getIndustryBySlug,
+  INDUSTRIES,
+  IndustryCta,
+  IndustryFaq,
+  IndustryHero,
+  IndustryRoiSection,
+  IndustrySplitShowcase,
+  IndustryUseCases,
+  IndustryWorkflow
+} from "@/components/routes/industry";
 
 interface IndustryPageProps {
   params: Promise<{
@@ -25,9 +27,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params
-}: IndustryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
   const { slug } = await params;
   const industry = getIndustryBySlug(slug);
 
@@ -81,47 +81,47 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": siteConfig.url
+            position: 1,
+            name: "Home",
+            item: siteConfig.url
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Industries",
-            "item": `${siteConfig.url}/industry/${industry.slug}/`
+            position: 2,
+            name: "Industries",
+            item: `${siteConfig.url}/industry/${industry.slug}/`
           },
           {
             "@type": "ListItem",
-            "position": 3,
-            "name": industry.name,
-            "item": `${siteConfig.url}/industry/${industry.slug}/`
+            position: 3,
+            name: industry.name,
+            item: `${siteConfig.url}/industry/${industry.slug}/`
           }
         ]
       },
       {
         "@type": "SoftwareApplication",
-        "name": `Jadubot for ${industry.name}`,
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Cloud-based SaaS",
-        "description": industry.metaDescription,
-        "offers": {
+        name: `Jadubot for ${industry.name}`,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Cloud-based SaaS",
+        description: industry.metaDescription,
+        offers: {
           "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+          price: "0",
+          priceCurrency: "USD"
         }
       },
       {
         "@type": "FAQPage",
-        "mainEntity": industry.faqs.map((faq) => ({
+        mainEntity: industry.faqs.map((faq) => ({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
+          name: faq.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.answer
+            text: faq.answer
           }
         }))
       }

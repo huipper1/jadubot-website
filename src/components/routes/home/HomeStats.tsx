@@ -1,6 +1,7 @@
 "use client";
 
 import { useCounter } from "@/lib/animations";
+
 import { PopIn } from "@/components/animations";
 
 function StatItem({

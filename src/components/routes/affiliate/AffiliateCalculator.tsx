@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, ArrowRight, Wallet, TrendingUp, CheckCircle } from "lucide-react";
+
+import { ArrowRight, Calculator, CheckCircle, TrendingUp, Wallet } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 
 const QUICK_COUNTS = [5, 15, 30, 50, 100];
@@ -15,7 +17,7 @@ export function AffiliateCalculator() {
   const annualIncome = monthlyIncome * 12;
 
   return (
-    <section id="calculator" className="relative py-16 sm:py-20 md:py-24 border-t border-border">
+    <section id="calculator" className="relative border-t border-border py-16 sm:py-20 md:py-24">
       <div className="container mx-auto max-w-5xl px-4 sm:px-6">
         <PopIn className="space-y-4 text-center sm:text-left">
           <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8]">
@@ -23,23 +25,27 @@ export function AffiliateCalculator() {
             <span>Interactive Passive Income Simulator</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
+          <h2 className="font-heading text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Calculate Your Monthly Recurring Commission
           </h2>
 
-          <p className="font-bengali text-base sm:text-lg text-muted-foreground max-w-2xl">
-            কতজন ক্লায়েন্ট রেফার করলে আপনার মাসিক প্যাসিভ আয় কত হবে, নিচের স্লাইডার দিয়ে নিজেই হিসাব করে দেখুন।
+          <p className="max-w-2xl font-bengali text-base text-muted-foreground sm:text-lg">
+            কতজন ক্লায়েন্ট রেফার করলে আপনার মাসিক প্যাসিভ আয় কত হবে, নিচের স্লাইডার দিয়ে নিজেই
+            হিসাব করে দেখুন।
           </p>
         </PopIn>
 
         {/* Calculator Control Surface (Integrated, Not a Generic Card) */}
-        <div className="mt-10 rounded-3xl border border-border bg-card/90 p-6 sm:p-10 shadow-elevated backdrop-blur-xl">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 items-center">
+        <div className="shadow-elevated mt-10 rounded-3xl border border-border bg-card/90 p-6 backdrop-blur-xl sm:p-10">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             {/* Left: Interactive Controls (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-6 lg:col-span-7">
               <div>
                 <div className="flex items-center justify-between">
-                  <label htmlFor="store-slider" className="text-sm font-semibold text-foreground font-bengali">
+                  <label
+                    htmlFor="store-slider"
+                    className="font-bengali text-sm font-semibold text-foreground"
+                  >
                     সক্রিয় মার্চেন্ট বা স্টোরের সংখ্যা:
                   </label>
                   <span className="font-mono text-xl font-bold text-sky-400">
@@ -56,19 +62,21 @@ export function AffiliateCalculator() {
                   step="1"
                   value={storeCount}
                   onChange={(e) => setStoreCount(parseInt(e.target.value, 10))}
-                  className="mt-3 w-full h-2.5 bg-muted rounded-lg appearance-none cursor-pointer accent-[#0172ff]"
+                  className="mt-3 h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-[#0172ff]"
                 />
               </div>
 
               {/* Quick Select Buttons */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs text-muted-foreground font-bengali mr-1">কুইক সিলেক্ট:</span>
+                <span className="mr-1 font-bengali text-xs text-muted-foreground">
+                  কুইক সিলেক্ট:
+                </span>
                 {QUICK_COUNTS.map((count) => (
                   <button
                     key={count}
                     type="button"
                     onClick={() => setStoreCount(count)}
-                    className={`rounded-lg px-3 py-1 text-xs font-semibold font-mono transition ${
+                    className={`rounded-lg px-3 py-1 font-mono text-xs font-semibold transition ${
                       storeCount === count
                         ? "bg-[#0172ff] text-white shadow-[0_0_12px_rgba(1,114,255,0.4)]"
                         : "border border-border bg-card text-muted-foreground hover:bg-muted"
@@ -80,41 +88,43 @@ export function AffiliateCalculator() {
               </div>
 
               {/* Transparent Calculation Breakdown */}
-              <div className="pt-4 border-t border-border/60 text-xs text-muted-foreground space-y-1.5 font-bengali">
+              <div className="space-y-1.5 border-t border-border/60 pt-4 font-bengali text-xs text-muted-foreground">
                 <div className="flex items-center gap-2 text-foreground/80">
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                  <CheckCircle className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
                   <span>গড় সাবস্ক্রিপশন ফি: ৳২,৫০০/মাস (Standard/Growth প্ল্যান)</span>
                 </div>
                 <div className="flex items-center gap-2 text-foreground/80">
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                  <CheckCircle className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
                   <span>আপনার কমিশন রেট: ২০% লাইফটাইম রিকারিং (প্রতি মাসে ৳৫০০/ক্লায়েন্ট)</span>
                 </div>
                 <div className="flex items-center gap-2 text-foreground/80">
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                  <CheckCircle className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
                   <span>পেমেন্ট সাইকেল: মাসে ২ বার (৭-১০ ও ২০-২৩ তারিখে সরাসরি বিকাশ/নগদে)</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Income Projection Panel (5 cols) */}
-            <div className="lg:col-span-5 rounded-2xl border border-sky-500/25 bg-card p-6 sm:p-7 text-center sm:text-left shadow-card">
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 uppercase tracking-wider">
+            <div className="rounded-2xl border border-sky-500/25 bg-card p-6 text-center shadow-card sm:p-7 sm:text-left lg:col-span-5">
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider text-sky-400 uppercase">
                 <TrendingUp className="h-3.5 w-3.5 text-sky-400" />
                 <span>Estimated Passive Income</span>
               </div>
 
               {/* Monthly Income in BDT */}
               <div className="mt-3">
-                <div className="text-xs text-muted-foreground font-bengali">মাসিক রিকারিং ইনকাম:</div>
-                <div className="mt-1 font-mono text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-foreground">
+                <div className="font-bengali text-xs text-muted-foreground">
+                  মাসিক রিকারিং ইনকাম:
+                </div>
+                <div className="mt-1 font-mono text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-[42px]">
                   ৳{monthlyIncome.toLocaleString("en-BD")}
                   <span className="text-sm font-normal text-muted-foreground">/মাস</span>
                 </div>
               </div>
 
               {/* Annualized Projection */}
-              <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs sm:text-sm">
-                <span className="text-muted-foreground font-bengali">বাৎসরিক প্যাসিভ আয়:</span>
+              <div className="mt-4 flex items-center justify-between border-t border-border pt-3 text-xs sm:text-sm">
+                <span className="font-bengali text-muted-foreground">বাৎসরিক প্যাসিভ আয়:</span>
                 <span className="font-mono font-bold text-emerald-500">
                   ৳{annualIncome.toLocaleString("en-BD")}/বছর
                 </span>
@@ -125,7 +135,7 @@ export function AffiliateCalculator() {
                 href="https://app.jadubot.com/affiliate_system/affiliate_sign_up"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0172ff] to-[#0158c7] py-3 text-xs sm:text-sm font-semibold text-white shadow-[0_0_20px_rgba(1,114,255,0.35)] transition hover:scale-[1.01]"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0172ff] to-[#0158c7] py-3 text-xs font-semibold text-white shadow-[0_0_20px_rgba(1,114,255,0.35)] transition hover:scale-[1.01] sm:text-sm"
               >
                 <span className="font-bengali">ইনকাম শুরু করতে সাইন-আপ করুন</span>
                 <ArrowRight className="h-3.5 w-3.5" />

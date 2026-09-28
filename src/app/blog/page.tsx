@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { BlogCtaBanner, BlogGrid } from "@/components/routes/blog";
-import { getAllBlogPostsWithStats } from "@/lib/content";
+
 import { siteConfig } from "@/config/site";
+
+import { getAllBlogPostsWithStats } from "@/lib/content";
+
 import { PopIn } from "@/components/animations";
+import { BlogCtaBanner, BlogGrid } from "@/components/routes/blog";
 
 export const metadata: Metadata = {
   title: "Blog & Insights | Jadubot",
@@ -71,45 +74,42 @@ export default function BlogPage() {
       {
         "@type": "Organization",
         "@id": `${siteConfig.url}/#organization`,
-        "name": "Jadubot",
-        "url": siteConfig.url,
-        "sameAs": [
-          "https://www.facebook.com/jadubotbd/",
-          "https://twitter.com/jadubot"
-        ],
-        "logo": {
+        name: "Jadubot",
+        url: siteConfig.url,
+        sameAs: ["https://www.facebook.com/jadubotbd/", "https://twitter.com/jadubot"],
+        logo: {
           "@type": "ImageObject",
-          "url": `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
+          url: `${siteConfig.url}/assets/images/shared/jadubot-logo.png`
         }
       },
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
-        "url": siteConfig.url,
-        "name": "Jadubot",
-        "publisher": {
+        url: siteConfig.url,
+        name: "Jadubot",
+        publisher: {
           "@id": `${siteConfig.url}/#organization`
         },
-        "inLanguage": "en-US"
+        inLanguage: "en-US"
       },
       {
         "@type": "BreadcrumbList",
         "@id": `${siteConfig.url}/blog/#breadcrumb`,
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "item": {
+            position: 1,
+            item: {
               "@id": siteConfig.url,
-              "name": "Home"
+              name: "Home"
             }
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "item": {
+            position: 2,
+            item: {
               "@id": `${siteConfig.url}/blog/`,
-              "name": "Blog"
+              name: "Blog"
             }
           }
         ]
@@ -117,24 +117,24 @@ export default function BlogPage() {
       {
         "@type": "CollectionPage",
         "@id": `${siteConfig.url}/blog/#webpage`,
-        "url": `${siteConfig.url}/blog/`,
-        "name": "Blog & Playbooks - Jadubot",
-        "isPartOf": {
+        url: `${siteConfig.url}/blog/`,
+        name: "Blog & Playbooks - Jadubot",
+        isPartOf: {
           "@id": `${siteConfig.url}/#website`
         },
-        "inLanguage": "en-US",
-        "breadcrumb": {
+        inLanguage: "en-US",
+        breadcrumb: {
           "@id": `${siteConfig.url}/blog/#breadcrumb`
         },
-        "description":
+        description:
           "Jadubot-এর ব্লগে পড়ুন AI, চ্যাটবট, মার্কেটিং এবং অটোমেশন সম্পর্কিত ইনসাইটস এবং স্ট্র্যাটেজি।",
-        "hasPart": posts.map((post) => ({
+        hasPart: posts.map((post) => ({
           "@type": "BlogPosting",
-          "headline": post.title,
-          "url": `${siteConfig.url}/${post.slug}/`,
-          "datePublished": post.date,
-          "image": `${siteConfig.url}${post.featuredImage}`,
-          "timeRequired": `PT${post.readTimeMinutes}M`
+          headline: post.title,
+          url: `${siteConfig.url}/${post.slug}/`,
+          datePublished: post.date,
+          image: `${siteConfig.url}${post.featuredImage}`,
+          timeRequired: `PT${post.readTimeMinutes}M`
         }))
       }
     ]
@@ -148,7 +148,7 @@ export default function BlogPage() {
       />
       <BlogGrid posts={posts} />
       {/* 4. Editorial CTA Banner */}
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+      <div className="container mx-auto max-w-7xl px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
         <PopIn delay={0.1}>
           <BlogCtaBanner />
         </PopIn>

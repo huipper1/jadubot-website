@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { AlertCircle, TrendingDown, Inbox, RotateCcw } from "lucide-react";
+
+import { AlertCircle, Inbox, RotateCcw, TrendingDown } from "lucide-react";
+
 import { gsap, useGSAP } from "@/lib/animations";
 
 const CARD_ICONS = [TrendingDown, Inbox, RotateCcw];
@@ -21,20 +23,17 @@ export function ProblemSection() {
     {
       number: 1,
       title: "Lost Sales",
-      description:
-        "Customers move on to competitors who reply instantly on Facebook and Instagram."
+      description: "Customers move on to competitors who reply instantly on Facebook and Instagram."
     },
     {
       number: 2,
       title: "Buried Inbox",
-      description:
-        "Comments and DMs pile up faster than your team can answer them."
+      description: "Comments and DMs pile up faster than your team can answer them."
     },
     {
       number: 3,
       title: "Repetitive Grind",
-      description:
-        "You spend hours typing the same price, stock, and delivery answers all day."
+      description: "You spend hours typing the same price, stock, and delivery answers all day."
     }
   ];
 
@@ -45,9 +44,7 @@ export function ProblemSection() {
 
       // Desktop layout: Pinned scroll-scrubbed reveal where cards start out of visible width and enter one after another
       mm.add("(min-width: 768px)", () => {
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (prefersReducedMotion) {
           gsap.set(cardElements, { opacity: 1, x: 0, y: 0, scale: 1 });
@@ -133,9 +130,7 @@ export function ProblemSection() {
 
       // Mobile layout: Stacked vertically, each card glides in from right as it enters the viewport
       mm.add("(max-width: 767px)", () => {
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         if (prefersReducedMotion) {
           gsap.set(cardElements, { opacity: 1, x: 0, y: 0, scale: 1 });
@@ -171,7 +166,7 @@ export function ProblemSection() {
     <section
       ref={sectionRef}
       id="problem"
-      className="relative bg-background overflow-hidden mt-6 md:mt-10"
+      className="relative mt-6 overflow-hidden bg-background md:mt-10"
     >
       {/* Subtle Dotted Grid Background */}
       <div
@@ -187,25 +182,25 @@ export function ProblemSection() {
 
       {/* Jadubot blue ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[640px] rounded-full bg-[#0052cc]/15 blur-[140px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052cc]/15 blur-[140px]"
         aria-hidden="true"
       />
 
       {/* Section Container with max-w-7xl */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
+          <h2 className="font-heading text-xl leading-tight font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
             You are losing sales because of missed messages and late replies
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground font-normal">
+          <p className="mt-3 text-sm font-normal text-muted-foreground sm:text-base">
             That leads to ...
           </p>
         </div>
 
         {/* Diagonal Cascade Container with max-w-7xl */}
-        <div className="relative mt-12 md:mt-16 flex flex-col gap-5 md:block md:min-h-[420px] lg:min-h-[460px] w-full max-w-7xl mx-auto">
+        <div className="relative mx-auto mt-12 flex w-full max-w-7xl flex-col gap-5 md:mt-16 md:block md:min-h-[420px] lg:min-h-[460px]">
           {cards.map((card, index) => {
             const Icon = CARD_ICONS[index] || AlertCircle;
             const diagonalPos = CARD_DIAGONAL_CLASSES[index] || "";
@@ -216,45 +211,43 @@ export function ProblemSection() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/90 p-6 sm:p-7 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/90 p-6 shadow-card backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-card sm:p-7 md:absolute md:w-[30%] md:max-w-[360px] ${diagonalPos}`}
               >
                 {/* Subtle top edge accent glow line matching cards */}
                 <div
-                  className="pointer-events-none absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-primary/45 to-transparent"
+                  className="pointer-events-none absolute top-0 right-4 left-4 h-[1px] bg-gradient-to-r from-transparent via-primary/45 to-transparent"
                   aria-hidden="true"
                 />
 
                 <div>
                   {/* Header: Icon & Number Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary dark:text-[#38bdf8] transition-colors group-hover:bg-primary group-hover:text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:text-[#38bdf8]">
                       <Icon className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-primary dark:text-[#38bdf8]/90 px-2 py-0.5 rounded border border-primary/25 bg-primary/10">
+                    <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-bold text-primary dark:text-[#38bdf8]/90">
                       0{card.number}
                     </span>
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="mt-4 font-heading text-base sm:text-lg font-bold text-foreground tracking-tight">
+                  <h3 className="mt-4 font-heading text-base font-bold tracking-tight text-foreground sm:text-lg">
                     {card.title}
                   </h3>
 
                   {/* Card Description */}
-                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-muted-foreground/80">
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground/80 sm:text-[13px]">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Card Footer Tag */}
-                <div className="mt-5 pt-3 border-t border-border/50 flex items-center justify-between text-[11px]">
+                <div className="mt-5 flex items-center justify-between border-t border-border/50 pt-3 text-[11px]">
                   <span className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#fe78e1] animate-pulse" />
-                    <span className="text-[#fe78e1]/90 font-medium">
-                      Critical bottleneck
-                    </span>
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#fe78e1]" />
+                    <span className="font-medium text-[#fe78e1]/90">Critical bottleneck</span>
                   </span>
-                  <span className="font-mono text-[10px] text-muted-foreground/40 uppercase tracking-wider">
+                  <span className="font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase">
                     Loss 0{card.number}
                   </span>
                 </div>

@@ -68,7 +68,8 @@ export const PRICING_TIERS: PricingTier[] = [
     price: "৳3,000",
     period: "per month",
     badge: "Most Popular",
-    description: "Multi-channel automation for scaling brands across Facebook, Instagram, and WhatsApp.",
+    description:
+      "Multi-channel automation for scaling brands across Facebook, Instagram, and WhatsApp.",
     isPopular: true,
     ctaText: "Get Premium Plan",
     specPill: "100K Subscribers • Multi-channel",
@@ -85,10 +86,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Telegram Group Manager",
       "Unlimited Auto Comment & Inbox"
     ],
-    highlightFeatures: [
-      "Facebook, Instagram & WhatsApp",
-      "Google Sheets & HTTP API Sync"
-    ],
+    highlightFeatures: ["Facebook, Instagram & WhatsApp", "Google Sheets & HTTP API Sync"],
     href: "https://app.jadubot.com/register?plan=premium"
   },
   {
@@ -97,7 +95,8 @@ export const PRICING_TIERS: PricingTier[] = [
     price: "৳5,000",
     period: "per month",
     badge: "Enterprise",
-    description: "High-volume messaging, team management, and 24/7 dedicated support for established enterprises.",
+    description:
+      "High-volume messaging, team management, and 24/7 dedicated support for established enterprises.",
     isPopular: false,
     ctaText: "Get Business Plan",
     specPill: "1M Subscribers • Unlimited Accounts",

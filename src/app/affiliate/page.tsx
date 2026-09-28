@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import {
-  AffiliateMasthead,
-  AffiliateCalculator,
-  AffiliateAdvantages,
-  AffiliateProcess,
-  AffiliateGuidelines,
-  AffiliateClosing
-} from "@/components/routes/affiliate";
+
 import { siteConfig } from "@/config/site";
+
+import {
+  AffiliateAdvantages,
+  AffiliateCalculator,
+  AffiliateClosing,
+  AffiliateGuidelines,
+  AffiliateMasthead,
+  AffiliateProcess
+} from "@/components/routes/affiliate";
 
 export const metadata: Metadata = {
   title: "Jadubot Affiliate Program – Earn 20% Lifetime Recurring Commission",

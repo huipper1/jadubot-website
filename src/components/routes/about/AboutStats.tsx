@@ -16,12 +16,14 @@ const STATS = [
   {
     value: "99.9%",
     label: "Platform Availability",
-    detail: "High-uptime, scalable cloud infrastructure tailored for peak Eid and seasonal sale surges."
+    detail:
+      "High-uptime, scalable cloud infrastructure tailored for peak Eid and seasonal sale surges."
   },
   {
     value: "< 1 sec",
     label: "Response Velocity",
-    detail: "Sub-second AI replies that catch buyers at peak purchase intent without manual waiting."
+    detail:
+      "Sub-second AI replies that catch buyers at peak purchase intent without manual waiting."
   }
 ];
 
@@ -29,22 +31,21 @@ export function AboutStats() {
   return (
     <section className="relative border-y border-border bg-muted/20 py-12 md:py-16">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
-        <PopIn stagger={0.06} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-border">
+        <PopIn
+          stagger={0.06}
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border"
+        >
           {STATS.map((item, idx) => (
             <div
               key={item.label}
               className="flex flex-col justify-between lg:px-8 first:lg:pl-0 last:lg:pr-0"
             >
               <div>
-                <div className="font-heading text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+                <div className="font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                   {item.value}
                 </div>
-                <div className="mt-2 text-sm font-semibold text-foreground">
-                  {item.label}
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  {item.detail}
-                </p>
+                <div className="mt-2 text-sm font-semibold text-foreground">{item.label}</div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.detail}</p>
               </div>
             </div>
           ))}

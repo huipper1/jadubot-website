@@ -20,20 +20,20 @@ export function HomeMarquee() {
   ];
 
   return (
-    <section className="relative border-y border-border/60 bg-background py-10 backdrop-blur-md overflow-hidden">
-      <div className="container mx-auto max-w-7xl mb-6 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
+    <section className="relative overflow-hidden border-y border-border/60 bg-background py-10 backdrop-blur-md">
+      <div className="container mx-auto mb-6 max-w-7xl text-center">
+        <p className="text-xs font-semibold tracking-widest text-muted-foreground/60 uppercase">
           Trusted by 500+ growing eCommerce & retail brands in Bangladesh
         </p>
       </div>
 
       <div className="marquee-mask relative w-full overflow-hidden">
         {/* Row 1: Left to Right */}
-        <div className="flex w-max items-center gap-6 animate-marquee py-2">
+        <div className="animate-marquee flex w-max items-center gap-6 py-2">
           {repeatedBrands.map((brand, i) => (
             <div
               key={`row1-${brand.name}-${i}`}
-              className="group flex h-12 items-center justify-center transition-all duration-300 "
+              className="group flex h-12 items-center justify-center transition-all duration-300"
             >
               <figure className="flex items-center">
                 <Image
@@ -49,7 +49,7 @@ export function HomeMarquee() {
         </div>
 
         {/* Row 2: Right to Left */}
-        <div className="mt-4 flex w-max items-center gap-6 animate-marquee-reverse py-2">
+        <div className="animate-marquee-reverse mt-4 flex w-max items-center gap-6 py-2">
           {[...repeatedBrands].reverse().map((brand, i) => (
             <div
               key={`row2-${brand.name}-${i}`}

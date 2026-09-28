@@ -1,7 +1,9 @@
 "use client";
 
-import { UnifiedCta } from "@/components/sections";
 import { CALENDLY_DEMO_URL } from "@/config/site";
+
+import { UnifiedCta } from "@/components/sections";
+
 import type { IndustryData } from "./industry-data";
 
 interface IndustryCtaProps {

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
+import { CheckCircle2, Loader2, Send, ShieldCheck, Sparkles } from "lucide-react";
 import { toast } from "sonner";
-import { Send, CheckCircle2, ShieldCheck, Sparkles, Loader2 } from "lucide-react";
+
 import { PopIn } from "@/components/animations";
 
 const TOPIC_OPTIONS = [
@@ -55,7 +57,7 @@ export function ContactForm() {
   };
 
   return (
-    <PopIn className="relative overflow-hidden rounded-3xl border border-border bg-card/90 p-6 sm:p-9 shadow-2xl backdrop-blur-xl">
+    <PopIn className="relative overflow-hidden rounded-3xl border border-border bg-card/90 p-6 shadow-2xl backdrop-blur-xl sm:p-9">
       {/* Decorative hairline corner glow */}
       <div
         className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#0172ff]/10 blur-2xl"
@@ -68,22 +70,24 @@ export function ContactForm() {
           <Sparkles className="h-3.5 w-3.5" />
           <span>Priority Consultation</span>
         </div>
-        <h3 className="mt-1 text-xl font-bold text-foreground sm:text-2xl font-heading">
+        <h3 className="mt-1 font-heading text-xl font-bold text-foreground sm:text-2xl">
           Send an Inquiry to Our Specialists
         </h3>
-        <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground">
-          Share your store or campaign goals. Our Dhaka-based team provides tailored onboarding advice.
+        <p className="mt-1.5 text-xs text-muted-foreground sm:text-sm">
+          Share your store or campaign goals. Our Dhaka-based team provides tailored onboarding
+          advice.
         </p>
       </div>
 
       {submitted ? (
-        <div className="py-12 text-center animate-in fade-in-50">
+        <div className="animate-in py-12 text-center fade-in-50">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-[0_0_24px_rgba(16,185,129,0.2)]">
             <CheckCircle2 className="h-8 w-8" />
           </div>
-          <h4 className="mt-5 text-xl font-bold text-foreground font-heading">Inquiry Received</h4>
-          <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground leading-relaxed">
-            Thank you for connecting with Jadubot. One of our automation engineers has been assigned to review your inquiry and will reach out via WhatsApp or email shortly.
+          <h4 className="mt-5 font-heading text-xl font-bold text-foreground">Inquiry Received</h4>
+          <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Thank you for connecting with Jadubot. One of our automation engineers has been assigned
+            to review your inquiry and will reach out via WhatsApp or email shortly.
           </p>
           <button
             type="button"
@@ -108,7 +112,7 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Asif Karim"
-                className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition focus:border-[#0172ff] focus:bg-background focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+                className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground transition placeholder:text-muted-foreground focus:border-[#0172ff] focus:bg-background focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
               />
             </div>
 
@@ -123,7 +127,7 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="name@business.com"
-                className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition focus:border-[#0172ff] focus:bg-background focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+                className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground transition placeholder:text-muted-foreground focus:border-[#0172ff] focus:bg-background focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
               />
             </div>
           </div>
@@ -143,7 +147,7 @@ export function ContactForm() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="+880 17XXXXXXXX or 017XXXXXXXX"
-              className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition focus:border-[#0172ff] focus:bg-background focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+              className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground transition placeholder:text-muted-foreground focus:border-[#0172ff] focus:bg-background focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
             />
           </div>
 
@@ -157,7 +161,7 @@ export function ContactForm() {
                 id="contact-topic"
                 value={formData.topic}
                 onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground transition focus:border-[#0172ff] focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+                className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground transition focus:border-[#0172ff] focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
               >
                 {TOPIC_OPTIONS.map((opt) => (
                   <option key={opt.id} value={opt.label} className="bg-card text-card-foreground">
@@ -178,7 +182,7 @@ export function ContactForm() {
                 id="contact-volume"
                 value={formData.volume}
                 onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
-                className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground transition focus:border-[#0172ff] focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+                className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground transition focus:border-[#0172ff] focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
               >
                 {VOLUME_OPTIONS.map((vol) => (
                   <option key={vol} value={vol} className="bg-card text-card-foreground">
@@ -201,7 +205,7 @@ export function ContactForm() {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder="Tell us about your Facebook page, product niche, team size, or what workflows you need assistance setting up..."
-              className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground transition focus:border-[#0172ff] focus:bg-background focus:outline-none focus:ring-1 focus:ring-[#0172ff]"
+              className="mt-1.5 w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm text-foreground transition placeholder:text-muted-foreground focus:border-[#0172ff] focus:bg-background focus:ring-1 focus:ring-[#0172ff] focus:outline-none"
             />
           </div>
 
@@ -226,7 +230,7 @@ export function ContactForm() {
 
           {/* Trust Guarantee Note */}
           <div className="flex items-center justify-center gap-2 pt-1 text-center text-xs text-muted-foreground">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+            <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
             <span>Zero spam. Direct response from a senior automation specialist.</span>
           </div>
         </form>

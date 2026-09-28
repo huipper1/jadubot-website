@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+
 import { Star } from "lucide-react";
-import { Badge } from "@/ui";
+
 import { PopIn } from "@/components/animations";
+import { Badge } from "@/ui";
 
 const TESTIMONIALS = [
   {
@@ -37,7 +39,7 @@ const TESTIMONIALS = [
 
 export function HomeTestimonials() {
   return (
-    <section className="relative py-24 md:py-32 bg-background/40">
+    <section className="relative bg-background/40 py-24 md:py-32">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <PopIn className="mx-auto max-w-3xl text-center">

@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { ArrowUpRight } from "lucide-react";
+
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-border bg-surface-ground dark:bg-background text-muted-foreground overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-border bg-surface-ground text-muted-foreground dark:bg-background">
       {/* Dark Mode Background: Original Midnight Aesthetics with Image */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden hidden dark:block">
+      <div className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden dark:block">
         <Image
           src="/assets/images/home/footer-bg.png"
           alt=""
@@ -28,7 +30,10 @@ export function Footer() {
       </div>
 
       {/* Light Mode: Elegant Vector Waves, Micro-Grid & Ambient Lighting */}
-      <div className="dark:hidden pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden dark:hidden"
+        aria-hidden="true"
+      >
         {/* Soft blueprint micro-dot background */}
         <div className="absolute inset-0 [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
 
@@ -36,11 +41,11 @@ export function Footer() {
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-primary/[0.06] to-transparent" />
 
         {/* Bottom radial atmosphere glow */}
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 h-80 w-[900px] max-w-full rounded-full bg-gradient-to-t from-primary/10 via-sky-400/5 to-transparent blur-3xl" />
+        <div className="absolute -bottom-24 left-1/2 h-80 w-[900px] max-w-full -translate-x-1/2 rounded-full bg-gradient-to-t from-primary/10 via-sky-400/5 to-transparent blur-3xl" />
 
         {/* Precision SVG Wave Curves across bottom */}
         <svg
-          className="absolute bottom-0 left-0 right-0 w-full h-44 md:h-60 object-cover opacity-80"
+          className="absolute right-0 bottom-0 left-0 h-44 w-full object-cover opacity-80 md:h-60"
           viewBox="0 0 1440 320"
           fill="none"
           preserveAspectRatio="none"
@@ -88,7 +93,7 @@ export function Footer() {
         </svg>
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10 py-16 md:py-24">
+      <div className="relative z-10 container mx-auto max-w-7xl py-16 md:py-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
           {/* Brand Col */}
           <div className="lg:col-span-2">
@@ -104,17 +109,16 @@ export function Footer() {
                   />
                 </div>
               </figure>
-              <span className="text-6xl font-bold tracking-tight text-foreground">
-                Jadubot
-              </span>
+              <span className="text-6xl font-bold tracking-tight text-foreground">Jadubot</span>
             </Link>
 
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Your #1 AI Sales Agent on Facebook, Instagram & WhatsApp. Turn conversations into revenue and automate orders 24/7.
+              Your #1 AI Sales Agent on Facebook, Instagram & WhatsApp. Turn conversations into
+              revenue and automate orders 24/7.
             </p>
 
             <div className="mt-6 flex items-center gap-3">
-              <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+              <span className="flex h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500 dark:bg-emerald-400" />
               <span className="text-xs font-medium text-muted-foreground">
                 All automation services active & operational
               </span>
@@ -123,10 +127,23 @@ export function Footer() {
 
           {/* Links Col 1: Solutions */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-semibold tracking-wider text-foreground uppercase">
               Solutions
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              <li>
+                <Link href="/ai-agents" className="transition-colors hover:text-foreground">
+                  AI Agents Workforce
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/platform/whatsapp-automation"
+                  className="transition-colors hover:text-foreground"
+                >
+                  WhatsApp Automation
+                </Link>
+              </li>
               <li>
                 <Link href="/service" className="transition-colors hover:text-foreground">
                   All Services
@@ -161,7 +178,7 @@ export function Footer() {
 
           {/* Links Col 2: Company */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-semibold tracking-wider text-foreground uppercase">
               Company
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
@@ -190,7 +207,7 @@ export function Footer() {
 
           {/* Links Col 3: Support */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-semibold tracking-wider text-foreground uppercase">
               Support & Legal
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
@@ -223,10 +240,10 @@ export function Footer() {
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row">
           <p>© {currentYear} Jadubot Technologies. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/refund" className="hover:text-foreground transition-colors">
+            <Link href="/refund" className="transition-colors hover:text-foreground">
               Refund Policy
             </Link>
-            <Link href="/contact" className="hover:text-foreground transition-colors">
+            <Link href="/contact" className="transition-colors hover:text-foreground">
               Help Center
             </Link>
           </div>
