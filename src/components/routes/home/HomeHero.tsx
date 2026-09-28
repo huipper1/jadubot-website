@@ -8,11 +8,10 @@ import {
   MessageSquare,
   PhoneCall,
   Play,
+  ShieldCheck,
   ShoppingCart,
-  Sparkles,
   TrendingUp,
-  Users,
-  Zap
+  Users
 } from "lucide-react";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
@@ -50,14 +49,6 @@ export function HomeHero() {
             ref={contentRef}
             className="relative z-10 pt-1 text-left will-change-transform sm:pt-2 lg:col-span-5 lg:pt-3 xl:col-span-5"
           >
-            {/* Pill Badge */}
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-600 shadow-xs backdrop-blur-xs sm:mb-4 dark:border-indigo-400/25 dark:bg-indigo-500/15 dark:text-indigo-400">
-              <Sparkles className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
-              <span className="text-[11px] font-bold tracking-wider uppercase sm:text-xs">
-                Automated Messenger &amp; WhatsApp Commerce
-              </span>
-            </div>
-
             {/* Main Headline - Clean, vertically balanced lines without arch gap */}
             <h1 className="font-heading text-4xl leading-[1.08] font-black tracking-tight text-foreground sm:text-5xl lg:text-[48px] xl:text-[56px] 2xl:text-[60px]">
               Your #1 AI Sales <br />
@@ -254,9 +245,6 @@ export function HomeHero() {
 
             {/* Stat 4: 98% Customer Satisfaction */}
             <div className="flex items-center gap-3.5 sm:gap-4 lg:flex-1 lg:justify-center">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-600 sm:h-12 sm:w-12 dark:bg-purple-500/15 dark:text-purple-400">
-                <Zap className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
               <div className="flex flex-col">
                 <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
                   98%

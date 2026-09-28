@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   Database,
   GitBranch,
-  Sparkles,
   Zap
 } from "lucide-react";
 
@@ -21,12 +20,6 @@ export function AgentsOverviewHero() {
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Eyebrow badge pill */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>Multi-Agent Conversational AI</span>
-          </div>
-
           <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Build AI Agents That <span className="text-blue-gradient">Take Action.</span>
             <br />

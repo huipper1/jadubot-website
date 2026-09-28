@@ -7,7 +7,6 @@ import {
   Headphones,
   RotateCcw,
   ShoppingCart,
-  Sparkles,
   TrendingUp,
   UserCheck,
   Zap
@@ -33,12 +32,6 @@ export function AgentHero({ agent }: AgentHeroProps) {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Left Column: Headline and CTAs */}
           <div className="text-center lg:col-span-7 lg:text-left">
-            {/* Eyebrow badge pill */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
-              <span>{agent.badge}</span>
-            </div>
-
             <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               {agent.heroTitle.includes(agent.heroHighlight) ? (
                 <>
