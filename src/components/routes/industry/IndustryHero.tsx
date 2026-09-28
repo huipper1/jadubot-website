@@ -84,7 +84,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
               {hero.platforms && hero.platforms.length > 0 && (
                 <div className="mt-10 border-t border-border/60 pt-6">
                   <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                    Seamless omnichannel integration
+                    Supported Messaging Channels
                   </span>
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
                     {hero.platforms.map((platform) => (

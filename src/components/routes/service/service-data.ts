@@ -22,7 +22,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     benefits: [
       "Instant replies & engagement",
       "Lead capture & qualification",
-      "Seamless human handoff",
+      "Instant human handoff",
       "Boost conversions effortlessly"
     ],
     image: "/assets/images/service/facebook.png",
@@ -117,7 +117,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     benefits: [
       "Custom AI model development",
       "Train on your business data",
-      "Seamless integration with existing tools",
+      "Direct integration with existing tools",
       "Dedicated support & consulting"
     ],
     image: "/assets/images/service/ai.png",
@@ -158,7 +158,7 @@ export const SERVICE_FAQS: ServiceFaqItem[] = [
   {
     question: "Can human support agents take over conversations from the AI bot?",
     answer:
-      "Absolutely. Whenever a customer asks for a live representative or a question requires manual intervention, Jadubot pauses the automated flow for that user and notifies your support team so an agent can seamlessly reply."
+      "Absolutely. Whenever a customer asks for a live representative or a question requires manual intervention, Jadubot pauses the automated flow for that user and notifies your support team so an agent can reply immediately."
   },
   {
     question: "How does Jadubot support CPA marketing and affiliate campaigns?",

@@ -100,7 +100,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "How does human live agent handoff work?",
         answer:
-          "If a customer requests human assistance or asks a complex custom question, Jadubot pauses automated responses for that specific chat thread and alerts your human customer service team to take over seamlessly."
+          "If a customer requests human assistance or asks a complex custom question, Jadubot pauses automated responses for that specific chat thread and alerts your human customer service team to take over instantly without losing chat history."
       }
     ]
   },

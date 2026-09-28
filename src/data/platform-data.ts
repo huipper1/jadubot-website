@@ -14,7 +14,7 @@ export const platformData: PlatformData[] = [
     heroTitle: "Automate WhatsApp Sales, Support & Customer Journeys",
     heroHighlight: "Automate WhatsApp",
     heroDescription:
-      "Deploy intelligent AI sales agents and automated workflows on WhatsApp. Capture leads, showcase product catalogs, recover abandoned checkouts, broadcast updates, and seamlessly hand off complex queries to human agents.",
+      "Deploy intelligent AI sales agents and automated workflows on WhatsApp. Capture leads, showcase product catalogs, recover abandoned checkouts, broadcast updates, and automatically hand off complex queries to human agents.",
     heroStats: [
       { label: "Average Response Time", value: "< 2 sec" },
       { label: "Open Rate on Broadcasts", value: "98%" },
@@ -58,7 +58,7 @@ export const platformData: PlatformData[] = [
         bulletPoints: [
           "Automated cart reminder triggers with one-click direct checkout links",
           "Instant order confirmation and delivery status tracking notifications",
-          "Seamless sync with Shopify, WooCommerce, and custom webhooks"
+          "Direct sync with Shopify, WooCommerce, and custom webhooks"
         ]
       },
       {
@@ -69,7 +69,7 @@ export const platformData: PlatformData[] = [
         iconName: "Users",
         bulletPoints: [
           "Unified inbox with ticket assignment and team performance metrics",
-          "Seamless bot-to-human switching without losing chat context",
+          "Smooth bot-to-human switching without losing chat context",
           "Custom contact tags, labels, and customer conversation history"
         ]
       },
@@ -89,7 +89,7 @@ export const platformData: PlatformData[] = [
         title: "HTTP Webhooks & API Integration",
         description:
           "Connect your CRM, Google Sheets, ERP, and payment systems to trigger real-time WhatsApp alerts and synchronize customer contact details automatically.",
-        badge: "Seamless Connectivity",
+        badge: "Direct Connectivity",
         iconName: "Layers",
         bulletPoints: [
           "Inbound and outbound webhook listeners with JSON payload parsing",
@@ -106,7 +106,7 @@ export const platformData: PlatformData[] = [
         step: "01",
         title: "Connect WhatsApp Business",
         description:
-          "Link your official WhatsApp Business phone number through our seamless Meta Cloud API onboarding process in minutes."
+          "Link your official WhatsApp Business phone number through our verified Meta Cloud API onboarding process in minutes."
       },
       {
         step: "02",
@@ -468,7 +468,7 @@ export const platformData: PlatformData[] = [
         bulletPoints: [
           "Zero-latency natural language answers powered by your knowledge base",
           "Rich interactive keyboard menus, inline buttons, and commands",
-          "Seamless handoff to human support admins when necessary"
+          "Direct handoff to human support admins when necessary"
         ]
       },
       {
@@ -492,7 +492,7 @@ export const platformData: PlatformData[] = [
         bulletPoints: [
           "Automated welcome messages and verification CAPTCHA challenges",
           "Auto-delete spam messages, offensive words, and malicious links",
-          "Manage member access and role assignments seamlessly"
+          "Manage member access and role assignments automatically"
         ]
       },
       {
@@ -586,7 +586,7 @@ export const platformData: PlatformData[] = [
     iconName: "Globe",
     metaTitle: "Website Live Chat Widget & AI Support Automation | Jadubot",
     metaDescription:
-      "Embed a smart AI chat widget on your website. Capture leads, answer questions 24/7, recommend products, and hand off to human agents seamlessly with Jadubot.",
+      "Embed a smart AI chat widget on your website. Capture leads, answer questions 24/7, recommend products, and hand off to human agents instantly with Jadubot.",
     badge: "Website Live Chat Widget",
     heroTitle: "Convert Website Visitors into Buyers with Smart AI Live Chat",
     heroHighlight: "Website Visitors",
@@ -639,7 +639,7 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Seamless Live Human Handoff",
+        title: "Live Human Agent Handoff",
         description:
           "Allow visitors to request a live human representative whenever they need personalized attention or specialized contract discussions.",
         badge: "Human Touch",
@@ -653,7 +653,7 @@ export const platformData: PlatformData[] = [
       {
         title: "Fully Brandable & Responsive Widget",
         description:
-          "Customize colors, fonts, launcher icons, avatar images, and position to seamlessly match your company's aesthetic and branding guidelines.",
+          "Customize colors, fonts, launcher icons, avatar images, and position to precisely match your company's aesthetic and branding guidelines.",
         badge: "Custom Styling",
         iconName: "Palette",
         bulletPoints: [

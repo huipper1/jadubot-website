@@ -34,7 +34,7 @@ export function UnifiedCta({
   title = "Ready to Turn Conversational Traffic Into",
   highlightedTitle = "Round-the-Clock Revenue?",
   titleEnd,
-  description = "Join over 1,200+ Bangladeshi businesses automating Messenger replies, Instagram DM orders, and CPA campaigns with Jadubot.",
+  description = "Set up your first automated sales flow in 15 minutes. No credit card required.",
   primaryCta = {
     text: "Get Started Free",
     href: "https://app.jadubot.com/register",
@@ -54,7 +54,6 @@ export function UnifiedCta({
   className = "",
   id
 }: UnifiedCtaProps) {
-  void badge;
   const primaryText = primaryCta?.text || primaryCta?.label || "Start Free Trial";
   const secondaryText = secondaryCta?.text || secondaryCta?.label || "Schedule 1-on-1 Demo";
   return (
@@ -70,6 +69,11 @@ export function UnifiedCta({
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="shadow-elevated relative mx-auto max-w-5xl rounded-3xl border border-border bg-card p-8 text-center sm:p-12 md:p-16">
+            {badge && (
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+                <span>{badge}</span>
+              </div>
+            )}
             {/* Main Heading with Brand Gradient */}
             <h2 className="font-heading text-3xl leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {title}{" "}

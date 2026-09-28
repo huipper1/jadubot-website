@@ -36,7 +36,7 @@ export function AgentsGrid() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Activate the exact agents your business needs. Each agent excels at a specific job and
-            collaborates seamlessly with the rest of your stack.
+            collaborates directly with the rest of your stack.
           </p>
         </div>
 

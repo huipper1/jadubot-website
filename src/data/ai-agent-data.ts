@@ -149,13 +149,13 @@ export const aiAgentData: AgentData[] = [
     name: "Customer Support AI Agent",
     category: "role",
     navTitle: "Customer Support AI Agent",
-    navDescription: "Knowledge-based replies and seamless human handover.",
+    navDescription: "Knowledge-based replies with instant human handover.",
     iconName: "Headphones",
     metaTitle: "Customer Support AI Agent | Jadubot",
     metaDescription:
-      "Deliver instant, accurate, knowledge-powered support across WhatsApp, Messenger, Instagram, and web chat with seamless human handoff using Jadubot.",
+      "Deliver instant, accurate, knowledge-powered support across WhatsApp, Messenger, Instagram, and web chat with automatic human handoff using Jadubot.",
     badge: "Specialized AI Role: Customer Support",
-    heroTitle: "Instant, Knowledge-Powered Support with Seamless Human Handover",
+    heroTitle: "Instant, Knowledge-Powered Support with Smooth Human Handover",
     heroHighlight: "Knowledge-Powered Support",
     heroDescription:
       "Deliver empathetic, accurate 24/7 customer service across all messaging channels. Train your agent on your existing docs, FAQs, and policies to resolve up to 80% of support tickets autonomously.",
@@ -274,7 +274,7 @@ export const aiAgentData: AgentData[] = [
       {
         question: "How does human agent handoff work in practice?",
         answer:
-          "When a customer asks for a human or has a complex issue, the agent flags the conversation in your Shared Inbox, sends a notification to your team, and pauses itself so your human rep can take over seamlessly."
+          "When a customer asks for a human or has a complex issue, the agent flags the conversation in your Shared Inbox, sends a notification to your team, and pauses itself so your human rep can take over instantly without losing context."
       },
       {
         question: "Can the agent check real-time order tracking from our database?",
@@ -376,7 +376,7 @@ export const aiAgentData: AgentData[] = [
       {
         title: "High-Value Deal Escalation",
         description:
-          "When a customer inquires about bulk orders, custom wholesale quotes, or VIP enterprise packages, seamlessly hand off to your senior sales team.",
+          "When a customer inquires about bulk orders, custom wholesale quotes, or VIP enterprise packages, automatically route the lead to your senior sales team.",
         badge: "Enterprise Routing",
         iconName: "TrendingUp",
         bulletPoints: [
@@ -519,7 +519,7 @@ export const aiAgentData: AgentData[] = [
       {
         title: "Omnichannel Messenger & Instagram Extension",
         description:
-          "Extend your Shopify store automation seamlessly across Facebook Messenger and Instagram DMs using the same synchronized product catalog.",
+          "Extend your Shopify store automation directly across Facebook Messenger and Instagram DMs using the same synchronized product catalog.",
         badge: "Omnichannel Scale",
         iconName: "Share2",
         bulletPoints: [

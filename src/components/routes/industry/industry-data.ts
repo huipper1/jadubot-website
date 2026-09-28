@@ -156,7 +156,7 @@ export const INDUSTRIES: IndustryData[] = [
       }
     ],
     workflow: {
-      badge: "SEAMLESS SHOPPING JOURNEY",
+      badge: "END-TO-END SHOPPING JOURNEY",
       title: "How Jadubot Drives E-commerce Sales",
       description: "From the first product comment to repeat post-purchase engagement.",
       steps: [
@@ -998,7 +998,7 @@ export const INDUSTRIES: IndustryData[] = [
     ],
     workflow: {
       badge: "FINANCIAL APPLICATION WORKFLOW",
-      title: "How Loan Applications Flow Seamlessly",
+      title: "How Loan Applications Flow Through Jadubot",
       description: "From first curiosity to loan officer review.",
       steps: [
         {
@@ -1222,7 +1222,7 @@ export const INDUSTRIES: IndustryData[] = [
       titleHighlight: "Automate Product Demos",
       titleEnd: "At Scale",
       subtitle:
-        "Shorten your B2B sales cycle. Help software buyers explore feature tiers, book product demos directly on sales team calendars, and onboard new trial users seamlessly.",
+        "Shorten your B2B sales cycle. Help software buyers explore feature tiers, book product demos directly on sales team calendars, and onboard new trial users automatically.",
       primaryCtaText: "Automate SaaS Funnel",
       secondaryCtaText: "Schedule B2B Demo",
       image: "/assets/images/industry/saas.jpg",

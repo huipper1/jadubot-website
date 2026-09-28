@@ -45,7 +45,7 @@ export function ServiceFaq() {
                     <span>Book Walkthrough</span>
                   </a>
                   <a
-                    href="https://wa.me/8801700000000"
+                    href="https://wa.me/8809611609565"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-black inline-flex items-center gap-1.5 !px-3.5 !py-2 text-xs"

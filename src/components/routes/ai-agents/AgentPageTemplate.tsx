@@ -18,7 +18,12 @@ export function AgentPageTemplate({ agent }: AgentPageTemplateProps) {
       <AgentFeatures agent={agent} />
       <AgentProcess agent={agent} />
       <AgentFaq agent={agent} />
-      <UnifiedCta />
+      <UnifiedCta
+        badge="Enterprise AI Workforce"
+        title="Ready to Deploy Your"
+        highlightedTitle={`${agent.name}?`}
+        description={`Activate your ${agent.name.toLowerCase()} in minutes. Handle customer conversations, resolve queries, and drive sales 24/7.`}
+      />
     </>
   );
 }

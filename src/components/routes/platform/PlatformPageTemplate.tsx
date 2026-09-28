@@ -18,7 +18,12 @@ export function PlatformPageTemplate({ platform }: PlatformPageTemplateProps) {
       <PlatformFeatures platform={platform} />
       <PlatformProcess platform={platform} />
       <PlatformFaq platform={platform} />
-      <UnifiedCta />
+      <UnifiedCta
+        badge={`Scale on ${platform.name}`}
+        title="Ready to Automate Your"
+        highlightedTitle={`${platform.name} Sales?`}
+        description={`Connect Jadubot to ${platform.name} in under 15 minutes. Start replying instantly, capturing leads, and closing orders automatically.`}
+      />
     </>
   );
 }

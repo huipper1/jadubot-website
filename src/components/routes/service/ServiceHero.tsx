@@ -238,8 +238,8 @@ export function ServiceHero() {
 
           {/* Subtitle with Theme Typography */}
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
-            We design and deploy AI systems that eliminate manual work, reduce costs, and scale your
-            operations — fast.
+            Handle order confirmations, product inquiries, and delivery tracking automatically across
+            all your social channels.
           </p>
 
           {/* Dual Pill CTA Buttons matching Website Theme */}

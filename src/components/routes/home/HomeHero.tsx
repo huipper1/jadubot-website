@@ -9,6 +9,7 @@ import {
   PhoneCall,
   Play,
   ShoppingCart,
+  Sparkles,
   TrendingUp,
   Users,
   Zap
@@ -51,9 +52,9 @@ export function HomeHero() {
           >
             {/* Pill Badge */}
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-600 shadow-xs backdrop-blur-xs sm:mb-4 dark:border-indigo-400/25 dark:bg-indigo-500/15 dark:text-indigo-400">
-              <span className="text-sm">🚀</span>
+              <Sparkles className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
               <span className="text-[11px] font-bold tracking-wider uppercase sm:text-xs">
-                AI-Powered Sales Automation
+                Automated Messenger &amp; WhatsApp Commerce
               </span>
             </div>
 
@@ -68,8 +69,7 @@ export function HomeHero() {
 
             {/* Subtitle */}
             <p className="mt-3.5 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg lg:max-w-lg">
-              Let Jadubot talk to your customers, take orders, and close sales; so you can finally
-              focus on growing your business.
+              Answer customer questions, confirm Cash on Delivery orders, and sync stock in Bangla and English—24/7.
             </p>
 
             {/* Feature Trio (Side by Side with Vertical Dividers) */}
