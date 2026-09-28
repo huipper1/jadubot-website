@@ -8,7 +8,6 @@ import {
   MessageSquare,
   PhoneCall,
   Play,
-  ShieldCheck,
   ShoppingCart,
   TrendingUp,
   Users

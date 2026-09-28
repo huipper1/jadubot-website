@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Calculator, CheckCircle2, Gift, Sparkles } from "lucide-react";
+import { ArrowRight, Calculator, Gift, Users } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 
@@ -18,7 +18,7 @@ export function AffiliateMasthead() {
           {/* Context Marker */}
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-400 sm:justify-start">
             <span className="inline-flex items-center gap-1.5 text-[#38bdf8]">
-              <Sparkles className="h-3.5 w-3.5" />
+              <Users className="h-3.5 w-3.5" />
               <span>Jadubot Partner Network</span>
             </span>
             <span className="text-slate-600">•</span>

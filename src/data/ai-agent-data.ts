@@ -330,7 +330,7 @@ export const aiAgentData: AgentData[] = [
         description:
           "Understand customer preferences, style choices, budget ranges, and specific needs to recommend the most relevant matching items.",
         badge: "Smart Cross-Sell",
-        iconName: "Sparkles",
+        iconName: "ShoppingBag",
         bulletPoints: [
           "Intelligent upsell and cross-sell suggestions based on selected items",
           "Answers complex comparison questions (e.g., 'What is the difference between Model A and Model B?')",

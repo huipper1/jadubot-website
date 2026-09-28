@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 
 import { usePopAnimation } from "@/lib/animations";
 
@@ -75,7 +75,7 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
                     </h3>
                     {isHighlight && (
                       <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-white shadow-xs">
-                        <Sparkles className="h-3 w-3 text-white" />
+                        <Star className="h-3 w-3 fill-white text-white" />
                         <span>Recommended</span>
                       </span>
                     )}

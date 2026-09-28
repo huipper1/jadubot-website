@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { CheckCircle2, Loader2, Send, ShieldCheck, Sparkles } from "lucide-react";
+import { CheckCircle2, Loader2, Send, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 
 import { PopIn } from "@/components/animations";
@@ -67,7 +67,7 @@ export function ContactForm() {
       {/* Header */}
       <div className="border-b border-border pb-5">
         <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8]">
-          <Sparkles className="h-3.5 w-3.5" />
+          <ShieldCheck className="h-3.5 w-3.5" />
           <span>Priority Consultation</span>
         </div>
         <h3 className="mt-1 font-heading text-xl font-bold text-foreground sm:text-2xl">

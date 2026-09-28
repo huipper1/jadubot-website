@@ -7,12 +7,12 @@ import {
   Check,
   Cpu,
   FileText,
+  Bot,
   Instagram,
   MessageSquare,
   Send,
   ShieldCheck,
   ShoppingCart,
-  Sparkles,
   Zap
 } from "lucide-react";
 
@@ -70,7 +70,7 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
     case "ai":
       return (
         <div className="animate-float-delayed absolute -right-2 bottom-2 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-right-3 sm:bottom-3 sm:h-11 sm:w-11">
-          <Sparkles className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
+          <Bot className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
         </div>
       );
 
@@ -359,15 +359,6 @@ export function ServiceGrid() {
               <span className="text-[11px] leading-tight font-semibold tracking-tight text-foreground sm:text-xs dark:text-white">
                 Trusted by 50+ companies
               </span>
-            </div>
-            {/* Diamond Sparkle Icon */}
-            <div className="flex items-center justify-center pl-0.5 text-primary">
-              <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 16 16">
-                <circle cx="8" cy="2" r="1.6" />
-                <circle cx="2" cy="8" r="1.6" />
-                <circle cx="14" cy="8" r="1.6" />
-                <circle cx="8" cy="14" r="1.6" />
-              </svg>
             </div>
           </div>
         </div>

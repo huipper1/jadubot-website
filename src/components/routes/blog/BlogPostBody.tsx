@@ -8,8 +8,7 @@ import {
   CheckCircle2,
   Clock,
   FileText,
-  MessageSquare,
-  Sparkles
+  TrendingUp
 } from "lucide-react";
 
 import type { BlogPostMeta } from "@/types/content";
@@ -71,7 +70,7 @@ export function BlogPostBody({
 
                 <div className="relative z-10">
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8]">
-                    <Sparkles className="h-3.5 w-3.5 text-[#38bdf8]" />
+                    <TrendingUp className="h-3.5 w-3.5 text-[#38bdf8]" />
                     Grow your business with automation
                   </span>
 

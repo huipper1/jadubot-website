@@ -333,7 +333,7 @@ export const platformData: PlatformData[] = [
         description:
           "Build brand loyalty by instantly thanking customers whenever they tag your Instagram handle in their Stories, along with special discount vouchers.",
         badge: "Social Proof",
-        iconName: "Sparkles",
+        iconName: "Share2",
         bulletPoints: [
           "Automated recognition of user Story mentions in real time",
           "Personalized thank-you messages with coupon incentives",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, TrendingUp } from "lucide-react";
+import { BarChart3, TrendingUp } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 
@@ -56,7 +56,7 @@ export function IndustryRoiSection({ industry }: IndustryRoiSectionProps) {
               {/* Concrete Real-World Example */}
               <div className="mt-8 rounded-2xl border border-primary/20 bg-muted/40 p-6">
                 <div className="flex items-center gap-2 text-xs font-bold tracking-wider text-foreground uppercase">
-                  <Sparkles className="h-4 w-4 text-primary" />
+                  <BarChart3 className="h-4 w-4 text-primary" />
                   <span>Case Study: {roi.exampleLabel}</span>
                 </div>
                 <p className="mt-3 font-mono text-sm leading-relaxed font-semibold text-primary sm:text-base">

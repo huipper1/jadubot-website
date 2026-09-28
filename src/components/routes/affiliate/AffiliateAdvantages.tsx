@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, BarChart3, Gift, Percent, Sparkles, Wallet } from "lucide-react";
+import { Award, BarChart3, Gift, Percent, Wallet } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 
@@ -44,7 +44,7 @@ export function AffiliateAdvantages() {
           <div className="lg:col-span-5">
             <PopIn className="sticky top-28 space-y-5">
               <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#38bdf8]">
-                <Sparkles className="h-3.5 w-3.5" />
+                <Award className="h-3.5 w-3.5" />
                 <span>PARTNER ADVANTAGES</span>
               </div>
 

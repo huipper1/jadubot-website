@@ -3,14 +3,12 @@
 import { useState } from "react";
 
 import {
-  ArrowRight,
   CheckCircle2,
   Cpu,
   Radio,
   ShieldCheck,
-  Sparkles,
   TrendingUp,
-  Zap
+  Workflow
 } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
@@ -22,7 +20,7 @@ interface IndustryWorkflowProps {
   industry: IndustryData;
 }
 
-const STEP_ICONS = [Sparkles, Cpu, Zap, TrendingUp];
+const STEP_ICONS = [Workflow, Cpu, CheckCircle2, TrendingUp];
 
 const STEP_STROKES = [
   { range: "0% - 25%", strokeDasharray: "25 75", phase: "INGESTION & TRIGGER" },

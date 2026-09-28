@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, Sparkles, TrendingUp } from "lucide-react";
+import { AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
@@ -86,7 +86,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                       {/* Jadubot Way */}
                       <div className="rounded-xl border border-primary/30 bg-card p-4 shadow-card transition-all hover:border-primary/50">
                         <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#38bdf8] uppercase">
-                          <Sparkles className="h-4 w-4 shrink-0 text-blue-400" />
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-400" />
                           <span>The Jadubot Autonomous Solution</span>
                         </div>
                         <p className="mt-2 text-sm leading-relaxed text-foreground">

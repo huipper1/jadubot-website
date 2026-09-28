@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Check, ShieldCheck, Star } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";
@@ -48,7 +48,7 @@ export function CpaPricing() {
                     />
                     <div className="absolute -top-3 left-1/2 z-20 -translate-x-1/2">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary to-sky-400 px-3.5 py-0.5 text-[10px] font-bold tracking-wider whitespace-nowrap text-white uppercase shadow-[0_0_15px_rgba(1,114,255,0.45)]">
-                        <Sparkles className="h-2.5 w-2.5 text-white" />
+                        <Star className="h-2.5 w-2.5 fill-white text-white" />
                         <span>Most Popular</span>
                       </span>
                     </div>

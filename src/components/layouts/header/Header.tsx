@@ -29,7 +29,6 @@ import {
   ShoppingBag,
   ShoppingCart,
   Smartphone,
-  Sparkles,
   Truck,
   UserCheck,
   Users,
@@ -371,7 +370,7 @@ export function Header() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0172ff] text-white shadow-sm transition-all duration-200 group-hover:scale-105 group-hover:bg-[#38bdf8]">
-                      <Sparkles className="h-4 w-4" />
+                      <Bot className="h-4 w-4" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 text-xs font-bold text-foreground transition-colors group-hover:text-[#0172ff]">
@@ -846,7 +845,7 @@ export function Header() {
                     )}
                   >
                     <div className="flex items-center gap-2.5">
-                      <Sparkles className="h-4 w-4 shrink-0" />
+                      <Bot className="h-4 w-4 shrink-0" />
                       <span>AI Agents Overview</span>
                     </div>
                     <ArrowRight className="h-3.5 w-3.5" />

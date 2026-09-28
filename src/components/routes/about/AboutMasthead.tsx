@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Sparkles } from "lucide-react";
+import { BookOpen, MapPin } from "lucide-react";
 
 import { PopIn } from "@/components/animations";
 
@@ -18,7 +18,7 @@ export function AboutMasthead() {
           {/* Subtle Context Marker */}
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 text-primary">
-              <Sparkles className="h-3.5 w-3.5" />
+              <BookOpen className="h-3.5 w-3.5" />
               <span>The Jadubot Story</span>
             </span>
             <span className="text-muted-foreground/40">•</span>
