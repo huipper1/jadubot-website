@@ -182,7 +182,7 @@ export function ServiceHero() {
       {/* Ambient background glow without background images */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[550px] overflow-hidden select-none">
         {/* Dark Mode Ambient Radial Glow */}
-        <div className="absolute top-12 left-1/2 hidden h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-[#0172ff]/15 blur-[140px] dark:block" />
+        <div className="absolute top-12 left-1/2 hidden h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px] dark:block" />
 
         {/* Light Mode Soft Sky Ambient Glow */}
         <div className="absolute top-8 left-1/2 h-[380px] w-[750px] -translate-x-1/2 rounded-full bg-gradient-to-b from-primary/12 via-sky-300/10 to-transparent blur-3xl dark:hidden" />
@@ -231,7 +231,7 @@ export function ServiceHero() {
           {/* Main Headline with Jadubot Signature Gradient */}
           <h1 className="font-heading text-4xl leading-[1.12] font-extrabold tracking-tight [text-wrap:balance] text-foreground sm:text-5xl md:text-6xl lg:text-[70px]">
             Automate your business. <br />
-            <span className="bg-gradient-to-r from-primary via-[#0052cc] to-primary bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(21,93,252,0.3)] dark:from-[#93c5fd] dark:via-[#38bdf8] dark:to-[#0172ff]">
+            <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(21,93,252,0.3)] dark:from-blue-300 dark:via-sky-400 dark:to-primary">
               Save hours every day.
             </span>
           </h1>

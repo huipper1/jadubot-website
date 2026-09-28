@@ -133,7 +133,7 @@ interface PlatformHeroVisualProps {
 function PlatformHeroVisual({ visualType }: PlatformHeroVisualProps) {
   if (visualType === "whatsapp") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-emerald-500/30 bg-card p-4 backdrop-blur-xl sm:p-5">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-emerald-500/30 bg-card p-4 sm:p-5">
         {/* WhatsApp Header */}
         <div className="-mx-4 -mt-4 flex items-center justify-between rounded-t-3xl border-b border-border border-emerald-500/20 bg-emerald-600/10 p-4 pb-3.5">
           <div className="flex items-center gap-3">
@@ -221,7 +221,7 @@ function PlatformHeroVisual({ visualType }: PlatformHeroVisualProps) {
 
   if (visualType === "facebook") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-blue-500/30 bg-card p-4 backdrop-blur-xl sm:p-5">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-blue-500/30 bg-card p-4 sm:p-5">
         {/* Facebook Header */}
         <div className="-mx-4 -mt-4 flex items-center justify-between rounded-t-3xl border-b border-blue-500/20 border-border bg-blue-600/10 p-4 pb-3.5">
           <div className="flex items-center gap-3">
@@ -289,7 +289,7 @@ function PlatformHeroVisual({ visualType }: PlatformHeroVisualProps) {
 
   if (visualType === "instagram") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-pink-500/30 bg-card p-4 backdrop-blur-xl sm:p-5">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-pink-500/30 bg-card p-4 sm:p-5">
         {/* Instagram Header */}
         <div className="-mx-4 -mt-4 flex items-center justify-between rounded-t-3xl border-b border-border border-pink-500/20 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-orange-500/10 p-4 pb-3.5">
           <div className="flex items-center gap-3">
@@ -348,7 +348,7 @@ function PlatformHeroVisual({ visualType }: PlatformHeroVisualProps) {
 
   if (visualType === "telegram") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-sky-500/30 bg-card p-4 backdrop-blur-xl sm:p-5">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-sky-500/30 bg-card p-4 sm:p-5">
         {/* Telegram Header */}
         <div className="-mx-4 -mt-4 flex items-center justify-between rounded-t-3xl border-b border-border border-sky-500/20 bg-sky-500/10 p-4 pb-3.5">
           <div className="flex items-center gap-3">
@@ -403,7 +403,7 @@ function PlatformHeroVisual({ visualType }: PlatformHeroVisualProps) {
 
   // Web Chat visual
   return (
-    <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-4 backdrop-blur-xl sm:p-5">
+    <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-4 sm:p-5">
       {/* Webchat Header */}
       <div className="-mx-4 -mt-4 flex items-center justify-between rounded-t-3xl border-b border-border border-primary/20 bg-primary/10 p-4 pb-3.5">
         <div className="flex items-center gap-3">

@@ -158,7 +158,7 @@ export function FeatureShowcase() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[400px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052cc]/15 blur-[150px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[400px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[150px]"
         aria-hidden="true"
       />
 
@@ -185,7 +185,7 @@ export function FeatureShowcase() {
                   className="absolute inset-0 flex flex-col justify-start"
                 >
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[11px] font-bold text-primary sm:px-2.5 sm:text-xs dark:text-[#38bdf8]">
+                    <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[11px] font-bold text-primary sm:px-2.5 sm:text-xs dark:text-sky-400">
                       {feat.number}
                     </span>
                     <h3 className="font-heading text-lg font-bold tracking-tight text-foreground sm:text-xl lg:text-2xl xl:text-3xl">

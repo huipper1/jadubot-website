@@ -111,7 +111,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                   )}
                 >
                   <PopIn delay={0.2}>
-                    <div className="shadow-elevated relative overflow-hidden rounded-2xl border border-border bg-card p-6 backdrop-blur-xl sm:p-8">
+                    <div className="shadow-elevated relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8">
                       {/* Ambient corner glow */}
                       <div className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-[#0172ff]/20 blur-2xl" />
 

@@ -103,7 +103,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
           {/* Right Column: Live Chat Simulation Device */}
           <div className="lg:col-span-7">
             <PopIn delay={0.15}>
-              <div className="shadow-elevated relative rounded-3xl border border-primary/25 bg-card p-4 backdrop-blur-xl sm:p-6">
+              <div className="shadow-elevated relative rounded-3xl border border-primary/25 bg-card p-4 sm:p-6">
                 {/* Chat Top Bar */}
                 <div className="flex items-center justify-between border-b border-border pb-4">
                   <div className="flex items-center gap-3">

@@ -140,7 +140,7 @@ interface AgentHeroVisualProps {
 function AgentHeroVisual({ visualType }: AgentHeroVisualProps) {
   if (visualType === "lead-qualification") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5 backdrop-blur-xl">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5">
         <div className="flex items-center justify-between border-b border-border pb-3.5">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary">
@@ -187,7 +187,7 @@ function AgentHeroVisual({ visualType }: AgentHeroVisualProps) {
 
   if (visualType === "customer-support") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5 backdrop-blur-xl">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5">
         <div className="flex items-center justify-between border-b border-border pb-3.5">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary">
@@ -233,7 +233,7 @@ function AgentHeroVisual({ visualType }: AgentHeroVisualProps) {
 
   if (visualType === "sales-agent") {
     return (
-      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5 backdrop-blur-xl">
+      <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5">
         <div className="flex items-center justify-between border-b border-border pb-3.5">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary">
@@ -276,7 +276,7 @@ function AgentHeroVisual({ visualType }: AgentHeroVisualProps) {
 
   // Commerce (Shopify / WooCommerce)
   return (
-    <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5 backdrop-blur-xl">
+    <div className="shadow-elevated relative mx-auto w-full max-w-md rounded-3xl border border-primary/30 bg-card p-5">
       <div className="flex items-center justify-between border-b border-border pb-3.5">
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary">

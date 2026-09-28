@@ -41,7 +41,7 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
       return (
         <div className="animate-float-delayed absolute -bottom-2 -left-2 z-20 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] p-0.5 shadow-[0_0_20px_rgba(221,42,123,0.5)] sm:-bottom-3 sm:-left-3 sm:h-12 sm:w-12">
           <div className="flex h-full w-full items-center justify-center rounded-2xl bg-card/90 backdrop-blur-md">
-            <Instagram className="h-4 w-4 text-[#fe78e1] drop-shadow-[0_0_10px_rgba(254,120,225,0.8)] sm:h-5 sm:w-5" />
+            <Instagram className="h-4 w-4 text-channel-pink drop-shadow-[0_0_10px_rgba(254,120,225,0.8)] sm:h-5 sm:w-5" />
           </div>
         </div>
       );
@@ -199,7 +199,7 @@ export function ServiceGrid() {
                   zIndex: 2 * (index + 1)
                 }}
               >
-                <div className="group relative flex h-full w-full flex-col justify-center rounded-[2rem] border border-border/80 bg-card p-5 backdrop-blur-2xl transition-colors hover:border-primary/40 sm:rounded-[2.5rem] sm:p-7 md:p-8 lg:px-12 lg:py-8 dark:bg-gradient-to-b dark:from-[#131524] dark:via-[#0e101b] dark:to-[#090b12]">
+                <div className="group relative flex h-full w-full flex-col justify-center rounded-[2rem] border border-border/80 bg-card p-5 transition-colors hover:border-primary/40 sm:rounded-[2.5rem] sm:p-7 md:p-8 lg:px-12 lg:py-8">
                   {/* Subtle Ambient Radial Lighting */}
                   {/* <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-[380px] w-[380px] rounded-full bg-blue-600/12 blur-[120px]" />
                   <div className="pointer-events-none absolute -left-24 -bottom-24 -z-10 h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[110px]" /> */}

@@ -182,7 +182,7 @@ export function ProblemSection() {
 
       {/* Jadubot blue ambient glow */}
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0052cc]/15 blur-[140px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[140px]"
         aria-hidden="true"
       />
 
@@ -222,10 +222,10 @@ export function ProblemSection() {
                 <div>
                   {/* Header: Icon & Number Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:text-[#38bdf8]">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:text-sky-400">
                       <Icon className="h-4.5 w-4.5" />
                     </div>
-                    <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-bold text-primary dark:text-[#38bdf8]/90">
+                    <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 font-mono text-xs font-bold text-primary dark:text-sky-400/90">
                       0{card.number}
                     </span>
                   </div>
@@ -244,8 +244,8 @@ export function ProblemSection() {
                 {/* Card Footer Tag */}
                 <div className="mt-5 flex items-center justify-between border-t border-border/50 pt-3 text-[11px]">
                   <span className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#fe78e1]" />
-                    <span className="font-medium text-[#fe78e1]/90">Critical bottleneck</span>
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                    <span className="font-medium text-accent">Critical bottleneck</span>
                   </span>
                   <span className="font-mono text-[10px] tracking-wider text-muted-foreground/40 uppercase">
                     Loss 0{card.number}

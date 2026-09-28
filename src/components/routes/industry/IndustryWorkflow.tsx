@@ -236,7 +236,7 @@ export function IndustryWorkflow({ industry }: IndustryWorkflowProps) {
 
         {/* Interactive Autonomous Telemetry Console */}
         <div className="mt-14 sm:mt-16">
-          <PopIn className="shadow-elevated relative overflow-hidden rounded-3xl border border-border bg-card p-6 backdrop-blur-xl sm:p-8">
+          <PopIn className="shadow-elevated relative overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8">
             {/* Ambient accent glow */}
             <div
               className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-[#0172ff]/15 blur-3xl"

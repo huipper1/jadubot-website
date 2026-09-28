@@ -69,7 +69,7 @@ export function UnifiedCta({
         </div>
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="shadow-elevated relative mx-auto max-w-5xl rounded-3xl border border-border bg-card p-8 text-center backdrop-blur-2xl sm:p-12 md:p-16 dark:bg-gradient-to-b dark:from-[#0d1424]/90 dark:via-[#0a0f1c]/90 dark:to-[#070b14]/95">
+          <div className="shadow-elevated relative mx-auto max-w-5xl rounded-3xl border border-border bg-card p-8 text-center sm:p-12 md:p-16">
             {/* Main Heading with Brand Gradient */}
             <h2 className="font-heading text-3xl leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {title}{" "}

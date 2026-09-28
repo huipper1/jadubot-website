@@ -61,9 +61,9 @@ export function HomeHero() {
             <h1 className="font-heading text-4xl leading-[1.08] font-black tracking-tight text-foreground sm:text-5xl lg:text-[48px] xl:text-[56px] 2xl:text-[60px]">
               Your #1 AI Sales <br />
               Agent on <br />
-              <span className="text-[#1877f2] dark:text-[#38bdf8]">Facebook</span>, <br />
-              <span className="text-[#e1306c] dark:text-[#f43f5e]">Instagram</span> <br />
-              &amp; <span className="text-[#16a34a] dark:text-[#22c55e]">WhatsApp</span>
+              <span className="text-blue-600 dark:text-sky-400">Facebook</span>, <br />
+              <span className="text-pink-600 dark:text-rose-400">Instagram</span> <br />
+              &amp; <span className="text-emerald-600 dark:text-emerald-500">WhatsApp</span>
             </h1>
 
             {/* Subtitle */}

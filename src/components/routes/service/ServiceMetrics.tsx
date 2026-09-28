@@ -96,7 +96,7 @@ export function ServiceMetrics() {
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0172ff]/10 blur-[140px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[380px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[140px]"
         aria-hidden="true"
       />
 

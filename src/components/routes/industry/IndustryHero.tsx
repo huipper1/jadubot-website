@@ -105,7 +105,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
           {/* Right Column: 3D Thematic Visual with Floating Stat Badges */}
           <div className="relative mx-auto w-full max-w-lg lg:col-span-5 lg:max-w-none">
             <PopIn delay={0.15}>
-              <div className="shadow-elevated relative rounded-3xl border border-border bg-card p-3 backdrop-blur-xl">
+              <div className="shadow-elevated relative rounded-3xl border border-border bg-card p-3">
                 {/* Glow ring behind visual */}
                 <div className="absolute -inset-1 -z-10 rounded-3xl bg-gradient-to-r from-blue-600/30 via-sky-400/20 to-blue-700/30 opacity-75 blur-xl" />
 
