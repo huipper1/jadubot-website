@@ -113,7 +113,7 @@ export function HomeProcess() {
               alt="Start in 3 Steps Central Logo"
               width={200}
               height={200}
-              className="relative z-10 h-[180px] w-[180px] object-contain drop-shadow-[0_0_30px_rgba(1,114,255,0.65)] xl:h-[200px] xl:w-[200px]"
+              className="relative z-10 h-[180px] w-[180px] object-contain xl:h-[200px] xl:w-[200px]"
               priority
             />
           </div>

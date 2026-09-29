@@ -47,12 +47,22 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
             {/* Top Card / Control Box */}
             <div
               className={cn(
-                "relative flex flex-col justify-between overflow-hidden rounded-2xl p-6 transition-all duration-300 sm:min-h-[360px]",
+                "relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 sm:min-h-[360px]",
                 isHighlight
-                  ? "dark-surface border border-primary/50 bg-slate-950 text-white shadow-[0_12px_40px_-10px_rgba(21,93,252,0.35)] dark:border-primary dark:bg-[#0c1222]"
+                  ? "dark-surface border-2 border-primary bg-slate-950 text-white shadow-[0_12px_40px_-10px_rgba(21,93,252,0.45)] dark:border-primary dark:bg-[#0c1222]"
                   : "border border-border bg-card shadow-xs hover:border-primary/40 hover:shadow-card dark:bg-card/70"
               )}
             >
+              {/* Floating Top Center "MOST POPULAR" Badge Pill */}
+              {isHighlight && (
+                <div className="absolute -top-3.5 left-1/2 z-20 -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-300/40 bg-gradient-to-r from-blue-600 via-primary to-sky-500 px-3.5 py-1 text-[11px] font-bold tracking-wider whitespace-nowrap text-white uppercase shadow-[0_0_20px_rgba(14,165,233,0.7)] drop-shadow-sm">
+                    <Star className="h-3 w-3 fill-white text-white" />
+                    <span>Most Popular</span>
+                  </span>
+                </div>
+              )}
+
               {/* Top ambient glow on highlight tier */}
               {isHighlight && (
                 <div
@@ -73,12 +83,6 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
                     >
                       {tier.name}
                     </h3>
-                    {isHighlight && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-white shadow-xs">
-                        <Star className="h-3 w-3 fill-white text-white" />
-                        <span>Recommended</span>
-                      </span>
-                    )}
                     {!isHighlight && tier.badge && (
                       <span className="rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
                         {tier.badge}
