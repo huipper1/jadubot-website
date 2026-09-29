@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+
 import {
   ArrowRight,
   Bot,
@@ -12,12 +16,29 @@ import {
 
 import type { PlatformData } from "@/types/platform";
 import { CALENDLY_DEMO_URL } from "@/config/site";
+import { usePopAnimation } from "@/lib/animations";
 
 interface PlatformHeroProps {
   platform: PlatformData;
 }
 
 export function PlatformHero({ platform }: PlatformHeroProps) {
+  const contentRef = usePopAnimation<HTMLDivElement>({ start: "top 95%", duration: 0.8 });
+  const visualRef = usePopAnimation<HTMLDivElement>({
+    start: "top 90%",
+    delay: 0.15,
+    duration: 0.85
+  });
+
+  const statsContainerRef = useRef<HTMLDivElement | null>(null);
+  const statsCardsRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(statsCardsRef, {
+    trigger: statsContainerRef,
+    stagger: 0.08,
+    start: "top 85%"
+  });
+
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-44">
       {/* Ambient background glows */}
@@ -29,7 +50,10 @@ export function PlatformHero({ platform }: PlatformHeroProps) {
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Left Column: Headline and CTAs */}
-          <div className="text-center lg:col-span-7 lg:text-left">
+          <div
+            ref={contentRef}
+            className="text-center will-change-transform lg:col-span-7 lg:text-left"
+          >
             <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               {platform.heroTitle.includes(platform.heroHighlight) ? (
                 <>
@@ -86,18 +110,21 @@ export function PlatformHero({ platform }: PlatformHeroProps) {
           </div>
 
           {/* Right Column: Platform Visual Mockup */}
-          <div className="lg:col-span-5">
+          <div ref={visualRef} className="will-change-transform lg:col-span-5">
             <PlatformHeroVisual visualType={platform.heroVisualType} />
           </div>
         </div>
 
         {/* Hero Stats Strip */}
-        <div className="mt-16 border-t border-border/80 pt-8 sm:mt-20">
+        <div ref={statsContainerRef} className="mt-16 border-t border-border/80 pt-8 sm:mt-20">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {platform.heroStats.map((stat, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center gap-4 rounded-2xl border border-border/80 bg-card/60 p-4 lg:justify-start"
+                ref={(el) => {
+                  if (el) statsCardsRef.current[idx] = el;
+                }}
+                className="flex items-center justify-center gap-4 rounded-2xl border border-border/80 bg-card/60 p-4 will-change-transform lg:justify-start"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   {idx === 0 && <Clock className="h-6 w-6" />}

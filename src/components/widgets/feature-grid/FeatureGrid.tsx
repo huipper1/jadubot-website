@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+
 import {
   BarChart3,
   BookOpen,
@@ -43,6 +47,8 @@ import {
   Volume2,
   Zap
 } from "lucide-react";
+
+import { usePopAnimation } from "@/lib/animations";
 
 export interface FeatureItem {
   iconName: string;
@@ -113,11 +119,24 @@ export function FeatureGrid({
   features,
   className = ""
 }: FeatureGridProps) {
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(cardsRef, {
+    trigger: gridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
   return (
     <section className={`relative border-t border-border/80 bg-surface-subtle/50 py-20 md:py-28 ${className}`}>
       <div className="container mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div
+          ref={headerRef}
+          className="mx-auto mb-16 max-w-3xl origin-center text-center will-change-transform"
+        >
           {badgeText && (
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
               <span>{badgeText}</span>
@@ -134,14 +153,17 @@ export function FeatureGrid({
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, idx) => {
             const IconComponent = ICON_MAP[feature.iconName] || Zap;
 
             return (
               <div
                 key={idx}
-                className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                ref={(el) => {
+                  if (el) cardsRef.current[idx] = el;
+                }}
+                className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
               >
                 <div>
                   {/* Top Bar: Icon + Badge */}

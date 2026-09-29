@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
 
 import {
@@ -10,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { aiAgentData } from "@/data/ai-agent-data";
+import { usePopAnimation } from "@/lib/animations";
 
 const AGENT_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   UserCheck,
@@ -20,6 +24,25 @@ const AGENT_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>
 };
 
 export function AgentsGrid() {
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const roleGridRef = useRef<HTMLDivElement | null>(null);
+  const roleCardsRef = useRef<HTMLAnchorElement[]>([]);
+
+  usePopAnimation(roleCardsRef, {
+    trigger: roleGridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
+  const commerceGridRef = useRef<HTMLDivElement | null>(null);
+  const commerceCardsRef = useRef<HTMLAnchorElement[]>([]);
+
+  usePopAnimation(commerceCardsRef, {
+    trigger: commerceGridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
   const roleAgents = aiAgentData.filter((a) => a.category === "role");
   const commerceAgents = aiAgentData.filter((a) => a.category === "commerce");
 
@@ -27,7 +50,10 @@ export function AgentsGrid() {
     <section className="relative border-t border-border/80 bg-surface-subtle/50 py-20 md:py-28">
       <div className="container mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div
+          ref={headerRef}
+          className="mx-auto mb-16 max-w-3xl origin-center text-center will-change-transform"
+        >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
             <span>Specialized AI Roles</span>
           </div>
@@ -49,15 +75,18 @@ export function AgentsGrid() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {roleAgents.map((agent) => {
+          <div ref={roleGridRef} className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {roleAgents.map((agent, idx) => {
               const IconComponent = AGENT_ICON_MAP[agent.iconName] || UserCheck;
 
               return (
                 <Link
                   key={agent.slug}
+                  ref={(el) => {
+                    if (el) roleCardsRef.current[idx] = el;
+                  }}
                   href={`/ai-agents/${agent.slug}`}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                  className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
                 >
                   <div>
                     <div className="mb-6 flex items-center justify-between gap-4">
@@ -97,15 +126,18 @@ export function AgentsGrid() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {commerceAgents.map((agent) => {
+          <div ref={commerceGridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {commerceAgents.map((agent, idx) => {
               const IconComponent = AGENT_ICON_MAP[agent.iconName] || ShoppingBag;
 
               return (
                 <Link
                   key={agent.slug}
+                  ref={(el) => {
+                    if (el) commerceCardsRef.current[idx] = el;
+                  }}
                   href={`/ai-agents/${agent.slug}`}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                  className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
                 >
                   <div>
                     <div className="mb-6 flex items-center justify-between gap-4">

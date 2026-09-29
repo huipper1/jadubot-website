@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+
 import {
   ArrowRight,
   BrainCircuit,
@@ -8,8 +12,25 @@ import {
 } from "lucide-react";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
+import { usePopAnimation } from "@/lib/animations";
 
 export function AgentsOverviewHero() {
+  const contentRef = usePopAnimation<HTMLDivElement>({ start: "top 95%", duration: 0.8 });
+  const diagramRef = usePopAnimation<HTMLDivElement>({
+    start: "top 90%",
+    delay: 0.15,
+    duration: 0.85
+  });
+
+  const nodesGridRef = useRef<HTMLDivElement | null>(null);
+  const nodesRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(nodesRef, {
+    trigger: nodesGridRef,
+    stagger: 0.08,
+    start: "top 85%"
+  });
+
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-44">
       {/* Ambient background lighting */}
@@ -19,7 +40,7 @@ export function AgentsOverviewHero() {
       />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        <div className="mx-auto max-w-4xl text-center">
+        <div ref={contentRef} className="mx-auto max-w-4xl origin-center text-center will-change-transform">
           <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Build AI Agents That <span className="text-blue-gradient">Take Action.</span>
             <br />
@@ -76,7 +97,7 @@ export function AgentsOverviewHero() {
         </div>
 
         {/* Multi-Agent Orchestration Diagram Visual */}
-        <div className="mt-16 sm:mt-20">
+        <div ref={diagramRef} className="mt-16 will-change-transform sm:mt-20">
           <div className="shadow-elevated relative mx-auto max-w-5xl rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-2xl sm:p-10">
             {/* Top Bar */}
             <div className="flex flex-col items-center justify-between gap-4 border-b border-border/80 pb-6 sm:flex-row">
@@ -96,9 +117,14 @@ export function AgentsOverviewHero() {
             </div>
 
             {/* Architecture Node Grid */}
-            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4">
+            <div ref={nodesGridRef} className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4">
               {/* Inbound Ingestion */}
-              <div className="flex flex-col justify-between rounded-2xl border border-border bg-surface-subtle p-5">
+              <div
+                ref={(el) => {
+                  if (el) nodesRef.current[0] = el;
+                }}
+                className="flex flex-col justify-between rounded-2xl border border-border bg-surface-subtle p-5 will-change-transform"
+              >
                 <div>
                   <div className="mb-2 text-[11px] font-bold text-primary">STAGE 01: INBOUND</div>
                   <h2 className="font-heading text-sm font-bold text-foreground">
@@ -115,7 +141,12 @@ export function AgentsOverviewHero() {
               </div>
 
               {/* Intent Classifier */}
-              <div className="flex flex-col justify-between rounded-2xl border border-primary/40 bg-primary/5 p-5">
+              <div
+                ref={(el) => {
+                  if (el) nodesRef.current[1] = el;
+                }}
+                className="flex flex-col justify-between rounded-2xl border border-primary/40 bg-primary/5 p-5 will-change-transform"
+              >
                 <div>
                   <div className="mb-2 text-[11px] font-bold text-primary">STAGE 02: ROUTING</div>
                   <h2 className="font-heading text-sm font-bold text-foreground">
@@ -133,7 +164,12 @@ export function AgentsOverviewHero() {
               </div>
 
               {/* Specialized Agent */}
-              <div className="flex flex-col justify-between rounded-2xl border border-border bg-surface-subtle p-5">
+              <div
+                ref={(el) => {
+                  if (el) nodesRef.current[2] = el;
+                }}
+                className="flex flex-col justify-between rounded-2xl border border-border bg-surface-subtle p-5 will-change-transform"
+              >
                 <div>
                   <div className="mb-2 text-[11px] font-bold text-primary">STAGE 03: EXECUTION</div>
                   <h2 className="font-heading text-sm font-bold text-foreground">
@@ -150,7 +186,12 @@ export function AgentsOverviewHero() {
               </div>
 
               {/* Real Business Action */}
-              <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-5">
+              <div
+                ref={(el) => {
+                  if (el) nodesRef.current[3] = el;
+                }}
+                className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-5 will-change-transform"
+              >
                 <div>
                   <div className="mb-2 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
                     STAGE 04: OUTCOME

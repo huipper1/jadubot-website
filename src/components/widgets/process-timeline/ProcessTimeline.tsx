@@ -1,6 +1,11 @@
+"use client";
+
+import { useRef } from "react";
+
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
+import { usePopAnimation } from "@/lib/animations";
 
 export interface ProcessStep {
   step: string;
@@ -29,11 +34,24 @@ export function ProcessTimeline({
   ctaHref = CALENDLY_DEMO_URL,
   className = ""
 }: ProcessTimelineProps) {
+  const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const stepsRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(stepsRef, {
+    trigger: gridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
   return (
     <section className={`relative overflow-hidden bg-background py-20 md:py-28 ${className}`}>
       <div className="container mx-auto max-w-7xl px-4">
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div
+          ref={headerRef}
+          className="mx-auto mb-16 max-w-3xl origin-center text-center will-change-transform"
+        >
           {badgeText && (
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
               <span>{badgeText}</span>
@@ -50,11 +68,14 @@ export function ProcessTimeline({
         </div>
 
         {/* Process Steps Grid */}
-        <div className="relative grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div ref={gridRef} className="relative grid grid-cols-1 gap-8 md:grid-cols-3">
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+              ref={(el) => {
+                if (el) stepsRef.current[idx] = el;
+              }}
+              className="relative flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/40"
             >
               <div>
                 {/* Step badge */}

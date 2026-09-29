@@ -1,8 +1,33 @@
+"use client";
+
+import { useRef } from "react";
+
 import { ArrowRight, BookOpen, CheckCircle2, GitBranch, UserCheck, Zap } from "lucide-react";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
+import { usePopAnimation } from "@/lib/animations";
 
 export function AgentsWorkflowSection() {
+  const pillarsHeaderRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const pillarsGridRef = useRef<HTMLDivElement | null>(null);
+  const pillarsRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(pillarsRef, {
+    trigger: pillarsGridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
+  const stepsHeaderRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const stepsGridRef = useRef<HTMLDivElement | null>(null);
+  const stepsCardsRef = useRef<HTMLDivElement[]>([]);
+
+  usePopAnimation(stepsCardsRef, {
+    trigger: stepsGridRef,
+    stagger: 0.08,
+    start: "top 82%"
+  });
+
   const pillars = [
     {
       step: "01",
@@ -80,7 +105,10 @@ export function AgentsWorkflowSection() {
       {/* 4 Pillars Section */}
       <section className="relative border-t border-border/80 bg-background py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div
+            ref={pillarsHeaderRef}
+            className="mx-auto mb-16 max-w-3xl origin-center text-center will-change-transform"
+          >
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
               <span>How It Works</span>
             </div>
@@ -93,14 +121,17 @@ export function AgentsWorkflowSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div ref={pillarsGridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
 
               return (
                 <div
                   key={idx}
-                  className="flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                  ref={(el) => {
+                    if (el) pillarsRef.current[idx] = el;
+                  }}
+                  className="flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
                 >
                   <div>
                     <div className="mb-6 flex items-center justify-between gap-4">
@@ -139,7 +170,10 @@ export function AgentsWorkflowSection() {
       {/* Connect → Create → Deploy Steps */}
       <section className="relative border-t border-border/80 bg-surface-subtle/40 py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div
+            ref={stepsHeaderRef}
+            className="mx-auto mb-16 max-w-3xl origin-center text-center will-change-transform"
+          >
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
               <span>Fast Rollout</span>
             </div>
@@ -151,11 +185,14 @@ export function AgentsWorkflowSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div ref={stepsGridRef} className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {steps.map((st, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+                ref={(el) => {
+                  if (el) stepsCardsRef.current[idx] = el;
+                }}
+                className="flex flex-col justify-between rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/40"
               >
                 <div>
                   <div className="mb-6 flex items-center justify-between">
