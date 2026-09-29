@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Instagram, Linkedin, Send } from "lucide-react";
+import { ArrowRight, CheckCircle2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -83,11 +83,11 @@ export function Footer() {
         Light mode: Rich deep slate-navy surface (#091122) creating an intentional, grounding distinction from the pale sky canvas (#eff6ff).
         Dark mode: Deep abyss midnight surface (#050810).
       */}
-      <footer className="relative z-10 overflow-hidden border-t border-border/40 bg-[#091122] pt-24 pb-0 text-slate-300 sm:pt-28 sm:pb-0 lg:pt-36 dark:border-white/10 dark:bg-[#050810]">
+      <footer className="relative z-10 overflow-hidden border-t border-primary/20 bg-primary pt-24 pb-0 text-white/90 sm:pt-28 sm:pb-0 lg:pt-36 dark:border-white/10 dark:bg-[#050810] dark:text-slate-300">
         {/* Soft atmospheric gradient lines & ambient background accents */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-          <div className="absolute top-1/3 left-1/2 h-80 w-[700px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px] dark:bg-primary/8" />
+          <div className="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute top-1/3 left-1/2 h-80 w-[700px] -translate-x-1/2 rounded-full bg-white/10 blur-[140px] dark:bg-primary/8" />
         </div>
 
         <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -274,7 +274,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -284,9 +284,9 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="X / Twitter"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
-                <span className="font-bold text-xs">𝕏</span>
+                <Twitter className="h-4 w-4"/>
               </a>
               <a
                 href="https://www.instagram.com/jadubotbd/"
@@ -294,7 +294,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
                 <Instagram className="h-4 w-4" />
               </a>
@@ -304,9 +304,9 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
-                <Send className="h-4 w-4" />
+                <Facebook className="h-4 w-4" />
               </a>
             </div>
           </div>

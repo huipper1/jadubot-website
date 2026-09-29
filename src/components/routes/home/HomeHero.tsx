@@ -1,16 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   ArrowRight,
-  Clock,
-  MessageSquare,
-  PhoneCall,
-  Play,
-  ShoppingCart,
-  TrendingUp,
-  Users
+  ChevronRight,
+  Star
 } from "lucide-react";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
@@ -18,241 +14,351 @@ import { CALENDLY_DEMO_URL } from "@/config/site";
 import { usePopAnimation } from "@/lib/animations";
 
 export function HomeHero() {
-  const contentRef = usePopAnimation<HTMLDivElement>({ start: "top 95%", duration: 0.8 });
-  const imageRef = usePopAnimation<HTMLDivElement>({
-    start: "top 90%",
-    delay: 0.15,
-    duration: 0.9
-  });
+  const containerRef = usePopAnimation<HTMLDivElement>({ start: "top 95%", duration: 0.8 });
 
   return (
-    <section className="relative overflow-hidden pt-20 pb-8 sm:pt-24 sm:pb-10 md:pt-24 lg:pt-28 lg:pb-14">
-      {/* Ambient Background Grid & Radial Glows (Light & Dark Theme Compatible) */}
+    <section className="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-20 md:pt-20 md:pb-24 lg:pt-24 lg:pb-28">
+      {/* Background Architectural Grid & Subtle Radial Glows */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none">
         {/* Dark Mode Grid Pattern & Electric Blue Glow */}
-        <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#1f293d_1px,transparent_1px),linear-gradient(to_bottom,#1f293d_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:4rem_4rem] opacity-25 dark:block" />
-        <div className="absolute -top-40 left-1/2 hidden h-[550px] w-[1100px] -translate-x-1/2 rounded-full bg-[#0172ff]/18 blur-[130px] dark:block" />
-        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/40 via-transparent to-background dark:block" />
+        <div className="absolute inset-0 hidden bg-[linear-gradient(to_right,#1f293d_1px,transparent_1px),linear-gradient(to_bottom,#1f293d_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_25%,#000_70%,transparent_100%)] bg-[size:4rem_4rem] opacity-25 dark:block" />
+        <div className="absolute top-0 left-1/2 hidden h-[650px] w-[1200px] -translate-x-1/2 rounded-full bg-[#0172ff]/12 blur-[140px] dark:block" />
+        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/30 via-transparent to-background dark:block" />
 
         {/* Light Mode Architectural Grid & Ambient Sky Glow */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#dbeafe_1px,transparent_1px),linear-gradient(to_bottom,#dbeafe_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_65%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:4rem_4rem] opacity-60 dark:hidden" />
-        <div className="pointer-events-none absolute -top-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-b from-primary/15 via-sky-300/10 to-transparent blur-3xl dark:hidden" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background dark:hidden" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#dbeafe_1px,transparent_1px),linear-gradient(to_bottom,#dbeafe_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_75%_60%_at_50%_20%,#000_70%,transparent_100%)] bg-[size:4rem_4rem] opacity-60 dark:hidden" />
+        <div className="pointer-events-none absolute top-0 left-1/2 h-[550px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-b from-primary/10 via-sky-300/10 to-transparent blur-3xl dark:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background dark:hidden" />
       </div>
 
-      <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Main 2-Column Hero Grid matching the Reference Screenshot */}
-        <div className="grid grid-cols-1 items-start lg:grid-cols-12">
-          {/* Left Column: Copy, Micro-Features & Actions (5 columns on desktop for perfect balance) */}
+      <div ref={containerRef} className="relative z-10 container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Top: 5-Star Social Proof Review Pill */}
+        <div className="flex justify-center">
           <div
-            ref={contentRef}
-            className="relative z-10 pt-1 text-left will-change-transform sm:pt-2 lg:col-span-6 lg:pt-3 xl:col-span-6"
+            data-preserve-radius="true"
+            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/85 px-4 py-1.5 shadow-xs backdrop-blur-md transition-all hover:border-primary/40 dark:bg-card/70"
           >
-            {/* Main Headline - Clean, vertically balanced lines without arch gap */}
-            <h1 className="font-heading text-4xl leading-[1.08] font-black tracking-tight text-foreground sm:text-5xl lg:text-[48px] xl:text-[56px] 2xl:text-[60px]">
-              Your #1 AI Sales <br />
-              Agent on <br />
-              <span className="text-blue-600 dark:text-sky-400">Facebook</span>, <br />
-              <span className="text-pink-600 dark:text-rose-400">Instagram</span> <br />
-              &amp; <span className="text-emerald-600 dark:text-emerald-500">WhatsApp</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mt-3.5 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg lg:max-w-lg">
-              Answer customer questions, confirm Cash on Delivery orders, and sync stock in Bangla
-              and English—24/7.
-            </p>
-
-            {/* Feature Trio (Side by Side with Vertical Dividers) */}
-            <div className="my-6 flex max-w-lg items-center justify-between gap-3 sm:my-7 sm:justify-start sm:gap-6">
-              {/* Feature 1: Automate Conversations */}
-              <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-xs sm:h-12 sm:w-12">
-                  <MessageSquare className="h-5 w-5" />
-                </div>
-                <span className="mt-2.5 text-xs leading-snug font-bold text-foreground sm:text-sm">
-                  Automate <br className="hidden sm:inline" />
-                  Conversations
-                </span>
-              </div>
-
-              {/* Vertical Divider 1 */}
-              <div
-                className="h-10 w-px shrink-0 self-center bg-border/80 sm:h-12"
-                aria-hidden="true"
-              />
-
-              {/* Feature 2: Increase Sales */}
-              <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-indigo-500/20 bg-indigo-500/10 text-indigo-600 shadow-xs sm:h-12 sm:w-12 dark:text-indigo-400">
-                  <ShoppingCart className="h-5 w-5" />
-                </div>
-                <span className="mt-2.5 text-xs leading-snug font-bold text-foreground sm:text-sm">
-                  Increase <br className="hidden sm:inline" />
-                  Sales
-                </span>
-              </div>
-
-              {/* Vertical Divider 2 */}
-              <div
-                className="h-10 w-px shrink-0 self-center bg-border/80 sm:h-12"
-                aria-hidden="true"
-              />
-
-              {/* Feature 3: Save Time 24/7 */}
-              <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-sky-500/20 bg-sky-500/10 text-sky-600 shadow-xs sm:h-12 sm:w-12 dark:text-sky-400">
-                  <Clock className="h-5 w-5" />
-                </div>
-                <span className="mt-2.5 text-xs leading-snug font-bold text-foreground sm:text-sm">
-                  Save Time <br className="hidden sm:inline" />
-                  24/7
-                </span>
-              </div>
+            {/* 5 Stars */}
+            <div className="flex items-center gap-1 text-amber-500">
+              <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+              <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+              <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+              <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+              <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
             </div>
 
-            {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <a
-                href={CALENDLY_DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:scale-[1.02] hover:shadow-primary/40"
-              >
-                <span>Book a live demo</span>
-                <ArrowRight className="h-4 w-4" />
-              </a>
-
-              <a
-                href="https://www.youtube.com/playlist?list=PLTciGNiQ61wDsaRGBFYmhOcvRH51Vq55S"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-card/90 px-6 py-3.5 text-sm font-semibold text-foreground shadow-sm backdrop-blur-md transition-all hover:scale-[1.02] hover:border-primary/50 hover:bg-muted/70"
-              >
-                <Play className="h-4 w-4 fill-current text-foreground" />
-                <span>Watch Demo</span>
-              </a>
-            </div>
-
-            {/* Curved Doodle Arrow & Note pointing up towards Watch Demo */}
-            <div className="mt-3.5 ml-2 flex items-center gap-2 text-xs font-medium text-muted-foreground italic select-none sm:ml-4 sm:text-[13px]">
-              <svg
-                className="h-5 w-6 shrink-0 -rotate-6 stroke-[2] text-muted-foreground/80"
-                viewBox="0 0 28 22"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M24 19 C18 19, 10 16, 6 6" />
-                <path d="M11 5 L5 5 L5 11" />
-              </svg>
-              <span>See Jadubot in action!</span>
-            </div>
+            <span className="text-xs font-semibold text-muted-foreground">
+              Based on <span className="font-bold text-foreground">1,200+</span> businesses
+            </span>
           </div>
+        </div>
 
-          {/* Right Column: Hero Graphic - Aligned top vertically and shifted upwards & leftwards */}
+        {/* Central Display Headline */}
+        <div className="mx-auto mt-6 max-w-4xl text-center">
+          <h1 className="font-heading text-4xl leading-[1.12] font-black tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[68px]">
+            Your #1 AI Sales Agent <br className="hidden sm:inline" />
+            with <span className="text-primary dark:text-[#38bdf8]">no setup</span> &amp;{" "}
+            <span className="text-foreground">no hidden fees</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+            All your customer conversations, automated orders, and multi-channel support unified
+            in one fast, easy platform.
+          </p>
+
+          {/* Dual Pill CTA Buttons */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+            <a
+              data-preserve-radius="true"
+              href={CALENDLY_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:scale-[1.02] hover:shadow-primary/40 active:scale-[0.98]"
+            >
+              <span>Book a Live Demo</span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+
+            <Link
+              data-preserve-radius="true"
+              href="/pricing"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border/90 bg-card/90 px-7 py-3.5 text-sm font-semibold text-foreground shadow-xs backdrop-blur-md transition-all hover:scale-[1.02] hover:border-primary/50 hover:bg-muted/70 active:scale-[0.98]"
+            >
+              <span>Get Started Free</span>
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Converging Integration Hub Vector Graphic */}
+        <div className="relative mx-auto mt-14 max-w-5xl sm:mt-18 md:mt-20">
+          {/* Subtle Ambient Radial Glow behind the central hub */}
           <div
-            ref={imageRef}
-            className="relative flex items-start justify-center will-change-transform lg:col-span-6 lg:justify-start xl:col-span-6"
-          >
-            {/* Ambient Multi-Color Radial Glow behind image */}
-            <div
-              className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[105%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary/25 via-sky-400/20 to-purple-500/15 opacity-80 blur-3xl dark:opacity-65"
-              aria-hidden="true"
-            />
+            className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-64 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl dark:bg-primary/30"
+            aria-hidden="true"
+          />
 
-            <div className="relative mt-2 w-full max-w-none sm:mt-3 sm:w-[115%] md:w-[125%] lg:mt-1 lg:-ml-16 lg:w-[140%] xl:mt-2 xl:-ml-24 xl:w-[150%] 2xl:-ml-32 2xl:w-[160%]">
-              <Image
-                src="/assets/images/home/hero.png"
-                alt="Jadubot AI Sales Agent Tablet Interface with Banglish Live Chat and 3D Assistant Robot"
-                width={1536}
-                height={1024}
-                priority
-                quality={100}
-                className="h-auto w-full object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.015]"
-              />
+          {/* Converging Curved Vector Ray Lines (SVG) */}
+          <div className="relative h-64 w-full sm:h-76 md:h-84">
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+              viewBox="0 0 1000 320"
+              fill="none"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                {/* Light Theme Linear Gradients */}
+                <linearGradient id="rayGradLeftLight" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                  <stop offset="60%" stopColor="#2563eb" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="rayGradRightLight" x1="100%" y1="0%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                  <stop offset="60%" stopColor="#2563eb" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="rayGradBottomLight" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
+                  <stop offset="60%" stopColor="#2563eb" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />
+                </linearGradient>
+
+                {/* Dark Theme Glowing Gradients */}
+                <linearGradient id="rayGradLeftDark" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
+                  <stop offset="60%" stopColor="#0172ff" stopOpacity="0.75" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="rayGradRightDark" x1="100%" y1="0%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
+                  <stop offset="60%" stopColor="#0172ff" stopOpacity="0.75" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="rayGradBottomDark" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
+                  <stop offset="60%" stopColor="#0172ff" stopOpacity="0.75" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="1" />
+                </linearGradient>
+
+                {/* Filter for neon ray glow in dark mode */}
+                <filter id="neonBeamGlow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="2" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              {/* Light Mode Connected Rays (Direct 1-to-1 connections to each channel) */}
+              <g className="dark:hidden">
+                {/* 1. Facebook Ray: (70, 60) -> Center Left (465, 150) */}
+                <path
+                  d="M 70 60 C 200 80, 340 135, 465 150"
+                  stroke="url(#rayGradLeftLight)"
+                  strokeWidth="2.2"
+                />
+
+                {/* 2. Instagram Ray: (80, 260) -> Center Left (465, 170) */}
+                <path
+                  d="M 80 260 C 200 240, 340 185, 465 170"
+                  stroke="url(#rayGradLeftLight)"
+                  strokeWidth="2.2"
+                />
+
+                {/* 3. Telegram Ray: (930, 60) -> Center Right (535, 150) */}
+                <path
+                  d="M 930 60 C 800 80, 660 135, 535 150"
+                  stroke="url(#rayGradRightLight)"
+                  strokeWidth="2.2"
+                />
+
+                {/* 4. WhatsApp Ray: (920, 260) -> Center Right (535, 170) */}
+                <path
+                  d="M 920 260 C 800 240, 660 185, 535 170"
+                  stroke="url(#rayGradRightLight)"
+                  strokeWidth="2.2"
+                />
+              </g>
+
+              {/* Dark Mode Connected Rays with Neon Glow */}
+              <g className="hidden dark:block" filter="url(#neonBeamGlow)">
+                {/* 1. Facebook Ray */}
+                <path
+                  d="M 70 60 C 200 80, 340 135, 465 150"
+                  stroke="url(#rayGradLeftDark)"
+                  strokeWidth="2.4"
+                />
+
+                {/* 2. Instagram Ray */}
+                <path
+                  d="M 80 260 C 200 240, 340 185, 465 170"
+                  stroke="url(#rayGradLeftDark)"
+                  strokeWidth="2.4"
+                />
+
+                {/* 3. Telegram Ray */}
+                <path
+                  d="M 930 60 C 800 80, 660 135, 535 150"
+                  stroke="url(#rayGradRightDark)"
+                  strokeWidth="2.4"
+                />
+
+                {/* 4. WhatsApp Ray */}
+                <path
+                  d="M 920 260 C 800 240, 660 185, 535 170"
+                  stroke="url(#rayGradRightDark)"
+                  strokeWidth="2.4"
+                />
+              </g>
+            </svg>
+
+            {/* Left Channel 1: Facebook (Top-Left) */}
+            <div
+              className="animate-float-slow absolute top-[10%] left-[4%] flex items-center justify-center transition-transform hover:scale-115 sm:top-[12%] sm:left-[6%]"
+              title="Facebook"
+            >
+              <svg
+                className="h-11 w-11 drop-shadow-md sm:h-13 sm:w-13 md:h-14 md:w-14"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <circle cx="24" cy="24" r="24" fill="#1877F2" />
+                <path
+                  d="M29.5 24.5H25.5V37H20V24.5H17.5V19.5H20V16.2C20 13.1 21.6 11 25.6 11H29.5V15.8H27.1C25.4 15.8 25.5 16.7 25.5 17.8V19.5H29.5L29.5 24.5Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+
+            {/* Left Channel 2: Instagram (Bottom-Left) */}
+            <div
+              className="animate-float-delayed absolute bottom-[10%] left-[5%] flex items-center justify-center transition-transform hover:scale-115 sm:bottom-[12%] sm:left-[7%]"
+              title="Instagram"
+            >
+              <svg
+                className="h-11 w-11 drop-shadow-md sm:h-13 sm:w-13 md:h-14 md:w-14"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient id="igIconGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#f09433" />
+                    <stop offset="25%" stopColor="#e6683c" />
+                    <stop offset="50%" stopColor="#dc2743" />
+                    <stop offset="75%" stopColor="#cc2366" />
+                    <stop offset="100%" stopColor="#bc1888" />
+                  </linearGradient>
+                </defs>
+                <rect width="48" height="48" rx="13" fill="url(#igIconGrad)" />
+                <rect x="11" y="11" width="26" height="26" rx="7" stroke="white" strokeWidth="2.8" />
+                <circle cx="24" cy="24" r="6" stroke="white" strokeWidth="2.8" />
+                <circle cx="31.5" cy="16.5" r="1.8" fill="white" />
+              </svg>
+            </div>
+
+            {/* Center Nexus / Hub: Jadubot Mascot */}
+            <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
+              <div className="relative flex h-20 w-20 items-center justify-center transition-all duration-300 hover:scale-110 sm:h-26 sm:w-26 md:h-28 md:w-28">
+                {/* Subtle soft ambient glow behind the mascot */}
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-primary/25 blur-xl dark:bg-primary/45"
+                  aria-hidden="true"
+                />
+
+                <Image
+                  src="/assets/images/shared/jadubot-logo.png"
+                  alt="Jadubot AI"
+                  width={112}
+                  height={112}
+                  priority
+                  className="h-auto w-full object-contain drop-shadow-xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Channel 1: Telegram (Top-Right) */}
+            <div
+              className="animate-float-delayed absolute top-[10%] right-[4%] flex items-center justify-center transition-transform hover:scale-115 sm:top-[12%] sm:right-[6%]"
+              title="Telegram"
+            >
+              <svg
+                className="h-11 w-11 drop-shadow-md sm:h-13 sm:w-13 md:h-14 md:w-14"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <circle cx="24" cy="24" r="24" fill="#24A1DE" />
+                <path
+                  d="M33.8 14.2C33.4 13.9 32.8 13.8 32.2 14.1L12.5 21.7C11.8 22 11.4 22.7 11.5 23.4C11.6 24.1 12.2 24.7 12.9 24.9L17.7 26.5L29.4 19.1C29.8 18.8 30.2 19.3 29.9 19.6L20.4 28.2L20.3 28.3L19.9 33.3C19.9 34 20.3 34.6 21 34.8C21.7 35 22.4 34.7 22.9 34.2L25.8 31.3L30.7 34.9C31.2 35.3 31.8 35.5 32.4 35.3C33 35.1 33.5 34.6 33.6 34L35.9 16C36.1 15.3 35.8 14.6 33.8 14.2Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+
+            {/* Right Channel 2: WhatsApp (Bottom-Right) */}
+            <div
+              className="animate-float-slow absolute bottom-[10%] right-[5%] flex items-center justify-center transition-transform hover:scale-115 sm:bottom-[12%] sm:right-[7%]"
+              title="WhatsApp"
+            >
+              <svg
+                className="h-11 w-11 drop-shadow-md sm:h-13 sm:w-13 md:h-14 md:w-14"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <circle cx="24" cy="24" r="24" fill="#25D366" />
+                <path
+                  d="M34.8 13.2C31.9 10.3 28.1 8.7 24 8.7C15.6 8.7 8.7 15.6 8.7 24C8.7 26.7 9.4 29.3 10.7 31.6L8.5 39.5L16.6 37.4C18.8 38.6 21.4 39.3 24 39.3C32.4 39.3 39.3 32.4 39.3 24C39.3 19.9 37.7 16.1 34.8 13.2ZM24 36.7C21.7 36.7 19.4 36.1 17.5 35L17 34.7L12.2 36L13.5 31.3L13.2 30.7C12 28.7 11.3 26.4 11.3 24C11.3 17 17 11.3 24 11.3C27.4 11.3 30.5 12.6 32.9 15C35.3 17.4 36.7 20.6 36.7 24C36.7 31 31 36.7 24 36.7ZM30.9 27.2C30.5 27 28.6 26.1 28.2 26C27.9 25.8 27.6 25.7 27.4 26.1C27.1 26.5 26.4 27.4 26.2 27.6C26 27.9 25.7 27.9 25.4 27.7C23.6 26.8 22 25.4 21.1 23.9C20.8 23.3 21.2 23.3 21.8 22.1C21.9 21.9 21.8 21.7 21.8 21.5C21.7 21.3 21.1 19.8 20.8 19.2C20.6 18.7 20.3 18.7 20.1 18.7H19.5C19.3 18.7 18.9 18.8 18.7 19.1C18.4 19.4 17.6 20.2 17.6 21.7C17.6 23.2 18.7 24.7 18.9 24.9C19 25.1 21.2 28.5 24.6 30C25.4 30.3 26.1 30.6 26.6 30.7C27.5 31 28.3 31 29 30.9C29.7 30.8 31.3 29.9 31.6 29C31.9 28.1 31.9 27.4 31.8 27.2C31.6 27.2 31.3 27.3 30.9 27.2Z"
+                  fill="white"
+                />
+              </svg>
             </div>
           </div>
         </div>
 
-        {/* Metrics / Stats Row - Borderless, No Card Background, with Vertical Lines between Stats */}
-        <div className="mt-12 w-full pt-4 pb-2 sm:mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:flex lg:items-center lg:justify-between lg:gap-0">
-            {/* Stat 1: 500+ Businesses Trust Us */}
-            <div className="flex items-center gap-3.5 sm:gap-4 lg:flex-1 lg:justify-center">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 text-primary sm:h-12 sm:w-12 dark:bg-blue-500/15">
-                <Users className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-                  500+
-                </span>
-                <span className="text-xs leading-tight font-medium text-muted-foreground sm:text-[13px]">
-                  Businesses Trust Us
-                </span>
-              </div>
+        {/* Bottom Social Proof Metrics Row */}
+        <div className="mt-14 border-t border-border/70 pt-8 sm:mt-16 sm:pt-10">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
+            {/* Stat 1 */}
+            <div className="text-center">
+              <span className="font-heading text-2xl font-black tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                500+
+              </span>
+              <p className="mt-1 text-xs font-medium text-muted-foreground sm:text-sm">
+                Businesses Automated
+              </p>
             </div>
 
-            {/* Vertical Divider 1 */}
-            <div
-              className="hidden h-10 w-px shrink-0 self-center bg-border/80 lg:block dark:bg-border/60"
-              aria-hidden="true"
-            />
-
-            {/* Stat 2: 3x Average Sales Increase */}
-            <div className="flex items-center gap-3.5 sm:gap-4 lg:flex-1 lg:justify-center">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 sm:h-12 sm:w-12 dark:bg-emerald-500/15 dark:text-emerald-400">
-                <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-                  3x
-                </span>
-                <span className="text-xs leading-tight font-medium text-muted-foreground sm:text-[13px]">
-                  Average Sales Increase
-                </span>
-              </div>
+            {/* Stat 2 */}
+            <div className="text-center">
+              <span className="font-heading text-2xl font-black tracking-tight text-primary sm:text-3xl md:text-4xl dark:text-sky-400">
+                3x
+              </span>
+              <p className="mt-1 text-xs font-medium text-muted-foreground sm:text-sm">
+                Average Sales Boost
+              </p>
             </div>
 
-            {/* Vertical Divider 2 */}
-            <div
-              className="hidden h-10 w-px shrink-0 self-center bg-border/80 lg:block dark:bg-border/60"
-              aria-hidden="true"
-            />
-
-            {/* Stat 3: 24/7 Always On */}
-            <div className="flex items-center gap-3.5 sm:gap-4 lg:flex-1 lg:justify-center">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-600 sm:h-12 sm:w-12 dark:bg-sky-500/15 dark:text-sky-400">
-                <PhoneCall className="h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-                  24/7
-                </span>
-                <span className="text-xs leading-tight font-medium text-muted-foreground sm:text-[13px]">
-                  Always On
-                </span>
-              </div>
+            {/* Stat 3 */}
+            <div className="text-center">
+              <span className="font-heading text-2xl font-black tracking-tight text-emerald-600 sm:text-3xl md:text-4xl dark:text-emerald-400">
+                24/7
+              </span>
+              <p className="mt-1 text-xs font-medium text-muted-foreground sm:text-sm">
+                Instant Auto-Replies
+              </p>
             </div>
 
-            {/* Vertical Divider 3 */}
-            <div
-              className="hidden h-10 w-px shrink-0 self-center bg-border/80 lg:block dark:bg-border/60"
-              aria-hidden="true"
-            />
-
-            {/* Stat 4: 98% Customer Satisfaction */}
-            <div className="flex items-center gap-3.5 sm:gap-4 lg:flex-1 lg:justify-center">
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-                  98%
-                </span>
-                <span className="text-xs leading-tight font-medium text-muted-foreground sm:text-[13px]">
-                  Customer Satisfaction
-                </span>
-              </div>
+            {/* Stat 4 */}
+            <div className="text-center">
+              <span className="font-heading text-2xl font-black tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                98%
+              </span>
+              <p className="mt-1 text-xs font-medium text-muted-foreground sm:text-sm">
+                Customer Satisfaction
+              </p>
             </div>
           </div>
         </div>
