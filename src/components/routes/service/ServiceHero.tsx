@@ -214,8 +214,12 @@ export function ServiceHero() {
                 />
 
                 {/* 3D Glass Capsule Container */}
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/60 bg-white/80 p-2 shadow-[0_8px_25px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-transform duration-300 hover:scale-110 sm:h-12 sm:w-12 sm:rounded-3xl md:h-13 md:w-13 dark:border-white/15 dark:bg-[#121520]/80 dark:shadow-[0_8px_25px_rgba(0,0,0,0.5)]">
+                <div
+                  data-preserve-radius="true"
+                  className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/60 bg-white/80 p-2 shadow-[0_8px_25px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-transform duration-300 hover:scale-110 sm:h-12 sm:w-12 sm:rounded-3xl md:h-13 md:w-13 dark:border-white/15 dark:bg-[#121520]/80 dark:shadow-[0_8px_25px_rgba(0,0,0,0.5)]"
+                >
                   <div
+                    data-preserve-radius="true"
                     className={`flex h-full w-full items-center justify-center rounded-xl sm:rounded-2xl ${social.bgGradient} p-1.5 shadow-inner`}
                   >
                     {social.icon}

@@ -25,8 +25,14 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
   switch (type) {
     case "messenger":
       return (
-        <div className="animate-float-slow absolute -bottom-2 -left-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-[#0084ff] via-[#0172ff] to-[#00c6ff] p-0.5 shadow-[0_0_20px_rgba(0,132,255,0.6)] sm:-bottom-3 sm:-left-3 sm:h-12 sm:w-12">
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0084ff]/90 backdrop-blur-md">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-slow absolute -bottom-2 -left-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-[#0084ff] via-[#0172ff] to-[#00c6ff] p-0.5 shadow-[0_0_20px_rgba(0,132,255,0.6)] sm:-bottom-3 sm:-left-3 sm:h-12 sm:w-12"
+        >
+          <div
+            data-preserve-radius="true"
+            className="flex h-full w-full items-center justify-center rounded-full bg-[#0084ff]/90 backdrop-blur-md"
+          >
             <svg
               className="h-4 w-4 fill-white text-white drop-shadow-md sm:h-5 sm:w-5"
               viewBox="0 0 24 24"
@@ -39,8 +45,14 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
 
     case "instagram":
       return (
-        <div className="animate-float-delayed absolute -bottom-2 -left-2 z-20 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] p-0.5 shadow-[0_0_20px_rgba(221,42,123,0.5)] sm:-bottom-3 sm:-left-3 sm:h-12 sm:w-12">
-          <div className="flex h-full w-full items-center justify-center rounded-2xl bg-card/90 backdrop-blur-md">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-delayed absolute -bottom-2 -left-2 z-20 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] p-0.5 shadow-[0_0_20px_rgba(221,42,123,0.5)] sm:-bottom-3 sm:-left-3 sm:h-12 sm:w-12"
+        >
+          <div
+            data-preserve-radius="true"
+            className="flex h-full w-full items-center justify-center rounded-2xl bg-card/90 backdrop-blur-md"
+          >
             <Instagram className="h-4 w-4 text-channel-pink drop-shadow-[0_0_10px_rgba(254,120,225,0.8)] sm:h-5 sm:w-5" />
           </div>
         </div>
@@ -48,28 +60,40 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
 
     case "lead":
       return (
-        <div className="animate-float-slow absolute top-1/2 -left-2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-left-3 sm:h-11 sm:w-11">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-slow absolute top-1/2 -left-2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-left-3 sm:h-11 sm:w-11"
+        >
           <ShieldCheck className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
         </div>
       );
 
     case "store":
       return (
-        <div className="animate-float-delayed absolute -top-2 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-top-3 sm:right-5 sm:h-11 sm:w-11">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-delayed absolute -top-2 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-top-3 sm:right-5 sm:h-11 sm:w-11"
+        >
           <ShoppingCart className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
         </div>
       );
 
     case "gps":
       return (
-        <div className="animate-float-slow absolute top-2 -right-2 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:top-3 sm:-right-3 sm:h-11 sm:w-11">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-slow absolute top-2 -right-2 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:top-3 sm:-right-3 sm:h-11 sm:w-11"
+        >
           <Send className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
         </div>
       );
 
     case "ai":
       return (
-        <div className="animate-float-delayed absolute -right-2 bottom-2 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-right-3 sm:bottom-3 sm:h-11 sm:w-11">
+        <div
+          data-preserve-radius="true"
+          className="animate-float-delayed absolute -right-2 bottom-2 z-20 flex h-9 w-9 items-center justify-center rounded-2xl border border-primary/30 bg-card p-1.5 shadow-card backdrop-blur-md sm:-right-3 sm:bottom-3 sm:h-11 sm:w-11"
+        >
           <Bot className="h-4 w-4 text-primary drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] sm:h-5 sm:w-5" />
         </div>
       );

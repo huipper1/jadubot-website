@@ -216,7 +216,7 @@ export function Header() {
   return (
     <>
       {/* Floating Header Bar */}
-      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center px-4 py-4 md:py-6">
+      <header data-navbar-scope="true" className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center px-4 py-4 md:py-6">
         <div
           onMouseEnter={() => setIsPillHovered(true)}
           onMouseLeave={() => {
@@ -742,6 +742,7 @@ export function Header() {
 
       {/* Full-Screen Glassmorphic Mega Menu Overlay (Matching Images 2 & 4) */}
       <div
+        data-navbar-scope="true"
         className={cn(
           "fixed inset-0 z-50 flex flex-col justify-between overflow-y-auto p-4 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-8 md:p-10",
           "bg-white/85 backdrop-blur-3xl dark:bg-slate-950/85",

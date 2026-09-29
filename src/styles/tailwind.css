@@ -54,10 +54,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-preserved: var(--radius-preserved-token);
 }
 
 :root {
   --radius: 0.75rem;
+  --radius-preserved-token: 9999px;
+  --radius-preserved-badge: 9999px;
+  --radius-preserved-icon: 1rem;
 
   /* Surfaces - Zatiq Easy Sky Canvas & Fresh Elevated Cards */
   --background: #eff6ff; /* Zatiq signature bg-blue-50 sky canvas */
@@ -191,6 +195,20 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Universal Sharp Corners Reset: Remove border radius from cards/containers, while preserving:
+     1. Navbar & mega menu
+     2. /service page hero floating icons (1.1)
+     3. 2nd section floating badges (1.2)
+     4. Helping Bangladeshi Businesses Deliver a Better Customer Experience section icons (1.3)
+     5. From Setup to Conversions in Four Simple Steps section step nodes (1.4)
+     6. Most Popular / Recommended pricing cards tag (2)
+     7. Avatars (3)
+     8. Section badges (5)
+  */
+  *:not([data-navbar-scope]):not([data-navbar-scope] *):not([data-slot="avatar"]):not([data-slot="avatar"] *):not([data-preserve-radius]):not([data-preserve-radius] *):not(.rounded-full):not([class*="avatar"]) {
+    border-radius: 0px !important;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -234,7 +252,6 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
   gap: 0.5rem;
   background-image: linear-gradient(265deg, #0052cc, #0172ff);
   color: #ffffff;
-  border-radius: 0.5rem;
   padding: 0.75rem 1.25rem;
   font-weight: 600;
   font-size: 0.875rem;
@@ -260,7 +277,6 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
   background-color: #0c0e12;
   color: #f7f7f7;
   border: 1px solid #373a41;
-  border-radius: 0.5rem;
   padding: 0.75rem 1.25rem;
   font-weight: 600;
   font-size: 0.875rem;
