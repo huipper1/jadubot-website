@@ -89,10 +89,10 @@ export function FeatureShowcase() {
 
       // Initial placement:
       // Slide 0 is in center (xPercent: 0, opacity: 1, visibility: visible)
-      // Subsequent slides are pushed completely off-screen (xPercent: 120, autoAlpha: 0)
+      // Subsequent slides are pushed completely off-screen (xPercent: 105, autoAlpha: 0)
       slides.forEach((slide, i) => {
         gsap.set(slide, {
-          xPercent: i === 0 ? 0 : 120,
+          xPercent: i === 0 ? 0 : 105,
           autoAlpha: i === 0 ? 1 : 0,
           zIndex: (i + 1) * 10
         });
@@ -102,8 +102,9 @@ export function FeatureShowcase() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "center center",
-          end: () => `+=${FEATURES.length * (window.innerWidth < 1024 ? 650 : 850)}`,
+          end: () => `+=${FEATURES.length * (window.innerWidth < 768 ? 450 : window.innerWidth < 1024 ? 650 : 850)}`,
           pin: true,
+          pinSpacing: true,
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
@@ -160,7 +161,7 @@ export function FeatureShowcase() {
     <section
       ref={sectionRef}
       id="features"
-      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden border-t border-border/60 bg-background py-8 sm:py-12"
+      className="relative flex min-h-screen w-full max-w-full flex-col justify-center overflow-x-clip overflow-y-visible border-t border-border/60 bg-background py-8 sm:py-12"
     >
       {/* Background Ambience */}
       <div
@@ -213,7 +214,7 @@ export function FeatureShowcase() {
         </div>
 
         {/* Main Slides Viewport Container */}
-        <div className="relative mx-auto flex h-[480px] w-full items-center overflow-hidden rounded-3xl sm:h-[520px] lg:h-[580px]">
+        <div className="relative mx-auto flex h-[460px] w-full max-w-full items-center overflow-hidden rounded-3xl sm:h-[520px] lg:h-[580px]">
           {FEATURES.map((feat, idx) => (
             <div
               key={feat.id}
@@ -226,40 +227,40 @@ export function FeatureShowcase() {
               <div className="relative grid h-full w-full grid-cols-1 items-stretch overflow-hidden rounded-3xl border border-border/80 bg-card/95 backdrop-blur-xl lg:grid-cols-12">
                 {/* Giant Watermark Background Number */}
                 <span
-                  className="pointer-events-none absolute right-4 bottom-0 select-none font-mono text-8xl font-black text-foreground/[0.04] sm:right-8 sm:text-[14rem] lg:right-12 lg:text-[18rem]"
+                  className="pointer-events-none absolute right-2 bottom-0 select-none font-mono text-7xl font-black text-foreground/[0.04] sm:right-8 sm:text-[14rem] lg:right-12 lg:text-[18rem]"
                   aria-hidden="true"
                 >
                   {feat.number}
                 </span>
 
                 {/* Left Column: Overlapping Typography & Content */}
-                <div className="relative z-20 flex flex-col justify-center p-6 sm:p-10 lg:col-span-6 lg:p-12 xl:col-span-5 xl:p-16">
+                <div className="relative z-20 flex flex-col justify-center p-5 sm:p-10 lg:col-span-6 lg:p-12 xl:col-span-5 xl:p-16">
                   {/* Category Header */}
-                  <div className="flex items-center gap-2.5 font-mono text-xs font-bold tracking-widest text-muted-foreground uppercase">
+                  <div className="flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest text-muted-foreground uppercase sm:text-xs">
                     <span className="text-primary">{feat.number}</span>
-                    <span className="h-px w-6 bg-border" />
-                    <span>{feat.category}</span>
+                    <span className="h-px w-5 bg-border sm:w-6" />
+                    <span className="truncate">{feat.category}</span>
                   </div>
 
                   {/* Overlapping Hero Title */}
-                  <h3 className="font-heading mt-4 text-3xl font-black tracking-tight text-foreground uppercase sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
+                  <h3 className="font-heading mt-3 text-2xl font-black tracking-tight text-foreground uppercase break-words sm:mt-4 sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
                     {feat.name}
                   </h3>
 
                   {/* Subtitle / Description */}
-                  <p className="mt-4 max-w-md text-xs leading-relaxed text-muted-foreground sm:text-sm lg:text-base">
+                  <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm lg:text-base">
                     {feat.description}
                   </p>
 
                   {/* Explore Service / Feature Button */}
-                  <div className="mt-6 flex items-center pt-2 sm:mt-8">
+                  <div className="mt-5 flex items-center pt-2 sm:mt-8">
                     <Link
                       href={feat.ctaHref}
-                      className="group/cta inline-flex items-center gap-3 rounded-full border border-border/90 bg-card/80 px-5 py-2.5 text-xs font-bold tracking-wider text-foreground uppercase backdrop-blur-md transition-all duration-200 hover:border-primary/50 hover:bg-card hover:text-primary sm:text-sm"
+                      className="group/cta inline-flex items-center gap-2.5 rounded-full border border-border/90 bg-card/80 px-4 py-2 text-xs font-bold tracking-wider text-foreground uppercase backdrop-blur-md transition-all duration-200 hover:border-primary/50 hover:bg-card hover:text-primary sm:gap-3 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       <span>{feat.ctaText}</span>
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-200 group-hover/cta:scale-110 group-hover/cta:bg-primary group-hover/cta:text-white">
-                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-200 group-hover/cta:scale-110 group-hover/cta:bg-primary group-hover/cta:text-white sm:h-6 sm:w-6">
+                        <ArrowUpRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       </div>
                     </Link>
                   </div>

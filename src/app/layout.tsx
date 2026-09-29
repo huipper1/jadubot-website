@@ -36,13 +36,13 @@ export const metadata: Metadata = seoConfig;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={siteConfig.locale} suppressHydrationWarning className="dark">
+    <html lang={siteConfig.locale} suppressHydrationWarning className="dark overflow-x-clip">
       <body
-        className={`${plusJakartaSans.variable} ${inter.variable} ${hindSiliguri.variable} flex min-h-screen w-full flex-col bg-background font-sans text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
+        className={`${plusJakartaSans.variable} ${inter.variable} ${hindSiliguri.variable} flex min-h-screen w-full max-w-full flex-col overflow-x-clip bg-background font-sans text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
       >
         <Providers>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
           <Footer />
           <Toaster richColors />
         </Providers>
