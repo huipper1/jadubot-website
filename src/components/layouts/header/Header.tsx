@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import {
   ArrowRight,
@@ -19,8 +19,8 @@ import {
   HelpCircle,
   Home,
   Instagram,
+  LayoutGrid,
   Mail,
-  Menu,
   MessageCircle,
   MessageSquare,
   Plus,
@@ -37,27 +37,12 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { CALENDLY_DEMO_URL } from "@/config/site";
-
-import { aiAgentData } from "@/data/ai-agent-data";
-import { platformData } from "@/data/platform-data";
-
 import { getIndustryBySlug } from "@/components/routes/industry";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import { CALENDLY_DEMO_URL } from "@/config/site";
+import { aiAgentData } from "@/data/ai-agent-data";
+import { platformData } from "@/data/platform-data";
 import { cn } from "@/utils";
-
-const INDUSTRY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  Plus,
-  ShoppingBag,
-  Smartphone,
-  Briefcase,
-  Wallet,
-  Home,
-  Cloud,
-  ShoppingCart,
-  Coffee,
-  Truck
-};
 
 const PLATFORM_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   MessageCircle,
@@ -75,18 +60,27 @@ const AGENT_ICONS: Record<string, React.ComponentType<{ className?: string }>> =
   RotateCcw
 };
 
-// 3-Column arrangement matching the user's reference screenshot exactly
+const INDUSTRY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  Plus,
+  ShoppingBag,
+  Smartphone,
+  Briefcase,
+  Wallet,
+  Home,
+  Cloud,
+  ShoppingCart,
+  Coffee,
+  Truck
+};
+
 const INDUSTRY_COLUMNS_SLUGS = [
-  // Column 1
   [
     "healthcare-chatbot-automation",
     "retail-b2c-ecommerce-chatbot-automation",
     "education-chatbot-automation",
     "agency-chatbot-automation"
   ],
-  // Column 2
   ["finance-chatbot-automation", "real-estate-chatbot-automation", "saas-chatbot-automation"],
-  // Column 3
   ["ecommerce-chatbot-automation", "restaurant-chatbot-automation", "logistics-chatbot-automation"]
 ];
 
@@ -123,7 +117,7 @@ const RESOURCE_LINKS = [
   }
 ];
 
-const emptySubscribe = () => () => { };
+const emptySubscribe = () => () => {};
 
 export function Header() {
   const pathname = usePathname();
@@ -133,16 +127,21 @@ export function Header() {
     () => true,
     () => false
   );
+
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPillHovered, setIsPillHovered] = useState(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [expandedAccordion, setExpandedAccordion] = useState<
+    "platforms" | "ai-agents" | "industries" | "resources" | null
+  >(null);
   const [openDropdown, setOpenDropdown] = useState<
     "platforms" | "ai-agents" | "industries" | "resources" | null
   >(null);
-  const [mobilePlatformsOpen, setMobilePlatformsOpen] = useState(false);
-  const [mobileAiAgentsOpen, setMobileAiAgentsOpen] = useState(false);
-  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const toggleAccordion = (section: "platforms" | "ai-agents" | "industries" | "resources") => {
+    setExpandedAccordion((prev) => (prev === section ? null : section));
+  };
 
   const currentTheme = mounted ? (resolvedTheme === "light" ? "light" : "dark") : "dark";
 
@@ -156,970 +155,1053 @@ export function Header() {
     pathname === "/contact" ||
     pathname === "/affiliate";
 
+  // Track scroll depth
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close all menus on route change
+  // Lock body scroll when overlay is open
+  useEffect(() => {
+    if (isOverlayOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOverlayOpen]);
+
+  // Close overlay on ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOverlayOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Close overlay and dropdowns on route change
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
+    setIsOverlayOpen(false);
     setOpenDropdown(null);
-    setMobileMenuOpen(false);
-    setMobilePlatformsOpen(false);
-    setMobileAiAgentsOpen(false);
-    setMobileIndustriesOpen(false);
-    setMobileResourcesOpen(false);
   }
 
   const handleMouseEnter = (type: "platforms" | "ai-agents" | "industries" | "resources") => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
     setOpenDropdown(type);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
+    dropdownTimeoutRef.current = setTimeout(() => {
       setOpenDropdown(null);
     }, 150);
   };
+
+  // Collapsed state on desktop: scrolled down, not hovered, and no dropdown is open
+  const isDesktopCollapsed = isScrolled && !isPillHovered && openDropdown === null;
 
   const roleAgents = aiAgentData.filter((a) => a.category === "role");
   const commerceAgents = aiAgentData.filter((a) => a.category === "commerce");
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 px-4 py-3 transition-all duration-300 md:py-4">
-      <div
-        className={cn(
-          "mx-auto flex max-w-7xl items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300",
-          isScrolled
-            ? "border-border bg-popover/98 shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl"
-            : "border-border/80 bg-background/80 backdrop-blur-lg"
-        )}
-      >
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-3">
-          <figure className="relative flex items-center">
-            <div className="flex h-full w-full items-center justify-center">
+    <>
+      {/* Floating Header Bar */}
+      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center px-4 py-4 md:py-6">
+        <div
+          onMouseEnter={() => setIsPillHovered(true)}
+          onMouseLeave={() => {
+            setIsPillHovered(false);
+            handleMouseLeave();
+          }}
+          className={cn(
+            "pointer-events-auto relative flex items-center justify-between rounded-full border shadow-elevated backdrop-blur-3xl transition-[max-width,padding,gap,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            // Rich frosted glassmorphism styling
+            "border-white/60 bg-white/92 shadow-[0_12px_40px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.9)] dark:border-white/10 dark:bg-slate-950/92 dark:shadow-[0_18px_50px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.08)]",
+            // Dynamic width morphing
+            isDesktopCollapsed
+              ? "w-auto max-w-[280px] gap-6 px-4 py-2 sm:px-5 sm:py-2.5"
+              : "w-full max-w-6xl gap-3 px-5 py-2 sm:px-6 sm:py-2.5"
+          )}
+        >
+          {/* Logo & Brand Name */}
+          <Link href="/" className="group flex shrink-0 items-center gap-2.5">
+            <figure className="relative flex items-center">
               <Image
                 src="/assets/images/shared/jadubot-logo.png"
                 alt="Jadubot Logo"
-                width={40}
-                height={40}
-                className="object-contain"
+                width={34}
+                height={34}
+                className="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8"
                 priority
               />
+            </figure>
+            <div className="flex flex-col">
+              <span className="font-heading text-xs font-black tracking-widest text-foreground uppercase transition-colors group-hover:text-primary sm:text-sm">
+                Jadubot
+              </span>
+              <span className="hidden font-mono text-[8px] font-semibold tracking-wider text-muted-foreground/80 uppercase sm:inline-block">
+                AI Sales Agent
+              </span>
             </div>
-          </figure>
-          <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-[#0172ff]">
-              Jadubot
-            </span>
-            <span className="text-[9px] font-medium tracking-wider text-muted-foreground/70 uppercase">
-              AI Sales Agent
-            </span>
-          </div>
-        </Link>
+          </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main Navigation">
-          {/* Platforms Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleMouseEnter("platforms")}
-            onMouseLeave={handleMouseLeave}
+          {/* Desktop Nav Links & Dropdowns (Visible at the top or when hovering over collapsed pill) */}
+          <nav
+            className={cn(
+              "hidden items-center gap-1 transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] xl:gap-1.5 lg:flex",
+              isDesktopCollapsed
+                ? "max-w-0 opacity-0 pointer-events-none"
+                : "max-w-4xl opacity-100 pointer-events-auto"
+            )}
+            aria-label="Main Navigation"
           >
-            <button
-              type="button"
-              onClick={() => setOpenDropdown(openDropdown === "platforms" ? null : "platforms")}
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-                isPlatformsActive || openDropdown === "platforms"
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-              )}
-              aria-expanded={openDropdown === "platforms"}
-              aria-haspopup="true"
+            {/* Platforms Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("platforms")}
+              onMouseLeave={handleMouseLeave}
             >
-              <span>Platforms</span>
-              <ChevronDown
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "platforms" ? null : "platforms")}
                 className={cn(
-                  "h-3.5 w-3.5 transition-transform duration-200",
+                  "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
+                  isPlatformsActive || openDropdown === "platforms"
+                    ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                    : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
+                )}
+                aria-expanded={openDropdown === "platforms"}
+                aria-haspopup="true"
+              >
+                <span>Platforms</span>
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-200",
+                    openDropdown === "platforms" ? "rotate-180 text-primary" : "text-muted-foreground"
+                  )}
+                />
+              </button>
+
+              {/* Platforms Dropdown Card */}
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 z-50 -translate-x-[25%] pt-3 transition-all duration-300 ease-out",
                   openDropdown === "platforms"
-                    ? "rotate-180 text-blue-400"
-                    : "text-muted-foreground"
-                )}
-              />
-            </button>
-
-            {/* Platforms Dropdown Container */}
-            <div
-              className={cn(
-                "absolute top-full left-1/2 z-50 -translate-x-[20%] pt-2.5 transition-all duration-200",
-                openDropdown === "platforms"
-                  ? "pointer-events-auto visible translate-y-0 opacity-100"
-                  : "pointer-events-none invisible -translate-y-1 opacity-0"
-              )}
-            >
-              <div className="w-[640px] max-w-[calc(100vw-40px)] rounded-2xl border border-border bg-popover/98 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                  {platformData.map((platform) => {
-                    const Icon = PLATFORM_ICONS[platform.iconName] || MessageCircle;
-                    const isActive = pathname === `/platform/${platform.slug}`;
-
-                    return (
-                      <Link
-                        key={platform.slug}
-                        href={`/platform/${platform.slug}`}
-                        onClick={() => setOpenDropdown(null)}
-                        className="group -m-1 flex items-start gap-3.5 rounded-lg p-1 transition-colors hover:bg-muted/30"
-                      >
-                        <div
-                          className={cn(
-                            "mt-0.5 shrink-0 transition-all duration-200",
-                            isActive
-                              ? "scale-110 text-[#0172ff]"
-                              : "text-[#0172ff] group-hover:scale-110 group-hover:text-[#0172ff]"
-                          )}
-                        >
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div
-                            className={cn(
-                              "text-[14px] leading-snug font-bold transition-colors",
-                              isActive
-                                ? "text-[#0172ff]"
-                                : "text-foreground group-hover:text-[#0172ff]"
-                            )}
-                          >
-                            {platform.navTitle}
-                          </div>
-                          <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                            {platform.navDescription}
-                          </p>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Services */}
-          <Link
-            href="/service"
-            className={cn(
-              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-              pathname.startsWith("/service")
-                ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-            )}
-          >
-            Services
-          </Link>
-
-          {/* AI Agents Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleMouseEnter("ai-agents")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              onClick={() => setOpenDropdown(openDropdown === "ai-agents" ? null : "ai-agents")}
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-                isAiAgentsActive || openDropdown === "ai-agents"
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-              )}
-              aria-expanded={openDropdown === "ai-agents"}
-              aria-haspopup="true"
-            >
-              <span>AI Agents</span>
-              <ChevronDown
-                className={cn(
-                  "h-3.5 w-3.5 transition-transform duration-200",
-                  openDropdown === "ai-agents"
-                    ? "rotate-180 text-[#0172ff]"
-                    : "text-muted-foreground"
-                )}
-              />
-            </button>
-
-            {/* AI Agents Mega Menu */}
-            <div
-              className={cn(
-                "absolute top-full left-1/2 z-50 -translate-x-[40%] pt-2.5 transition-all duration-200",
-                openDropdown === "ai-agents"
-                  ? "pointer-events-auto visible translate-y-0 opacity-100"
-                  : "pointer-events-none invisible -translate-y-1 opacity-0"
-              )}
-            >
-              <div className="w-[780px] max-w-[calc(100vw-40px)] rounded-2xl border border-border bg-popover/98 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
-                {/* AI Agents Overview Highlight Row */}
-                <Link
-                  href="/ai-agents"
-                  onClick={() => setOpenDropdown(null)}
-                  className="group mb-5 flex items-center justify-between rounded-xl border border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-3.5 transition-all hover:border-[#38bdf8]/40 hover:bg-muted/30"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0172ff] text-white shadow-sm transition-all duration-200 group-hover:scale-105 group-hover:bg-[#38bdf8]">
-                      <Bot className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 text-xs font-bold text-foreground transition-colors group-hover:text-[#0172ff]">
-                        <span>AI Agents Overview</span>
-                        <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary">
-                          MULTI-AGENT WORKFORCE
-                        </span>
-                      </div>
-                      <p className="mt-0.5 text-[11px] text-muted-foreground">
-                        Discover how a team of specialized agents turns conversations into revenue.
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-[#0172ff] transition-all group-hover:translate-x-1 group-hover:text-[#0172ff]" />
-                </Link>
-
-                {/* Sub-groups */}
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  {/* By role */}
-                  <div>
-                    <div className="mb-3 px-2 text-[11px] font-bold tracking-wider text-muted-foreground uppercase">
-                      By Role
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      {roleAgents.map((agent) => {
-                        const Icon = AGENT_ICONS[agent.iconName] || Bot;
-                        const isActive = pathname === `/ai-agents/${agent.slug}`;
-
-                        return (
-                          <Link
-                            key={agent.slug}
-                            href={`/ai-agents/${agent.slug}`}
-                            onClick={() => setOpenDropdown(null)}
-                            className="group -m-1 flex items-start gap-3.5 rounded-lg p-1 transition-colors hover:bg-muted/30"
-                          >
-                            <div
-                              className={cn(
-                                "mt-0.5 shrink-0 transition-all duration-200",
-                                isActive
-                                  ? "scale-110 text-[#0172ff]"
-                                  : "text-[#0172ff] group-hover:scale-110 group-hover:text-[#0172ff]"
-                              )}
-                            >
-                              <Icon className="h-5 w-5" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <div
-                                className={cn(
-                                  "text-[14px] leading-snug font-bold transition-colors",
-                                  isActive
-                                    ? "text-[#0172ff]"
-                                    : "text-foreground group-hover:text-[#0172ff]"
-                                )}
-                              >
-                                {agent.name}
-                              </div>
-                              <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                                {agent.navDescription}
-                              </p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Commerce */}
-                  <div>
-                    <div className="mb-3 px-2 text-[11px] font-bold tracking-wider text-muted-foreground uppercase">
-                      Commerce
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      {commerceAgents.map((agent) => {
-                        const Icon = AGENT_ICONS[agent.iconName] || ShoppingBag;
-                        const isActive = pathname === `/ai-agents/${agent.slug}`;
-
-                        return (
-                          <Link
-                            key={agent.slug}
-                            href={`/ai-agents/${agent.slug}`}
-                            onClick={() => setOpenDropdown(null)}
-                            className="group -m-1 flex items-start gap-3.5 rounded-lg p-1 transition-colors hover:bg-muted/30"
-                          >
-                            <div
-                              className={cn(
-                                "mt-0.5 shrink-0 transition-all duration-200",
-                                isActive
-                                  ? "scale-110 text-[#0172ff]"
-                                  : "text-[#0172ff] group-hover:scale-110 group-hover:text-[#0172ff]"
-                              )}
-                            >
-                              <Icon className="h-5 w-5" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                              <div
-                                className={cn(
-                                  "text-[14px] leading-snug font-bold transition-colors",
-                                  isActive
-                                    ? "text-[#0172ff]"
-                                    : "text-foreground group-hover:text-[#0172ff]"
-                                )}
-                              >
-                                {agent.name}
-                              </div>
-                              <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                                {agent.navDescription}
-                              </p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Industries Dropdown (Minimal Layout matching screenshot) */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleMouseEnter("industries")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              onClick={() => setOpenDropdown(openDropdown === "industries" ? null : "industries")}
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-                isIndustriesActive || openDropdown === "industries"
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-              )}
-              aria-expanded={openDropdown === "industries"}
-              aria-haspopup="true"
-            >
-              <span>Industries</span>
-              <ChevronDown
-                className={cn(
-                  "h-3.5 w-3.5 transition-transform duration-200",
-                  openDropdown === "industries"
-                    ? "rotate-180 text-[#0172ff]"
-                    : "text-muted-foreground"
-                )}
-              />
-            </button>
-
-            {/* Dropdown container */}
-            <div
-              className={cn(
-                "absolute top-full left-1/2 z-50 -translate-x-[28%] pt-2.5 transition-all duration-200",
-                openDropdown === "industries"
-                  ? "pointer-events-auto visible translate-y-0 opacity-100"
-                  : "pointer-events-none invisible -translate-y-1 opacity-0"
-              )}
-            >
-              <div className="w-[840px] max-w-[calc(100vw-40px)] rounded-2xl border border-border bg-popover/98 p-7 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
-                {/* 3-Column Minimal Grid exactly matching the user's reference */}
-                <div className="grid grid-cols-3 gap-x-8">
-                  {INDUSTRY_COLUMNS_SLUGS.map((colSlugs, colIdx) => (
-                    <div key={colIdx} className="flex flex-col gap-6">
-                      {colSlugs.map((slug) => {
-                        const ind = getIndustryBySlug(slug);
-                        if (!ind) return null;
-                        const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
-                        const isActive = pathname === `/industry/${ind.slug}`;
-
-                        return (
-                          <Link
-                            key={ind.slug}
-                            href={`/industry/${ind.slug}`}
-                            onClick={() => setOpenDropdown(null)}
-                            className="group -m-1 flex items-start gap-3.5 rounded-lg p-1 transition-colors hover:bg-muted/30"
-                          >
-                            {/* Minimal icon sitting cleanly on left */}
-                            <div
-                              className={cn(
-                                "mt-0.5 shrink-0 transition-all duration-200",
-                                isActive
-                                  ? "scale-110 text-[#0172ff]"
-                                  : "text-[#0172ff] group-hover:scale-110 group-hover:text-[#0172ff]"
-                              )}
-                            >
-                              <Icon className="h-5 w-5" />
-                            </div>
-
-                            {/* Minimal title and subtitle */}
-                            <div className="min-w-0 flex-1">
-                              <div
-                                className={cn(
-                                  "text-[14px] leading-snug font-bold transition-colors",
-                                  isActive
-                                    ? "text-[#0172ff]"
-                                    : "text-foreground group-hover:text-[#0172ff]"
-                                )}
-                              >
-                                {ind.name}
-                              </div>
-                              <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                                {ind.navDescription}
-                              </p>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Resources Dropdown (Minimal Layout matching screenshot) */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleMouseEnter("resources")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              onClick={() => setOpenDropdown(openDropdown === "resources" ? null : "resources")}
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-                isResourcesActive || openDropdown === "resources"
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-              )}
-              aria-expanded={openDropdown === "resources"}
-              aria-haspopup="true"
-            >
-              <span>Resources</span>
-              <ChevronDown
-                className={cn(
-                  "h-3.5 w-3.5 transition-transform duration-200",
-                  openDropdown === "resources"
-                    ? "rotate-180 text-[#0172ff]"
-                    : "text-muted-foreground"
-                )}
-              />
-            </button>
-
-            {/* Dropdown container */}
-            <div
-              className={cn(
-                "absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2.5 transition-all duration-200",
-                openDropdown === "resources"
-                  ? "pointer-events-auto visible translate-y-0 opacity-100"
-                  : "pointer-events-none invisible -translate-y-1 opacity-0"
-              )}
-            >
-              <div className="w-[560px] max-w-[calc(100vw-40px)] rounded-2xl border border-border bg-popover/98 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(1,114,255,0.06)] backdrop-blur-2xl">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                  {RESOURCE_LINKS.map((item) => {
-                    const Icon = item.icon;
-                    const isActive =
-                      item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setOpenDropdown(null)}
-                        className="group -m-1 flex items-start gap-3.5 rounded-lg p-1 transition-colors hover:bg-muted/30"
-                      >
-                        <div
-                          className={cn(
-                            "mt-0.5 shrink-0 transition-all duration-200",
-                            isActive
-                              ? "scale-110 text-[#0172ff]"
-                              : "text-[#0172ff] group-hover:scale-110 group-hover:text-[#0172ff]"
-                          )}
-                        >
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div
-                            className={cn(
-                              "text-[14px] leading-snug font-bold transition-colors",
-                              isActive
-                                ? "text-[#0172ff]"
-                                : "text-foreground group-hover:text-[#0172ff]"
-                            )}
-                          >
-                            {item.name}
-                          </div>
-                          <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground">
-                            {item.description}
-                          </p>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Pricing */}
-          <Link
-            href="/pricing"
-            className={cn(
-              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-              pathname.startsWith("/pricing")
-                ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-            )}
-          >
-            Pricing
-          </Link>
-
-          {/* CPA Automation */}
-          <Link
-            href="/cpa-marketing-automation"
-            className={cn(
-              "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
-              pathname.startsWith("/cpa-marketing-automation")
-                ? "border border-primary/30 bg-primary/10 font-semibold text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-            )}
-          >
-            CPA Automation
-          </Link>
-        </nav>
-
-        {/* Action Buttons */}
-        <div className="hidden items-center gap-3 lg:flex">
-          <AnimatedThemeToggler
-            theme={currentTheme}
-            onThemeChange={(newTheme) => setTheme(newTheme)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
-            aria-label="Toggle theme"
-          />
-          <a
-            href="https://app.jadubot.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-border bg-card/80 px-3.5 py-1.5 text-xs font-medium text-foreground/85 transition-all duration-200 hover:border-primary hover:bg-primary/10 hover:text-primary"
-          >
-            Portal Login
-          </a>
-          <a
-            href={CALENDLY_DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary !px-4 !py-2 text-xs shadow-[0_4px_16px_rgba(21,93,252,0.3)]"
-          >
-            <span>Book a live demo</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-
-        {/* Mobile menu trigger */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <AnimatedThemeToggler
-            theme={currentTheme}
-            onThemeChange={(newTheme) => setTheme(newTheme)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
-            aria-label="Toggle theme"
-          />
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/80 text-foreground transition-colors hover:border-primary"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="mx-auto mt-2 max-h-[85vh] max-w-6xl animate-in overflow-y-auto rounded-2xl border border-border bg-popover/98 p-6 backdrop-blur-2xl duration-200 slide-in-from-top-2 lg:hidden">
-          <nav className="flex flex-col gap-2" aria-label="Mobile Navigation">
-            {/* Platforms Collapsible Accordion */}
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-muted/20">
-              <button
-                type="button"
-                onClick={() => setMobilePlatformsOpen(!mobilePlatformsOpen)}
-                className={cn(
-                  "flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
-                  isPlatformsActive
-                    ? "border-b border-primary/30 bg-primary/10 font-semibold text-primary"
-                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                    ? "pointer-events-auto visible translate-y-0 opacity-100 scale-100"
+                    : "pointer-events-none invisible -translate-y-2 opacity-0 scale-95"
                 )}
               >
-                <div className="flex items-center gap-2">
-                  <span>Platforms</span>
-                  <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                    {platformData.length}
-                  </span>
-                </div>
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 transition-transform duration-200",
-                    mobilePlatformsOpen ? "rotate-180 text-primary" : "text-muted-foreground"
-                  )}
-                />
-              </button>
+                <div className="w-[620px] max-w-[calc(100vw-40px)] rounded-3xl border border-white/60 bg-white/94 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-3xl dark:border-white/10 dark:bg-slate-950/94 dark:shadow-[0_25px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+                    {platformData.map((platform) => {
+                      const Icon = PLATFORM_ICONS[platform.iconName] || MessageCircle;
+                      const isActive = pathname === `/platform/${platform.slug}`;
 
-              {mobilePlatformsOpen && (
-                <div className="animate-in space-y-1 border-t border-border/60 bg-background/90 p-2 duration-150 fade-in">
-                  {platformData.map((platform) => {
-                    const Icon = PLATFORM_ICONS[platform.iconName] || MessageCircle;
-                    const isChildActive = pathname === `/platform/${platform.slug}`;
-
-                    return (
-                      <Link
-                        key={platform.slug}
-                        href={`/platform/${platform.slug}`}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setMobilePlatformsOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-medium transition-colors",
-                          isChildActive
-                            ? "bg-primary/15 font-semibold text-primary"
-                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                        )}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="h-4 w-4 shrink-0 text-primary" />
-                          <span>{platform.navTitle}</span>
-                        </div>
-                        <span className="text-[10px] text-muted-foreground/70">Automation</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* AI Agents Collapsible Accordion */}
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-muted/20">
-              <button
-                type="button"
-                onClick={() => setMobileAiAgentsOpen(!mobileAiAgentsOpen)}
-                className={cn(
-                  "flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
-                  isAiAgentsActive
-                    ? "border-b border-primary/30 bg-primary/10 font-semibold text-primary"
-                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                )}
-              >
-                <div className="flex items-center gap-2">
-                  <span>AI Agents</span>
-                  <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                    {aiAgentData.length + 1}
-                  </span>
-                </div>
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 transition-transform duration-200",
-                    mobileAiAgentsOpen ? "rotate-180 text-primary" : "text-muted-foreground"
-                  )}
-                />
-              </button>
-
-              {mobileAiAgentsOpen && (
-                <div className="animate-in space-y-1 border-t border-border/60 bg-background/90 p-2 duration-150 fade-in">
-                  {/* Overview link */}
-                  <Link
-                    href="/ai-agents"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setMobileAiAgentsOpen(false);
-                    }}
-                    className={cn(
-                      "mb-2 flex items-center justify-between rounded-lg border border-primary/20 bg-primary/10 px-3 py-2.5 text-xs font-bold text-primary transition-colors",
-                      pathname === "/ai-agents" ? "ring-1 ring-primary" : ""
-                    )}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Bot className="h-4 w-4 shrink-0" />
-                      <span>AI Agents Overview</span>
-                    </div>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-
-                  {/* Role agents */}
-                  <div className="px-2 pt-1 pb-1 text-[10px] font-bold tracking-wider text-muted-foreground uppercase">
-                    By Role
+                      return (
+                        <Link
+                          key={platform.slug}
+                          href={`/platform/${platform.slug}`}
+                          onClick={() => setOpenDropdown(null)}
+                          className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                        >
+                          <div
+                            className={cn(
+                              "mt-0.5 shrink-0 transition-all duration-200",
+                              isActive
+                                ? "scale-110 text-primary"
+                                : "text-primary group-hover:scale-110"
+                            )}
+                          >
+                            <Icon className="h-5 w-5" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div
+                              className={cn(
+                                "text-sm font-bold transition-colors",
+                                isActive ? "text-primary" : "text-foreground group-hover:text-primary"
+                              )}
+                            >
+                              {platform.navTitle}
+                            </div>
+                            <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                              {platform.navDescription}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
-                  {roleAgents.map((agent) => {
-                    const Icon = AGENT_ICONS[agent.iconName] || Bot;
-                    const isChildActive = pathname === `/ai-agents/${agent.slug}`;
-
-                    return (
-                      <Link
-                        key={agent.slug}
-                        href={`/ai-agents/${agent.slug}`}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setMobileAiAgentsOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition-colors",
-                          isChildActive
-                            ? "bg-primary/15 font-semibold text-primary"
-                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                        )}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="h-4 w-4 shrink-0 text-primary" />
-                          <span>{agent.name}</span>
-                        </div>
-                      </Link>
-                    );
-                  })}
-
-                  {/* Commerce agents */}
-                  <div className="px-2 pt-2 pb-1 text-[10px] font-bold tracking-wider text-muted-foreground uppercase">
-                    Commerce
-                  </div>
-                  {commerceAgents.map((agent) => {
-                    const Icon = AGENT_ICONS[agent.iconName] || ShoppingBag;
-                    const isChildActive = pathname === `/ai-agents/${agent.slug}`;
-
-                    return (
-                      <Link
-                        key={agent.slug}
-                        href={`/ai-agents/${agent.slug}`}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setMobileAiAgentsOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition-colors",
-                          isChildActive
-                            ? "bg-primary/15 font-semibold text-primary"
-                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                        )}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="h-4 w-4 shrink-0 text-emerald-500" />
-                          <span>{agent.name}</span>
-                        </div>
-                      </Link>
-                    );
-                  })}
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Services */}
             <Link
               href="/service"
-              onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                "rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
                 pathname.startsWith("/service")
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                  : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
               )}
             >
-              <span>Services</span>
-              {pathname.startsWith("/service") && (
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              )}
+              Services
             </Link>
 
-            {/* Industries Collapsible Accordion */}
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-muted/20">
+            {/* AI Agents Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("ai-agents")}
+              onMouseLeave={handleMouseLeave}
+            >
               <button
                 type="button"
-                onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                onClick={() => setOpenDropdown(openDropdown === "ai-agents" ? null : "ai-agents")}
                 className={cn(
-                  "flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
-                  isIndustriesActive
-                    ? "border-b border-primary/30 bg-primary/10 font-semibold text-primary"
-                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
+                  isAiAgentsActive || openDropdown === "ai-agents"
+                    ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                    : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
                 )}
+                aria-expanded={openDropdown === "ai-agents"}
+                aria-haspopup="true"
               >
-                <div className="flex items-center gap-2">
-                  <span>Industries</span>
-                  <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                    10
-                  </span>
-                </div>
+                <span>AI Agents</span>
                 <ChevronDown
                   className={cn(
-                    "h-4 w-4 transition-transform duration-200",
-                    mobileIndustriesOpen ? "rotate-180 text-primary" : "text-muted-foreground"
+                    "h-3.5 w-3.5 transition-transform duration-200",
+                    openDropdown === "ai-agents" ? "rotate-180 text-primary" : "text-muted-foreground"
                   )}
                 />
               </button>
 
-              {mobileIndustriesOpen && (
-                <div className="animate-in space-y-1 border-t border-border/60 bg-background/90 p-2 duration-150 fade-in">
-                  {INDUSTRY_COLUMNS_SLUGS.flat().map((slug) => {
-                    const ind = getIndustryBySlug(slug);
-                    if (!ind) return null;
-                    const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
-                    const isChildActive = pathname === `/industry/${ind.slug}`;
-
-                    return (
-                      <Link
-                        key={ind.slug}
-                        href={`/industry/${ind.slug}`}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setMobileIndustriesOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-medium transition-colors",
-                          isChildActive
-                            ? "bg-primary/15 font-semibold text-primary"
-                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                        )}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="h-4 w-4 shrink-0 text-primary" />
-                          <span>{ind.name}</span>
+              {/* AI Agents Mega Menu */}
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 z-50 -translate-x-[45%] pt-3 transition-all duration-300 ease-out",
+                  openDropdown === "ai-agents"
+                    ? "pointer-events-auto visible translate-y-0 opacity-100 scale-100"
+                    : "pointer-events-none invisible -translate-y-2 opacity-0 scale-95"
+                )}
+              >
+                <div className="w-[740px] max-w-[calc(100vw-40px)] rounded-3xl border border-white/60 bg-white/94 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-3xl dark:border-white/10 dark:bg-slate-950/94 dark:shadow-[0_25px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  {/* Overview link */}
+                  <Link
+                    href="/ai-agents"
+                    onClick={() => setOpenDropdown(null)}
+                    className="group mb-5 flex items-center justify-between rounded-xl border border-primary/25 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-3 transition-all hover:border-primary/50 hover:bg-muted/40"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white shadow-sm transition-all duration-200 group-hover:scale-105">
+                        <Bot className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 text-xs font-bold text-foreground transition-colors group-hover:text-primary">
+                          <span>AI Agents Overview</span>
+                          <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary">
+                            MULTI-AGENT WORKFORCE
+                          </span>
                         </div>
-                        <span className="text-[10px] text-muted-foreground/60">{ind.shortTag}</span>
-                      </Link>
-                    );
-                  })}
+                        <p className="mt-0.5 text-[11px] text-muted-foreground">
+                          Discover how our specialized agents turn conversations into revenue.
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-primary transition-all group-hover:translate-x-1" />
+                  </Link>
+
+                  {/* Sub-groups */}
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    {/* By role */}
+                    <div>
+                      <div className="mb-3 px-1 text-[11px] font-bold tracking-wider text-muted-foreground uppercase">
+                        By Role
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        {roleAgents.map((agent) => {
+                          const Icon = AGENT_ICONS[agent.iconName] || Bot;
+                          const isActive = pathname === `/ai-agents/${agent.slug}`;
+
+                          return (
+                            <Link
+                              key={agent.slug}
+                              href={`/ai-agents/${agent.slug}`}
+                              onClick={() => setOpenDropdown(null)}
+                              className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                            >
+                              <div
+                                className={cn(
+                                  "mt-0.5 shrink-0 transition-all duration-200",
+                                  isActive
+                                    ? "scale-110 text-primary"
+                                    : "text-primary group-hover:scale-110"
+                                )}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div
+                                  className={cn(
+                                    "text-sm font-bold transition-colors",
+                                    isActive ? "text-primary" : "text-foreground group-hover:text-primary"
+                                  )}
+                                >
+                                  {agent.name}
+                                </div>
+                                <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                                  {agent.navDescription}
+                                </p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Commerce */}
+                    <div>
+                      <div className="mb-3 px-1 text-[11px] font-bold tracking-wider text-muted-foreground uppercase">
+                        Commerce
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        {commerceAgents.map((agent) => {
+                          const Icon = AGENT_ICONS[agent.iconName] || ShoppingBag;
+                          const isActive = pathname === `/ai-agents/${agent.slug}`;
+
+                          return (
+                            <Link
+                              key={agent.slug}
+                              href={`/ai-agents/${agent.slug}`}
+                              onClick={() => setOpenDropdown(null)}
+                              className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                            >
+                              <div
+                                className={cn(
+                                  "mt-0.5 shrink-0 transition-all duration-200",
+                                  isActive
+                                    ? "scale-110 text-primary"
+                                    : "text-primary group-hover:scale-110"
+                                )}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div
+                                  className={cn(
+                                    "text-sm font-bold transition-colors",
+                                    isActive ? "text-primary" : "text-foreground group-hover:text-primary"
+                                  )}
+                                >
+                                  {agent.name}
+                                </div>
+                                <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                                  {agent.navDescription}
+                                </p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
 
-            {/* Resources Collapsible Accordion */}
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-muted/20">
+            {/* Industries Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("industries")}
+              onMouseLeave={handleMouseLeave}
+            >
               <button
                 type="button"
-                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                onClick={() => setOpenDropdown(openDropdown === "industries" ? null : "industries")}
                 className={cn(
-                  "flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
-                  isResourcesActive
-                    ? "border-b border-primary/30 bg-primary/10 font-semibold text-primary"
-                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
+                  isIndustriesActive || openDropdown === "industries"
+                    ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                    : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
                 )}
+                aria-expanded={openDropdown === "industries"}
+                aria-haspopup="true"
               >
-                <div className="flex items-center gap-2">
-                  <span>Resources</span>
-                  <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary">
-                    {RESOURCE_LINKS.length}
-                  </span>
-                </div>
+                <span>Industries</span>
                 <ChevronDown
                   className={cn(
-                    "h-4 w-4 transition-transform duration-200",
-                    mobileResourcesOpen ? "rotate-180 text-primary" : "text-muted-foreground"
+                    "h-3.5 w-3.5 transition-transform duration-200",
+                    openDropdown === "industries" ? "rotate-180 text-primary" : "text-muted-foreground"
                   )}
                 />
               </button>
 
-              {mobileResourcesOpen && (
-                <div className="animate-in space-y-1 border-t border-border/60 bg-background/90 p-2 duration-150 fade-in">
-                  {RESOURCE_LINKS.map((item) => {
-                    const Icon = item.icon;
-                    const isChildActive =
-                      item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              {/* Industries Dropdown Container */}
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 z-50 -translate-x-[50%] pt-3 transition-all duration-300 ease-out",
+                  openDropdown === "industries"
+                    ? "pointer-events-auto visible translate-y-0 opacity-100 scale-100"
+                    : "pointer-events-none invisible -translate-y-2 opacity-0 scale-95"
+                )}
+              >
+                <div className="w-[820px] max-w-[calc(100vw-40px)] rounded-3xl border border-white/60 bg-white/94 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-3xl dark:border-white/10 dark:bg-slate-950/94 dark:shadow-[0_25px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="grid grid-cols-3 gap-x-6">
+                    {INDUSTRY_COLUMNS_SLUGS.map((colSlugs, colIdx) => (
+                      <div key={colIdx} className="flex flex-col gap-4">
+                        {colSlugs.map((slug) => {
+                          const ind = getIndustryBySlug(slug);
+                          if (!ind) return null;
+                          const Icon = INDUSTRY_ICONS[ind.iconName] || Briefcase;
+                          const isActive = pathname === `/industry/${ind.slug}`;
 
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setMobileResourcesOpen(false);
-                        }}
-                        className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-medium transition-colors",
-                          isChildActive
-                            ? "bg-primary/15 font-semibold text-primary"
-                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
-                        )}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="h-4 w-4 shrink-0 text-primary" />
-                          <span>{item.name}</span>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                          return (
+                            <Link
+                              key={ind.slug}
+                              href={`/industry/${ind.slug}`}
+                              onClick={() => setOpenDropdown(null)}
+                              className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                            >
+                              <div
+                                className={cn(
+                                  "mt-0.5 shrink-0 transition-all duration-200",
+                                  isActive
+                                    ? "scale-110 text-primary"
+                                    : "text-primary group-hover:scale-110"
+                                )}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div
+                                  className={cn(
+                                    "text-sm font-bold transition-colors",
+                                    isActive ? "text-primary" : "text-foreground group-hover:text-primary"
+                                  )}
+                                >
+                                  {ind.name}
+                                </div>
+                                <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                                  {ind.navDescription}
+                                </p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              )}
+              </div>
+            </div>
+
+            {/* Resources Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("resources")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "resources" ? null : "resources")}
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
+                  isResourcesActive || openDropdown === "resources"
+                    ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                    : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
+                )}
+                aria-expanded={openDropdown === "resources"}
+                aria-haspopup="true"
+              >
+                <span>Resources</span>
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-200",
+                    openDropdown === "resources" ? "rotate-180 text-primary" : "text-muted-foreground"
+                  )}
+                />
+              </button>
+
+              {/* Resources Dropdown Container */}
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 z-50 -translate-x-[60%] pt-3 transition-all duration-300 ease-out",
+                  openDropdown === "resources"
+                    ? "pointer-events-auto visible translate-y-0 opacity-100 scale-100"
+                    : "pointer-events-none invisible -translate-y-2 opacity-0 scale-95"
+                )}
+              >
+                <div className="w-[560px] max-w-[calc(100vw-40px)] rounded-3xl border border-white/60 bg-white/94 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-3xl dark:border-white/10 dark:bg-slate-950/94 dark:shadow-[0_25px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                    {RESOURCE_LINKS.map((item) => {
+                      const Icon = item.icon;
+                      const isActive =
+                        item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setOpenDropdown(null)}
+                          className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                        >
+                          <div
+                            className={cn(
+                              "mt-0.5 shrink-0 transition-all duration-200",
+                              isActive
+                                ? "scale-110 text-primary"
+                                : "text-primary group-hover:scale-110"
+                            )}
+                          >
+                            <Icon className="h-5 w-5" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div
+                              className={cn(
+                                "text-sm font-bold transition-colors",
+                                isActive ? "text-primary" : "text-foreground group-hover:text-primary"
+                              )}
+                            >
+                              {item.name}
+                            </div>
+                            <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Pricing */}
             <Link
               href="/pricing"
-              onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                "rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
                 pathname.startsWith("/pricing")
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                  : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
               )}
             >
-              <span>Pricing</span>
-              {pathname.startsWith("/pricing") && (
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              )}
+              Pricing
             </Link>
 
             {/* CPA Automation */}
             <Link
               href="/cpa-marketing-automation"
-              onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                "rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
                 pathname.startsWith("/cpa-marketing-automation")
-                  ? "border border-primary/30 bg-primary/10 font-semibold text-primary"
-                  : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
+                  : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
               )}
             >
-              <span>CPA Automation</span>
-              {pathname.startsWith("/cpa-marketing-automation") && (
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              )}
+              CPA
             </Link>
-
-            {/* Actions */}
-            <div className="mt-4 space-y-3 border-t border-border pt-4">
-              <div className="flex items-center justify-between rounded-xl border border-border bg-card/60 px-3 py-2">
-                <span className="text-xs font-medium text-foreground">Theme</span>
-                <AnimatedThemeToggler
-                  theme={currentTheme}
-                  onThemeChange={(newTheme) => setTheme(newTheme)}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
-                  aria-label="Toggle theme"
-                />
-              </div>
-              <a
-                href="https://app.jadubot.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-black w-full text-center"
-              >
-                Portal Login
-              </a>
-              <a
-                href={CALENDLY_DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-primary w-full text-center"
-              >
-                <span>Book a Free Demo</span>
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
           </nav>
+
+          {/* Controls: Theme Toggler + Menu Grid Trigger Icon */}
+          <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
+            {/* Theme Toggler */}
+            <AnimatedThemeToggler
+              theme={currentTheme}
+              onThemeChange={(newTheme) => setTheme(newTheme)}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-border/60 bg-card/60 text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-foreground dark:bg-white/5"
+              aria-label="Toggle theme"
+            />
+
+            {/* Menu Expand Trigger (4-Grid Icon from Mockup) */}
+            <button
+              type="button"
+              onClick={() => setIsOverlayOpen(!isOverlayOpen)}
+              className="group flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-foreground/5 text-foreground transition-all duration-200 hover:scale-105 hover:border-primary/60 hover:bg-primary/10 hover:text-primary active:scale-95 dark:border-white/15 dark:bg-white/10 dark:text-white"
+              aria-label={isOverlayOpen ? "Close navigation overlay" : "Open expanded navigation"}
+              aria-expanded={isOverlayOpen}
+            >
+              {isOverlayOpen ? (
+                <X className="h-4 w-4 transition-transform duration-200 group-hover:rotate-90" />
+              ) : (
+                <LayoutGrid className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
+              )}
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Full-Screen Glassmorphic Mega Menu Overlay (Matching Images 2 & 4) */}
+      <div
+        className={cn(
+          "fixed inset-0 z-50 flex flex-col justify-between overflow-y-auto p-4 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-8 md:p-10",
+          "bg-white/85 backdrop-blur-3xl dark:bg-slate-950/85",
+          isOverlayOpen
+            ? "pointer-events-auto visible opacity-100 translate-y-0 scale-100"
+            : "pointer-events-none invisible opacity-0 -translate-y-3 scale-[0.98]"
+        )}
+        aria-hidden={!isOverlayOpen}
+      >
+        {/* Ambient Radial Glows */}
+        <div
+          className="pointer-events-none absolute top-10 left-1/4 -z-10 h-80 w-80 rounded-full bg-primary/20 blur-[130px]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute bottom-10 right-1/4 -z-10 h-80 w-80 rounded-full bg-sky-500/15 blur-[130px]"
+          aria-hidden="true"
+        />
+
+        {/* Overlay Top Bar (Logo, Desktop Horizontal Links & Close X) */}
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between border-b border-border/40 pb-6">
+          {/* Brand */}
+          <Link
+            href="/"
+            onClick={() => setIsOverlayOpen(false)}
+            className="flex items-center gap-3"
+          >
+            <Image
+              src="/assets/images/shared/jadubot-logo.png"
+              alt="Jadubot Logo"
+              width={38}
+              height={38}
+              className="h-8 w-8 object-contain sm:h-9 sm:w-9"
+            />
+            <div className="flex flex-col">
+              <span className="font-heading text-sm font-black tracking-widest text-foreground uppercase sm:text-base">
+                Jadubot
+              </span>
+              <span className="text-[9px] font-semibold tracking-wider text-muted-foreground uppercase">
+                AI Sales Agent
+              </span>
+            </div>
+          </Link>
+
+          {/* Close Button */}
+          <div className="flex items-center gap-3">
+            <AnimatedThemeToggler
+              theme={currentTheme}
+              onThemeChange={(newTheme) => setTheme(newTheme)}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card/60 text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:text-foreground"
+              aria-label="Toggle theme"
+            />
+            <button
+              type="button"
+              onClick={() => setIsOverlayOpen(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/80 bg-card/60 text-foreground transition-all duration-200 hover:scale-105 hover:border-primary hover:text-primary active:scale-95"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Overlay Content Columns (01 EXPLORE, 02 COMPANY, 03 ACTION / BRAND DIRECTION) */}
+        <div className="mx-auto my-auto w-full max-w-7xl py-10 sm:py-14">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8 lg:gap-12">
+            {/* Column 01: EXPLORE */}
+            <div className="md:col-span-4">
+              <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-muted-foreground/80 uppercase">
+                <span>01</span>
+                <span className="h-px w-8 bg-border" />
+                <span>Explore</span>
+              </div>
+              <ul className="mt-6 flex flex-col space-y-3 sm:space-y-4">
+                {/* Home */}
+                <li>
+                  <Link
+                    href="/"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Home
+                  </Link>
+                </li>
+
+                {/* Services */}
+                <li>
+                  <Link
+                    href="/service"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Services
+                  </Link>
+                </li>
+
+                {/* Platforms (Accordion) */}
+                <li className="flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleAccordion("platforms")}
+                      className="group font-heading text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                    >
+                      Platforms
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleAccordion("platforms")}
+                      className="p-1.5 text-muted-foreground transition-colors hover:text-primary"
+                      aria-label="Toggle Platforms subroutes"
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          expandedAccordion === "platforms" && "rotate-180 text-primary"
+                        )}
+                      />
+                    </button>
+                  </div>
+                  {/* Platforms Subroutes */}
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300 ease-in-out",
+                      expandedAccordion === "platforms"
+                        ? "grid-rows-[1fr] opacity-100 pt-3 pb-1"
+                        : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <ul className="overflow-hidden space-y-2 border-l-2 border-primary/30 pl-4">
+                      {platformData.map((plat) => (
+                        <li key={plat.slug}>
+                          <Link
+                            href={`/platform/${plat.slug}`}
+                            onClick={() => setIsOverlayOpen(false)}
+                            className="group flex items-center justify-between py-1 pr-2 text-sm font-semibold text-muted-foreground transition-all duration-150 hover:translate-x-1.5 hover:text-foreground"
+                          >
+                            <span>{plat.navTitle}</span>
+                            <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:text-primary" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* AI Agents (Accordion) */}
+                <li className="flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleAccordion("ai-agents")}
+                      className="group font-heading text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                    >
+                      AI Agents
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleAccordion("ai-agents")}
+                      className="p-1.5 text-muted-foreground transition-colors hover:text-primary"
+                      aria-label="Toggle AI Agents subroutes"
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          expandedAccordion === "ai-agents" && "rotate-180 text-primary"
+                        )}
+                      />
+                    </button>
+                  </div>
+                  {/* AI Agents Subroutes */}
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300 ease-in-out",
+                      expandedAccordion === "ai-agents"
+                        ? "grid-rows-[1fr] opacity-100 pt-3 pb-1"
+                        : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <ul className="overflow-hidden space-y-2 border-l-2 border-primary/30 pl-4">
+                      {aiAgentData.map((agent) => (
+                        <li key={agent.slug}>
+                          <Link
+                            href={`/ai-agents/${agent.slug}`}
+                            onClick={() => setIsOverlayOpen(false)}
+                            className="group flex items-center justify-between py-1 pr-2 text-sm font-semibold text-muted-foreground transition-all duration-150 hover:translate-x-1.5 hover:text-foreground"
+                          >
+                            <span>{agent.name}</span>
+                            <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:text-primary" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* Industries (Accordion) */}
+                <li className="flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleAccordion("industries")}
+                      className="group font-heading text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                    >
+                      Industries
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleAccordion("industries")}
+                      className="p-1.5 text-muted-foreground transition-colors hover:text-primary"
+                      aria-label="Toggle Industries subroutes"
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          expandedAccordion === "industries" && "rotate-180 text-primary"
+                        )}
+                      />
+                    </button>
+                  </div>
+                  {/* Industries Subroutes */}
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300 ease-in-out",
+                      expandedAccordion === "industries"
+                        ? "grid-rows-[1fr] opacity-100 pt-3 pb-1"
+                        : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <ul className="overflow-hidden space-y-2 border-l-2 border-primary/30 pl-4">
+                      {INDUSTRY_COLUMNS_SLUGS.flat().map((slug) => {
+                        const ind = getIndustryBySlug(slug);
+                        if (!ind) return null;
+                        return (
+                          <li key={ind.slug}>
+                            <Link
+                              href={`/industry/${ind.slug}`}
+                              onClick={() => setIsOverlayOpen(false)}
+                              className="group flex items-center justify-between py-1 pr-2 text-sm font-semibold text-muted-foreground transition-all duration-150 hover:translate-x-1.5 hover:text-foreground"
+                            >
+                              <span>{ind.name}</span>
+                              <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:text-primary" />
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* CPA Automation */}
+                <li>
+                  <Link
+                    href="/cpa-marketing-automation"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    CPA Automation
+                  </Link>
+                </li>
+              </ul>
+
+              {/* Sub-socials */}
+              <div className="mt-8 flex items-center gap-5 text-xs font-bold tracking-widest text-muted-foreground/70 uppercase">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  Facebook
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+
+            {/* Column 02: COMPANY & RESOURCES */}
+            <div className="md:col-span-4">
+              <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-muted-foreground/80 uppercase">
+                <span>02</span>
+                <span className="h-px w-8 bg-border" />
+                <span>Company</span>
+              </div>
+              <ul className="mt-6 flex flex-col space-y-3 sm:space-y-4">
+                <li>
+                  <Link
+                    href="/about"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pricing"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+
+                {/* Resources (Accordion) */}
+                <li className="flex flex-col">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleAccordion("resources")}
+                      className="group font-heading text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                    >
+                      Resources
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleAccordion("resources")}
+                      className="p-1.5 text-muted-foreground transition-colors hover:text-primary"
+                      aria-label="Toggle Resources subroutes"
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300",
+                          expandedAccordion === "resources" && "rotate-180 text-primary"
+                        )}
+                      />
+                    </button>
+                  </div>
+                  {/* Resources Subroutes */}
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300 ease-in-out",
+                      expandedAccordion === "resources"
+                        ? "grid-rows-[1fr] opacity-100 pt-3 pb-1"
+                        : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <ul className="overflow-hidden space-y-2 border-l-2 border-primary/30 pl-4">
+                      {RESOURCE_LINKS.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            onClick={() => setIsOverlayOpen(false)}
+                            className="group flex items-center justify-between py-1 pr-2 text-sm font-semibold text-muted-foreground transition-all duration-150 hover:translate-x-1.5 hover:text-foreground"
+                          >
+                            <span>{item.name}</span>
+                            <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:text-primary" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                <li>
+                  <Link
+                    href="/affiliate"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Partner Program
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faq"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Help & FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 03: BRAND DIRECTION & ACTION CTA */}
+            <div className="flex flex-col justify-between md:col-span-4">
+              <div className="flex items-center gap-3 text-xs font-mono font-bold tracking-widest text-muted-foreground/80 uppercase">
+                <span>03</span>
+                <span className="h-px w-8 bg-border" />
+                <span>Connect</span>
+              </div>
+
+              {/* Quick Jump Links */}
+              <div className="mt-6 space-y-2">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOverlayOpen(false)}
+                  className="font-heading block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-colors hover:text-primary sm:text-3xl"
+                >
+                  Contact
+                </Link>
+                <Link
+                  href="/faq"
+                  onClick={() => setIsOverlayOpen(false)}
+                  className="font-heading block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-colors hover:text-primary sm:text-3xl"
+                >
+                  FAQ
+                </Link>
+              </div>
+
+              {/* Brand Direction Callout Card (Matching Image 2 bottom-right card) */}
+              <div className="mt-10 rounded-2xl border border-border/80 bg-card/80 p-6 shadow-card backdrop-blur-xl md:mt-auto">
+                <div className="text-[10px] font-mono font-bold tracking-widest text-primary uppercase">
+                  Brand Direction
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  We don&apos;t just build chatbot scripts. We deploy autonomous 24/7 sales agents
+                  that talk, recommend, and close orders on autopilot.
+                </p>
+                <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+                  <a
+                    href={CALENDLY_DEMO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOverlayOpen(false)}
+                    className="btn-primary w-full justify-center rounded-xl py-3 text-xs font-bold tracking-wider uppercase shadow-md"
+                  >
+                    <span>Begin What&apos;s Next</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                  <a
+                    href="https://app.jadubot.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-black w-full justify-center rounded-xl py-3 text-xs font-bold tracking-wider uppercase border border-border"
+                  >
+                    <span>Portal</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Overlay Bottom Footer */}
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between border-t border-border/40 pt-4 text-xs text-muted-foreground">
+          <span>© {new Date().getFullYear()} Jadubot AI. All rights reserved.</span>
+          <span className="hidden sm:inline-block">Press ESC or click ✕ to return</span>
+        </div>
+      </div>
+    </>
   );
 }
