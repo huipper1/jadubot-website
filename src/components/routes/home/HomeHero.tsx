@@ -46,7 +46,7 @@ export function HomeHero() {
           {/* Left Column: Copy, Micro-Features & Actions (5 columns on desktop for perfect balance) */}
           <div
             ref={contentRef}
-            className="relative z-10 pt-1 text-left will-change-transform sm:pt-2 lg:col-span-5 lg:pt-3 xl:col-span-5"
+            className="relative z-10 pt-1 text-left will-change-transform sm:pt-2 lg:col-span-6 lg:pt-3 xl:col-span-6"
           >
             {/* Main Headline - Clean, vertically balanced lines without arch gap */}
             <h1 className="font-heading text-4xl leading-[1.08] font-black tracking-tight text-foreground sm:text-5xl lg:text-[48px] xl:text-[56px] 2xl:text-[60px]">
@@ -59,7 +59,8 @@ export function HomeHero() {
 
             {/* Subtitle */}
             <p className="mt-3.5 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg lg:max-w-lg">
-              Answer customer questions, confirm Cash on Delivery orders, and sync stock in Bangla and English—24/7.
+              Answer customer questions, confirm Cash on Delivery orders, and sync stock in Bangla
+              and English—24/7.
             </p>
 
             {/* Feature Trio (Side by Side with Vertical Dividers) */}
@@ -154,7 +155,7 @@ export function HomeHero() {
           {/* Right Column: Hero Graphic - Aligned top vertically and shifted upwards & leftwards */}
           <div
             ref={imageRef}
-            className="relative flex items-start justify-center will-change-transform lg:col-span-7 lg:justify-start xl:col-span-7"
+            className="relative flex items-start justify-center will-change-transform lg:col-span-6 lg:justify-start xl:col-span-6"
           >
             {/* Ambient Multi-Color Radial Glow behind image */}
             <div
