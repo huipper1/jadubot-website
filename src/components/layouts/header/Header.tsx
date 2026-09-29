@@ -1172,24 +1172,24 @@ export function Header() {
                   We don&apos;t just build chatbot scripts. We deploy autonomous 24/7 sales agents
                   that talk, recommend, and close orders on autopilot.
                 </p>
-                <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+                <div className="mt-5 flex flex-col gap-2.5">
                   <a
                     href={CALENDLY_DEMO_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOverlayOpen(false)}
-                    className="btn-primary w-full justify-center rounded-xl py-3 text-xs font-bold tracking-wider uppercase shadow-md"
+                    className="btn-primary w-full justify-center rounded-xl py-2.5 text-xs font-bold tracking-wider uppercase shadow-md transition-all hover:opacity-95"
                   >
-                    <span>Begin What&apos;s Next</span>
+                    <span>Book a Demo</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                   <a
                     href="https://app.jadubot.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-black w-full justify-center rounded-xl py-3 text-xs font-bold tracking-wider uppercase border border-border"
+                    className="inline-flex w-full items-center justify-center rounded-xl border border-border/80 bg-background/60 py-2.5 text-xs font-bold tracking-wider text-foreground/80 uppercase shadow-xs backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-card hover:text-primary dark:bg-card/40"
                   >
-                    <span>Portal</span>
+                    <span>Client Portal</span>
                   </a>
                 </div>
               </div>
