@@ -30,13 +30,13 @@ export function CardStrip() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <div className="relative w-full overflow-x-clip py-4 sm:py-6 md:py-8 select-none">
+    <div className="relative w-full max-w-full overflow-hidden py-4 sm:py-6 md:py-8 select-none">
       {/* ========================================================
           MOBILE VIEW (phone: < sm / < 640px)
           Show only 1 hero card centered with NO effects (flat, zero 3D, zero hover tilt)
          ======================================================== */}
-      <div className="flex sm:hidden w-full items-center justify-center px-4 py-4">
-        <div className="relative h-[240px] w-full max-w-[280px] rounded-2xl border-0">
+      <div className="flex sm:hidden w-full max-w-full items-center justify-center px-4 py-4">
+        <div className="relative h-[240px] w-full max-w-[280px] overflow-hidden rounded-2xl border-0">
           <ChartCard />
         </div>
       </div>

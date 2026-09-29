@@ -216,7 +216,7 @@ export function Header() {
   return (
     <>
       {/* Floating Header Bar */}
-      <header data-navbar-scope="true" className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center px-4 py-4 md:py-6">
+      <header data-navbar-scope="true" className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center px-3 py-3 sm:px-4 sm:py-4 md:py-6">
         <div
           onMouseEnter={() => setIsPillHovered(true)}
           onMouseLeave={() => {
@@ -227,10 +227,11 @@ export function Header() {
             "pointer-events-auto relative flex items-center justify-between rounded-full border shadow-elevated backdrop-blur-3xl transition-[max-width,padding,gap,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
             // Rich frosted glassmorphism styling
             "border-white/60 bg-white/92 shadow-[0_12px_40px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.9)] dark:border-white/10 dark:bg-slate-950/92 dark:shadow-[0_18px_50px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.08)]",
-            // Dynamic width morphing
+            // Dynamic width morphing & strict mobile viewport bounds
+            "w-full max-w-[calc(100vw-1.5rem)] sm:max-w-6xl",
             isDesktopCollapsed
-              ? "w-auto max-w-[280px] gap-6 px-4 py-2 sm:px-5 sm:py-2.5"
-              : "w-full max-w-6xl gap-3 px-5 py-2 sm:px-6 sm:py-2.5"
+              ? "lg:w-auto lg:max-w-[280px] gap-6 px-4 py-2 sm:px-5 sm:py-2.5"
+              : "gap-2 px-3.5 py-1.5 sm:gap-3 sm:px-6 sm:py-2.5"
           )}
         >
           {/* Logo & Brand Name */}

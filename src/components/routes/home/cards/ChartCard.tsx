@@ -4,7 +4,7 @@ export function ChartCard() {
   return (
     <div
       data-preserve-radius="true"
-      className="flex h-full w-full flex-col justify-between rounded-2xl bg-white/95 p-3.5 text-slate-800 backdrop-blur-md"
+      className="flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl bg-white/95 p-3.5 text-slate-800 backdrop-blur-md"
     >
       <div>
         <div className="font-heading text-xs font-bold leading-tight text-slate-900">
@@ -20,7 +20,7 @@ export function ChartCard() {
 
       {/* Inline SVG Smooth Area / Line Chart */}
       <div className="mt-2 w-full pt-1">
-        <svg viewBox="0 0 100 48" className="h-16 w-full overflow-visible" preserveAspectRatio="none">
+        <svg viewBox="0 0 100 48" className="h-16 w-full overflow-hidden" preserveAspectRatio="none">
           <defs>
             <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.45" />
