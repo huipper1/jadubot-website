@@ -1,399 +1,477 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Link from "next/link";
 
 import {
-  AlertCircle,
-  ArrowDown,
+  Bot,
   CheckCircle2,
-  Clock,
-  Inbox,
-  RotateCcw,
-  TrendingDown
+  ChevronRight,
+  Globe,
+  Layers,
+  MessageCircle,
+  MessageSquare,
+  Send,
+  Sparkles,
+  Zap
 } from "lucide-react";
 
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/animations";
-
-const CARD_ICONS = [TrendingDown, Inbox, RotateCcw];
-
-const CARDS_DATA = [
-  {
-    number: 1,
-    title: "Lost Sales",
-    description: "Customers move on to competitors who reply instantly on Facebook and Instagram.",
-    metricLabel: "Lead drop-off",
-    impact: "67% of buyers leave within 10 minutes without a reply"
-  },
-  {
-    number: 2,
-    title: "Buried Inbox",
-    description: "Comments and DMs pile up faster than your team can answer them.",
-    metricLabel: "Unread backlog",
-    impact: "Hundreds of inquiries slip unnoticed into archived requests"
-  },
-  {
-    number: 3,
-    title: "Repetitive Grind",
-    description: "You spend hours typing the same price, stock, and delivery answers all day.",
-    metricLabel: "Time wasted",
-    impact: "3+ hours lost per agent answering the exact same 5 questions"
-  }
-];
+import { usePopAnimation } from "@/lib/animations";
 
 export function ProblemSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
-  const progressBarRef = useRef<HTMLDivElement | null>(null);
-  const [activeStep, setActiveStep] = useState(0);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      const cardElements = cardsRef.current.filter(Boolean);
-
-      // Desktop layout (>= 1024px): Pre-warmed split sticky experience
-      mm.add("(min-width: 1024px)", () => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (prefersReducedMotion) {
-          gsap.set(cardElements, { opacity: 1, y: 0, scale: 1 });
-          return;
-        }
-
-        // Pre-warmed entrance: Trigger as soon as the section top reaches 75% of the viewport
-        const entranceTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse",
-            onEnter: () => setActiveStep(0)
-          }
-        });
-
-        // Cards stagger in immediately so they are already entering and visible without waiting
-        entranceTl.fromTo(
-          cardElements,
-          {
-            opacity: 0,
-            y: 35,
-            scale: 0.96
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.55,
-            stagger: 0.12,
-            ease: "power2.out"
-          }
-        );
-
-        // Active spotlight transitions for Cards 2 and 3 as the user scrolls further down
-        cardElements.forEach((card, index) => {
-          gsap.timeline({
-            scrollTrigger: {
-              trigger: card,
-              start: "top 55%",
-              end: "bottom 45%",
-              onEnter: () => setActiveStep(index),
-              onEnterBack: () => setActiveStep(index)
-            }
-          });
-        });
-
-        // Track global timeline progress for the sticky progress bar indicator
-        if (progressBarRef.current) {
-          gsap.fromTo(
-            progressBarRef.current,
-            { scaleY: 0 },
-            {
-              scaleY: 1,
-              ease: "none",
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 75%",
-                end: "bottom 70%",
-                scrub: 0.3
-              }
-            }
-          );
-        }
-      });
-
-      // Mobile / Tablet layout (< 1024px): Early cascade reveal
-      mm.add("(max-width: 1023px)", () => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (prefersReducedMotion) {
-          gsap.set(cardElements, { opacity: 1, y: 0 });
-          return;
-        }
-
-        // Stagger in early as section reaches 85% on mobile
-        gsap.fromTo(
-          cardElements,
-          { opacity: 0, y: 28, scale: 0.97 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.55,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-              onEnter: () => setActiveStep(0)
-            }
-          }
-        );
-
-        // Update active step as each card crosses higher on the mobile screen
-        cardElements.forEach((card, index) => {
-          ScrollTrigger.create({
-            trigger: card,
-            start: "top 60%",
-            end: "bottom 40%",
-            onEnter: () => setActiveStep(index),
-            onEnterBack: () => setActiveStep(index)
-          });
-        });
-      });
-
-      return () => mm.revert();
-    },
-    { scope: sectionRef }
-  );
+  const containerRef = usePopAnimation<HTMLDivElement>({ start: "top 90%", duration: 0.8 });
 
   return (
-    <section
-      ref={sectionRef}
-      id="problem"
-      className="relative mt-8 overflow-hidden bg-background py-16 md:mt-12 md:py-24"
-    >
-      {/* Subtle Dotted Grid Background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-75"
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
+      {/* Background Architectural Ambient Glows */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none" aria-hidden="true">
+        <div className="absolute top-1/4 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px] dark:bg-primary/8" />
+        <div className="absolute bottom-10 right-10 h-[350px] w-[350px] rounded-full bg-emerald-500/5 blur-[120px] dark:bg-emerald-500/10" />
+      </div>
 
-      {/* Vignette Gradients */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background via-transparent to-background"
-        aria-hidden="true"
-      />
+      <div ref={containerRef} className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div
+            data-preserve-radius="true"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary shadow-xs dark:text-sky-300"
+          >
+            <span>All-in-One Sales Automation</span>
+          </div>
 
-      {/* Ambient background glow */}
-      <div
-        className="pointer-events-none absolute top-1/3 left-1/4 -z-10 h-[420px] w-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[130px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute top-2/3 right-10 -z-10 h-[380px] w-[460px] rounded-full bg-destructive/10 blur-[140px]"
-        aria-hidden="true"
-      />
+          <h2 className="mt-5 font-heading text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            Autonomous AI Automation <br className="hidden sm:inline" />
+            Across Every Channel
+          </h2>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Split-Screen Grid Layout */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Left Column: Sticky Narrative & Active Bottleneck Tracker */}
-          <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-28">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/10 px-3.5 py-1 text-xs font-semibold text-destructive">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-destructive" />
-                </span>
-                The Silent Revenue Killer
-              </div>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            One unified engine for your social commerce, web presence, and acquisition channels.
+            Stop losing leads to slow responses and scale effortlessly.
+          </p>
+        </div>
 
-              {/* Main Headline */}
-              <h2 className="mt-5 font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl lg:leading-tight">
-                You are losing sales because of missed messages and late replies
-              </h2>
+        {/* 5-Card Bento Grid: Row 1 (3 equal cols) + Row 2 (2 cols: wide 2-cols + 1-col) */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1: Facebook Automation (Top-Left, Soft Peach/Rose Tinted Graphic) */}
+          <div
+            data-preserve-radius="true"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-xl dark:border-white/10 dark:bg-[#0f1422]"
+          >
+            {/* Graphic Stage: Layered Floating Interactive UI Pills */}
+            <div
+              data-preserve-radius="true"
+              className="relative flex h-52 w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50/80 via-orange-50/50 to-amber-50/60 p-4 transition-transform duration-500 group-hover:scale-[1.02] dark:from-blue-950/40 dark:via-slate-900/50 dark:to-indigo-950/40"
+            >
+              {/* Soft ambient inner backlight */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#1877f2/10,transparent_70%)]" />
 
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Every second a prospective buyer waits for a response is a second they spend looking
-                at your competitor. That leads to...
-              </p>
+              <div className="relative flex w-full max-w-[260px] flex-col items-center gap-2.5">
+                {/* Micro Pill 1 */}
+                <div
+                  data-preserve-radius="true"
+                  className="flex items-center gap-2 rounded-full border border-border/60 bg-white/95 px-3 py-1.5 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/90 dark:text-slate-200"
+                >
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1877f2] text-white">
+                    <svg className="h-3 w-3 fill-white" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </div>
+                  <span>Comment-to-Inbox Lead</span>
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+                </div>
 
-              {/* Step indicator rail on desktop */}
-              <div className="mt-8 hidden space-y-3 lg:block">
-                <p className="text-xs font-medium tracking-wider text-muted-foreground/70 uppercase">
-                  Bottlenecks in your pipeline
-                </p>
+                {/* Primary Hero Pill */}
+                <div
+                  data-preserve-radius="true"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-[#1877f2] py-2.5 text-xs font-bold tracking-wide text-white shadow-md shadow-blue-600/25"
+                >
+                  <Bot className="h-4 w-4" />
+                  <span>Instant Messenger Reply</span>
+                </div>
 
-                <div className="space-y-2">
-                  {CARDS_DATA.map((card, idx) => {
-                    const isActive = activeStep === idx;
-                    const Icon = CARD_ICONS[idx] || AlertCircle;
-
-                    return (
-                      <div
-                        key={card.number}
-                        className={`flex items-center gap-3.5 rounded-xl border p-3 transition-all duration-300 ${
-                          isActive
-                            ? "border-primary/40 bg-primary/10 shadow-sm"
-                            : "border-border/40 bg-card/40 opacity-60 hover:opacity-85"
-                        }`}
-                      >
-                        <div
-                          className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
-                            isActive
-                              ? "bg-primary text-primary-foreground shadow-sm"
-                              : "bg-muted text-muted-foreground"
-                          }`}
-                        >
-                          <Icon className="h-4 w-4" />
-                        </div>
-
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between">
-                            <span
-                              className={`text-xs font-semibold ${
-                                isActive ? "text-foreground" : "text-muted-foreground"
-                              }`}
-                            >
-                              0{card.number}. {card.title}
-                            </span>
-                            {isActive && (
-                              <span className="text-[10px] font-medium text-primary">Active</span>
-                            )}
-                          </div>
-                          <p className="truncate text-[11px] text-muted-foreground">
-                            {card.metricLabel}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
+                {/* Floating Chips */}
+                <div className="flex w-full justify-between gap-2">
+                  <div
+                    data-preserve-radius="true"
+                    className="flex items-center gap-1.5 rounded-full border border-border/60 bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-xs dark:border-white/10 dark:bg-slate-900/90 dark:text-slate-300"
+                  >
+                    <MessageSquare className="h-3 w-3 text-blue-500" />
+                    <span>Auto-Order</span>
+                  </div>
+                  <div
+                    data-preserve-radius="true"
+                    className="flex items-center gap-1.5 rounded-full border border-border/60 bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-xs dark:border-white/10 dark:bg-slate-900/90 dark:text-slate-300"
+                  >
+                    <Zap className="h-3 w-3 text-amber-500" />
+                    <span>24/7 COD Sync</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Quick scroll helper */}
-              <div className="mt-8 hidden items-center gap-2 text-xs text-muted-foreground/60 lg:flex">
-                <ArrowDown className="h-3.5 w-3.5 animate-bounce text-primary" />
-                <span>Scroll to examine each operational leak</span>
+            {/* Content Info */}
+            <div className="mt-6 flex flex-1 flex-col justify-between">
+              <div>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  Facebook Automation
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  Turn post comments into private Messenger conversations, capture orders inside chat,
+                  and confirm Cash on Delivery without manual staff intervention.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-2">
+                <Link
+                  href="/platform/facebook-automation"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-all hover:gap-2.5 dark:text-sky-400"
+                >
+                  <span>Explore Facebook Agent</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Scrolling Cards with Timeline Accent */}
-          <div className="relative lg:col-span-7">
-            {/* Timeline line connecting cards */}
-            <div className="absolute top-8 bottom-8 left-6 hidden w-0.5 bg-border/60 lg:block">
+          {/* Card 2: WhatsApp Automation (Top-Center, Soft Sky/Blue Tinted Graphic with Floating Task Modal) */}
+          <div
+            data-preserve-radius="true"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl dark:border-white/10 dark:bg-[#0f1422]"
+          >
+            {/* Graphic Stage: Floating Chat Card with Badge and Avatar Cluster */}
+            <div
+              data-preserve-radius="true"
+              className="relative flex h-52 w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50/80 via-teal-50/50 to-sky-50/60 p-4 transition-transform duration-500 group-hover:scale-[1.02] dark:from-emerald-950/40 dark:via-slate-900/50 dark:to-teal-950/40"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#25d366/10,transparent_70%)]" />
+
               <div
-                ref={progressBarRef}
-                className="w-full origin-top bg-gradient-to-b from-primary via-accent to-destructive transition-transform duration-75"
-                style={{ height: "100%" }}
-              />
+                data-preserve-radius="true"
+                className="relative w-full max-w-[260px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-slate-900/90"
+              >
+                {/* Top Status & WhatsApp Pill */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                      WhatsApp Cloud API
+                    </span>
+                  </div>
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xs">
+                    <MessageCircle className="h-3 w-3 fill-white" />
+                  </div>
+                </div>
+
+                <div className="mt-2.5">
+                  <span className="font-heading text-xs font-bold text-foreground">
+                    Instant Order Confirmation
+                  </span>
+                  <p className="mt-1 text-[11px] text-muted-foreground">
+                    &ldquo;Apnar order confirm hoyeche! Tracking ID #8491.&rdquo;
+                  </p>
+                </div>
+
+                <div className="mt-3 flex items-center justify-between border-t border-border/50 pt-2 text-[10px] text-muted-foreground">
+                  <span>Bangla + English AI</span>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                    99.4% Delivery
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* Cards List */}
-            <div className="space-y-6 sm:space-y-8 lg:pl-16">
-              {CARDS_DATA.map((card, index) => {
-                const Icon = CARD_ICONS[index] || AlertCircle;
-                const isActive = activeStep === index;
+            {/* Content Info */}
+            <div className="mt-6 flex flex-1 flex-col justify-between">
+              <div>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  WhatsApp Automation
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  Broadcast verified promotional alerts, automate booking confirmations, and provide
+                  24/7 VIP assistance directly inside Bangladesh&apos;s most used app.
+                </p>
+              </div>
 
-                return (
-                  <div
-                    key={card.number}
-                    ref={(el) => {
-                      if (el) cardsRef.current[index] = el;
-                    }}
-                    className={`group relative overflow-hidden rounded-2xl border bg-card p-6 shadow-card backdrop-blur-md transition-all duration-300 sm:p-8 ${
-                      isActive
-                        ? "border-primary/50 ring-1 shadow-primary/5 ring-primary/20"
-                        : "border-border/70 hover:border-primary/40"
-                    }`}
+              <div className="mt-4 pt-2">
+                <Link
+                  href="/platform/whatsapp-automation"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 transition-all hover:gap-2.5 dark:text-emerald-400"
+                >
+                  <span>Explore WhatsApp Agent</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Instagram Automation (Top-Right, Soft Green/Mint Tinted Graphic with Calendar/Scheduler UI) */}
+          <div
+            data-preserve-radius="true"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/40 hover:shadow-xl dark:border-white/10 dark:bg-[#0f1422] md:col-span-2 lg:col-span-1"
+          >
+            {/* Graphic Stage: Instagram Direct Story Trigger Interactive Pill Box */}
+            <div
+              data-preserve-radius="true"
+              className="relative flex h-52 w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-pink-50/80 via-purple-50/50 to-indigo-50/60 p-4 transition-transform duration-500 group-hover:scale-[1.02] dark:from-pink-950/40 dark:via-slate-900/50 dark:to-purple-950/40"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#dd2a7b/10,transparent_70%)]" />
+
+              <div
+                data-preserve-radius="true"
+                className="relative w-full max-w-[260px] rounded-2xl border border-border/70 bg-white/95 p-4 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-slate-900/90"
+              >
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-semibold text-slate-700 dark:text-slate-200">
+                    Story &amp; Reel Trigger
+                  </span>
+                  <span className="rounded-full bg-pink-500/10 px-2 py-0.5 text-[10px] font-bold text-pink-600 dark:text-pink-400">
+                    Auto DM
+                  </span>
+                </div>
+
+                {/* Simulated Trigger Buttons */}
+                <div className="mt-3 flex items-center justify-between gap-1.5">
+                  <span
+                    data-preserve-radius="true"
+                    className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] text-[11px] font-bold text-white shadow-xs"
                   >
-                    {/* Glowing Top Border Accent */}
-                    <div
-                      className={`pointer-events-none absolute top-0 right-6 left-6 h-[1.5px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-opacity duration-300 ${
-                        isActive ? "opacity-100" : "opacity-40"
-                      }`}
-                      aria-hidden="true"
-                    />
-
-                    {/* Timeline Node on Left for desktop */}
-                    <div
-                      className={`absolute top-8 -left-[27px] hidden h-5 w-5 items-center justify-center rounded-full border-2 bg-background transition-all duration-300 lg:flex ${
-                        isActive
-                          ? "scale-110 border-primary shadow-[0_0_12px_rgba(59,130,246,0.6)]"
-                          : "border-border"
-                      }`}
-                      aria-hidden="true"
-                    >
-                      <div
-                        className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                          isActive ? "bg-primary" : "bg-muted-foreground/40"
-                        }`}
-                      />
-                    </div>
-
-                    <div>
-                      {/* Card Header: Icon, Badge, and Index */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`flex h-11 w-11 items-center justify-center rounded-xl border transition-colors ${
-                              isActive
-                                ? "border-primary/40 bg-primary/15 text-primary"
-                                : "border-border/60 bg-muted/50 text-muted-foreground group-hover:text-foreground"
-                            }`}
-                          >
-                            <Icon className="h-5 w-5" />
-                          </div>
-                          <div>
-                            <span className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
-                              Bottleneck 0{card.number}
-                            </span>
-                            <h3 className="font-heading text-lg font-bold tracking-tight text-foreground sm:text-xl">
-                              {card.title}
-                            </h3>
-                          </div>
-                        </div>
-
-                        <span className="rounded-md border border-primary/25 bg-primary/10 px-2.5 py-1 font-mono text-xs font-bold text-primary">
-                          0{card.number}
-                        </span>
-                      </div>
-
-                      {/* Main Description */}
-                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                        {card.description}
-                      </p>
-
-                      {/* Measurable Impact Box */}
-                      <div className="mt-5 rounded-xl border border-destructive/20 bg-destructive/5 p-3.5 sm:p-4">
-                        <div className="flex items-start gap-2.5">
-                          <Clock className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
-                          <div>
-                            <p className="text-xs font-semibold text-foreground">
-                              {card.metricLabel}
-                            </p>
-                            <p className="mt-0.5 text-xs text-muted-foreground">{card.impact}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Card Footer */}
-                    <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-3.5 text-xs">
-                      <span className="flex items-center gap-1.5 font-medium text-destructive">
-                        <span className="h-2 w-2 animate-pulse rounded-full bg-destructive" />
-                        Revenue leak
-                      </span>
-                      <span className="flex items-center gap-1 text-muted-foreground/70">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-primary/70" />
-                        Solvable with Jadubot
-                      </span>
-                    </div>
+                    IG
+                  </span>
+                  <div
+                    data-preserve-radius="true"
+                    className="flex-1 truncate rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                  >
+                    User comments &quot;PRICE&quot;
                   </div>
-                );
-              })}
+                </div>
+
+                <div
+                  data-preserve-radius="true"
+                  className="mt-3 flex items-center justify-center gap-1.5 rounded-full bg-slate-900 py-1.5 text-xs font-semibold text-white shadow-xs dark:bg-pink-600"
+                >
+                  <Send className="h-3 w-3" />
+                  <span>DM Catalog Sent Instantly</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Info */}
+            <div className="mt-6 flex flex-1 flex-col justify-between">
+              <div>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  Instagram Automation
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  Trigger automatic DM replies when followers reply to stories or comment on Reels.
+                  Share catalog links and checkout buttons while buyer intent is hot.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-2">
+                <Link
+                  href="/platform/instagram-automation"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-pink-600 transition-all hover:gap-2.5 dark:text-pink-400"
+                >
+                  <span>Explore Instagram Agent</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Full Website Automation (Row 2, Wide 2-Columns, Matching Reference Board & Reports UI) */}
+          <div
+            data-preserve-radius="true"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl md:col-span-2 dark:border-white/10 dark:bg-[#0f1422]"
+          >
+            {/* Graphic Stage: Clean Board/Dashboard UI with Table, AI Query, and Floating Report Pill */}
+            <div
+              data-preserve-radius="true"
+              className="relative flex h-56 w-full flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-sky-50/70 via-blue-50/40 to-slate-50/60 p-4 transition-transform duration-500 group-hover:scale-[1.01] sm:h-64 sm:p-6 dark:from-slate-900/80 dark:via-blue-950/30 dark:to-slate-900/60"
+            >
+              {/* Simulated Real Estate / Store Branding Header */}
+              <div
+                data-preserve-radius="true"
+                className="flex items-center justify-between rounded-xl border border-border/70 bg-white/95 px-4 py-2.5 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/90"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-white shadow-xs">
+                    <Globe className="h-3.5 w-3.5" />
+                  </div>
+                  <span className="font-heading text-xs font-bold text-foreground sm:text-sm">
+                    Live Web Agent Dashboard
+                  </span>
+                </div>
+
+                <div className="hidden items-center gap-2 sm:flex">
+                  <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                    Real-time Sync
+                  </span>
+                  <span className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                    COD Engine
+                  </span>
+                  <span className="rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                    Live
+                  </span>
+                </div>
+              </div>
+
+              {/* Middle Simulated Pipeline Tasks */}
+              <div className="my-auto grid grid-cols-3 gap-2 pt-2 sm:gap-3">
+                <div
+                  data-preserve-radius="true"
+                  className="rounded-xl border border-border/60 bg-white/80 p-2.5 shadow-2xs backdrop-blur-sm dark:border-white/5 dark:bg-slate-900/60"
+                >
+                  <span className="text-[10px] font-semibold text-muted-foreground">Visitor Queries</span>
+                  <div className="mt-1 font-heading text-sm font-extrabold text-foreground sm:text-base">1,482</div>
+                </div>
+                <div
+                  data-preserve-radius="true"
+                  className="rounded-xl border border-border/60 bg-white/80 p-2.5 shadow-2xs backdrop-blur-sm dark:border-white/5 dark:bg-slate-900/60"
+                >
+                  <span className="text-[10px] font-semibold text-muted-foreground">Instant Replies</span>
+                  <div className="mt-1 font-heading text-sm font-extrabold text-primary sm:text-base dark:text-sky-400">
+                    100%
+                  </div>
+                </div>
+                <div
+                  data-preserve-radius="true"
+                  className="rounded-xl border border-border/60 bg-white/80 p-2.5 shadow-2xs backdrop-blur-sm dark:border-white/5 dark:bg-slate-900/60"
+                >
+                  <span className="text-[10px] font-semibold text-muted-foreground">Orders Captured</span>
+                  <div className="mt-1 font-heading text-sm font-extrabold text-emerald-600 sm:text-base dark:text-emerald-400">
+                    ৳384,500
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Bottom Action Pill matching reference image */}
+              <div
+                data-preserve-radius="true"
+                className="flex items-center justify-between rounded-full border border-border/80 bg-white/95 p-1.5 shadow-md backdrop-blur-md dark:border-white/10 dark:bg-slate-900/90"
+              >
+                <div className="flex items-center gap-2 pl-3">
+                  <Sparkles className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                    Full catalog, inventory &amp; courier sync active
+                  </span>
+                </div>
+                <span
+                  data-preserve-radius="true"
+                  className="rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white shadow-xs"
+                >
+                  Auto-Pilot
+                </span>
+              </div>
+            </div>
+
+            {/* Content Info */}
+            <div className="mt-6 flex flex-1 flex-col justify-between">
+              <div>
+                <h3 className="font-heading text-lg font-bold text-foreground sm:text-xl">
+                  Full Website Automation
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  Embed smart AI sales widgets on your eCommerce store. Handle stock inquiries,
+                  recommend matching products, auto-calculate shipping rates, and pass confirmed orders straight to Pathao or Steadfast.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-2">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-all hover:gap-2.5 dark:text-sky-400"
+                >
+                  <span>Explore Web Live Assistant</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 5: CPA Marketing Automation (Row 2, 1-Col, Matching Radial Hub Diagram) */}
+          <div
+            data-preserve-radius="true"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/40 hover:shadow-xl dark:border-white/10 dark:bg-[#0f1422]"
+          >
+            {/* Graphic Stage: Central Radial Network Hub with Connecting Integration Satellites */}
+            <div
+              data-preserve-radius="true"
+              className="relative flex h-56 w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50/80 via-orange-50/40 to-rose-50/50 p-4 transition-transform duration-500 group-hover:scale-[1.02] sm:h-64 dark:from-amber-950/30 dark:via-slate-900/50 dark:to-orange-950/30"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#f59e0b/10,transparent_70%)]" />
+
+              {/* Orbit Diagram Container */}
+              <div className="relative flex h-36 w-36 items-center justify-center sm:h-44 sm:w-44">
+                {/* Outer Circular Track */}
+                <div className="absolute inset-0 rounded-full border border-dashed border-amber-500/30" />
+
+                {/* Central Radial Hub */}
+                <div
+                  data-preserve-radius="true"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-500 text-white shadow-lg shadow-amber-500/30 sm:h-14 sm:w-14"
+                >
+                  <Layers className="h-6 w-6 text-white" />
+                </div>
+
+                {/* Satellite 1: Top (Postbacks) */}
+                <div
+                  data-preserve-radius="true"
+                  className="absolute -top-2 flex h-8 w-8 items-center justify-center rounded-xl border border-border/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900"
+                  title="Server-to-Server Postbacks"
+                >
+                  <Zap className="h-4 w-4 text-amber-500" />
+                </div>
+
+                {/* Satellite 2: Right (Ad Networks) */}
+                <div
+                  data-preserve-radius="true"
+                  className="absolute -right-2 flex h-8 w-8 items-center justify-center rounded-xl border border-border/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900"
+                  title="Multi-Ad Networks"
+                >
+                  <Bot className="h-4 w-4 text-blue-500" />
+                </div>
+
+                {/* Satellite 3: Bottom (Affiliate Sync) */}
+                <div
+                  data-preserve-radius="true"
+                  className="absolute -bottom-2 flex h-8 w-8 items-center justify-center rounded-xl border border-border/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900"
+                  title="Affiliate Tracking"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                </div>
+
+                {/* Satellite 4: Left (Lead Filters) */}
+                <div
+                  data-preserve-radius="true"
+                  className="absolute -left-2 flex h-8 w-8 items-center justify-center rounded-xl border border-border/80 bg-white shadow-sm dark:border-white/10 dark:bg-slate-900"
+                  title="Anti-Fraud Filtering"
+                >
+                  <MessageSquare className="h-4 w-4 text-purple-500" />
+                </div>
+              </div>
+            </div>
+
+            {/* Content Info */}
+            <div className="mt-6 flex flex-1 flex-col justify-between">
+              <div>
+                <h3 className="font-heading text-lg font-bold text-foreground">
+                  CPA Marketing Automation
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  Automate high-volume lead qualification, server-to-server postbacks, and payout triggers.
+                  Route quality conversions directly into affiliate platforms in milliseconds.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-2">
+                <Link
+                  href="/cpa-marketing-automation"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 transition-all hover:gap-2.5 dark:text-amber-400"
+                >
+                  <span>Explore CPA Engine</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
