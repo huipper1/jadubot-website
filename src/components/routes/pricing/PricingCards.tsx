@@ -1,19 +1,23 @@
 "use client";
 
+import { ArrowRight, Bot, Building2, Check, Shield, Star, Zap } from "lucide-react";
 import { useRef } from "react";
 
-import { ArrowRight, Check, Star } from "lucide-react";
-
 import { usePopAnimation } from "@/lib/animations";
-
 import { cn } from "@/utils";
-
 import { PRICING_TIERS } from "./pricing-data";
 
 export interface PricingCardsProps {
   className?: string;
   isStandalone?: boolean;
 }
+
+const TIER_ICONS: Record<string, React.ElementType> = {
+  free: Shield,
+  starter: Zap,
+  premium: Bot,
+  business: Building2
+};
 
 export function PricingCards({ className, isStandalone = true }: PricingCardsProps) {
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -29,12 +33,13 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
     <div
       ref={gridRef}
       className={cn(
-        "grid grid-cols-1 items-start gap-x-5 gap-y-12 sm:grid-cols-2 xl:grid-cols-4",
+        "grid grid-cols-1 items-stretch gap-6 pt-6 sm:grid-cols-2 xl:grid-cols-4",
         className
       )}
     >
       {PRICING_TIERS.map((tier, idx) => {
         const isHighlight = tier.isPopular;
+        const IconComponent = TIER_ICONS[tier.id] || Zap;
 
         return (
           <div
@@ -42,134 +47,123 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
             ref={(el) => {
               if (el) cardsRef.current[idx] = el;
             }}
-            className="flex flex-col gap-5 will-change-transform lg:gap-7"
+            data-preserve-radius="true"
+            className={cn(
+              "group relative flex flex-col justify-between rounded-[10px]  transition-all duration-300 will-change-transform",
+              // Highlight Card (Themed after Jadubot's royal primary color and reference prominent card)
+              isHighlight
+                ? "border-2 border-primary bg-card/95 shadow-xl shadow-primary/10 ring-1 ring-primary/30 dark:border-primary dark:bg-slate-950/90 dark:shadow-[0_20px_50px_rgba(1,114,255,0.18)]"
+                : "border border-border/80 bg-card/70 shadow-xs hover:border-border hover:bg-card/90 hover:shadow-md dark:border-white/10 dark:bg-card/40 dark:hover:border-white/20"
+            )}
           >
-            {/* Top Card / Control Box */}
-            <div
-              className={cn(
-                "relative flex flex-col justify-between rounded-2xl p-6 transition-all duration-300 sm:min-h-[360px]",
-                isHighlight
-                  ? "dark-surface border-2 border-primary bg-slate-950 text-white shadow-[0_12px_40px_-10px_rgba(21,93,252,0.45)] dark:border-primary dark:bg-[#0c1222]"
-                  : "border border-border bg-card shadow-xs hover:border-primary/40 hover:shadow-card dark:bg-card/70"
-              )}
-            >
-              {/* Floating Top Center "MOST POPULAR" Badge Pill */}
-              {isHighlight && (
-                <div className="absolute -top-3.5 left-1/2 z-20 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-300/40 bg-gradient-to-r from-blue-600 via-primary to-sky-500 px-3.5 py-1 text-[11px] font-bold tracking-wider whitespace-nowrap text-white uppercase shadow-[0_0_20px_rgba(14,165,233,0.7)] drop-shadow-sm">
-                    <Star className="h-3 w-3 fill-white text-white" />
-                    <span>Most Popular</span>
-                  </span>
-                </div>
-              )}
+            {/* Relative Floating Top Banner for Most Popular Tier: does NOT push inside card content down */}
+            {isHighlight && (
+              <div className="absolute -top-3.5 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-300/40 bg-gradient-to-r from-blue-600 via-primary to-sky-500 px-4 py-1 text-[11px] font-bold tracking-wider text-white uppercase shadow-[0_4px_16px_rgba(1,114,255,0.4)] drop-shadow-sm select-none">
+                  <Star className="h-3 w-3 fill-white text-white" />
+                  <span>Most Popular</span>
+                </span>
+              </div>
+            )}
 
-              {/* Top ambient glow on highlight tier */}
-              {isHighlight && (
-                <div
-                  className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-primary/30 blur-2xl"
-                  aria-hidden="true"
-                />
-              )}
+            {/* Inner Content Wrapper */}
+            <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+              <div>
+                {/* Tier Icon & Plan Name Row */}
+                <div className="flex items-center gap-3">
+                  <div
+                    className={cn(
+                      "flex h-11 w-11 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105",
+                      isHighlight
+                        ? "bg-primary text-white shadow-md shadow-primary/30"
+                        : "bg-primary/10 text-primary dark:bg-white/10 dark:text-sky-400"
+                    )}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </div>
 
-              <div className="relative flex flex-1 flex-col justify-between gap-4 pb-4">
-                {/* Plan Header */}
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3
-                      className={cn(
-                        "m-0 font-heading text-xl font-bold tracking-tight",
-                        isHighlight ? "!text-white" : "text-foreground"
-                      )}
-                    >
+                  <div className="flex flex-col">
+                    <h3 className="m-0 font-heading text-xl font-bold tracking-tight text-foreground">
                       {tier.name}
                     </h3>
                     {!isHighlight && tier.badge && (
-                      <span className="rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                      <span className="text-[11px] font-semibold text-primary dark:text-sky-400">
                         {tier.badge}
                       </span>
                     )}
                   </div>
-                  <p
-                    className={cn(
-                      "m-0 text-xs leading-relaxed",
-                      isHighlight ? "!text-slate-300" : "text-muted-foreground"
-                    )}
-                  >
-                    {tier.description}
-                  </p>
                 </div>
 
-                {/* Price & Spec Pill */}
-                <div className="flex flex-col items-start gap-3">
-                  <div className="flex shrink-0 items-baseline gap-1.5">
-                    <span
-                      className={cn(
-                        "font-heading text-3xl font-extrabold tracking-tight whitespace-nowrap sm:text-4xl",
-                        isHighlight ? "!text-white" : "text-foreground"
-                      )}
-                    >
-                      {tier.price}
-                    </span>
-                    <span
-                      className={cn(
-                        "text-xs font-medium whitespace-nowrap",
-                        isHighlight ? "!text-slate-400" : "text-muted-foreground"
-                      )}
-                    >
-                      / {tier.period}
-                    </span>
-                  </div>
+                {/* Description */}
+                <p className="mt-3 min-h-[38px] text-xs leading-relaxed text-muted-foreground">
+                  {tier.description}
+                </p>
 
-                  {/* Spec Indicator Pill */}
-                  <div
+                {/* Price Display */}
+                <div className="mt-5 flex items-baseline gap-1.5 border-b border-border/60 pb-5 dark:border-white/10">
+                  <span className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                    {tier.price}
+                  </span>
+                  <span className="text-xs font-medium text-muted-foreground">
+                    / {tier.period}
+                  </span>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-5">
+                  <a
+                    href={tier.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={cn(
-                      "relative flex w-full items-center justify-between rounded-full border px-3.5 py-2 text-xs font-medium transition-colors",
+                      "inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all duration-200 active:scale-[0.98]",
                       isHighlight
-                        ? "spec-pill border-white/20 bg-white/10 !text-white backdrop-blur-md"
-                        : "border-border bg-muted/40 text-foreground/85"
+                        ? "bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40"
+                        : "border border-border/90 bg-muted/40 text-foreground hover:bg-muted/80 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
                     )}
                   >
-                    <span className="truncate">{tier.specPill}</span>
-                  </div>
+                    <span>{tier.ctaText}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+
+                {/* Features List Section */}
+                <div className="mt-6">
+                  {tier.previousTierText && (
+                    <div className="mb-3 text-[11px] font-bold tracking-wide text-primary uppercase dark:text-sky-400">
+                      {tier.previousTierText}
+                    </div>
+                  )}
+
+                  <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+                    {tier.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5">
+                        <div
+                          className={cn(
+                            "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full",
+                            isHighlight
+                              ? "bg-primary/15 text-primary dark:bg-primary/25 dark:text-sky-400"
+                              : "bg-muted text-muted-foreground dark:bg-white/10 dark:text-slate-300"
+                          )}
+                        >
+                          <Check className="h-2.5 w-2.5 stroke-[3]" />
+                        </div>
+                        <span className="flex-1 text-xs leading-normal text-foreground/85">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              {/* Full-width CTA Button */}
-              <a
-                href={tier.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "relative mt-2 inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all duration-200",
-                  isHighlight
-                    ? "bg-primary text-white shadow-[0_4px_18px_rgba(21,93,252,0.4)] hover:bg-primary/90"
-                    : "bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
-                )}
-              >
-                <span>{tier.ctaText}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </a>
+              {/* Spec Pill / Capacity Tag At Bottom */}
+              <div className="mt-6 border-t border-border/60 pt-4 dark:border-white/10">
+                <div className="flex items-center justify-between rounded-lg bg-muted/40 px-3 py-1.5 text-[11px] font-medium text-muted-foreground dark:bg-white/5">
+                  <span className="truncate">{tier.specPill}</span>
+                </div>
+              </div>
             </div>
-
-            {/* Bottom Feature List with Glide Dashed Dividers */}
-            <ul className="m-0 flex list-none flex-col px-1 py-0">
-              {tier.previousTierText && (
-                <li className="pb-3 text-xs font-semibold text-primary dark:text-[#38bdf8]">
-                  {tier.previousTierText}
-                </li>
-              )}
-              {tier.features.map((feature, fIdx) => (
-                <li
-                  key={fIdx}
-                  className="flex items-start gap-2.5 px-0.5 py-1.5 [&+li]:mt-2.5 [&+li]:border-t [&+li]:border-dashed [&+li]:border-border/80 [&+li]:pt-2.5"
-                >
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary dark:text-sky-400" />
-                  <span className="flex-1 text-xs leading-normal text-foreground/80 sm:text-sm">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         );
       })}
@@ -186,3 +180,4 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
     </section>
   );
 }
+
