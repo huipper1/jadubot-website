@@ -1,7 +1,8 @@
 "use client";
 
-import { Calendar, MessageCircle } from "lucide-react";
+import { Calendar } from "lucide-react";
 
+import { WhatsAppIcon } from "@/components/icons";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 import { PopIn } from "@/components/animations";
@@ -50,7 +51,7 @@ export function PricingFaq() {
                     rel="noopener noreferrer"
                     className="btn-black inline-flex items-center gap-1.5 !px-3.5 !py-2 text-xs"
                   >
-                    <MessageCircle className="h-3 w-3 text-emerald-500" />
+                    <WhatsAppIcon className="h-3.5 w-3.5 text-emerald-500" />
                     <span>WhatsApp Us</span>
                   </a>
                 </div>

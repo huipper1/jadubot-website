@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, CheckCircle2, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+
+import { FacebookIcon } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
 
@@ -25,12 +27,10 @@ export function Footer() {
         Light mode: Crisp, high-contrast, elevated slate-dark glass card with glowing electric brand accents.
         Dark mode: Midnight deep glass card with ambient backlight.
       */}
-      <div className="relative z-20 mx-auto max-w-4xl px-4 sm:px-6">
+      {/* <div className="relative z-20 mx-auto max-w-4xl px-4 sm:px-6">
         <div
-          // data-preserve-radius="true"
           className="relative -mb-16 overflow-hidden rounded-2xl border border-border/80 bg-card p-6 shadow-2xl backdrop-blur-2xl sm:-mb-20 sm:rounded-3xl sm:px-12 sm:py-12 lg:-mb-24 lg:py-14 dark:border-white/10 dark:bg-[#0d1424] dark:shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
         >
-          {/* Subtle Ambient Radial Glow inside newsletter box */}
           <div
             className="pointer-events-none absolute -top-24 left-1/2 h-56 w-96 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl dark:bg-primary/25"
             aria-hidden="true"
@@ -44,7 +44,6 @@ export function Footer() {
               Businesses & founders stay up to date with the latest AI sales automation, features & announcements.
             </p>
 
-            {/* Newsletter Subscription Input Form */}
             {subscribed ? (
               <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-5 py-2.5 text-xs font-semibold text-emerald-600 sm:text-sm dark:text-emerald-400">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
@@ -76,7 +75,7 @@ export function Footer() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* 
         Main Footer Container
@@ -286,7 +285,7 @@ export function Footer() {
                 data-preserve-radius="true"
                 className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
-                <Twitter className="h-4 w-4"/>
+                <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="https://www.instagram.com/jadubotbd/"
@@ -306,7 +305,7 @@ export function Footer() {
                 data-preserve-radius="true"
                 className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
               >
-                <Facebook className="h-4 w-4" />
+                <FacebookIcon className="h-4 w-4" />
               </a>
             </div>
           </div>

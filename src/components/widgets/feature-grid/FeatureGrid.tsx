@@ -48,6 +48,7 @@ import {
   Zap
 } from "lucide-react";
 
+import { FacebookIcon, WhatsAppIcon } from "@/components/icons";
 import { usePopAnimation } from "@/lib/animations";
 
 export interface FeatureItem {
@@ -79,7 +80,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   CreditCard,
   Database,
   Eye,
-  Facebook,
+  Facebook: FacebookIcon,
   Filter,
   GitFork,
   GitMerge,
@@ -109,6 +110,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   UserCheck,
   Video,
   Volume2,
+  WhatsApp: WhatsAppIcon,
   Zap
 };
 

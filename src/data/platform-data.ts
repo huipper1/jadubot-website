@@ -6,7 +6,7 @@ export const platformData: PlatformData[] = [
     name: "WhatsApp Automation",
     navTitle: "WhatsApp",
     navDescription: "WhatsApp marketing automation for sales & support.",
-    iconName: "MessageCircle",
+    iconName: "WhatsApp",
     metaTitle: "WhatsApp Chatbot & Marketing Automation Platform | Jadubot",
     metaDescription:
       "Automate WhatsApp sales, customer support, cart recovery, and broadcast notifications without coding on official WhatsApp Business APIs with Jadubot.",

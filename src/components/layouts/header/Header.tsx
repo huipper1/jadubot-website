@@ -37,6 +37,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
+import { FacebookIcon, WhatsAppIcon } from "@/components/icons";
 import { getIndustryBySlug } from "@/components/routes/industry";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { CALENDLY_DEMO_URL } from "@/config/site";
@@ -45,8 +46,10 @@ import { platformData } from "@/data/platform-data";
 import { cn } from "@/utils";
 
 const PLATFORM_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  MessageCircle,
-  MessageSquare,
+  WhatsApp: WhatsAppIcon,
+  Facebook: FacebookIcon,
+  MessageCircle: WhatsAppIcon,
+  MessageSquare: FacebookIcon,
   Instagram,
   Send,
   Globe

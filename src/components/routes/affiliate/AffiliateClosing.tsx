@@ -1,7 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
-
+import { WhatsAppIcon } from "@/components/icons";
 import { UnifiedCta } from "@/components/sections";
 
 export function AffiliateClosing() {
@@ -21,7 +20,7 @@ export function AffiliateClosing() {
         text: "হোয়াটসঅ্যাপ সাপোর্ট (01707991750)",
         href: "https://wa.me/8801707991750?text=Hi%20Jadubot,%20I%20want%20to%20know%20more%20about%20your%20affiliate%20program",
         external: true,
-        icon: <MessageCircle className="h-4 w-4 text-emerald-400" />
+        icon: <WhatsAppIcon className="h-4 w-4 text-emerald-400" />
       }}
       trustBadges={[
         "২০% লাইফটাইম রিকারিং কমিশন",

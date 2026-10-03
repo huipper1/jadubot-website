@@ -6,11 +6,12 @@ import {
   Clock,
   Mail,
   MapPin,
-  MessageCircle,
   Phone,
   ShieldCheck,
   Users
 } from "lucide-react";
+
+import { WhatsAppIcon } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
 
@@ -39,7 +40,7 @@ export function ContactInfo() {
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#25D366]/15 text-[#25D366]">
-              <MessageCircle className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">

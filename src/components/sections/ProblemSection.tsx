@@ -8,13 +8,13 @@ import {
   ChevronRight,
   Globe,
   Layers,
-  MessageCircle,
   MessageSquare,
   Send,
   Sparkles,
   Zap
 } from "lucide-react";
 
+import { WhatsAppIcon } from "@/components/icons";
 import { usePopAnimation } from "@/lib/animations";
 
 export function ProblemSection() {
@@ -157,7 +157,7 @@ export function ProblemSection() {
                     </span>
                   </div>
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xs">
-                    <MessageCircle className="h-3 w-3 fill-white" />
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-white text-white" />
                   </div>
                 </div>
 
