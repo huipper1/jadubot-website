@@ -102,18 +102,13 @@ export function AgentHero({ agent }: AgentHeroProps) {
 
           {/* Right Column: Visual Mockup & Section Image */}
           <div ref={visualRef} className="will-change-transform lg:col-span-5">
-            <div className="space-y-4">
-              <SectionImage
-                src={`/assets/images/ai-agents/${agent.slug}/hero.webp`}
-                alt={`${agent.name} AI System Interface`}
-                aspect="16/10"
-                priority
-                badge="AI Specialist"
-              />
-              <div className="rounded-2xl border border-border/80 bg-card/60 p-2 shadow-sm">
-                <AgentHeroVisual visualType={agent.heroVisualType} />
-              </div>
-            </div>
+            <SectionImage
+              src={`/assets/images/ai-agents/${agent.slug}/hero.webp`}
+              alt={`${agent.name} AI System Interface`}
+              aspect="16/10"
+              priority
+              badge="AI Specialist"
+            />
           </div>
         </div>
 
@@ -150,11 +145,11 @@ export function AgentHero({ agent }: AgentHeroProps) {
 
 interface AgentHeroVisualProps {
   visualType:
-    | "lead-qualification"
-    | "customer-support"
-    | "sales-agent"
-    | "shopify-whatsapp"
-    | "woocommerce-whatsapp";
+  | "lead-qualification"
+  | "customer-support"
+  | "sales-agent"
+  | "shopify-whatsapp"
+  | "woocommerce-whatsapp";
 }
 
 function AgentHeroVisual({ visualType }: AgentHeroVisualProps) {

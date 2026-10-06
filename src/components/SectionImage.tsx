@@ -41,9 +41,8 @@ export function SectionImage({
   return (
     <figure
       className={cn(
-        "group relative mx-auto w-full overflow-hidden rounded-2xl md:rounded-3xl",
-        "border border-border/80 bg-card/60 backdrop-blur-sm",
-        "shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-card",
+        "group relative mx-auto w-full overflow-hidden",
+        "shadow-sm transition-all duration-300",
         aspectClass,
         className
       )}
