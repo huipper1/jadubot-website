@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle as CheckCircle2 } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 

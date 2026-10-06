@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { ChevronDown } from "lucide-react";
+import { CaretDown as ChevronDown } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";

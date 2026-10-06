@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Info, Minus } from "lucide-react";
+import { Check, Info, Minus } from "@/components/icons";
 
 import { cn } from "@/utils";
 

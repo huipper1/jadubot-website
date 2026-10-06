@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Star } from "lucide-react";
+import { ArrowRight, CaretRight as ChevronRight, Star } from "@/components/icons";
 
 import { CardStrip } from "./CardStrip";
 import { CALENDLY_DEMO_URL } from "@/config/site";

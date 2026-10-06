@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, TrendingUp } from "lucide-react";
+import { WarningCircle as AlertCircle, CheckCircle as CheckCircle2, TrendUp as TrendingUp } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";

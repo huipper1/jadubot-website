@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ArrowRight, CheckCircle2, Mail, XCircle } from "lucide-react";
+import { ArrowRight, CheckCircle as CheckCircle2, Envelope as Mail, XCircle } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

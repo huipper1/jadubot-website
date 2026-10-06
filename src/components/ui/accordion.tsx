@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { ChevronDown } from "lucide-react";
+import { CaretDown as ChevronDown } from "@/components/icons";
 import { Accordion as AccordionPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";

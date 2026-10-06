@@ -1,4 +1,4 @@
-import { Bot, Database, Link2, TrendingUp } from "lucide-react";
+import { Robot as Bot, Database, Link as Link2, TrendUp as TrendingUp } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { SectionHeader } from "@/ui";

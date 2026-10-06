@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import { ArrowRight, CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { ArrowRight, CheckCircle as CheckCircle2, ChatCircleDots as MessageCircle, PaperPlaneTilt as Send } from "@/components/icons";
 
 import { gsap, useGSAP } from "@/lib/animations";
 

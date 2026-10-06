@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 
-import {
-  CheckCircle2,
-  Cpu,
-  Radio,
-  ShieldCheck,
-  TrendingUp,
-  Workflow
-} from "lucide-react";
+import { CheckCircle as CheckCircle2, Cpu, Radio, ShieldCheck, TrendUp as TrendingUp, GitFork as Workflow } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

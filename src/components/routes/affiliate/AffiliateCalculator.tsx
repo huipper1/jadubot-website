@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { ArrowRight, Calculator, CheckCircle, TrendingUp, Wallet } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle, TrendUp as TrendingUp, Wallet } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

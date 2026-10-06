@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, CreditCard, ShieldCheck, Users } from "lucide-react";
+import { CheckCircle as CheckCircle2, CreditCard, ShieldCheck, Users } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

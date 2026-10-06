@@ -2,16 +2,7 @@
 
 import { useRef } from "react";
 
-import {
-  ArrowRight,
-  Bot,
-  CheckCircle2,
-  Clock,
-  Globe,
-  MessageSquare,
-  Send,
-  Zap
-} from "lucide-react";
+import { ArrowRight, Robot as Bot, CheckCircle as CheckCircle2, Clock, Globe, ChatTeardropDots as MessageSquare, PaperPlaneTilt as Send, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { FacebookIcon, WhatsAppIcon } from "@/components/icons";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Calendar, Clock, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, CalendarBlank as Calendar, Clock, ChatCircleDots as MessageCircle, Phone, ShieldCheck } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL, siteConfig } from "@/config/site";
 

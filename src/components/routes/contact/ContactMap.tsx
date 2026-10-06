@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, MapPin, Navigation } from "lucide-react";
+import { ArrowSquareOut as ExternalLink, MapPin, NavigationArrow as Navigation } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

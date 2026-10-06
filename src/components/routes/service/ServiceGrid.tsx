@@ -3,18 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 
-import {
-  Check,
-  Cpu,
-  FileText,
-  Bot,
-  Instagram,
-  MessageSquare,
-  Send,
-  ShieldCheck,
-  ShoppingCart,
-  Zap
-} from "lucide-react";
+import { Check, Cpu, FileText, Robot as Bot, SiInstagram as Instagram, SiMessenger, ChatTeardropDots as MessageSquare, PaperPlaneTilt as Send, ShieldCheck, ShoppingCart, Lightning as Zap } from "@/components/icons";
 
 import { gsap, useGSAP } from "@/lib/animations";
 
@@ -33,12 +22,7 @@ function FloatingBadge({ type }: { type: ServiceItem["iconType"] }) {
             data-preserve-radius="true"
             className="flex h-full w-full items-center justify-center rounded-full bg-[#0084ff]/90 backdrop-blur-md"
           >
-            <svg
-              className="h-4 w-4 fill-white text-white drop-shadow-md sm:h-5 sm:w-5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.915 1.45 5.518 3.716 7.15V22l3.433-1.884c.915.254 1.884.39 2.851.39 5.523 0 10-4.145 10-9.26C22 6.145 17.523 2 12 2zm1.06 12.443l-2.67-2.85-5.21 2.85 5.73-6.08 2.73 2.85 5.15-2.85-5.73 6.08z" />
-            </svg>
+            <SiMessenger color="default" className="h-4 w-4 drop-shadow-md sm:h-5 sm:w-5" />
           </div>
         </div>
       );

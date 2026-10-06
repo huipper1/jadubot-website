@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar } from "lucide-react";
+import { CalendarBlank as Calendar } from "@/components/icons";
 
 import { WhatsAppIcon } from "@/components/icons";
 import { CALENDLY_DEMO_URL } from "@/config/site";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, CalendarBlank as Calendar, Clock } from "@/components/icons";
 
 import type { EnrichedBlogPostMeta } from "@/lib/content/blog-utils";
 import { formatBlogDate } from "@/lib/content/blog-utils";

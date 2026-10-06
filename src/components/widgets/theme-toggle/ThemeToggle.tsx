@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "@/components/icons";
 import { useTheme } from "next-themes";
 
 const emptySubscribe = () => () => {};

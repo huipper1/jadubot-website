@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  ArrowUpRight,
-  Calendar,
-  Clock,
-  Mail,
-  MapPin,
-  Phone,
-  ShieldCheck,
-  Users
-} from "lucide-react";
+import { ArrowUpRight, CalendarBlank as Calendar, Clock, Envelope as Mail, MapPin, Phone, ShieldCheck, Users } from "@/components/icons";
 
 import { WhatsAppIcon } from "@/components/icons";
 

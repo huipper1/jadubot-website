@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, Check, ShieldCheck, Star } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";

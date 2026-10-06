@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, BarChart3, Gift, Percent, Wallet } from "lucide-react";
+import { Trophy as Award, ChartBar as BarChart3, Gift, Percent, Wallet } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

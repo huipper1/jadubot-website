@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3, TrendingUp } from "lucide-react";
+import { ChartBar as BarChart3, TrendUp as TrendingUp } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

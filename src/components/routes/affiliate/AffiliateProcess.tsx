@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Link2, Share2, UserCheck, Wallet } from "lucide-react";
+import { ArrowRight, Link as Link2, ShareNetwork as Share2, UserCheck, Wallet } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

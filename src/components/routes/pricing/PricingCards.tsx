@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Bot, Building2, Check, Shield, Star, Zap } from "lucide-react";
+import { ArrowRight, Robot as Bot, Buildings as Building2, Check, Shield, Star, Lightning as Zap } from "@/components/icons";
 import { useRef } from "react";
 
 import { usePopAnimation } from "@/lib/animations";
@@ -69,19 +69,8 @@ export function PricingCards({ className, isStandalone = true }: PricingCardsPro
             {/* Inner Content Wrapper */}
             <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
               <div>
-                {/* Tier Icon & Plan Name Row */}
+                {/* Plan Name Row */}
                 <div className="flex items-center gap-3">
-                  <div
-                    className={cn(
-                      "flex h-11 w-11 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105",
-                      isHighlight
-                        ? "bg-primary text-white shadow-md shadow-primary/30"
-                        : "bg-primary/10 text-primary dark:bg-white/10 dark:text-sky-400"
-                    )}
-                  >
-                    <IconComponent className="h-5 w-5" />
-                  </div>
-
                   <div className="flex flex-col">
                     <h3 className="m-0 font-heading text-xl font-bold tracking-tight text-foreground">
                       {tier.name}

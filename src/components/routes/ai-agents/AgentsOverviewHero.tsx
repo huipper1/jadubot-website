@@ -2,14 +2,7 @@
 
 import { useRef } from "react";
 
-import {
-  ArrowRight,
-  BrainCircuit,
-  CheckCircle2,
-  Database,
-  GitBranch,
-  Zap
-} from "lucide-react";
+import { ArrowRight, Brain as BrainCircuit, CheckCircle as CheckCircle2, Database, GitBranch, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { usePopAnimation } from "@/lib/animations";

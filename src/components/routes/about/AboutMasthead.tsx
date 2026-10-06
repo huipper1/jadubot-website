@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, MapPin } from "lucide-react";
+import { BookOpen, MapPin } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

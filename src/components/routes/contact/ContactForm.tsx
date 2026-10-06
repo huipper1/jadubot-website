@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { CheckCircle2, Loader2, Send, ShieldCheck } from "lucide-react";
+import { CheckCircle as CheckCircle2, SpinnerGap as Loader2, PaperPlaneTilt as Send, ShieldCheck } from "@/components/icons";
 import { toast } from "sonner";
 
 import { PopIn } from "@/components/animations";

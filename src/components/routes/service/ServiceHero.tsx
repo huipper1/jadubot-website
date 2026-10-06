@@ -7,6 +7,7 @@ import { CALENDLY_DEMO_URL } from "@/config/site";
 import { gsap, useGSAP } from "@/lib/animations";
 
 import { PopIn } from "@/components/animations";
+import { SiFacebook, SiInstagram, SiMessenger, SiTelegram, SiWhatsapp } from "@/components/icons";
 
 import { ServiceGrid } from "./ServiceGrid";
 
@@ -36,96 +37,51 @@ const FLOATING_SOCIALS: SocialIconItem[] = [
     id: "messenger",
     name: "Facebook Messenger",
     position: "-top-2 left-[2%] sm:top-2 sm:left-[6%] md:left-[9%] lg:left-[11%]",
-    bgGradient: "bg-gradient-to-tr from-[#0084ff] via-[#0172ff] to-[#00c6ff]",
+    bgGradient: "",
     glowClass: "bg-[#0084ff]",
     float: { x: 9, y: -16, rotation: 8, duration: 4.2, delay: 0 },
     scroll: { x: -35, y: -130, rotation: -16 },
-    icon: (
-      <svg className="h-4 w-4 fill-white sm:h-5 sm:w-5" viewBox="0 0 24 24">
-        <path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.915 1.45 5.518 3.716 7.15V22l3.433-1.884c.915.254 1.884.39 2.851.39 5.523 0 10-4.145 10-9.26C22 6.145 17.523 2 12 2zm1.06 12.443l-2.67-2.85-5.21 2.85 5.73-6.08 2.73 2.85 5.15-2.85-5.73 6.08z" />
-      </svg>
-    )
+    icon: <SiMessenger color="default" className="h-7 w-7" />
   },
   {
     id: "instagram",
     name: "Instagram",
     position: "-top-3 right-[2%] sm:top-1 sm:right-[6%] md:right-[9%] lg:right-[11%]",
-    bgGradient: "bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]",
+    bgGradient: "",
     glowClass: "bg-[#dd2a7b]",
     float: { x: -8, y: 18, rotation: -9, duration: 4.6, delay: 0.3 },
     scroll: { x: 40, y: -155, rotation: 22 },
-    icon: (
-      <svg
-        className="h-4 w-4 fill-none stroke-white stroke-[2] sm:h-5 sm:w-5"
-        viewBox="0 0 24 24"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-      </svg>
-    )
+    icon: <SiInstagram color="default" className="h-7 w-7" />
   },
   {
     id: "whatsapp",
     name: "WhatsApp",
     position: "bottom-14 left-[1%] sm:bottom-16 sm:left-[4%] md:left-[7%] lg:left-[9%]",
-    bgGradient: "bg-gradient-to-tr from-[#25d366] via-[#1ebea5] to-[#128c7e]",
+    bgGradient: "",
     glowClass: "bg-[#25d366]",
     float: { x: -6, y: -13, rotation: 6, duration: 3.7, delay: 0.7 },
     scroll: { x: -28, y: -90, rotation: -12 },
-    icon: (
-       <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 fill-white sm:h-5 sm:w-5"
-    >
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86 0-2.636-1.027-5.115-2.892-6.98A9.793 9.793 0 0 0 12.008 1.84c-5.441 0-9.863 4.42-9.866 9.863-.001 1.662.435 3.284 1.263 4.722l-.997 3.643 3.737-.98l-.098-.055zm11.391-4.865c-.322-.161-1.905-.94-2.199-1.047-.294-.107-.508-.161-.722.161-.214.322-.828 1.047-1.015 1.262-.187.214-.374.241-.696.08-1.554-.78-2.705-1.347-3.778-3.187-.283-.487.283-.452.812-1.512.088-.174.044-.326-.022-.46-.066-.134-.508-1.226-.696-1.677-.182-.439-.367-.38-.508-.387-.13-.007-.28-.008-.43-.008-.15 0-.396.056-.604.281-.208.226-.792.775-.792 1.89s.812 2.197.925 2.348c.114.15 1.597 2.438 3.869 3.416.54.233.962.372 1.29.476.543.172 1.037.148 1.428.09.435-.064 1.332-.544 1.519-1.07.187-.527.187-.978.13-1.07-.056-.093-.208-.147-.53-.309z" />
-    </svg>
-    )
+    icon: <SiWhatsapp color="default" className="h-7 w-7" />
   },
   {
     id: "facebook",
     name: "Facebook",
     position: "bottom-12 right-[1%] sm:bottom-14 sm:right-[4%] md:right-[7%] lg:right-[9%]",
-    bgGradient: "bg-gradient-to-tr from-[#1877f2] via-[#0d6efd] to-[#0052cc]",
+    bgGradient: "",
     glowClass: "bg-[#1877f2]",
     float: { x: 7, y: 15, rotation: -7, duration: 4.1, delay: 0.2 },
     scroll: { x: 30, y: -105, rotation: 14 },
-    icon: (
-      <svg className="h-4 w-4 fill-white sm:h-5 sm:w-5" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-    )
+    icon: <SiFacebook color="default" className="h-7 w-7" />
   },
-  // {
-  //   id: "ai-smart",
-  //   name: "AI Automation",
-  //   position: "top-[40%] -left-1 sm:left-[1%] md:left-[2%] lg:left-[4%] hidden sm:flex",
-  //   bgGradient: "bg-gradient-to-tr from-[#6366f1] via-[#8b5cf6] to-[#d946ef]",
-  //   glowClass: "bg-[#8b5cf6]",
-  //   float: { x: 8, y: -11, rotation: 11, duration: 5.1, delay: 1.1 },
-  //   scroll: { x: -22, y: -120, rotation: 24 },
-  //   icon: (
-  //     <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-white" viewBox="0 0 24 24">
-  //       <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z" />
-  //     </svg>
-  //   )
-  // },
   {
     id: "telegram",
     name: "Telegram",
     position: "top-[36%] -right-1 sm:right-[1%] md:right-[2%] lg:right-[4%] hidden sm:flex",
-    bgGradient: "bg-gradient-to-tr from-[#2aabee] via-[#229ed9] to-[#0088cc]",
+    bgGradient: "",
     glowClass: "bg-[#229ed9]",
     float: { x: -7, y: 13, rotation: -10, duration: 4.5, delay: 0.5 },
     scroll: { x: 26, y: -140, rotation: -18 },
-    icon: (
-      <svg className="h-3.5 w-3.5 fill-white sm:h-4 sm:w-4" viewBox="0 0 24 24">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.868-1.574 7.42-2.283 10.748-.3 1.408-.824 1.879-1.328 1.925-.098.009-.196.014-.294.014-.993 0-1.744-.746-2.705-1.376-1.504-.988-2.354-1.603-3.815-2.566-1.688-1.113-.594-1.725.369-2.727.251-.262 4.63-4.244 4.715-4.605.01-.044.02-.211-.077-.298s-.24-.058-.344-.034c-.147.034-2.493 1.583-7.039 4.651-.665.457-1.267.68-1.805.669-.594-.013-1.737-.336-2.589-.613-1.045-.34-1.876-.52-1.804-1.098.038-.302.454-.611 1.248-.928 4.887-2.129 8.147-3.533 9.779-4.213 4.66-1.94 5.628-2.278 6.26-2.289.139-.002.449.032.65.195.17.138.217.324.239.453.022.13.048.423.026.654z" />
-      </svg>
-    )
+    icon: <SiTelegram color="default" className="h-7 w-7" />
   }
 ];
 
@@ -220,14 +176,9 @@ export function ServiceHero() {
                 {/* 3D Glass Capsule Container */}
                 <div
                   data-preserve-radius="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/60 bg-white/80 p-2 shadow-[0_8px_25px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-transform duration-300 hover:scale-110 sm:h-12 sm:w-12 sm:rounded-3xl md:h-13 md:w-13 dark:border-white/15 dark:bg-[#121520]/80 dark:shadow-[0_8px_25px_rgba(0,0,0,0.5)]"
+                  className="flex h-11 w-11 items-center justify-center"
                 >
-                  <div
-                    data-preserve-radius="true"
-                    className={`flex h-full w-full items-center justify-center rounded-xl sm:rounded-2xl ${social.bgGradient} p-1.5 shadow-inner`}
-                  >
-                    {social.icon}
-                  </div>
+                  {social.icon}
                 </div>
               </div>
             </div>

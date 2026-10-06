@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, PhoneCall, ShieldCheck, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, PhoneCall, ShieldCheck, TrendUp as TrendingUp, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 

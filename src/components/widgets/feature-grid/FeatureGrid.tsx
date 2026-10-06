@@ -2,51 +2,7 @@
 
 import { useRef } from "react";
 
-import {
-  BarChart3,
-  BookOpen,
-  Bot,
-  Calendar,
-  CheckCircle,
-  CheckCircle2,
-  Clock,
-  Code,
-  Cpu,
-  CreditCard,
-  Database,
-  Eye,
-  Facebook,
-  Filter,
-  GitFork,
-  GitMerge,
-  Globe,
-  Headphones,
-  HelpCircle,
-  Inbox,
-  Instagram,
-  Layers,
-  MessageCircle,
-  MessageSquare,
-  Package,
-  Palette,
-  RefreshCw,
-  RotateCcw,
-  Search,
-  Send,
-  Share2,
-  Shield,
-  ShieldCheck,
-  ShoppingBag,
-  ShoppingCart,
-  Shuffle,
-  Star,
-  TrendingUp,
-  Truck,
-  UserCheck,
-  Video,
-  Volume2,
-  Zap
-} from "lucide-react";
+import { ChartBar as BarChart3, BookOpen, Robot as Bot, CalendarBlank as Calendar, CheckCircle, CheckCircle as CheckCircle2, Clock, Code, Cpu, CreditCard, Database, Eye, SiFacebook as Facebook, Funnel as Filter, GitFork, GitMerge, Globe, Headset as Headphones, Question as HelpCircle, Tray as Inbox, SiInstagram as Instagram, Stack as Layers, ChatCircleDots as MessageCircle, ChatTeardropDots as MessageSquare, Package, Palette, ArrowClockwise as RefreshCw, ArrowCounterClockwise as RotateCcw, MagnifyingGlass as Search, PaperPlaneTilt as Send, ShareNetwork as Share2, Shield, ShieldCheck, ShoppingBag, ShoppingCart, Shuffle, Star, TrendUp as TrendingUp, Truck, UserCheck, VideoCamera as Video, SpeakerHigh as Volume2, Lightning as Zap } from "@/components/icons";
 
 import { FacebookIcon, WhatsAppIcon } from "@/components/icons";
 import { usePopAnimation } from "@/lib/animations";

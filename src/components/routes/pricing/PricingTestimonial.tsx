@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, Star } from "lucide-react";
+import { SealCheck as BadgeCheck, Star } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

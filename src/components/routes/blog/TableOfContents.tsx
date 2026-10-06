@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { ChevronDown, ListTree } from "lucide-react";
+import { CaretDown as ChevronDown, TreeStructure as ListTree } from "@/components/icons";
 
 import type { BlogHeading } from "@/lib/content/blog-utils";
 

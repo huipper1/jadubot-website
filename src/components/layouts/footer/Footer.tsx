@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, CheckCircle as CheckCircle2, SiInstagram as Instagram, LinkedinIcon as Linkedin, SiX as Twitter } from "@/components/icons";
 import Link from "next/link";
 import { useState } from "react";
 

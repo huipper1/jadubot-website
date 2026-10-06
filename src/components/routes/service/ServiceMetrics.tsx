@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 
-import { Heart, Smile, TrendingUp, Users } from "lucide-react";
+import { Heart, Smiley as Smile, TrendUp as TrendingUp, Users } from "@/components/icons";
 
 import { gsap, useGSAP } from "@/lib/animations";
 

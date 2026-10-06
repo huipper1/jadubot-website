@@ -5,36 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
-import {
-  ArrowRight,
-  BookOpen,
-  Bot,
-  Briefcase,
-  ChevronDown,
-  Cloud,
-  Coffee,
-  Globe,
-  Handshake,
-  Headphones,
-  HelpCircle,
-  Home,
-  Instagram,
-  LayoutGrid,
-  Mail,
-  MessageCircle,
-  MessageSquare,
-  Plus,
-  RotateCcw,
-  Send,
-  ShoppingBag,
-  ShoppingCart,
-  Smartphone,
-  Truck,
-  UserCheck,
-  Users,
-  Wallet,
-  X
-} from "lucide-react";
+import { ArrowRight, BookOpen, Robot as Bot, Briefcase, CaretDown as ChevronDown, Cloud, Coffee, Globe, Handshake, Headset as Headphones, Question as HelpCircle, House as Home, SiInstagram as Instagram, SquaresFour as LayoutGrid, Envelope as Mail, ChatCircleDots as MessageCircle, ChatTeardropDots as MessageSquare, Plus, ArrowCounterClockwise as RotateCcw, PaperPlaneTilt as Send, ShoppingBag, ShoppingCart, DeviceMobile as Smartphone, Truck, UserCheck, Users, Wallet, X } from "@/components/icons";
 import { useTheme } from "next-themes";
 
 import { FacebookIcon, WhatsAppIcon } from "@/components/icons";

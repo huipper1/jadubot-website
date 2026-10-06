@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { ArrowRight, Calendar, CheckCircle2, Zap } from "lucide-react";
+import { ArrowRight, CalendarBlank as Calendar, CheckCircle as CheckCircle2, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 

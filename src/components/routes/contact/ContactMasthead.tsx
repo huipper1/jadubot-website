@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, MapPin, MessageSquare, Zap } from "lucide-react";
+import { Clock, MapPin, ChatTeardropDots as MessageSquare, Lightning as Zap } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

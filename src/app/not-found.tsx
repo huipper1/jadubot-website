@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Bot, HelpCircle, Home } from "lucide-react";
+import { Robot as Bot, Question as HelpCircle, House as Home } from "@/components/icons";
 
 import { Badge } from "@/ui";
 

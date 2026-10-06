@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity } from "lucide-react";
+import { Pulse as Activity } from "@/components/icons";
 
 export function StatsCard() {
   return (

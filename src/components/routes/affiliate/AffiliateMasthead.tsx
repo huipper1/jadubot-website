@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Calculator, Gift, Users } from "lucide-react";
+import { ArrowRight, Calculator, Gift, Users } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

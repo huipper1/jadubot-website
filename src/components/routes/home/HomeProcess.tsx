@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";

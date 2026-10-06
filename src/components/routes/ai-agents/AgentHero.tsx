@@ -2,19 +2,7 @@
 
 import { useRef } from "react";
 
-import {
-  ArrowRight,
-  Bot,
-  Calendar,
-  CheckCircle2,
-  Clock,
-  Headphones,
-  RotateCcw,
-  ShoppingCart,
-  TrendingUp,
-  UserCheck,
-  Zap
-} from "lucide-react";
+import { ArrowRight, Robot as Bot, CalendarBlank as Calendar, CheckCircle as CheckCircle2, Clock, Headset as Headphones, ArrowCounterClockwise as RotateCcw, ShoppingCart, TrendUp as TrendingUp, UserCheck, Lightning as Zap } from "@/components/icons";
 
 import type { AgentData } from "@/types/ai-agent";
 import { CALENDLY_DEMO_URL } from "@/config/site";

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import { ArrowRight, BookOpen, CheckCircle2, GitBranch, UserCheck, Zap } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle as CheckCircle2, GitBranch, UserCheck, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { usePopAnimation } from "@/lib/animations";

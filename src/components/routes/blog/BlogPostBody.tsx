@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  ArrowRight,
-  Bot,
-  Calendar,
-  CheckCircle2,
-  Clock,
-  FileText,
-  TrendingUp
-} from "lucide-react";
+import { ArrowRight, Robot as Bot, CalendarBlank as Calendar, CheckCircle as CheckCircle2, Clock, FileText, TrendUp as TrendingUp } from "@/components/icons";
 
 import type { BlogPostMeta } from "@/types/content";
 import { CALENDLY_DEMO_URL } from "@/config/site";

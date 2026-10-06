@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { Clock, Envelope as Mail, MapPin, Phone, ShieldCheck } from "@/components/icons";
 
 import { siteConfig } from "@/config/site";
 

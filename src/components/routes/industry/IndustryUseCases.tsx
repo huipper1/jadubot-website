@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { Bot, CheckCircle2, User } from "lucide-react";
+import { Robot as Bot, CheckCircle as CheckCircle2, User } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 import { cn } from "@/utils";

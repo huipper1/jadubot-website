@@ -1,6 +1,6 @@
 "use client";
 
-import { HelpCircle, RotateCcw, ShieldCheck, Zap } from "lucide-react";
+import { Question as HelpCircle, ArrowCounterClockwise as RotateCcw, ShieldCheck, Lightning as Zap } from "@/components/icons";
 
 import { PopIn } from "@/components/animations";
 

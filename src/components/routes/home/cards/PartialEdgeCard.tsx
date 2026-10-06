@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { Sparkle as Sparkles } from "@/components/icons";
 
 export function PartialEdgeCard() {
   return (

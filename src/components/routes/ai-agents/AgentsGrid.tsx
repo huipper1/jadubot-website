@@ -3,14 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import {
-  ArrowRight,
-  Headphones,
-  RotateCcw,
-  ShoppingBag,
-  ShoppingCart,
-  UserCheck
-} from "lucide-react";
+import { ArrowRight, Headset as Headphones, ArrowCounterClockwise as RotateCcw, ShoppingBag, ShoppingCart, UserCheck } from "@/components/icons";
 
 import { aiAgentData } from "@/data/ai-agent-data";
 import { usePopAnimation } from "@/lib/animations";

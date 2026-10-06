@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowRight, BookOpen, Calendar } from "lucide-react";
+import { ArrowRight, BookOpen, CalendarBlank as Calendar } from "@/components/icons";
 
 import type { BlogPostMeta } from "@/types/content";
 

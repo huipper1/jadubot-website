@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowLeft, Calendar, ChevronRight, Clock, FileText, User } from "lucide-react";
+import { ArrowLeft, CalendarBlank as Calendar, CaretRight as ChevronRight, Clock, FileText, User } from "@/components/icons";
 
 import type { BlogPostMeta } from "@/types/content";
 
