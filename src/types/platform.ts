@@ -1,9 +1,7 @@
 export interface PlatformFeature {
   title: string;
   description: string;
-  badge?: string;
   iconName: string;
-  bulletPoints?: string[];
 }
 
 export interface PlatformStep {

@@ -13,8 +13,6 @@ export interface FeatureItem {
   iconName: string;
   title: string;
   description: string;
-  badge?: string;
-  bulletPoints?: string[];
 }
 
 export interface FeatureGridProps {
@@ -26,7 +24,7 @@ export interface FeatureGridProps {
   sectionImage?: {
     src: string;
     alt: string;
-    aspect?: "16/10" | "4/3" | "1/1" | "21/9";
+    aspect?: "16/10" | "4/3" | "1/1" | "21/9" | "4/5" | "none";
     badge?: string;
   };
   imagePosition?: "left" | "right";
@@ -122,26 +120,30 @@ export function FeatureGrid({
           )}
         </div>
 
-        {/* If sectionImage is provided: Alternating Split Layout (Image on one side, feature cards on the other) */}
+        {/* If sectionImage is provided: Balanced Equal 2-Column Split Layout */}
         {sectionImage ? (
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+            {/* Image Column: Equal width, stretches to full height of card grid */}
             <div
               ref={visualRef}
-              className={`lg:col-span-5 ${imagePosition === "right" ? "lg:order-2" : "lg:order-1"}`}
+              className={`flex flex-col ${imagePosition === "right" ? "lg:order-2" : "lg:order-1"}`}
             >
-              <div className="sticky top-28">
+              <div className="relative aspect-[16/10] w-full lg:aspect-auto lg:h-full lg:min-h-[480px] lg:flex-1">
                 <SectionImage
                   src={sectionImage.src}
                   alt={sectionImage.alt}
-                  aspect={sectionImage.aspect || "16/10"}
+                  aspect="none"
+                  className="h-full w-full"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   badge={sectionImage.badge}
                 />
               </div>
             </div>
 
+            {/* Feature Cards Column: 2x3 Grid with equal card heights */}
             <div
               ref={gridRef}
-              className={`grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-7 ${
+              className={`grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 ${
                 imagePosition === "right" ? "lg:order-1" : "lg:order-2"
               }`}
             >
@@ -154,39 +156,19 @@ export function FeatureGrid({
                     ref={(el) => {
                       if (el) cardsRef.current[idx] = el;
                     }}
-                    className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                    className="group relative flex flex-col justify-center rounded-2xl md:rounded-3xl border border-border/80 bg-card p-5 sm:p-6 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
                   >
-                    <div>
-                      <div className="mb-4 flex items-center justify-between gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                          <IconComponent className="h-5 w-5" />
-                        </div>
-                        {feature.badge && (
-                          <span className="rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
-                            {feature.badge}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="font-heading text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                        {feature.title}
-                      </h3>
-
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                        {feature.description}
-                      </p>
+                    <div className="mb-3.5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                      <IconComponent className="h-5 w-5" />
                     </div>
 
-                    {feature.bulletPoints && feature.bulletPoints.length > 0 && (
-                      <ul className="mt-4 space-y-1.5 border-t border-border/60 pt-3 text-[11px] text-muted-foreground">
-                        {feature.bulletPoints.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-1.5">
-                            <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-emerald-500" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <h3 className="font-heading text-base font-bold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-lg">
+                      {feature.title}
+                    </h3>
+
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                      {feature.description}
+                    </p>
                   </div>
                 );
               })}
@@ -204,41 +186,19 @@ export function FeatureGrid({
                   ref={(el) => {
                     if (el) cardsRef.current[idx] = el;
                   }}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
+                  className="group relative flex flex-col justify-center rounded-2xl md:rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-primary/50 hover:shadow-card"
                 >
-                  <div>
-                    {/* Top Bar: Icon + Badge */}
-                    <div className="mb-6 flex items-center justify-between gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                        <IconComponent className="h-6 w-6" />
-                      </div>
-                      {feature.badge && (
-                        <span className="rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-                          {feature.badge}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="font-heading text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                      {feature.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {feature.description}
-                    </p>
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    <IconComponent className="h-5 w-5" />
                   </div>
 
-                  {/* Bullet Points if available */}
-                  {feature.bulletPoints && feature.bulletPoints.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t border-border/60 pt-4 text-xs text-muted-foreground">
-                      {feature.bulletPoints.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <h3 className="font-heading text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                    {feature.title}
+                  </h3>
+
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    {feature.description}
+                  </p>
                 </div>
               );
             })}

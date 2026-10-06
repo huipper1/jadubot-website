@@ -1,9 +1,7 @@
 export interface AgentFeature {
   title: string;
   description: string;
-  badge?: string;
   iconName: string;
-  bulletPoints?: string[];
 }
 
 export interface AgentStep {

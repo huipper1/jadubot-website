@@ -2,7 +2,7 @@ export interface SectionImageConfig {
   src: string;
   alt: string;
   prompt: string;
-  aspect?: "16/10" | "4/3" | "1/1" | "21/9";
+  aspect?: "16/10" | "4/3" | "1/1" | "21/9" | "4/5" | "none";
 }
 
 export type RouteSectionRegistry = Record<string, Record<string, SectionImageConfig>>;

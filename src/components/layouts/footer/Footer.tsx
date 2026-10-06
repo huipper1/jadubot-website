@@ -22,60 +22,6 @@ export function Footer() {
 
   return (
     <div className="relative w-full pt-16 sm:pt-20 lg:pt-24">
-      {/* 
-        Floating Newsletter Box (Half inside, half outside of the footer's top)
-        Light mode: Crisp, high-contrast, elevated slate-dark glass card with glowing electric brand accents.
-        Dark mode: Midnight deep glass card with ambient backlight.
-      */}
-      {/* <div className="relative z-20 mx-auto max-w-4xl px-4 sm:px-6">
-        <div
-          className="relative -mb-16 overflow-hidden rounded-2xl border border-border/80 bg-card p-6 shadow-2xl backdrop-blur-2xl sm:-mb-20 sm:rounded-3xl sm:px-12 sm:py-12 lg:-mb-24 lg:py-14 dark:border-white/10 dark:bg-[#0d1424] dark:shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
-        >
-          <div
-            className="pointer-events-none absolute -top-24 left-1/2 h-56 w-96 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl dark:bg-primary/25"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 text-center">
-            <h2 className="font-heading text-2xl font-black tracking-tight text-foreground sm:text-3xl lg:text-4xl dark:text-white">
-              Let&apos;s connect!
-            </h2>
-            <p className="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-muted-foreground sm:text-sm dark:text-slate-400">
-              Businesses & founders stay up to date with the latest AI sales automation, features & announcements.
-            </p>
-
-            {subscribed ? (
-              <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-5 py-2.5 text-xs font-semibold text-emerald-600 sm:text-sm dark:text-emerald-400">
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                <span>Thank you! You&apos;re now on our priority insider list.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="mx-auto mt-6 max-w-md sm:mt-7">
-                <div
-                  data-preserve-radius="true"
-                  className="flex items-center rounded-full border border-border bg-muted/60 p-1.5 shadow-inner backdrop-blur-md transition-all focus-within:border-primary/60 focus-within:bg-card focus-within:ring-2 focus-within:ring-primary/30 dark:border-white/20 dark:bg-white/10 dark:focus-within:bg-black/30"
-                >
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="type your e-mail here..."
-                    className="w-full bg-transparent px-4 py-2 text-xs text-foreground placeholder-muted-foreground outline-none sm:px-5 sm:text-sm dark:text-white dark:placeholder-slate-400"
-                  />
-                  <button
-                    type="submit"
-                    data-preserve-radius="true"
-                    className="inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#0052cc] to-[#0172ff] px-6 py-2.5 text-xs font-bold tracking-wider text-white uppercase shadow-[0_0_20px_rgba(1,114,255,0.4)] transition-all hover:scale-[1.03] hover:shadow-[0_0_28px_rgba(1,114,255,0.6)] sm:px-8 sm:text-sm"
-                  >
-                    <span>Join</span>
-                  </button>
-                </div>
-              </form>
-            )}
-          </div>
-        </div>
-      </div> */}
 
       {/* 
         Main Footer Container
@@ -273,7 +219,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-all"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -283,7 +229,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="X / Twitter"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-all"
               >
                 <Twitter className="h-4 w-4" />
               </a>
@@ -293,7 +239,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-all"
               >
                 <Instagram className="h-4 w-4" />
               </a>
@@ -303,7 +249,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 data-preserve-radius="true"
-                className="flex h-8 w-8 items-center justify-center rounded-full dark:bg-white/10 bg-primary text-white transition-all hover:bg-primary hover:text-white"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-all"
               >
                 <FacebookIcon className="h-4 w-4" />
               </a>

@@ -27,7 +27,7 @@ export interface FaqSectionProps {
   sectionImage?: {
     src: string;
     alt: string;
-    aspect?: "16/10" | "4/3" | "1/1" | "21/9";
+    aspect?: "16/10" | "4/3" | "1/1" | "21/9" | "4/5" | "none";
     badge?: string;
   };
   imagePosition?: "left" | "right";
