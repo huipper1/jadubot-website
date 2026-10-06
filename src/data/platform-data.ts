@@ -14,7 +14,7 @@ export const platformData: PlatformData[] = [
     heroTitle: "Automate WhatsApp Sales, Support & Customer Journeys",
     heroHighlight: "Automate WhatsApp",
     heroDescription:
-      "Deploy intelligent AI sales agents and automated workflows on WhatsApp. Capture leads, showcase product catalogs, recover abandoned checkouts, broadcast updates, and automatically hand off complex queries to human agents.",
+      "Deploy AI sales agents on WhatsApp. Capture leads, showcase product catalogs, recover checkouts, and route complex queries to agents 24/7.",
     heroStats: [
       { label: "Average Response Time", value: "< 2 sec" },
       { label: "Open Rate on Broadcasts", value: "98%" },
@@ -26,75 +26,69 @@ export const platformData: PlatformData[] = [
       "Turn conversations into high-converting revenue streams with reliable official Cloud API integrations and 24/7 AI-driven execution.",
     features: [
       {
-        title: "24/7 AI Sales & Customer Support",
-        description:
-          "Provide instant, context-aware answers to product inquiries, pricing questions, and support requests in natural language without human delay.",
+        title: "24/7 AI Sales Support",
+        description: "Answer product and pricing inquiries instantly in natural language without delay.",
         badge: "Instant Engagement",
         iconName: "Bot",
         bulletPoints: [
-          "Instant answers based on your customized business knowledge base",
-          "Handles thousands of simultaneous customer conversations effortlessly",
-          "Automated escalation to human representatives when required"
+          "Instant answers from verified store knowledge base",
+          "Handles thousands of simultaneous buyer chats",
+          "Automatic escalation to human agents when needed"
         ]
       },
       {
-        title: "Targeted WhatsApp Broadcasting",
-        description:
-          "Send personalized marketing promotions, transactional alerts, and seasonal announcements to segmented customer lists with industry-leading open rates.",
+        title: "Targeted WhatsApp Broadcasts",
+        description: "Send personalized promotions and transactional alerts to segmented lists with 98% open rates.",
         badge: "High Deliverability",
         iconName: "Send",
         bulletPoints: [
-          "Meta-compliant approved template message scheduling",
-          "Dynamic variable tags for individual customer personalization",
-          "Granular delivery and read receipt tracking analytics"
+          "Meta-compliant approved template scheduling",
+          "Dynamic customer personalization tags",
+          "Granular delivery and read-rate analytics"
         ]
       },
       {
-        title: "Automated Checkout & Cart Recovery",
-        description:
-          "Recover lost revenue by triggering automated follow-up sequences when customers abandon their cart or drop off during checkout.",
+        title: "Cart Recovery & Checkout",
+        description: "Recover lost checkouts on WhatsApp with one-click links and instant confirmation.",
         badge: "Revenue Growth",
         iconName: "ShoppingCart",
         bulletPoints: [
-          "Automated cart reminder triggers with one-click direct checkout links",
-          "Instant order confirmation and delivery status tracking notifications",
-          "Direct sync with Shopify, WooCommerce, and custom webhooks"
+          "Automated reminders with direct checkout links",
+          "Instant order confirmation and tracking status",
+          "Direct sync with Shopify and WooCommerce"
         ]
       },
       {
-        title: "Shared Omnichannel Team Inbox",
-        description:
-          "Empower your customer support and sales team with a centralized inbox to monitor bot conversations, collaborate with private notes, and take over chats.",
+        title: "Shared Team Inbox",
+        description: "Centralized inbox to monitor bot chats, leave private notes, and take over.",
         badge: "Team Collaboration",
         iconName: "Users",
         bulletPoints: [
-          "Unified inbox with ticket assignment and team performance metrics",
-          "Smooth bot-to-human switching without losing chat context",
-          "Custom contact tags, labels, and customer conversation history"
+          "Ticket assignment and performance metrics",
+          "Seamless bot-to-human handover with full context",
+          "Custom contact tags and conversation logs"
         ]
       },
       {
-        title: "Visual No-Code Flow Builder",
-        description:
-          "Design complex conversation funnels, multi-choice decision trees, interactive button menus, and data collection forms with an intuitive visual editor.",
-        badge: "Zero Coding Required",
+        title: "Visual Flow Builder",
+        description: "Build conversation funnels, interactive button menus, and forms visually with zero code.",
+        badge: "No-Code",
         iconName: "GitFork",
         bulletPoints: [
-          "Drag-and-drop conversational logic blocks and quick replies",
-          "Interactive WhatsApp lists and CTA button components",
-          "Real-time visual testing before deploying live flows"
+          "Drag-and-drop logic blocks and quick replies",
+          "Interactive WhatsApp lists and CTA buttons",
+          "Real-time visual preview before deploying"
         ]
       },
       {
-        title: "HTTP Webhooks & API Integration",
-        description:
-          "Connect your CRM, Google Sheets, ERP, and payment systems to trigger real-time WhatsApp alerts and synchronize customer contact details automatically.",
-        badge: "Direct Connectivity",
+        title: "Webhooks & API Sync",
+        description: "Connect CRM, Sheets, ERP, and payments to trigger automated real-time WhatsApp alerts.",
+        badge: "Integrations",
         iconName: "Layers",
         bulletPoints: [
-          "Inbound and outbound webhook listeners with JSON payload parsing",
-          "Direct integration with Zapier, Make, and custom REST APIs",
-          "Secure authentication and high-availability message dispatch"
+          "Webhook listeners with JSON payload parsing",
+          "Direct integration with Zapier and REST APIs",
+          "Secure high-availability message routing"
         ]
       }
     ],
@@ -174,75 +168,69 @@ export const platformData: PlatformData[] = [
       "Transform passive social media engagement into qualified sales leads and loyal recurring customers.",
     features: [
       {
-        title: "Auto Comment-to-Inbox Lead Converter",
-        description:
-          "Automatically reply to customer comments on your Facebook posts and ads publicly while simultaneously sending a personalized private message in Messenger.",
-        badge: "Viral Lead Capture",
+        title: "Comment-to-Inbox Auto DM",
+        description: "Reply publicly to comments on posts and ads while sending instant DMs.",
+        badge: "Lead Capture",
         iconName: "MessageSquare",
         bulletPoints: [
-          "Keyword-filtered responses tailored to specific product inquiries",
-          "Public comment likes and dynamic rotating replies to prevent spam flagging",
-          "Instant private DM containing product pricing, links, or special discount codes"
+          "Keyword-filtered replies for product queries",
+          "Public comment likes and anti-spam variations",
+          "Instant private DM with pricing and buy links"
         ]
       },
       {
-        title: "Click-to-Messenger Ad Optimization",
-        description:
-          "Maximize your Meta ad spend ROI by connecting Click-to-Messenger ad traffic directly to high-converting interactive AI qualification flows.",
-        badge: "Ad ROI Booster",
+        title: "Click-to-Messenger Ad Flows",
+        description: "Convert Meta ad clicks into sales with instant automated qualification flows.",
+        badge: "Ad Optimization",
         iconName: "TrendingUp",
         bulletPoints: [
-          "Instant zero-latency greeting when customers click your sponsored ad",
-          "Automated lead qualification questions and contact detail extraction",
-          "Real-time attribution tracking from specific ad creative campaigns"
+          "Zero-latency greeting upon ad clicks",
+          "Automated lead qualification questions",
+          "Real-time campaign attribution tracking"
         ]
       },
       {
-        title: "Interactive In-Messenger Storefront",
-        description:
-          "Display interactive visual product carousels with images, descriptions, and checkout buttons directly inside Facebook Messenger.",
-        badge: "Conversational Store",
+        title: "In-Messenger Storefront",
+        description: "Display product carousels, size pickers, and checkout buttons directly in Messenger chat.",
+        badge: "In-Chat Commerce",
         iconName: "ShoppingBag",
         bulletPoints: [
-          "Multi-item product galleries with price tags and variant pickers",
-          "Direct Cash on Delivery or digital checkout link generation",
-          "Synchronized inventory status from your existing store catalog"
+          "Product galleries with price tags and variants",
+          "Cash on Delivery or digital checkout links",
+          "Synchronized inventory catalog status"
         ]
       },
       {
-        title: "Automated Messenger Follow-up Sequences",
-        description:
-          "Re-engage interested prospects within Meta's messaging guidelines to guide them from initial curiosity to completed order confirmation.",
-        badge: "Automated Nurturing",
+        title: "Automated Follow-up Sequences",
+        description: "Re-engage interested buyers with timely reminders within Meta 24-hour guidelines.",
+        badge: "Lead Nurturing",
         iconName: "Clock",
         bulletPoints: [
-          "Smart drip sequences based on user interaction and intent triggers",
-          "One-Time Notification (OTN) requests for back-in-stock alerts",
-          "Automated reminders for pending orders and unanswered quotes"
+          "Intent-based automated follow-up sequences",
+          "One-Time Notifications for back-in-stock alerts",
+          "Reminders for pending orders and quotes"
         ]
       },
       {
-        title: "24/7 Smart FAQ & Support Handling",
-        description:
-          "Instantly resolve repetitive queries regarding store hours, shipping policies, returns, and order status without overburdening your support team.",
-        badge: "Zero Wait Time",
+        title: "Smart FAQ & Support",
+        description: "Resolve shipping, return, and order status queries instantly around the clock.",
+        badge: "Zero Wait",
         iconName: "HelpCircle",
         bulletPoints: [
-          "Natural language understanding trained on your business documents",
-          "Instant answers to common customer questions day and night",
-          "Smooth transition to live support agents for unresolved issues"
+          "Trained on your business policies and FAQs",
+          "Instant answers to frequent questions 24/7",
+          "Smooth handover to human agents when required"
         ]
       },
       {
-        title: "Team Collaboration & CRM Integration",
-        description:
-          "Manage multiple Facebook pages from one unified dashboard with agent assignments, chat tags, and automated customer data export.",
-        badge: "Operational Scale",
+        title: "CRM & Multi-Page Sync",
+        description: "Manage multiple Facebook pages with unified agent assignments and CRM export.",
+        badge: "Team Workspace",
         iconName: "ShieldCheck",
         bulletPoints: [
-          "Multi-page management under a single centralized team workspace",
-          "Export leads and conversation transcripts to CRM or Google Sheets",
-          "Role-based permissions and team response analytics"
+          "Centralized multi-page management dashboard",
+          "Export leads to CRM and Google Sheets",
+          "Role-based permissions and team analytics"
         ]
       }
     ],
@@ -302,10 +290,10 @@ export const platformData: PlatformData[] = [
     metaDescription:
       "Automate Instagram DMs, Story mentions, Reel comment replies, and direct lead generation on Instagram with Jadubot's official Meta automation.",
     badge: "Official Instagram Automation",
-    heroTitle: "Convert Instagram Reels, Stories & DMs into Instant Sales",
+    heroTitle: "Convert Instagram Reels, Stories & DMs into Sales",
     heroHighlight: "Instagram Reels & DMs",
     heroDescription:
-      "Never miss a hot lead on Instagram again. Automatically reply to Reel comments, send links when followers mention your Stories, qualify buyer intent, and sell products directly inside Instagram Direct.",
+      "Reply to Reel comments, send links when followers mention Stories, qualify buyer intent, and sell products directly inside Instagram Direct.",
     heroStats: [
       { label: "DM Response Time", value: "Instant" },
       { label: "Story Mention Conversion", value: "+45%" },
@@ -317,9 +305,8 @@ export const platformData: PlatformData[] = [
       "Monetize your social influence and transform followers into paying buyers with automated conversational workflows.",
     features: [
       {
-        title: "Reel & Post Comment Auto DM",
-        description:
-          "Ask followers to comment a keyword like 'LINK' or 'PRICE' on your Reels and Posts, and let Jadubot instantly DM them the exact product details.",
+        title: "Reel Comment Auto DM",
+        description: "Trigger instant DMs with pricing when followers comment keywords on Reels.",
         badge: "Viral Growth",
         iconName: "Video",
         bulletPoints: [
@@ -330,8 +317,7 @@ export const platformData: PlatformData[] = [
       },
       {
         title: "Story Mention Auto Reply",
-        description:
-          "Build brand loyalty by instantly thanking customers whenever they tag your Instagram handle in their Stories, along with special discount vouchers.",
+        description: "Thank customers instantly whenever they tag your handle and share coupon vouchers.",
         badge: "Social Proof",
         iconName: "Share2",
         bulletPoints: [
@@ -342,8 +328,7 @@ export const platformData: PlatformData[] = [
       },
       {
         title: "Story Reply Automation",
-        description:
-          "Engage viewers when they reply to your interactive Stories, polls, or question stickers with tailored conversational sales funnels.",
+        description: "Engage viewers responding to Stories, polls, and stickers with tailored sales funnels.",
         badge: "Story Funnels",
         iconName: "Eye",
         bulletPoints: [
@@ -353,9 +338,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Instagram Shop & Product Visuals",
-        description:
-          "Showcase vibrant product images, pricing tables, and stock availability directly inside Instagram DMs with interactive carousel cards.",
+        title: "In-DM Product Catalogs",
+        description: "Showcase product image carousels, pricing tables, and stock directly in Instagram DMs.",
         badge: "Visual Commerce",
         iconName: "ShoppingBag",
         bulletPoints: [
@@ -365,9 +349,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Lead Qualification & Contact Capture",
-        description:
-          "Qualify customer budget, requirements, and readiness before automatically routing high-value prospects to your sales team.",
+        title: "Lead Qualification in DMs",
+        description: "Qualify buyer budget and collect phone numbers before routing to sales closers.",
         badge: "Qualified Leads",
         iconName: "UserCheck",
         bulletPoints: [
@@ -377,9 +360,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Unified Instagram & Messenger Inbox",
-        description:
-          "Consolidate your Instagram DMs alongside Facebook Messenger and WhatsApp into a single powerful team management hub.",
+        title: "Unified Omnichannel Inbox",
+        description: "Consolidate Instagram DMs alongside Messenger and WhatsApp in one team dashboard.",
         badge: "Centralized Management",
         iconName: "Inbox",
         bulletPoints: [
@@ -448,7 +430,7 @@ export const platformData: PlatformData[] = [
     heroTitle: "Supercharge Telegram Communities, Broadcasts & AI Sales",
     heroHighlight: "Telegram Communities",
     heroDescription:
-      "Build powerful Telegram bots with zero code. Automate customer support, send instant broadcasts to unlimited subscribers, manage VIP community access, and process customer inquiries at lightning speed.",
+      "Build Telegram bots with zero code. Automate support, send broadcasts to unlimited subscribers, and manage VIP groups.",
     heroStats: [
       { label: "Broadcast Reach", value: "Unlimited" },
       { label: "Message Delivery Speed", value: "< 1 sec" },
@@ -460,9 +442,8 @@ export const platformData: PlatformData[] = [
       "Leverage Telegram's open ecosystem to build interactive bots, broadcast critical updates, and engage global audiences.",
     features: [
       {
-        title: "Instant AI Customer Service Bot",
-        description:
-          "Deliver lightning-fast automated answers to common questions, technical documentation, and product inquiries 24 hours a day.",
+        title: "AI Support Bot",
+        description: "Deliver instant answers to product queries and documentation 24 hours a day.",
         badge: "Real-time AI",
         iconName: "Bot",
         bulletPoints: [
@@ -472,9 +453,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Unlimited Channel & Group Broadcasting",
-        description:
-          "Broadcast promotional announcements, news updates, trading signals, and newsletters to unlimited Telegram channels without delivery restrictions.",
+        title: "Unlimited Channel Broadcasts",
+        description: "Broadcast announcements, news updates, and signals to unlimited subscribers without delivery caps.",
         badge: "Unlimited Scale",
         iconName: "Volume2",
         bulletPoints: [
@@ -484,9 +464,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Community Moderation & Member Onboarding",
-        description:
-          "Protect your public and private Telegram groups from spam, welcome new members automatically, and enforce community guidelines effortlessly.",
+        title: "Community Moderation Bot",
+        description: "Protect Telegram groups from spam, welcome joiners automatically, and enforce rules.",
         badge: "Smart Moderation",
         iconName: "Shield",
         bulletPoints: [
@@ -496,9 +475,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Interactive Mini-Funnels & Lead Capture",
-        description:
-          "Guide Telegram users through structured question funnels to capture contact details, qualify interest, and generate sales leads.",
+        title: "Interactive Lead Funnels",
+        description: "Guide users through button funnels to capture contact details and score interest.",
         badge: "Lead Generation",
         iconName: "Filter",
         bulletPoints: [
@@ -508,9 +486,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Digital Product Delivery & Payments",
-        description:
-          "Sell access to premium content, digital files, webinars, and software licenses directly inside Telegram conversations.",
+        title: "Digital Product Delivery",
+        description: "Sell premium content access, digital files, and licenses directly in chat.",
         badge: "Monetization",
         iconName: "CreditCard",
         bulletPoints: [
@@ -520,9 +497,8 @@ export const platformData: PlatformData[] = [
         ]
       },
       {
-        title: "Custom Webhook Trigger Engine",
-        description:
-          "Connect external software, server monitors, and CRM events to trigger instantaneous Telegram alerts and updates.",
+        title: "Custom Webhook Alerts",
+        description: "Connect external software and CRM events to trigger instant Telegram alerts.",
         badge: "Developer Friendly",
         iconName: "Code",
         bulletPoints: [
@@ -588,10 +564,10 @@ export const platformData: PlatformData[] = [
     metaDescription:
       "Embed a smart AI chat widget on your website. Capture leads, answer questions 24/7, recommend products, and hand off to human agents instantly with Jadubot.",
     badge: "Website Live Chat Widget",
-    heroTitle: "Convert Website Visitors into Buyers with Smart AI Live Chat",
+    heroTitle: "Convert Website Visitors with AI Live Chat",
     heroHighlight: "Website Visitors",
     heroDescription:
-      "Install a customizable AI chat widget on your website in under 5 minutes. Greet visitors proactively, answer product queries instantly, qualify buyer intent, and schedule sales meetings 24/7.",
+      "Install an AI chat widget in 5 minutes. Greet visitors proactively, answer product queries, and book sales meetings 24/7.",
     heroStats: [
       { label: "Visitor Conversion Increase", value: "+38%" },
       { label: "First Response Time", value: "Instant" },
@@ -603,75 +579,69 @@ export const platformData: PlatformData[] = [
       "Engage prospective buyers the moment they land on your website with contextual, knowledge-powered assistance.",
     features: [
       {
-        title: "Proactive Visitor Engagement",
-        description:
-          "Trigger personalized greeting messages based on the visitor's current page, time spent on site, or referral traffic source.",
+        title: "Proactive Visitor Triggers",
+        description: "Trigger personalized greetings based on viewed page, dwell time, or referral traffic.",
         badge: "Smart Triggers",
         iconName: "Zap",
         bulletPoints: [
-          "Targeted greetings for pricing page, product detail, or checkout pages",
-          "Exit-intent triggers to prevent cart abandonment before users leave",
-          "Customizable greeting delays and visitor re-engagement rules"
+          "Targeted greetings on pricing and checkout",
+          "Exit-intent triggers to prevent cart drops",
+          "Customizable delay and re-engagement rules"
         ]
       },
       {
-        title: "AI Knowledge Base Integration",
-        description:
-          "Feed your website URLs, PDF documentation, and help articles into Jadubot to let the AI answer complex questions accurately.",
+        title: "AI Knowledge Ingestion",
+        description: "Feed site URLs, PDFs, and articles to answer questions accurately without hallucinations.",
         badge: "Accurate Answers",
         iconName: "BookOpen",
         bulletPoints: [
-          "Automatic crawling and continuous indexing of your website content",
-          "Contextual references with source citations in chat replies",
-          "Hallucination safeguards ensuring the bot strictly adheres to your verified data"
+          "Automatic crawling and content indexing",
+          "Contextual citations in chat replies",
+          "Strict safeguards against hallucinations"
         ]
       },
       {
-        title: "Automated Lead Qualification",
-        description:
-          "Collect verified visitor contact information (name, work email, phone, company size) before scheduling discovery calls.",
+        title: "Automated Lead Intake",
+        description: "Collect verified visitor contact details and company size before scheduling calls.",
         badge: "Pipeline Growth",
         iconName: "UserCheck",
         bulletPoints: [
-          "Structured conversational forms that feel like a friendly chat",
-          "Direct integration with Calendly, HubSpot, and Google Calendar",
-          "Instant CRM synchronization and notification alerts for high-value leads"
+          "Conversational intake questionnaires",
+          "Direct sync with Calendly and HubSpot",
+          "Instant CRM alerts for high-value leads"
         ]
       },
       {
-        title: "Live Human Agent Handoff",
-        description:
-          "Allow visitors to request a live human representative whenever they need personalized attention or specialized contract discussions.",
+        title: "Live Agent Handoff",
+        description: "Visitors can request a human rep anytime with full conversation context preserved.",
         badge: "Human Touch",
         iconName: "Headphones",
         bulletPoints: [
-          "Real-time notifications sent to available sales and support agents",
-          "Smooth transition preserving entire chat history and visitor metadata",
-          "Browser sound alerts and mobile notifications for on-duty operators"
+          "Real-time notifications to online agents",
+          "Smooth handover with chat history intact",
+          "Sound and mobile notifications for operators"
         ]
       },
       {
-        title: "Fully Brandable & Responsive Widget",
-        description:
-          "Customize colors, fonts, launcher icons, avatar images, and position to precisely match your company's aesthetic and branding guidelines.",
+        title: "Brandable Chat Widget",
+        description: "Customize colors, avatars, and launcher position to match your brand style.",
         badge: "Custom Styling",
         iconName: "Palette",
         bulletPoints: [
-          "Light and dark mode compatibility with custom CSS variables",
-          "Mobile-first responsive design optimized for smartphones and tablets",
-          "Lightweight script package with zero impact on page load speed"
+          "Light and dark mode styling with CSS vars",
+          "Mobile-first design for phones and tablets",
+          "Lightweight script under 50KB footprint"
         ]
       },
       {
-        title: "Omnichannel Visitor Continuity",
-        description:
-          "Let visitors transition their web chat session directly into WhatsApp or Messenger so the conversation continues even after they leave your site.",
+        title: "Cross-Channel Continuity",
+        description: "Transition web chat into WhatsApp or Messenger so conversations continue on mobile.",
         badge: "Cross-Platform",
         iconName: "Shuffle",
         bulletPoints: [
-          "One-tap 'Continue on WhatsApp' or 'Continue in Messenger' buttons",
-          "Persistent contact records across multiple conversation channels",
-          "Never lose a website visitor who closes their browser window"
+          "One-tap 'Continue on WhatsApp' toggle",
+          "Persistent records across messaging apps",
+          "Never lose visitors after they close tabs"
         ]
       }
     ],

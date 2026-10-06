@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/accordion";
 import { usePopAnimation } from "@/lib/animations";
 
+import { SectionImage } from "@/components/SectionImage";
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -22,6 +24,13 @@ export interface FaqSectionProps {
   items: FaqItem[];
   idPrefix?: string;
   className?: string;
+  sectionImage?: {
+    src: string;
+    alt: string;
+    aspect?: "16/10" | "4/3" | "1/1" | "21/9";
+    badge?: string;
+  };
+  imagePosition?: "left" | "right";
 }
 
 export function FaqSection({
@@ -30,9 +39,12 @@ export function FaqSection({
   subtitle,
   items,
   idPrefix = "faq-item",
-  className = ""
+  className = "",
+  sectionImage,
+  imagePosition = "left"
 }: FaqSectionProps) {
   const headerRef = usePopAnimation<HTMLDivElement>({ start: "top 85%" });
+  const visualRef = usePopAnimation<HTMLDivElement>({ start: "top 85%", delay: 0.1 });
   const accordionRef = useRef<HTMLDivElement | null>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
 
@@ -46,7 +58,7 @@ export function FaqSection({
 
   return (
     <section className={`relative border-t border-border/80 bg-surface-subtle/40 py-20 md:py-28 ${className}`}>
-      <div className="container mx-auto max-w-4xl px-4">
+      <div className={`container mx-auto px-4 ${sectionImage ? "max-w-7xl" : "max-w-4xl"}`}>
         {/* Section Header */}
         <div
           ref={headerRef}
@@ -67,29 +79,73 @@ export function FaqSection({
           )}
         </div>
 
-        {/* Accordion */}
-        <div ref={accordionRef}>
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {items.map((faq, idx) => (
-              <div
-                key={idx}
-                ref={(el) => {
-                  if (el) itemsRef.current[idx] = el;
-                }}
-                className="will-change-transform"
-              >
-                <AccordionItem value={`${idPrefix}-${idx}`}>
-                  <AccordionTrigger className="text-base font-bold text-foreground hover:text-primary">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+        {/* Content Layout */}
+        {sectionImage ? (
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
+            <div
+              ref={visualRef}
+              className={`lg:col-span-5 ${imagePosition === "right" ? "lg:order-2" : "lg:order-1"}`}
+            >
+              <div className="sticky top-28">
+                <SectionImage
+                  src={sectionImage.src}
+                  alt={sectionImage.alt}
+                  aspect={sectionImage.aspect || "16/10"}
+                  badge={sectionImage.badge}
+                />
               </div>
-            ))}
-          </Accordion>
-        </div>
+            </div>
+
+            <div
+              ref={accordionRef}
+              className={`lg:col-span-7 ${imagePosition === "right" ? "lg:order-1" : "lg:order-2"}`}
+            >
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {items.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    ref={(el) => {
+                      if (el) itemsRef.current[idx] = el;
+                    }}
+                    className="will-change-transform"
+                  >
+                    <AccordionItem value={`${idPrefix}-${idx}`}>
+                      <AccordionTrigger className="text-base font-bold text-foreground hover:text-primary">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        ) : (
+          <div ref={accordionRef}>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {items.map((faq, idx) => (
+                <div
+                  key={idx}
+                  ref={(el) => {
+                    if (el) itemsRef.current[idx] = el;
+                  }}
+                  className="will-change-transform"
+                >
+                  <AccordionItem value={`${idPrefix}-${idx}`}>
+                    <AccordionTrigger className="text-base font-bold text-foreground hover:text-primary">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </div>
+              ))}
+            </Accordion>
+          </div>
+        )}
       </div>
     </section>
   );

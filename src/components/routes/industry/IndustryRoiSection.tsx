@@ -5,6 +5,8 @@ import { ChartBar as BarChart3, TrendUp as TrendingUp } from "@/components/icons
 import { PopIn } from "@/components/animations";
 
 import type { IndustryData } from "./industry-data";
+import { SectionImage } from "@/components/SectionImage";
+import { getSectionImage } from "@/lib/section-images";
 
 interface IndustryRoiSectionProps {
   industry: IndustryData;
@@ -12,6 +14,7 @@ interface IndustryRoiSectionProps {
 
 export function IndustryRoiSection({ industry }: IndustryRoiSectionProps) {
   const { roi } = industry;
+  const roiImage = getSectionImage("industry", industry.slug, "roi");
 
   return (
     <section className="relative overflow-hidden bg-card py-20 sm:py-24 md:py-28">
@@ -52,6 +55,18 @@ export function IndustryRoiSection({ industry }: IndustryRoiSectionProps) {
                   <span>Immediate ROI Positive</span>
                 </div>
               </div>
+
+              {/* Section Image Banner */}
+              {roiImage && (
+                <div className="mt-8">
+                  <SectionImage
+                    src={roiImage.src}
+                    alt={roiImage.alt}
+                    aspect="21/9"
+                    badge="ROI Analytics"
+                  />
+                </div>
+              )}
 
               {/* Concrete Real-World Example */}
               <div className="mt-8 rounded-2xl border border-primary/20 bg-muted/40 p-6">

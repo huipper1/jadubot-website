@@ -12,10 +12,10 @@ export const aiAgentData: AgentData[] = [
     metaDescription:
       "Automate lead qualification, scoring, and routing across WhatsApp, Messenger, and Instagram 24/7 with Jadubot's intelligent Lead Qualification AI Agent.",
     badge: "Specialized AI Role: Lead Qualification",
-    heroTitle: "Qualify, Score & Route Inbound Leads Automatically 24/7",
+    heroTitle: "Qualify, Score & Route Inbound Leads 24/7",
     heroHighlight: "Qualify, Score & Route",
     heroDescription:
-      "Stop wasting sales reps' time on unqualified inquiries. Deploy a specialized Lead Qualification Agent that asks the right diagnostic questions, scores buyer intent, and instantly routes high-value prospects to your closers.",
+      "Deploy an AI agent to ask diagnostic questions, score buyer intent, and route qualified prospects directly to closers.",
     heroStats: [
       { label: "Lead Qualification Speed", value: "< 60 sec" },
       { label: "Sales Team Time Saved", value: "70%" },
@@ -27,9 +27,8 @@ export const aiAgentData: AgentData[] = [
       "Identify high-intent buyers instantly and book meetings directly into your sales reps' calendars.",
     features: [
       {
-        title: "Dynamic Conversational Diagnostics",
-        description:
-          "Engage prospects in natural, friendly conversations to uncover project requirements, budget readiness, urgency, and decision-making authority.",
+        title: "Dynamic Inbound Diagnostics",
+        description: "Engage prospects in natural dialogue to uncover project requirements, budget, and purchasing timeline.",
         badge: "BANT / MEDDIC Scoring",
         iconName: "Filter",
         bulletPoints: [
@@ -39,9 +38,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Automated Meeting & Demo Scheduling",
-        description:
-          "Allow pre-qualified prospects to pick an open time slot directly inside WhatsApp or Messenger using integrated calendar booking.",
+        title: "Automated Meeting Scheduling",
+        description: "Allow qualified prospects to book calendar slots directly inside WhatsApp or Messenger.",
         badge: "Instant Booking",
         iconName: "Calendar",
         bulletPoints: [
@@ -51,9 +49,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Intelligent Routing & Rep Assignment",
-        description:
-          "Route VIP enterprise leads immediately to specific account executives based on geography, industry, deal size, or round-robin logic.",
+        title: "Intelligent Rep Routing",
+        description: "Route VIP enterprise leads immediately to specific closers based on deal size and territory.",
         badge: "Smart Dispatch",
         iconName: "GitMerge",
         bulletPoints: [
@@ -63,9 +60,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Automated Data Enrichment & CRM Sync",
-        description:
-          "Extract verified phone numbers, business emails, company domains, and project specifications directly into your pipeline.",
+        title: "Instant CRM Sync",
+        description: "Extract verified phone numbers, emails, and company details directly into your CRM pipeline.",
         badge: "Zero Manual Entry",
         iconName: "Database",
         bulletPoints: [
@@ -75,9 +71,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Multi-Channel Inbound Handling",
-        description:
-          "Qualify prospects from Facebook ads, Instagram Story replies, website visits, and WhatsApp marketing campaigns under one unified brain.",
+        title: "Omnichannel Inbound Handling",
+        description: "Qualify leads from Facebook, Instagram, websites, and WhatsApp campaigns under one unified brain.",
         badge: "Omnichannel Pipeline",
         iconName: "Share2",
         bulletPoints: [
@@ -87,9 +82,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Re-engagement Sequences for Stalled Leads",
-        description:
-          "Automatically re-engage prospects who went cold midway through the qualification process with polite, value-driven follow-ups.",
+        title: "Lead Re-engagement Sequences",
+        description: "Automatically re-engage prospects who went cold midway with polite, value-driven follow-up messages.",
         badge: "Pipeline Recovery",
         iconName: "RefreshCw",
         bulletPoints: [
@@ -155,10 +149,10 @@ export const aiAgentData: AgentData[] = [
     metaDescription:
       "Deliver instant, accurate, knowledge-powered support across WhatsApp, Messenger, Instagram, and web chat with automatic human handoff using Jadubot.",
     badge: "Specialized AI Role: Customer Support",
-    heroTitle: "Instant, Knowledge-Powered Support with Smooth Human Handover",
+    heroTitle: "Knowledge-Powered Support with Instant Human Handover",
     heroHighlight: "Knowledge-Powered Support",
     heroDescription:
-      "Deliver empathetic, accurate 24/7 customer service across all messaging channels. Train your agent on your existing docs, FAQs, and policies to resolve up to 80% of support tickets autonomously.",
+      "Deliver empathetic, accurate 24/7 customer service. Train your agent on docs and FAQs to resolve up to 80% of support tickets.",
     heroStats: [
       { label: "Ticket Resolution Rate", value: "82%" },
       { label: "Average First Response", value: "< 3 sec" },
@@ -170,9 +164,8 @@ export const aiAgentData: AgentData[] = [
       "Resolve customer inquiries instantly without frustrating wait times or rigid robotic menus.",
     features: [
       {
-        title: "Dynamic Knowledge Grounding",
-        description:
-          "Train your support agent on your official help center articles, return policies, warranty guides, and PDF manuals for 100% truthful answers.",
+        title: "Knowledge Base Grounding",
+        description: "Train support agents on official articles, return policies, and manuals for 100% truthful answers.",
         badge: "Zero Hallucinations",
         iconName: "BookOpen",
         bulletPoints: [
@@ -183,8 +176,7 @@ export const aiAgentData: AgentData[] = [
       },
       {
         title: "Intelligent Human Escalation",
-        description:
-          "Automatically detect frustrated sentiment, high-priority issues, or explicit requests for a human, and transfer the chat instantly.",
+        description: "Detect frustrated sentiment or explicit human requests to transfer chat immediately to available reps.",
         badge: "Smart Handoff",
         iconName: "UserCheck",
         bulletPoints: [
@@ -194,9 +186,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Real-time Order & Ticket Status Checks",
-        description:
-          "Connect external APIs to look up order tracking numbers, warranty validity, and invoice details using the customer's phone or email.",
+        title: "Real-time Order Status",
+        description: "Query external APIs for tracking numbers, warranty validity, and invoice records using phone numbers.",
         badge: "API-Driven Actions",
         iconName: "Search",
         bulletPoints: [
@@ -207,8 +198,7 @@ export const aiAgentData: AgentData[] = [
       },
       {
         title: "Multilingual Customer Service",
-        description:
-          "Understand and reply to customer inquiries in over 50 languages naturally, ensuring global and regional accessibility.",
+        description: "Understand and reply in over 50 languages naturally, ensuring regional and international accessibility.",
         badge: "Global Language Support",
         iconName: "Globe",
         bulletPoints: [
@@ -219,8 +209,7 @@ export const aiAgentData: AgentData[] = [
       },
       {
         title: "Collaborative Shared Inbox",
-        description:
-          "Support reps can view customer history, apply internal notes, collaborate on complex tickets, and resume bot automation with one click.",
+        description: "View customer history, apply internal notes, and resume bot automation with one click.",
         badge: "Agent Productivity",
         iconName: "Inbox",
         bulletPoints: [
@@ -230,9 +219,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Support Analytics & Deflection Insights",
-        description:
-          "Gain visibility into trending customer issues, unresolved questions, top requested features, and bot resolution rates.",
+        title: "Support Deflection Analytics",
+        description: "Track trending customer questions, unresolved issues, and bot resolution rates with actionable insights.",
         badge: "Continuous Improvement",
         iconName: "BarChart3",
         bulletPoints: [
@@ -299,10 +287,10 @@ export const aiAgentData: AgentData[] = [
     metaDescription:
       "Turn messaging conversations into completed orders with product photos, interactive catalogs, pricing guidance, and 24/7 automated closing using Jadubot.",
     badge: "Specialized AI Role: Sales Agent",
-    heroTitle: "Display Catalogs, Answer Pricing & Close Orders Automatically",
+    heroTitle: "Display Catalogs & Close Orders Automatically",
     heroHighlight: "Close Orders Automatically",
     heroDescription:
-      "Transform your messaging channels into automated 24/7 digital storefronts. Showcase rich product galleries, recommend the right variants, calculate order totals, collect shipping details, and process orders on autopilot.",
+      "Turn chat into a 24/7 storefront. Showcase catalogs, recommend variants, collect shipping details, and process orders on autopilot.",
     heroStats: [
       { label: "Conversion Lift", value: "3.2x" },
       { label: "Checkout Completion", value: "88%" },
@@ -314,9 +302,8 @@ export const aiAgentData: AgentData[] = [
       "Guide prospective buyers from initial curiosity to confirmed order in a few frictionless chat messages.",
     features: [
       {
-        title: "Interactive Product Catalog Carousels",
-        description:
-          "Showcase high-resolution product photos, pricing, sizing, color variants, and availability directly inside WhatsApp, Messenger, and Instagram DMs.",
+        title: "In-Chat Product Carousels",
+        description: "Showcase photos, pricing, sizing, color variants, and availability inside WhatsApp, Messenger, and Instagram.",
         badge: "Visual Selling",
         iconName: "ShoppingBag",
         bulletPoints: [
@@ -326,9 +313,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Personalized Product Recommendations",
-        description:
-          "Understand customer preferences, style choices, budget ranges, and specific needs to recommend the most relevant matching items.",
+        title: "Personalized Recommendations",
+        description: "Understand style choices, budget ranges, and needs to recommend the most relevant matching items.",
         badge: "Smart Cross-Sell",
         iconName: "ShoppingBag",
         bulletPoints: [
@@ -338,9 +324,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "In-Chat Order Taking & Address Collection",
-        description:
-          "Collect customer delivery address, contact numbers, and delivery instructions inside the chat without forcing customers onto an external site.",
+        title: "In-Chat Order Taking",
+        description: "Collect delivery addresses, phone numbers, and special notes without sending buyers to external websites.",
         badge: "Zero Friction",
         iconName: "Truck",
         bulletPoints: [
@@ -350,9 +335,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Flexible Payment Options & Link Generation",
-        description:
-          "Support multiple payment methods including Cash on Delivery (COD), digital payment gateway links, and bank transfer instructions.",
+        title: "Flexible Payment Checkout",
+        description: "Support Cash on Delivery (COD), digital payment links, and bank transfers directly in chat.",
         badge: "Instant Checkout",
         iconName: "CreditCard",
         bulletPoints: [
@@ -363,8 +347,7 @@ export const aiAgentData: AgentData[] = [
       },
       {
         title: "Automated Checkout Follow-ups",
-        description:
-          "Follow up politely with customers who browsed products or added items to their chat cart but paused before finalizing the order.",
+        description: "Follow up with buyers who browsed products or paused before finalizing their conversational order.",
         badge: "Cart Recovery",
         iconName: "RotateCcw",
         bulletPoints: [
@@ -375,8 +358,7 @@ export const aiAgentData: AgentData[] = [
       },
       {
         title: "High-Value Deal Escalation",
-        description:
-          "When a customer inquires about bulk orders, custom wholesale quotes, or VIP enterprise packages, automatically route the lead to your senior sales team.",
+        description: "Route bulk order inquiries and custom wholesale quotes directly to your senior sales team.",
         badge: "Enterprise Routing",
         iconName: "TrendingUp",
         bulletPoints: [
@@ -442,10 +424,10 @@ export const aiAgentData: AgentData[] = [
     metaDescription:
       "Connect Shopify to WhatsApp with Jadubot. Recover abandoned checkouts, send automated order and delivery notifications, and sell products 24/7 on WhatsApp.",
     badge: "Commerce Integration: Shopify + WhatsApp",
-    heroTitle: "Turn Shopify Checkouts into High-Converting WhatsApp Sales",
+    heroTitle: "Turn Shopify Checkouts into WhatsApp Sales",
     heroHighlight: "Shopify WhatsApp Sales",
     heroDescription:
-      "Connect your Shopify store to WhatsApp in one click. Recover abandoned carts with automated reminders, broadcast new collection drops, send real-time order tracking updates, and let AI answer customer questions 24/7.",
+      "Connect Shopify to WhatsApp. Recover abandoned checkouts, send order tracking alerts, and let AI answer customer inquiries 24/7.",
     heroStats: [
       { label: "Cart Recovery Rate", value: "+28%" },
       { label: "Notification Open Rate", value: "98%" },
@@ -457,9 +439,8 @@ export const aiAgentData: AgentData[] = [
       "Harness the 98% open rate of WhatsApp to supercharge your Shopify store's revenue and customer retention.",
     features: [
       {
-        title: "Automated Abandoned Checkout Recovery",
-        description:
-          "Detect when a shopper leaves items in their Shopify checkout and send a personalized WhatsApp message with their exact cart items and a one-click checkout link.",
+        title: "Abandoned Checkout Recovery",
+        description: "Detect abandoned checkouts and send personalized WhatsApp reminders with 1-click cart restoration links.",
         badge: "Direct ROI",
         iconName: "RotateCcw",
         bulletPoints: [
@@ -469,9 +450,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Transactional Order & Shipping Alerts",
-        description:
-          "Keep customers informed and delighted by sending instant WhatsApp messages for order confirmation, fulfillment, out-for-delivery, and delivery completion.",
+        title: "Transactional Shipping Alerts",
+        description: "Send WhatsApp alerts for order confirmation, packing, dispatch, and delivery completion automatically.",
         badge: "Meta-Approved Templates",
         iconName: "Truck",
         bulletPoints: [
@@ -481,9 +461,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Real-time Shopify Inventory Sync",
-        description:
-          "The AI agent queries live Shopify stock levels, variant availability, pricing updates, and product descriptions to answer shopper inquiries accurately.",
+        title: "Real-Time Inventory Sync",
+        description: "Query live Shopify stock levels, variant availability, and prices to answer shopper questions.",
         badge: "Live Catalog Sync",
         iconName: "Database",
         bulletPoints: [
@@ -493,9 +472,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Cash on Delivery (COD) Verification",
-        description:
-          "Verify high-risk Cash on Delivery orders on WhatsApp before shipping to minimize costly return-to-origin (RTO) delivery failures.",
+        title: "COD Order Verification",
+        description: "Verify Cash on Delivery orders on WhatsApp before dispatch to minimize costly return failures.",
         badge: "Fraud & RTO Protection",
         iconName: "ShieldCheck",
         bulletPoints: [
@@ -505,9 +483,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Automated Post-Purchase Review Collection",
-        description:
-          "Request product reviews and customer feedback on WhatsApp after order delivery to build social proof and encourage repeat purchases.",
+        title: "Post-Purchase Review Collection",
+        description: "Request star reviews and feedback on WhatsApp post-delivery to build social proof and loyalty.",
         badge: "Repeat Retention",
         iconName: "Star",
         bulletPoints: [
@@ -517,9 +494,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Omnichannel Messenger & Instagram Extension",
-        description:
-          "Extend your Shopify store automation directly across Facebook Messenger and Instagram DMs using the same synchronized product catalog.",
+        title: "Omnichannel Commerce Extension",
+        description: "Extend Shopify store automation across Facebook Messenger and Instagram DMs using synchronized catalogs.",
         badge: "Omnichannel Scale",
         iconName: "Share2",
         bulletPoints: [
@@ -585,10 +561,10 @@ export const aiAgentData: AgentData[] = [
     metaDescription:
       "Automate WooCommerce sales and customer notifications on WhatsApp with Jadubot. Recover abandoned carts, verify orders, and answer product queries 24/7.",
     badge: "Commerce Integration: WooCommerce + WhatsApp",
-    heroTitle: "Automate WooCommerce Abandoned Carts & Sales on WhatsApp",
+    heroTitle: "Automate WooCommerce Abandoned Carts on WhatsApp",
     heroHighlight: "WooCommerce WhatsApp Automation",
     heroDescription:
-      "Connect your WooCommerce WordPress store directly to WhatsApp. Automatically recover abandoned shopping carts, send real-time order confirmation alerts, verify Cash on Delivery orders, and showcase products in chat.",
+      "Connect WooCommerce to WhatsApp. Recover abandoned shopping carts, send order alerts, verify COD orders, and showcase products in chat.",
     heroStats: [
       { label: "Cart Recovery Lift", value: "+30%" },
       { label: "RTO Reduction", value: "55%" },
@@ -600,9 +576,8 @@ export const aiAgentData: AgentData[] = [
       "Unlock conversational commerce for your WordPress store with deep webhook and REST API integration.",
     features: [
       {
-        title: "WooCommerce Abandoned Cart Recovery",
-        description:
-          "Automatically capture guest and registered checkout drops, sending polite, timely WhatsApp recovery messages with 1-click cart restoration links.",
+        title: "WooCommerce Cart Recovery",
+        description: "Capture checkout drops and dispatch polite WhatsApp recovery messages with 1-click restoration links.",
         badge: "Revenue Multiplier",
         iconName: "RotateCcw",
         bulletPoints: [
@@ -612,9 +587,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Instant Order Status & Tracking Updates",
-        description:
-          "Trigger automated WhatsApp messages whenever WooCommerce order status changes to Processing, Completed, Refunded, or On-Hold.",
+        title: "Instant Order Tracking",
+        description: "Trigger WhatsApp messages when WooCommerce status updates to Processing, Completed, or Dispatched.",
         badge: "Automated Alerts",
         iconName: "Package",
         bulletPoints: [
@@ -624,9 +598,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Cash on Delivery (COD) Verification",
-        description:
-          "Verify customer intent for COD orders via WhatsApp interactive buttons before packing and dispatching parcels.",
+        title: "COD Order Verification",
+        description: "Verify buyer intent via interactive WhatsApp buttons before packing and dispatching parcels.",
         badge: "RTO Protection",
         iconName: "CheckCircle",
         bulletPoints: [
@@ -636,9 +609,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Live WooCommerce Catalog & Stock Query",
-        description:
-          "The AI Sales Agent inspects your WooCommerce product database in real time to provide accurate pricing, stock availability, and variations.",
+        title: "Live Stock Queries",
+        description: "Inspect WooCommerce product tables in real time to provide accurate pricing, stock, and variations.",
         badge: "Zero Latency",
         iconName: "Database",
         bulletPoints: [
@@ -648,9 +620,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "WordPress Webhook & REST API Engine",
-        description:
-          "Built on official WooCommerce REST APIs and secure webhooks for fast, dependable, enterprise-grade data synchronization.",
+        title: "WordPress Webhook Engine",
+        description: "Built on official WooCommerce REST APIs and webhooks for fast, dependable data synchronization.",
         badge: "Open Source Freedom",
         iconName: "Cpu",
         bulletPoints: [
@@ -660,9 +631,8 @@ export const aiAgentData: AgentData[] = [
         ]
       },
       {
-        title: "Omnichannel Facebook & Instagram Commerce",
-        description:
-          "Sync your WooCommerce store once and deploy sales automation simultaneously across WhatsApp, Messenger, and Instagram Direct.",
+        title: "Omnichannel Social Commerce",
+        description: "Sync your store once and deploy sales automation simultaneously across WhatsApp, Messenger, and Instagram.",
         badge: "Omnichannel Power",
         iconName: "Share2",
         bulletPoints: [

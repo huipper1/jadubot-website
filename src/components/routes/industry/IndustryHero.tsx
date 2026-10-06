@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
-
 import { ArrowRight, CalendarBlank as Calendar, CheckCircle as CheckCircle2, Lightning as Zap } from "@/components/icons";
 
 import { CALENDLY_DEMO_URL } from "@/config/site";
 
 import { PopIn } from "@/components/animations";
+import { SectionImage } from "@/components/SectionImage";
 
 import type { IndustryData } from "./industry-data";
 
@@ -109,19 +108,14 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
                 {/* Glow ring behind visual */}
                 <div className="absolute -inset-1 -z-10 rounded-3xl bg-gradient-to-r from-blue-600/30 via-sky-400/20 to-blue-700/30 opacity-75 blur-xl" />
 
-                {/* 3D Illustration Graphic */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-background">
-                  <Image
-                    src={hero.image}
-                    alt={`${industry.name} AI Automation Solution`}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 550px"
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                  />
-                  {/* Subtle inner overlay for dark mode contrast */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                </div>
+                {/* 3D Illustration Graphic using SectionImage */}
+                <SectionImage
+                  src={`/assets/images/industry/${industry.slug}/hero.webp`}
+                  alt={`${industry.name} AI Automation Solution`}
+                  aspect="4/3"
+                  priority
+                  badge="AI System Active"
+                />
 
                 {/* Floating Metric Badges */}
                 <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">

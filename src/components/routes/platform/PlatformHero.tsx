@@ -7,6 +7,7 @@ import { ArrowRight, Robot as Bot, CheckCircle as CheckCircle2, Clock, Globe, Ch
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { FacebookIcon, WhatsAppIcon } from "@/components/icons";
 import { usePopAnimation } from "@/lib/animations";
+import { SectionImage } from "@/components/SectionImage";
 import type { PlatformData } from "@/types/platform";
 
 interface PlatformHeroProps {
@@ -100,9 +101,15 @@ export function PlatformHero({ platform }: PlatformHeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Platform Visual Mockup */}
+          {/* Right Column: Platform Visual Mockup & Section Image */}
           <div ref={visualRef} className="will-change-transform lg:col-span-5">
-            <PlatformHeroVisual visualType={platform.heroVisualType} />
+            <SectionImage
+              src={`/assets/images/platform/${platform.slug}/hero.webp`}
+              alt={`${platform.name} Automation Interface`}
+              aspect="16/10"
+              priority
+              badge="Official API"
+            />
           </div>
         </div>
 

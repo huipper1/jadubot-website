@@ -8,6 +8,8 @@ import { PopIn } from "@/components/animations";
 
 import type { IndustryData, IndustryWorkflowStep } from "./industry-data";
 import { WorkflowStreamCanvas } from "./WorkflowStreamCanvas";
+import { SectionImage } from "@/components/SectionImage";
+import { getSectionImage } from "@/lib/section-images";
 
 interface IndustryWorkflowProps {
   industry: IndustryData;
@@ -28,6 +30,7 @@ export function IndustryWorkflow({ industry }: IndustryWorkflowProps) {
 
   const activeStepData = workflow.steps[activeStep] || workflow.steps[0];
   const activePhaseMeta = STEP_STROKES[activeStep] || STEP_STROKES[0];
+  const workflowImg = getSectionImage("industry", industry.slug, "workflow");
 
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-24 lg:py-28">
@@ -267,6 +270,18 @@ export function IndustryWorkflow({ industry }: IndustryWorkflowProps) {
                 ))}
               </div>
             </div>
+
+            {/* Interactive Image & Telemetry Split */}
+            {workflowImg && (
+              <div className="mt-6 mb-6">
+                <SectionImage
+                  src={workflowImg.src}
+                  alt={workflowImg.alt}
+                  aspect="16/10"
+                  badge={`Phase 0${activeStep + 1} Automation Architecture`}
+                />
+              </div>
+            )}
 
             {/* Telemetry Metrics Grid */}
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">

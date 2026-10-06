@@ -7,6 +7,9 @@ import { cn } from "@/utils";
 
 import type { IndustryData, IndustryShowcaseItem } from "./industry-data";
 
+import { SectionImage } from "@/components/SectionImage";
+import { getSectionImage } from "@/lib/section-images";
+
 interface IndustrySplitShowcaseProps {
   industry: IndustryData;
 }
@@ -43,6 +46,8 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
         <div className="mt-16 space-y-20 lg:mt-24 lg:space-y-28">
           {showcases.map((item: IndustryShowcaseItem, idx: number) => {
             const isEven = idx % 2 === 0;
+            const showcaseSectionKey = idx === 0 ? "showcase1" : "showcase2";
+            const sectionImg = getSectionImage("industry", industry.slug, showcaseSectionKey);
 
             return (
               <div
@@ -103,7 +108,7 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                   </PopIn>
                 </div>
 
-                {/* Benefits / Architecture Column */}
+                {/* Visual / Image Column */}
                 <div
                   className={cn(
                     "lg:col-span-6",
@@ -111,48 +116,42 @@ export function IndustrySplitShowcase({ industry }: IndustrySplitShowcaseProps) 
                   )}
                 >
                   <PopIn delay={0.2}>
-                    <div className="shadow-elevated relative overflow-hidden rounded-2xl border border-border bg-card p-6 sm:p-8">
-                      {/* Ambient corner glow */}
-                      <div className="pointer-events-none absolute -top-16 -right-16 h-36 w-36 rounded-full bg-[#0172ff]/20 blur-2xl" />
+                    <div className="space-y-4">
+                      {sectionImg && (
+                        <SectionImage
+                          src={sectionImg.src}
+                          alt={sectionImg.alt}
+                          aspect="16/10"
+                          badge={`Module 0${idx + 1} System`}
+                        />
+                      )}
 
-                      <div className="flex items-center justify-between border-b border-border pb-4">
-                        <h4 className="text-sm font-semibold tracking-wider text-foreground uppercase">
-                          Key Automation Capabilities
-                        </h4>
-                        <span className="rounded-full bg-blue-500/10 px-2.5 py-0.5 font-mono text-xs font-medium text-blue-400">
-                          Instant Deployment
-                        </span>
-                      </div>
-
-                      {/* Benefits Checklist */}
-                      <ul className="mt-6 space-y-4">
-                        {item.benefits.map((benefit: string, bIdx: number) => (
-                          <li
-                            key={bIdx}
-                            className="flex items-start gap-3 rounded-lg p-2.5 transition-colors hover:bg-muted/40"
-                          >
-                            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
-                              <CheckCircle2 className="h-3.5 w-3.5" />
-                            </div>
-                            <span className="text-sm leading-relaxed text-foreground">
-                              {benefit}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Bottom live status bar */}
-                      <div className="mt-6 flex items-center justify-between rounded-xl border border-border bg-muted/40 px-4 py-3 text-xs">
-                        <div className="flex items-center gap-2">
-                          <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                      <div className="shadow-elevated relative overflow-hidden rounded-2xl border border-border bg-card p-6">
+                        <div className="flex items-center justify-between border-b border-border pb-3">
+                          <h4 className="text-xs font-semibold tracking-wider text-foreground uppercase">
+                            Key Automation Capabilities
+                          </h4>
+                          <span className="rounded-full bg-blue-500/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-blue-400">
+                            Instant Deployment
                           </span>
-                          <span className="font-medium text-foreground">Active 24/7 Engine</span>
                         </div>
-                        <span className="font-mono text-muted-foreground">
-                          0 Human Agents Required
-                        </span>
+
+                        {/* Benefits Checklist */}
+                        <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                          {item.benefits.map((benefit: string, bIdx: number) => (
+                            <li
+                              key={bIdx}
+                              className="flex items-start gap-2 rounded-lg p-2 text-xs transition-colors hover:bg-muted/40"
+                            >
+                              <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                                <CheckCircle2 className="h-3 w-3" />
+                              </div>
+                              <span className="leading-snug text-foreground">
+                                {benefit}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </PopIn>

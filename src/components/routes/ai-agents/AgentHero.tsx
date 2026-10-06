@@ -7,6 +7,7 @@ import { ArrowRight, Robot as Bot, CalendarBlank as Calendar, CheckCircle as Che
 import type { AgentData } from "@/types/ai-agent";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { usePopAnimation } from "@/lib/animations";
+import { SectionImage } from "@/components/SectionImage";
 
 interface AgentHeroProps {
   agent: AgentData;
@@ -99,9 +100,20 @@ export function AgentHero({ agent }: AgentHeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Visual Mockup */}
+          {/* Right Column: Visual Mockup & Section Image */}
           <div ref={visualRef} className="will-change-transform lg:col-span-5">
-            <AgentHeroVisual visualType={agent.heroVisualType} />
+            <div className="space-y-4">
+              <SectionImage
+                src={`/assets/images/ai-agents/${agent.slug}/hero.webp`}
+                alt={`${agent.name} AI System Interface`}
+                aspect="16/10"
+                priority
+                badge="AI Specialist"
+              />
+              <div className="rounded-2xl border border-border/80 bg-card/60 p-2 shadow-sm">
+                <AgentHeroVisual visualType={agent.heroVisualType} />
+              </div>
+            </div>
           </div>
         </div>
 

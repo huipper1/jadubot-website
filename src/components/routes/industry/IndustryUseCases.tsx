@@ -10,6 +10,9 @@ import { cn } from "@/utils";
 
 import type { IndustryData, IndustryUseCase } from "./industry-data";
 
+import { SectionImage } from "@/components/SectionImage";
+import { getSectionImage } from "@/lib/section-images";
+
 interface IndustryUseCasesProps {
   industry: IndustryData;
 }
@@ -21,6 +24,7 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
   if (!useCases || useCases.length === 0) return null;
 
   const currentCase = useCases[activeIndex];
+  const usecaseImg = getSectionImage("industry", industry.slug, "usecases");
 
   return (
     <section className="relative overflow-hidden border-t border-border/60 bg-background py-20 sm:py-24 md:py-28">
@@ -46,9 +50,20 @@ export function IndustryUseCases({ industry }: IndustryUseCasesProps) {
 
         {/* Interactive Showcase */}
         <div className="mt-14 grid items-start gap-8 lg:grid-cols-12">
-          {/* Left Column: Tab list of scenarios */}
-          <div className="space-y-3 lg:col-span-5">
+          {/* Left Column: Tab list of scenarios with SectionImage */}
+          <div className="space-y-4 lg:col-span-5">
             <PopIn>
+              {usecaseImg && (
+                <div className="mb-6">
+                  <SectionImage
+                    src={usecaseImg.src}
+                    alt={usecaseImg.alt}
+                    aspect="16/10"
+                    badge="Live Simulation"
+                  />
+                </div>
+              )}
+
               <div className="mb-2 px-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                 Select Interaction Scenario
               </div>
