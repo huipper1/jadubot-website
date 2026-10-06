@@ -30,7 +30,7 @@ export function ProblemSection() {
 
           <h2 className="mt-5 font-heading text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Autonomous AI Automation <br className="hidden sm:inline" />
-            Across Every Channel
+            Across <span className="font-serif italic font-medium header-accent">Every Channel</span>
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">

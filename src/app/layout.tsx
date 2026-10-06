@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter, Noto_Serif_Bengali, Red_Hat_Display, Tiro_Bangla } from "next/font/google";
+import { Inter, Noto_Serif_Bengali, Playfair_Display, Red_Hat_Display, Tiro_Bangla } from "next/font/google";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -18,6 +18,14 @@ const redHatDisplay = Red_Hat_Display({
   variable: "--font-red-hat-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap"
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "600", "700"],
   display: "swap"
 });
 
@@ -48,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={siteConfig.locale} suppressHydrationWarning className="dark overflow-x-clip">
       <body
-        className={`${redHatDisplay.variable} ${inter.variable} ${tiroBangla.variable} ${notoSerifBengali.variable} flex min-h-screen w-full max-w-full flex-col overflow-x-clip bg-background font-sans text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
+        className={`${redHatDisplay.variable} ${inter.variable} ${playfairDisplay.variable} ${tiroBangla.variable} ${notoSerifBengali.variable} flex min-h-screen w-full max-w-full flex-col overflow-x-clip bg-background font-sans text-foreground antialiased selection:bg-brand/20 selection:text-brand`}
       >
         <Providers>
           <Header />

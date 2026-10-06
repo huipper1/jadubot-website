@@ -49,7 +49,7 @@ export function AgentHero({ agent }: AgentHeroProps) {
               {agent.heroTitle.includes(agent.heroHighlight) ? (
                 <>
                   {agent.heroTitle.split(agent.heroHighlight)[0]}
-                  <span className="text-blue-gradient">{agent.heroHighlight}</span>
+                  <span className="font-serif italic font-medium header-accent">{agent.heroHighlight}</span>
                   {agent.heroTitle.split(agent.heroHighlight)[1]}
                 </>
               ) : (

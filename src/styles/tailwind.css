@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), var(--font-tiro-bangla), sans-serif;
   --font-heading: var(--font-red-hat-display), var(--font-tiro-bangla), sans-serif;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-bengali: var(--font-tiro-bangla), var(--font-noto-serif-bengali), serif;
   --font-tiro-bangla: var(--font-tiro-bangla), serif;
   --font-noto-serif-bengali: var(--font-noto-serif-bengali), serif;
@@ -341,6 +342,22 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
 .text-purple-gradient,
 .text-blue-gradient {
   background: linear-gradient(265deg, #38bdf8 0%, #60a5fa 50%, #0172ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-accent {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(265deg, #38bdf8 0%, #60a5fa 50%, #0172ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+html:not(.dark) .header-accent {
+  background: linear-gradient(265deg, #0284c7 0%, #2563eb 50%, #0172ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

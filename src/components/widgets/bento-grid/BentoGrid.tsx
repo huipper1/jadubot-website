@@ -164,7 +164,19 @@ export function BentoGrid({
           )}
 
           <h2 className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl leading-tight">
-            {title}
+            {(() => {
+              const words = title.trim().split(" ");
+              if (words.length <= 1) return title;
+              const lastWord = words.pop();
+              return (
+                <>
+                  {words.join(" ")}{" "}
+                  <span className="font-serif italic font-medium header-accent">
+                    {lastWord}
+                  </span>
+                </>
+              );
+            })()}
           </h2>
 
           {subtitle && (

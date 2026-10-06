@@ -41,7 +41,7 @@ export function HomeHero() {
         <div className="mx-auto mt-6 max-w-4xl text-center">
           <h1 className="font-heading text-4xl leading-[1.12] font-black tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-[68px] dark:text-white">
             Your #1 AI Sales Agent <br className="hidden sm:inline" />
-            with <span className="text-primary dark:text-[#38bdf8]">no setup</span> &amp;{" "}
+            with <span className="font-serif italic font-medium header-accent">no setup</span> &amp;{" "}
             <span className="text-slate-900 dark:text-white">no hidden fees</span>
           </h1>
 

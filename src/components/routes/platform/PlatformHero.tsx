@@ -50,7 +50,7 @@ export function PlatformHero({ platform }: PlatformHeroProps) {
               {platform.heroTitle.includes(platform.heroHighlight) ? (
                 <>
                   {platform.heroTitle.split(platform.heroHighlight)[0]}
-                  <span className="text-blue-gradient">{platform.heroHighlight}</span>
+                  <span className="font-serif italic font-medium header-accent">{platform.heroHighlight}</span>
                   {platform.heroTitle.split(platform.heroHighlight)[1]}
                 </>
               ) : (

@@ -44,7 +44,7 @@ export function IndustryHero({ industry }: IndustryHeroProps) {
               {/* Dynamic H1 Headline with Electric Blue Gradient */}
               <h1 className="font-sans text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl md:text-5xl lg:text-[56px]">
                 {hero.titleStart}{" "}
-                <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
+                <span className="font-serif italic font-medium header-accent drop-shadow-[0_0_30px_rgba(1,114,255,0.4)]">
                   {hero.titleHighlight}
                 </span>{" "}
                 {hero.titleEnd && <span>{hero.titleEnd}</span>}

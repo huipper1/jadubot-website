@@ -94,7 +94,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
             <div className="space-y-2.5 border-b border-border pb-4">
               <h1 className="font-heading text-2xl leading-[1.18] font-extrabold tracking-tight [text-wrap:balance] text-foreground sm:text-3xl">
                 Jadubot Playbooks &amp;{" "}
-                <span className="bg-gradient-to-r from-[#93c5fd] via-[#38bdf8] to-[#0172ff] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]">
+                <span className="font-serif italic font-medium header-accent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]">
                   Marketing Insights
                 </span>
               </h1>

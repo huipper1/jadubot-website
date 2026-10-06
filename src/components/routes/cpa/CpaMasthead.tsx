@@ -20,7 +20,7 @@ export function CpaMasthead() {
           {/* Bold Editorial Headline - No generic marketing void */}
           <h1 className="font-heading text-3xl leading-[1.14] font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[62px]">
             Turn Social Engagement Into Automated,{" "}
-            <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
+            <span className="font-serif italic font-medium header-accent">
               Trackable CPA Conversions
             </span>
           </h1>

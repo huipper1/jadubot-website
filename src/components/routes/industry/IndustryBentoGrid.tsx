@@ -135,7 +135,7 @@ export function IndustryBentoGrid({ industry, className = "" }: IndustryBentoGri
             {bento.titleAccent && titleParts.length > 1 ? (
               <>
                 {titleParts[0]}
-                <span className="font-serif italic font-normal text-primary dark:text-sky-400">
+                <span className="font-serif italic font-medium header-accent">
                   {bento.titleAccent}
                 </span>
                 {titleParts[1]}

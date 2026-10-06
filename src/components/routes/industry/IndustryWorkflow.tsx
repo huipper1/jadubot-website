@@ -69,7 +69,7 @@ export function IndustryWorkflow({ industry }: IndustryWorkflowProps) {
               {workflow.title || (
                 <>
                   How Jadubot Powers{" "}
-                  <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
+                  <span className="font-serif italic font-medium header-accent">
                     {industry.name}
                   </span>
                 </>

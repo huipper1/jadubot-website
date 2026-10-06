@@ -78,7 +78,7 @@ export function UnifiedCta({
             <h2 className="font-heading text-3xl leading-[1.15] font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {title}{" "}
               {highlightedTitle && (
-                <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
+                <span className="font-serif italic font-medium header-accent">
                   {highlightedTitle}
                 </span>
               )}{" "}

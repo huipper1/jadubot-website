@@ -31,7 +31,7 @@ export function AboutMasthead() {
           {/* Bold Editorial Headline - No generic marketing hero image */}
           <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[64px]">
             Building the Conversational Sales Backbone for{" "}
-            <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
+            <span className="font-serif italic font-medium header-accent">
               Bangladeshi Social Commerce
             </span>
           </h1>

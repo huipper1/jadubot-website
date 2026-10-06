@@ -38,7 +38,7 @@ const TITLE_STYLES = {
 };
 
 const DEFAULT_GRADIENT =
-  "bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]";
+  "font-serif italic font-medium bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(1,114,255,0.35)]";
 
 export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
   (

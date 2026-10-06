@@ -35,7 +35,7 @@ export function AgentsOverviewHero() {
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
         <div ref={contentRef} className="mx-auto max-w-4xl origin-center text-center will-change-transform">
           <h1 className="font-heading text-3xl leading-[1.12] font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Build AI Agents That <span className="text-blue-gradient">Take Action.</span>
+            Build AI Agents That <span className="font-serif italic font-medium header-accent">Take Action.</span>
             <br />
             Not Just Answers.
           </h1>

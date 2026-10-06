@@ -190,7 +190,7 @@ export function ServiceHero() {
           {/* Main Headline with Jadubot Signature Gradient */}
           <h1 className="font-heading text-4xl leading-[1.12] font-extrabold tracking-tight [text-wrap:balance] text-foreground sm:text-5xl md:text-6xl lg:text-[70px]">
             Automate your business. <br />
-            <span className="bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(21,93,252,0.3)] dark:from-blue-300 dark:via-sky-400 dark:to-primary">
+            <span className="font-serif italic font-medium header-accent drop-shadow-[0_0_35px_rgba(21,93,252,0.3)]">
               Save hours every day.
             </span>
           </h1>
