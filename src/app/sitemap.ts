@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/`, changeFrequency: "daily", priority: 1.0 },
-    { url: `${baseUrl}/ai-agents/`, changeFrequency: "daily", priority: 0.95 },
     { url: `${baseUrl}/service/`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/pricing/`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/cpa-marketing-automation/`, changeFrequency: "weekly", priority: 0.8 },

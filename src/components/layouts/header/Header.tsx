@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
-import { ArrowRight, BookOpen, Robot as Bot, Briefcase, CaretDown as ChevronDown, Cloud, Coffee, Globe, Handshake, Headset as Headphones, Question as HelpCircle, House as Home, SiInstagram as Instagram, SquaresFour as LayoutGrid, Envelope as Mail, ChatCircleDots as MessageCircle, ChatTeardropDots as MessageSquare, Plus, ArrowCounterClockwise as RotateCcw, PaperPlaneTilt as Send, ShoppingBag, ShoppingCart, DeviceMobile as Smartphone, Truck, UserCheck, Users, Wallet, X } from "@/components/icons";
+import { ArrowRight, BookOpen, Robot as Bot, Briefcase, CaretDown as ChevronDown, Cloud, Coffee, Globe, Handshake, Headset as Headphones, Question as HelpCircle, House as Home, SiInstagram as Instagram, SquaresFour as LayoutGrid, Envelope as Mail, ChatCircleDots as MessageCircle, Plus, ArrowCounterClockwise as RotateCcw, PaperPlaneTilt as Send, ShoppingBag, ShoppingCart, DeviceMobile as Smartphone, TrendUp, Truck, UserCheck, Users, Wallet, X } from "@/components/icons";
 import { useTheme } from "next-themes";
 
 import { FacebookIcon, WhatsAppIcon } from "@/components/icons";
@@ -119,7 +119,8 @@ export function Header() {
 
   const currentTheme = mounted ? (resolvedTheme === "light" ? "light" : "dark") : "dark";
 
-  const isPlatformsActive = pathname.startsWith("/platform");
+  const isPlatformsActive =
+    pathname.startsWith("/platform") || pathname.startsWith("/cpa-marketing-automation");
   const isAiAgentsActive = pathname.startsWith("/ai-agents");
   const isIndustriesActive = pathname.startsWith("/industry");
   const isResourcesActive =
@@ -315,6 +316,39 @@ export function Header() {
                         </Link>
                       );
                     })}
+
+                    {/* CPA Marketing Automation */}
+                    <Link
+                      href="/cpa-marketing-automation"
+                      onClick={() => setOpenDropdown(null)}
+                      className="group -m-1 flex items-start gap-3 rounded-lg p-1.5 transition-colors hover:bg-muted/40"
+                    >
+                      <div
+                        className={cn(
+                          "mt-0.5 shrink-0 transition-all duration-200",
+                          pathname === "/cpa-marketing-automation"
+                            ? "scale-110 text-primary"
+                            : "text-primary group-hover:scale-110"
+                        )}
+                      >
+                        <TrendUp className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div
+                          className={cn(
+                            "text-sm font-bold transition-colors",
+                            pathname === "/cpa-marketing-automation"
+                              ? "text-primary"
+                              : "text-foreground group-hover:text-primary"
+                          )}
+                        >
+                          CPA
+                        </div>
+                        <p className="mt-0.5 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
+                          High-converting CPA lead generation &amp; affiliate automation.
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -370,31 +404,6 @@ export function Header() {
                 )}
               >
                 <div className="w-[740px] max-w-[calc(100vw-40px)] rounded-3xl border border-white/60 bg-white/94 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.9)] backdrop-blur-3xl dark:border-white/10 dark:bg-slate-950/94 dark:shadow-[0_25px_80px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  {/* Overview link */}
-                  <Link
-                    href="/ai-agents"
-                    onClick={() => setOpenDropdown(null)}
-                    className="group mb-5 flex items-center justify-between rounded-xl border border-primary/25 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-3 transition-all hover:border-primary/50 hover:bg-muted/40"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white shadow-sm transition-all duration-200 group-hover:scale-105">
-                        <Bot className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2 text-xs font-bold text-foreground transition-colors group-hover:text-primary">
-                          <span>AI Agents Overview</span>
-                          <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary">
-                            MULTI-AGENT WORKFORCE
-                          </span>
-                        </div>
-                        <p className="mt-0.5 text-[11px] text-muted-foreground">
-                          Discover how our specialized agents turn conversations into revenue.
-                        </p>
-                      </div>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-primary transition-all group-hover:translate-x-1" />
-                  </Link>
-
                   {/* Sub-groups */}
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {/* By role */}
@@ -672,19 +681,6 @@ export function Header() {
             >
               Pricing
             </Link>
-
-            {/* CPA Automation */}
-            <Link
-              href="/cpa-marketing-automation"
-              className={cn(
-                "rounded-full px-3 py-1.5 text-xs font-bold tracking-wider uppercase transition-all duration-200",
-                pathname.startsWith("/cpa-marketing-automation")
-                  ? "border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_rgba(1,114,255,0.2)]"
-                  : "text-foreground/80 hover:bg-muted/50 hover:text-foreground dark:text-white/80 dark:hover:text-white"
-              )}
-            >
-              CPA
-            </Link>
           </nav>
 
           {/* Controls: Theme Toggler + Menu Grid Trigger Icon */}
@@ -859,6 +855,17 @@ export function Header() {
                           </Link>
                         </li>
                       ))}
+                      {/* CPA Marketing Automation */}
+                      <li>
+                        <Link
+                          href="/cpa-marketing-automation"
+                          onClick={() => setIsOverlayOpen(false)}
+                          className="group flex items-center justify-between py-1 pr-2 text-sm font-semibold text-muted-foreground transition-all duration-150 hover:translate-x-1.5 hover:text-foreground"
+                        >
+                          <span>CPA</span>
+                          <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:text-primary" />
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -963,17 +970,6 @@ export function Header() {
                       })}
                     </ul>
                   </div>
-                </li>
-
-                {/* CPA Automation */}
-                <li>
-                  <Link
-                    href="/cpa-marketing-automation"
-                    onClick={() => setIsOverlayOpen(false)}
-                    className="group font-heading inline-block text-2xl font-black tracking-tight text-foreground/90 uppercase transition-all duration-200 hover:translate-x-2 hover:text-primary sm:text-3xl lg:text-4xl"
-                  >
-                    CPA Automation
-                  </Link>
                 </li>
               </ul>
 

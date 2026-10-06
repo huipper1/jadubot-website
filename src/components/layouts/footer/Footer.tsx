@@ -74,7 +74,7 @@ export function Footer() {
               </h3>
               <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-400">
                 <li>
-                  <Link href="/ai-agents" className="transition-colors hover:text-white">
+                  <Link href="/ai-agents/sales-agent" className="transition-colors hover:text-white">
                     AI Sales Agents
                   </Link>
                 </li>
