@@ -745,32 +745,32 @@ export const HOME_HERO_CARDS: SectionImageConfig[] = [
   },
   {
     src: "/assets/images/home/hero/card-4.webp",
-    alt: "Sales analytics dashboard with rising conversion chart and hot, warm, cold lead badges in Bangladesh ecommerce",
-    prompt: "Clean high-tech dark SaaS sales dashboard UI card mockup. Prominent smooth rising glowing neon blue and cyan conversion graph line showing +42% growth. Bold status badges: 'Hot Leads (84%)' in vibrant emerald green, 'Warm Leads' in amber, and 'Closed Won' in electric blue. Clean dark navy graphite card with subtle glassmorphism border.",
+    alt: "Smartphone mockup on studio pedestal displaying Jadubot AI chat qualifying a buyer with a large Hot Lead 98% badge and rising intent arrow",
+    prompt: "A realistic modern smartphone held upright on a clean minimalist studio pedestal with soft dramatic side lighting, matching the photography aesthetic of card 1 and card 2. On the phone screen is a dark-mode Jadubot conversational AI chat where a buyer asks for corporate gift sets. Jadubot AI qualifies the buyer with a large prominent glowing badge: '🔥 Hot Lead (98%)' in emerald green and bright orange, with a rising green arrow pill '+48% Intent'. Soft dark graphite studio background with subtle depth of field and soft shadow below the phone.",
     aspect: "none"
   },
   {
     src: "/assets/images/home/hero/card-5.webp",
-    alt: "Abandoned cart recovery flow with ৳ 3,250 Panjabi item and automated WhatsApp checkout reminder with free shipping",
-    prompt: "Clean minimal SaaS cart recovery card showing an abandoned cart with a Panjabi product, paired with an automated WhatsApp reminder offering free shipping and one-tap checkout button. Crisp light aesthetic with emerald green recovery indicators.",
+    alt: "Smartphone mockup on light studio pedestal showing WhatsApp cart reminder with sneaker photo, ৳ 3,450 price, and green Complete Order button",
+    prompt: "A realistic modern smartphone on a bright clean studio pedestal with soft daylight reflections. The screen shows a verified WhatsApp store chat with an abandoned cart reminder featuring a sharp sneaker product photo, price in ৳ 3,450, free delivery tag, and a large green 'Complete Order' button. Light studio background with gentle depth of field.",
     aspect: "none"
   },
   {
     src: "/assets/images/home/hero/card-6.webp",
-    alt: "Chat interface showing seamless bot-to-human agent escalation with avatar takeover and custom quote actions",
-    prompt: "Vibrant electric blue SaaS card illustrating seamless bot-to-human agent escalation. Jadubot bot notifies customer of handoff, followed by a human support specialist avatar taking over with 0-second delay and action buttons for invoices and scheduling.",
+    alt: "Smartphone mockup on royal blue pedestal showing chat flow from bot message into human support agent avatar with Agent Joined pill",
+    prompt: "A realistic modern smartphone on a radiant royal blue studio pedestal with soft rim lighting. The screen shows a live support desk chat where a Jadubot AI message transitions seamlessly into a human agent's reply with a friendly photo avatar of Tanvir Ahmed, an emerald 'Agent joined' status pill, and wholesale discount approval. Blue studio background.",
     aspect: "none"
   },
   {
     src: "/assets/images/home/hero/card-7.webp",
-    alt: "Real-time delivery tracking card with rider timeline and automated Bangla SMS notification for Steadfast and Pathao",
-    prompt: "Warm-accented e-commerce parcel tracking card featuring delivery rider icon, step-by-step progress timeline (Placed, Packed, On Way, Delivered), and automated Bangla/English customer notification with COD amount in ৳.",
+    alt: "Smartphone mockup on warm studio pedestal showing delivery status card with motorbike rider icon, 4-step progress, and COD amount in ৳",
+    prompt: "A realistic modern smartphone on a warm peach and terracotta studio pedestal with soft sunlit lighting. The screen shows an e-commerce order tracking card featuring a delivery rider on a motorbike icon, a 4-step progress line (Order, Packed, On Way, Done), and a Steadfast COD payment breakdown in ৳ 1,450. Warm light background.",
     aspect: "none"
   },
   {
     src: "/assets/images/home/hero/card-8.webp",
-    alt: "Omnichannel inbox aggregating WhatsApp, Facebook, Instagram, and Telegram conversations with agent assignments",
-    prompt: "High-contrast dark indigo SaaS card showing unified team inbox with synchronized conversations across WhatsApp, Messenger, Instagram, and Telegram, assigned agent tags, and 14-second average response time badge.",
+    alt: "Laptop mockup on dark workspace desk showing clean omnichannel inbox with WhatsApp, Messenger, and Instagram conversation rows and assigned agents",
+    prompt: "A sleek modern laptop open on a clean dark studio desk with soft overhead key light. The laptop screen displays Jadubot's omnichannel team inbox with 3 large readable conversation rows tagged with green WhatsApp, blue Messenger, and pink Instagram channel badges, plus assigned human agent chips (Sadia, Nayeem) and live status.",
     aspect: "none"
   }
 ];
