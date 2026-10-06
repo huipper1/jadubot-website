@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CaretRight as ChevronRight, Star } from "@/components/icons";
 
 import { CardStrip } from "./CardStrip";
+import { HeroGridBackground } from "@/components/HeroGridBackground";
 import { CALENDLY_DEMO_URL } from "@/config/site";
 import { usePopAnimation } from "@/lib/animations";
 
@@ -13,22 +13,8 @@ export function HomeHero() {
 
   return (
     <section className="relative w-full overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24 lg:pt-36">
-      {/* Bright blue sky background with soft white clouds & airy gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden" aria-hidden="true">
-        {/* Real sky & clouds image from /public/hero-sky.jpg */}
-        <Image
-          src="/hero-sky.jpg"
-          alt="Bright blue sky with soft white clouds"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-top opacity-90 dark:opacity-40"
-        />
-
-        {/* Airy gradient overlays for clean text contrast and seamless bottom blending */}
-        <div className="absolute inset-0 bg-gradient-to-b from-sky-400/20 via-sky-200/10 to-background/95 dark:from-slate-950/60 dark:via-slate-900/80 dark:to-background" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/60 to-transparent" />
-      </div>
+      {/* Themed technical line-grid background (no sky photo) */}
+      <HeroGridBackground />
 
       <div ref={containerRef} className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         {/* Top: 5-Star Social Proof Review Pill */}

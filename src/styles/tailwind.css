@@ -66,14 +66,20 @@
   --radius-preserved-icon: 1rem;
 
   /* Surfaces - Zatiq Easy Sky Canvas & Fresh Elevated Cards */
-  --background: #eff6ff; /* Zatiq signature bg-blue-50 sky canvas */
-  --foreground: #0f172a; /* Slate 900 high contrast */
-  --surface-ground: #f8faff; /* Off-canvas soft contrast */
-  --surface-subtle: #eef4ff; /* Pale ice-blue section background */
-  --surface-elevated: #ffffff; /* Pure crisp white for cards */
+  --background: #eff6ff;
+  /* Zatiq signature bg-blue-50 sky canvas */
+  --foreground: #0f172a;
+  /* Slate 900 high contrast */
+  --surface-ground: #f8faff;
+  /* Off-canvas soft contrast */
+  --surface-subtle: #eef4ff;
+  /* Pale ice-blue section background */
+  --surface-elevated: #ffffff;
+  /* Pure crisp white for cards */
 
   /* Cards */
-  --card: #ffffff; /* Crisp white card surface */
+  --card: #ffffff;
+  /* Crisp white card surface */
   --card-foreground: #0f172a;
   --card-subtle: #f8faff;
   --card-hover: #ffffff;
@@ -95,9 +101,11 @@
   --destructive: #ef4444;
 
   /* Borders & Inputs - Soft sky-tinted borders */
-  --border: #dbeafe; /* Tailwind blue-100 */
+  --border: #dbeafe;
+  /* Tailwind blue-100 */
   --border-subtle: #eff6ff;
-  --border-hover: #93c5fd; /* Tailwind blue-300 */
+  --border-hover: #93c5fd;
+  /* Tailwind blue-300 */
   --input: #dbeafe;
   --ring: #155dfc;
 
@@ -207,9 +215,9 @@
      7. Avatars (3)
      8. Section badges (5)
   */
-  *:not([data-navbar-scope]):not([data-navbar-scope] *):not([data-slot="avatar"]):not([data-slot="avatar"] *):not([data-preserve-radius]):not([data-preserve-radius] *):not(.rounded-full):not([class*="avatar"]) {
+  /* *:not([data-navbar-scope]):not([data-navbar-scope] *):not([data-slot="avatar"]):not([data-slot="avatar"] *):not([data-preserve-radius]):not([data-preserve-radius] *):not(.rounded-full):not([class*="avatar"]) {
     border-radius: 0px !important;
-  }
+  } */
 
   body {
     background-color: var(--background);
@@ -371,6 +379,7 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
 }
 
 @keyframes pulse-glow {
+
   0%,
   100% {
     transform: translate(-50%, -50%) scale(0.88);
@@ -427,6 +436,7 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
 }
 
 @keyframes float-levitate {
+
   0%,
   100% {
     transform: translateY(0px) rotate(0deg);
@@ -824,21 +834,11 @@ html:not(.dark) .hover\:border-white\/30:hover {
 }
 
 /* 6. Typography & Text Hierarchy */
-html:not(.dark)
-  .text-white:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not(
-    [class*="bg-brand"]
-  ):not([class*="bg-brand"] *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *):not(
-    [class*="bg-[#0052cc]"]
-  ):not([class*="bg-[#0052cc]"] *):not([class*="bg-blue-"]):not([class*="bg-blue-"] *):not(
-    [class*="bg-emerald-"]
-  ):not([class*="bg-emerald-"] *):not([class*="bg-indigo-"]):not([class*="bg-indigo-"] *) {
+html:not(.dark) .text-white:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not([class*="bg-brand"]):not([class*="bg-brand"] *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *):not([class*="bg-[#0052cc]"]):not([class*="bg-[#0052cc]"] *):not([class*="bg-blue-"]):not([class*="bg-blue-"] *):not([class*="bg-emerald-"]):not([class*="bg-emerald-"] *):not([class*="bg-indigo-"]):not([class*="bg-indigo-"] *) {
   color: var(--foreground) !important;
 }
 
-html:not(.dark)
-  .text-\[\#f7f7f7\]:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not(
-    [class*="bg-[#0172ff]"]
-  ):not([class*="bg-[#0172ff]"] *) {
+html:not(.dark) .text-\[\#f7f7f7\]:not(.dark-surface *):not(.btn-primary):not(.btn-primary *):not([class*="bg-[#0172ff]"]):not([class*="bg-[#0172ff]"] *) {
   color: var(--foreground) !important;
 }
 
@@ -1015,8 +1015,7 @@ html:not(.dark) footer a:hover {
 }
 
 /* 11. Form Inputs & Textareas */
-html:not(.dark)
-  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html:not(.dark) input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
 html:not(.dark) textarea,
 html:not(.dark) select {
   background-color: #ffffff;
