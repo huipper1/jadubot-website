@@ -274,6 +274,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
   },
   industry: {
     "ecommerce-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/ecommerce-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying automated e-commerce cart recovery and COD confirmation in BDT",
+      "prompt": "Isolated 3D smartphone on transparent background displaying an e-commerce WhatsApp chat with abandoned cart recovery, sneaker photo, ৳ 3,450 price, and green Confirm COD button.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/ecommerce-chatbot-automation/bento-b.webp",
+      "alt": "3D e-commerce parcel and checkout card cluster with courier tracking pill",
+      "prompt": "Isolated 3D cluster with shopping bag, Pathao delivery parcel box, and verified checkout badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/ecommerce-chatbot-automation/hero.webp",
         alt: "E-commerce online store omnichannel chat bot driving 24/7 product sales and cart recovery",
@@ -318,6 +331,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "retail-b2c-ecommerce-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/retail-b2c-ecommerce-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying GPS-powered store locator and live branch stock check",
+      "prompt": "Isolated 3D smartphone on transparent background showing WhatsApp store locator chat with map pin, Dhanmondi branch hours, and product stock check.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/retail-b2c-ecommerce-chatbot-automation/bento-b.webp",
+      "alt": "3D map location pin and retail store card cluster with seasonal discount voucher",
+      "prompt": "Isolated 3D cluster with map location pin, VIP discount card, and store availability badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/retail-b2c-ecommerce-chatbot-automation/hero.webp",
         alt: "Retail store omnichannel customer engagement with store locator and in-store pickup booking",
@@ -362,6 +388,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "healthcare-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/healthcare-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup showing doctor slot booking and diagnostic test pricing in chat",
+      "prompt": "Isolated 3D smartphone on transparent background displaying clinical WhatsApp bot confirming specialist doctor booking with serial #14 and lab preparation instructions.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/healthcare-chatbot-automation/bento-b.webp",
+      "alt": "3D medical calendar and clinic appointment badge cluster with stethoscope icon",
+      "prompt": "Isolated 3D cluster with appointment confirmation ticket, stethoscope icon, and 75% time cut badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/healthcare-chatbot-automation/hero.webp",
         alt: "Healthcare clinic appointment booking and doctor schedule availability via WhatsApp",
@@ -406,6 +445,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "real-estate-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/real-estate-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying automated budget qualification and site visit scheduling for apartment buyers",
+      "prompt": "Isolated 3D smartphone on transparent background displaying real estate WhatsApp chat with property photo, ৳ 1.8 Cr price, budget qualification, and weekend site visit confirmation.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/real-estate-chatbot-automation/bento-b.webp",
+      "alt": "3D architectural floorplan blueprint and site visit calendar cluster",
+      "prompt": "Isolated 3D cluster with property model icon, blueprint badge, and scheduled visit ticket on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/real-estate-chatbot-automation/hero.webp",
         alt: "Real estate property sales agent qualifying apartment buyers and booking site visits",
@@ -450,6 +502,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "restaurant-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/restaurant-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying WhatsApp digital food menu ordering and table reservation",
+      "prompt": "Isolated 3D smartphone on transparent background displaying restaurant WhatsApp chat with Kacchi biryani photo, ৳ 480 price, and Table for 4 reservation confirmation.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/restaurant-chatbot-automation/bento-b.webp",
+      "alt": "3D dining table reservation card and delivery food cloche cluster",
+      "prompt": "Isolated 3D cluster with food cloche icon, confirmed table booking ticket, and 30% savings badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/restaurant-chatbot-automation/hero.webp",
         alt: "Restaurant table reservation and automated food menu ordering via WhatsApp chat",
@@ -494,6 +559,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "finance-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/finance-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying interactive loan EMI calculator and document collection in chat",
+      "prompt": "Isolated 3D smartphone on transparent background displaying bank WhatsApp chat with interactive home loan calculator, monthly EMI in ৳, and NID verification card.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/finance-chatbot-automation/bento-b.webp",
+      "alt": "3D loan calculator and verified bank security badge cluster",
+      "prompt": "Isolated 3D cluster with calculator, verified document checkmark, and 52% completion rate badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/finance-chatbot-automation/hero.webp",
         alt: "Financial services loan calculator and instant credit eligibility assessment in chat",
@@ -538,6 +616,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "education-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/education-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying university admission eligibility, fee guidance, and counseling scheduling in chat",
+      "prompt": "Isolated 3D smartphone on transparent background displaying educational WhatsApp chat answering CSE tuition fee waiver in ৳, syllabus download, and 1-on-1 counseling slot confirmation.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/education-chatbot-automation/bento-b.webp",
+      "alt": "3D academic graduation cap and counseling appointment card cluster",
+      "prompt": "Isolated 3D cluster with graduation cap icon, admission prospectus card, and 48% counseling boost badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/education-chatbot-automation/hero.webp",
         alt: "Educational institute course admissions bot answering tuition fees and enrollment deadlines",
@@ -582,6 +673,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "saas-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/saas-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying B2B SaaS lead enrichment and automated product demo scheduling",
+      "prompt": "Isolated 3D smartphone on transparent background displaying SaaS sales bot qualifying team size 50+, enriching CRM, and booking 30m demo call.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/saas-chatbot-automation/bento-b.webp",
+      "alt": "3D cloud server webhook and interactive product demo calendar cluster",
+      "prompt": "Isolated 3D cluster with cloud database icon, demo meeting calendar, and 38% trial activation boost badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/saas-chatbot-automation/hero.webp",
         alt: "SaaS software product tour, trial signup, and automated demo scheduling assistant",
@@ -626,6 +730,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "logistics-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/logistics-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying live parcel tracking and delivery rescheduling via WhatsApp",
+      "prompt": "Isolated 3D smartphone on transparent background displaying courier WhatsApp bot tracking consignment #PTH-9821, showing rider phone number, and COD amount in ৳.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/logistics-chatbot-automation/bento-b.webp",
+      "alt": "3D delivery truck and real-time GPS tracking consignment card cluster",
+      "prompt": "Isolated 3D cluster with courier truck, GPS pin, and 2-second resolution speed badge on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/logistics-chatbot-automation/hero.webp",
         alt: "Logistics parcel delivery tracking and courier status notification on WhatsApp",
@@ -670,6 +787,19 @@ export const SECTION_IMAGES: Record<"platform" | "ai-agents" | "industry", Route
       }
     },
     "agency-chatbot-automation": {
+      "bento-a": {
+      "src": "/assets/images/industry/agency-chatbot-automation/bento-a.webp",
+      "alt": "Smartphone mockup displaying multi-client marketing agency dashboard and click-to-WhatsApp ad triage",
+      "prompt": "Isolated 3D smartphone on transparent background displaying agency portal with 50+ managed accounts, click-to-message leads, and 50% cost-per-lead reduction card.",
+      "aspect": "none"
+},
+      "bento-b": {
+      "src": "/assets/images/industry/agency-chatbot-automation/bento-b.webp",
+      "alt": "3D marketing analytics chart and white-label client workspace card cluster",
+      "prompt": "Isolated 3D cluster with multi-client dashboard icon, white-label badge, and 50+ clients managed card on transparent background.",
+      "aspect": "none"
+},
+
       hero: {
         src: "/assets/images/industry/agency-chatbot-automation/hero.webp",
         alt: "Digital marketing agency multi-client chatbot management portal and white-label dashboard",

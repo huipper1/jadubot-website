@@ -1,6 +1,6 @@
 export * from "./industry-data";
 export * from "./IndustryHero";
-export * from "./IndustrySplitShowcase";
+export * from "./IndustryBentoGrid";
 export * from "./IndustryRoiSection";
 export * from "./IndustryWorkflow";
 export * from "./WorkflowStreamCanvas";

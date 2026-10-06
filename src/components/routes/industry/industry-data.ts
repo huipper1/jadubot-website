@@ -20,14 +20,29 @@ export interface IndustryFaqItem {
   answer: string;
 }
 
-export interface IndustryShowcaseItem {
+export interface IndustryBentoItem {
+  iconName: string;
   title: string;
+  description: string;
+}
+
+export interface IndustryBentoSection {
+  eyebrow: string;
+  title: string;
+  titleAccent?: string;
   subtitle: string;
-  problem: string;
-  solution: string;
-  metrics: string;
-  benefits: string[];
-  graphicAlt: string;
+  statItem?: {
+    value: string;
+    label: string;
+  };
+  items: [
+    IndustryBentoItem,
+    IndustryBentoItem,
+    IndustryBentoItem,
+    IndustryBentoItem,
+    IndustryBentoItem,
+    IndustryBentoItem
+  ];
 }
 
 export interface IndustryData {
@@ -58,7 +73,7 @@ export interface IndustryData {
     exampleMath: string;
     metrics: { value: string; label: string; detail: string }[];
   };
-  showcases: IndustryShowcaseItem[];
+  bento: IndustryBentoSection;
   workflow: {
     badge: string;
     title: string;
@@ -121,40 +136,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Combat Checkout Abandonment at the Critical Moment",
-        subtitle: "High Intent, Low Friction",
-        problem:
-          "Shoppers abandon carts due to unexpected delivery fees, sizing doubts, or payment gateway hesitations—costing up to 70% of potential store sales.",
-        solution:
-          "Jadubot detects checkout abandonment in Shopify/WooCommerce and triggers a polite, timely WhatsApp message with a one-click checkout link or answers their doubt immediately.",
-        metrics: "Recovers 1 out of every 4 abandoned carts automatically.",
-        benefits: [
-          "Native Shopify & WooCommerce webhook integration",
-          "Automated discount incentives for high-value carts",
-          "One-tap payment confirmation and delivery selection",
-          "Compliant with Meta WhatsApp 24-hour messaging guidelines"
-        ],
-        graphicAlt: "E-commerce abandoned cart recovery workflow illustration"
-      },
-      {
-        title: "Cash-on-Delivery (COD) Verification & Fraud Prevention",
-        subtitle: "Zero Fake Orders",
-        problem:
-          "In emerging e-commerce markets, unverified COD orders cause high delivery failure rates, double courier shipping charges, and wasted packaging.",
-        solution:
-          "Instant automated OTP or interactive button confirmation in Messenger/WhatsApp confirms buyer intent before your warehouse packs and ships the parcel.",
-        metrics: "Drops return-to-origin (RTO) courier rates by 45%.",
-        benefits: [
-          "Automated phone and address validation before dispatch",
-          "Interactive 'Confirm Order' or 'Change Address' buttons",
-          "Real-time courier API sync (Pathao, Steadfast, RedX, DHL)",
-          "Automatic inventory release if order remains unconfirmed"
-        ],
-        graphicAlt: "COD order verification and address confirmation"
-      }
-    ],
+    bento: {
+        "eyebrow": "E-Commerce AI Automation",
+        "title": "Autonomous Conversational Commerce for Online Stores",
+        "titleAccent": "Commerce",
+        "subtitle": "Recovers abandoned checkouts, validates COD orders, and synchronizes real-time deliveries across Bangladesh.",
+        "statItem": {
+            "value": "45%",
+            "label": "RTO Courier Reduction"
+        },
+        "items": [
+            {
+                "iconName": "ShoppingCart",
+                "title": "Cart Recovery Engine",
+                "description": "Recovers 1 in 4 carts automatically with discount triggers."
+            },
+            {
+                "iconName": "CheckCircle",
+                "title": "COD Verification & Fraud",
+                "description": "Validates buyer phone numbers and addresses before dispatch."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Return Reduction",
+                "description": "Drops return-to-origin courier expenses by 45% consistently."
+            },
+            {
+                "iconName": "Truck",
+                "title": "Courier API Sync",
+                "description": "Automates consignments across Pathao, Steadfast, and RedX."
+            },
+            {
+                "iconName": "Shield",
+                "title": "Meta Cloud Security",
+                "description": "Zero-ban messaging compliant with 24-hour guidelines."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Instant One-Tap Checkout",
+                "description": "Passes confirmed orders directly to store inventory in seconds."
+            }
+        ]
+    },
     workflow: {
       badge: "END-TO-END SHOPPING JOURNEY",
       title: "How Jadubot Drives E-commerce Sales",
@@ -319,40 +342,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "GPS-Powered Store Locator & Outlet Stock Check",
-        subtitle: "Drive Digital Shoppers to Physical Aisles",
-        problem:
-          "Customers frequently ask 'Which branch has size XL in stock?' or 'Is your Dhanmondi branch open today?' across Facebook comments and DMs, receiving answers hours too late.",
-        solution:
-          "Shoppers share their current location or select a neighborhood, and Jadubot instantly shares the nearest branch address, live opening hours, Google Maps directions, and contact info.",
-        metrics: "Over 85% of store locator inquiries result in same-day physical visits.",
-        benefits: [
-          "Instant Google Maps location pinning directly in WhatsApp/Messenger",
-          "Live branch opening/closing hours and phone numbers",
-          "Branch-specific inventory query routing to store managers",
-          "Clickable directions for Uber, Pathao, or navigation apps"
-        ],
-        graphicAlt: "GPS retail store locator and branch stock checker in chat"
-      },
-      {
-        title: "Segmented Broadcasts for VIP Seasonal Sales",
-        subtitle: "High Engagement, Zero Spam",
-        problem:
-          "SMS marketing is increasingly ignored, costly, and lacks rich visual appeal. Retail brands struggle to inform existing buyers about clearance sales.",
-        solution:
-          "Deliver rich media WhatsApp broadcasts with high-resolution collection lookbooks, personalized discount vouchers, and direct RSVP buttons.",
-        metrics: "Achieves 91% open rates and 28% click-through engagement.",
-        benefits: [
-          "Filtered audience segmentation by purchase frequency and city",
-          "Rich interactive media cards with swipeable carousels",
-          "Personalized customer name and loyalty tier tokens",
-          "Instant opt-out management compliant with carrier regulations"
-        ],
-        graphicAlt: "Retail VIP WhatsApp marketing broadcast and promotional campaign"
-      }
-    ],
+    bento: {
+        "eyebrow": "Omnichannel Retail AI",
+        "title": "Bridge Digital Shoppers to Physical Retail Outlets",
+        "titleAccent": "Retail",
+        "subtitle": "Guides shoppers to local branches with live GPS pins and drives VIP sale traffic.",
+        "statItem": {
+            "value": "91%",
+            "label": "Broadcast Open Rate"
+        },
+        "items": [
+            {
+                "iconName": "Globe",
+                "title": "GPS-Powered Store Locator",
+                "description": "Pins nearest outlet directions and hours directly in WhatsApp."
+            },
+            {
+                "iconName": "ShoppingBag",
+                "title": "VIP Seasonal Broadcasts",
+                "description": "Delivers interactive flash catalog cards with 91% open rates."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Footfall Conversion",
+                "description": "Over 85% of locator inquiries result in same-day visits."
+            },
+            {
+                "iconName": "Eye",
+                "title": "Live Branch Inventory",
+                "description": "Checks item availability across outlets without staff calls."
+            },
+            {
+                "iconName": "UserCheck",
+                "title": "Loyalty Tier Sync",
+                "description": "Applies VIP customer discounts and loyalty tokens instantly."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Ride-Hailing Directions",
+                "description": "Generates one-click navigation links for Pathao and Uber."
+            }
+        ]
+    },
     workflow: {
       badge: "RETAIL OMNICHANNEL FLOW",
       title: "From Social Discovery to Store Purchase",
@@ -482,40 +513,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "24/7 Specialist Doctor Discovery & Slot Booking",
-        subtitle: "Zero Waiting on Reception Hold",
-        problem:
-          "Patients trying to book doctors during busy morning hours face busy phone lines, leading to frustrated patients and vacant afternoon consultations.",
-        solution:
-          "Patients select medical specialty (Cardiology, Dermatology, Pediatrics), choose their preferred doctor, view real-time open slots, and confirm appointments instantly.",
-        metrics: "Cuts receptionist booking administration time by 75%.",
-        benefits: [
-          "Interactive doctor profiles with fees, qualifications, and visiting days",
-          "Automated digital booking receipt with serial number and room code",
-          "Integration with Hospital Management Information Systems (HMIS)",
-          "Instant one-click cancellation and rescheduling"
-        ],
-        graphicAlt: "Doctor appointment booking interface on WhatsApp"
-      },
-      {
-        title: "Diagnostic Test Pricing & Preparation Guidelines",
-        subtitle: "Accurate Patient Preparation",
-        problem:
-          "Patients frequently arrive for fasting blood sugar or ultrasound tests improperly prepared, forcing appointments to be cancelled and rebooked.",
-        solution:
-          "Jadubot delivers instant test costs, required fasting hours, sample collection instructions, and report delivery schedules directly to the patient's phone.",
-        metrics: "Reduces improper lab test preparation incidents by 82%.",
-        benefits: [
-          "Complete diagnostic test directory with pricing and turnaround times",
-          "Pre-test fasting and dietary guideline checklists",
-          "Automated notification when lab test report is ready for download",
-          "Home sample collection booking coordination"
-        ],
-        graphicAlt: "Diagnostic test pricing and preparation guide in chat"
-      }
-    ],
+    bento: {
+        "eyebrow": "Clinical AI Assistant",
+        "title": "24/7 Specialist Doctor Discovery and Appointment Triage",
+        "titleAccent": "Discovery",
+        "subtitle": "Automates outpatient slot booking, test fee calculations, and pre-test fasting instructions.",
+        "statItem": {
+            "value": "75%",
+            "label": "Admin Time Cut"
+        },
+        "items": [
+            {
+                "iconName": "Calendar",
+                "title": "Doctor Slot Booking",
+                "description": "Issues serial numbers, visit rooms, and automated SMS reminders."
+            },
+            {
+                "iconName": "Database",
+                "title": "Diagnostic Test Directory",
+                "description": "Shares test preparation rules, lab fees, and fasting guides."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Admin Workload Deflection",
+                "description": "Cuts receptionist booking administration time by 75%."
+            },
+            {
+                "iconName": "Shield",
+                "title": "HMIS System Integration",
+                "description": "Syncs patient slots directly with hospital management servers."
+            },
+            {
+                "iconName": "UserCheck",
+                "title": "Emergency Notice Compliance",
+                "description": "Instant guidance for urgent care with 100% policy accuracy."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Home Sample Coordination",
+                "description": "Dispatches phlebotomists for lab sample collection seamlessly."
+            }
+        ]
+    },
     workflow: {
       badge: "PATIENT CARE PIPELINE",
       title: "How Patient Automation Works",
@@ -656,40 +695,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Automated Budget & Preference Qualification",
-        subtitle: "Focus Brokers on Genuine Buyers",
-        problem:
-          "Brokers waste 70% of their day calling Facebook ad leads who either have inadequate budget, wrong location expectations, or were casually browsing.",
-        solution:
-          "Jadubot engages leads instantly upon ad click, asking 3 key qualifying questions: preferred area, bedroom count, and budget range—filtering out non-buyers.",
-        metrics: "Brokers receive only pre-qualified, high-intent prospects.",
-        benefits: [
-          "Interactive budget range selectors ($50k-$100k, $100k-$250k, Luxury)",
-          "Floor plan PDF brochure downloads directly inside WhatsApp",
-          "Automated handover to dedicated area broker once qualified",
-          "Instant alert notifications sent to sales manager on WhatsApp"
-        ],
-        graphicAlt: "Real estate lead qualification bot filtering budget and bedrooms"
-      },
-      {
-        title: "Physical Site Visit & Model Apartment Scheduling",
-        subtitle: "Turn Inquiries Into Booked Walkthroughs",
-        problem:
-          "Coordinating site visit times through manual telephone calls leads to repeated phone tag, missed weekends, and low show-up rates.",
-        solution:
-          "Buyers choose a convenient Saturday or weekday slot, receive a GPS pin and calendar invite, and get an automated WhatsApp reminder on the morning of the tour.",
-        metrics: "Increases physical weekend site visit attendance by 44%.",
-        benefits: [
-          "Interactive date and time slot selector",
-          "Automated GPS directions to project site and sales gallery",
-          "Broker contact details shared with the client for smooth meetups",
-          "Automated follow-up survey after visit completion"
-        ],
-        graphicAlt: "Property site visit booking and directions"
-      }
-    ],
+    bento: {
+        "eyebrow": "Real Estate AI Desk",
+        "title": "Qualify High-Intent Buyers and Schedule Site Tours",
+        "titleAccent": "Buyers",
+        "subtitle": "Screens buyer budgets, delivers floor plan brochures, and books model apartment visits.",
+        "statItem": {
+            "value": "44%",
+            "label": "Site Visit Boost"
+        },
+        "items": [
+            {
+                "iconName": "Filter",
+                "title": "Budget & Preference Filter",
+                "description": "Qualifies prospect price ranges, flat sizes, and desired areas."
+            },
+            {
+                "iconName": "Calendar",
+                "title": "Site Visit Scheduling",
+                "description": "Books physical weekend property tours with broker details."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Physical Attendance Growth",
+                "description": "Boosts physical weekend site visit attendance by 44%."
+            },
+            {
+                "iconName": "PaperPlaneTilt",
+                "title": "Instant PDF Brochures",
+                "description": "Dispatches floor plans and payment schedules in WhatsApp."
+            },
+            {
+                "iconName": "UserCheck",
+                "title": "Area Broker Routing",
+                "description": "Transfers pre-qualified buyers to dedicated agents instantly."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Automated Post-Tour Survey",
+                "description": "Captures visitor feedback and buying intent immediately."
+            }
+        ]
+    },
     workflow: {
       badge: "PROPERTY BUYER PIPELINE",
       title: "From Click-to-Messenger Ad to Handshake",
@@ -811,40 +858,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Direct Digital Menu & Food Ordering in WhatsApp",
-        subtitle: "Mouth-Watering Visual Catalog",
-        problem:
-          "PDF menus are cumbersome to pinch-and-zoom on mobile, and third-party delivery apps eat up to 30% of each restaurant meal's profit margin.",
-        solution:
-          "Jadubot delivers a modern interactive menu where diners can filter by Cuisine, Chef Specials, or Vegetarian, customize their order, and enter delivery details.",
-        metrics: "Cuts delivery aggregator commission costs to zero.",
-        benefits: [
-          "Interactive food item cards with mouthwatering photos and descriptions",
-          "Customizable add-ons (extra cheese, spice levels, drinks)",
-          "Delivery address capture with live location pin",
-          "Automated kitchen printing via POS webhook"
-        ],
-        graphicAlt: "Digital WhatsApp food ordering menu with interactive items"
-      },
-      {
-        title: "Automated Table Reservation & Special Occasions",
-        subtitle: "Zero Double-Bookings",
-        problem:
-          "Phone calls during noisy dinner service lead to misspelled guest names, forgotten reservations, and awkward double-booked tables on busy weekends.",
-        solution:
-          "Guests select guest count, dining date, seating preference (outdoor, rooftop, VIP booth), and receive an instant booking confirmation with calendar integration.",
-        metrics: "Eliminates reservation errors completely.",
-        benefits: [
-          "Guest party size, date, and time slot verification",
-          "Special request capture (birthday cake, anniversary setup, quiet corner)",
-          "Automated reminder 2 hours prior to reservation time",
-          "One-tap cancellation so tables can be quickly reassigned"
-        ],
-        graphicAlt: "Restaurant table reservation interface on chat"
-      }
-    ],
+    bento: {
+        "eyebrow": "Restaurant Commerce AI",
+        "title": "Direct Digital Menu Ordering and Table Reservations",
+        "titleAccent": "Ordering",
+        "subtitle": "Takes WhatsApp food orders with zero aggregator commissions and automates table bookings.",
+        "statItem": {
+            "value": "30%",
+            "label": "Third-Party Fees Saved"
+        },
+        "items": [
+            {
+                "iconName": "ShoppingCart",
+                "title": "Direct WhatsApp Ordering",
+                "description": "Visual menu item cards with add-ons and delivery locations."
+            },
+            {
+                "iconName": "Calendar",
+                "title": "Automated Table Booking",
+                "description": "Verifies party size, special occasions, and seating times."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Aggregator Fee Elimination",
+                "description": "Saves up to 30% in food delivery aggregator commissions."
+            },
+            {
+                "iconName": "Printer",
+                "title": "Kitchen POS Webhooks",
+                "description": "Prints live kitchen order tickets automatically upon checkout."
+            },
+            {
+                "iconName": "CheckCircle",
+                "title": "Zero Reservation Errors",
+                "description": "Eliminates double-booking with 2-hour pre-arrival reminders."
+            },
+            {
+                "iconName": "Zap",
+                "title": "VIP Re-engagement",
+                "description": "Dispatches birthday perks and weekend dining offers automatically."
+            }
+        ]
+    },
     workflow: {
       badge: "GUEST DINING LIFECYCLE",
       title: "From Food Discovery to 5-Star Review",
@@ -962,40 +1017,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Interactive Loan EMI & Investment Calculators",
-        subtitle: "Instant Financial Transparency",
-        problem:
-          "Customers find financial percentage formulas confusing and abandon loan applications when they cannot easily visualize their monthly repayment obligations.",
-        solution:
-          "Jadubot provides an interactive EMI calculator in chat. Users enter loan amount and tenure, receiving an instant breakdown of monthly payments, interest rates, and total cost.",
-        metrics: "Increases completed loan applications by 52%.",
-        benefits: [
-          "Real-time calculations for Home, Car, Personal, and SME loans",
-          "Comparison between fixed and floating interest rate scenarios",
-          "Instant eligibility check based on monthly net salary",
-          "One-tap handoff to human credit assessment officers"
-        ],
-        graphicAlt: "Loan EMI calculator in WhatsApp and financial advisory bot"
-      },
-      {
-        title: "Secure Document Collection & Lead Verification",
-        subtitle: "Frictionless Document Ingestion",
-        problem:
-          "Chasing loan applicants for identity cards, salary certificates, and bank statements via manual email chains delays approvals by 2 to 3 weeks.",
-        solution:
-          "Applicants upload PDF or photo documents securely through WhatsApp or encrypted web chat, with automated format verification and categorization.",
-        metrics: "Reduces loan processing cycle time from 14 days down to 4 days.",
-        benefits: [
-          "Secure encrypted document transfer with virus scanning",
-          "Automated verification of NID / Passport / TIN format",
-          "Real-time reminders if a mandatory page is missing",
-          "Direct integration into loan origination systems (LOS)"
-        ],
-        graphicAlt: "Secure financial document upload and verification in chat"
-      }
-    ],
+    bento: {
+        "eyebrow": "Financial Services AI",
+        "title": "Interactive Loan Calculators and Secure Lead Onboarding",
+        "titleAccent": "Calculators",
+        "subtitle": "Computes monthly loan EMIs, screens borrower salary, and collects KYC documents securely.",
+        "statItem": {
+            "value": "52%",
+            "label": "Application Completion"
+        },
+        "items": [
+            {
+                "iconName": "ChartBar",
+                "title": "Interactive EMI Calculator",
+                "description": "Calculates home and auto loan installments in real time."
+            },
+            {
+                "iconName": "Shield",
+                "title": "Encrypted KYC Collection",
+                "description": "Collects NID, salary slips, and TIN certificates securely."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Completed Applications",
+                "description": "Increases fully completed loan applications by 52%."
+            },
+            {
+                "iconName": "Clock",
+                "title": "Processing Cycle Cut",
+                "description": "Shrinks loan verification timelines from 14 days to 4 days."
+            },
+            {
+                "iconName": "UserCheck",
+                "title": "Credit Officer Handoff",
+                "description": "Routes eligible borrowers to bank loan officers instantly."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Document Format Validation",
+                "description": "Alerts borrowers if attachments or required pages are missing."
+            }
+        ]
+    },
     workflow: {
       badge: "FINANCIAL APPLICATION WORKFLOW",
       title: "How Loan Applications Flow Through Jadubot",
@@ -1113,40 +1176,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Instant Admission Eligibility & Fee Guidance",
-        subtitle: "Clarity for Prospective Students",
-        problem:
-          "During peak admission seasons, university phone lines and social inboxes receive thousands of identical questions regarding minimum GPA, tuition costs, and deadlines.",
-        solution:
-          "Jadubot delivers department-specific criteria, total tuition semester-by-semester breakdowns, and downloadable PDF prospectuses immediately in chat.",
-        metrics: "Answers 95% of admission queries without counselor fatigue.",
-        benefits: [
-          "Interactive department and degree program navigator",
-          "Automated scholarship waiver eligibility calculation",
-          "Prospectus and course syllabus PDF downloads",
-          "Deadline alert reminders sent to prospective applicants"
-        ],
-        graphicAlt: "University student admission chatbot and course catalog"
-      },
-      {
-        title: "1-on-1 Academic Counseling Scheduling",
-        subtitle: "Higher Commitment, Higher Enrollment",
-        problem:
-          "Prospective students who need tailored academic guidance often delay applying because booking an advisor requires visiting campus in person.",
-        solution:
-          "Students book a 15-minute phone or Zoom counseling session with an academic advisor, receiving an automatic calendar link and reminder in WhatsApp.",
-        metrics: "Boosts completed counseling sessions by 48%.",
-        benefits: [
-          "Live calendar sync with admission officers' schedules",
-          "Selection of online Zoom or physical campus interview",
-          "Automated questionnaire to capture student background",
-          "Post-counseling application follow-up reminders"
-        ],
-        graphicAlt: "Academic counseling session booking in chat"
-      }
-    ],
+    bento: {
+        "eyebrow": "Higher Ed Admissions AI",
+        "title": "Instant Admission Eligibility and Counseling Scheduling",
+        "titleAccent": "Admissions",
+        "subtitle": "Answers tuition fee queries, calculates merit scholarships, and schedules counseling sessions.",
+        "statItem": {
+            "value": "95%",
+            "label": "Queries Automated"
+        },
+        "items": [
+            {
+                "iconName": "Database",
+                "title": "Admission & Fee Navigator",
+                "description": "Answers department eligibility, waiver rules, and semester costs."
+            },
+            {
+                "iconName": "Calendar",
+                "title": "1-on-1 Counseling Slots",
+                "description": "Schedules Zoom or campus counseling sessions with advisors."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Inquiry Deflection Rate",
+                "description": "Answers 95% of admission questions without counselor fatigue."
+            },
+            {
+                "iconName": "PaperPlaneTilt",
+                "title": "Course Syllabus Delivery",
+                "description": "Shares degree curriculums and admission forms in WhatsApp."
+            },
+            {
+                "iconName": "UserCheck",
+                "title": "Counseling Session Boost",
+                "description": "Increases completed student counseling sessions by 48%."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Deadline Alert Reminders",
+                "description": "Notifies applicants before scholarship and batch deadlines close."
+            }
+        ]
+    },
     workflow: {
       badge: "STUDENT ONBOARDING FLOW",
       title: "From Inquiry to First Day of Class",
@@ -1259,40 +1330,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Enterprise Lead Enrichment & Demo Scheduling",
-        subtitle: "Bypass Slow Form Submissions",
-        problem:
-          "B2B software buyers hate filling out 8-field static demo forms and waiting 2 days for an SDR to email back—leading to massive pipeline drop-off.",
-        solution:
-          "Jadubot asks company size, primary use case, and decision timeline directly inside chat, embedding your Calendly or Google Calendar right into the conversation.",
-        metrics: "Increases demo completion rates by 3.5x.",
-        benefits: [
-          "B2B qualification questions (team size, tech stack, budget)",
-          "Real-time SDR & Account Executive calendar integration",
-          "Instant lead enrichment and bi-directional CRM syncing",
-          "Automated pre-demo prep material and meeting reminder"
-        ],
-        graphicAlt: "SaaS enterprise demo booking bot with embedded calendar"
-      },
-      {
-        title: "Interactive In-App Trial Onboarding & Activation",
-        subtitle: "Turn Signups into Paying Customers",
-        problem:
-          "New trial signups often get stuck during API configuration or workspace setup, abandoning the product before reaching their 'Aha!' moment.",
-        solution:
-          "Jadubot guides users through initial onboarding steps, answers technical questions using your documentation, and nudges them when they complete key milestones.",
-        metrics: "Boosts trial-to-paid activation by 38%.",
-        benefits: [
-          "Step-by-step interactive product walkthroughs",
-          "Searchable documentation and code snippet delivery in chat",
-          "Automated milestone celebration and upgrade triggers",
-          "Instant alert to customer success team if user is blocked"
-        ],
-        graphicAlt: "SaaS trial onboarding and product activation assistant"
-      }
-    ],
+    bento: {
+        "eyebrow": "B2B SaaS Growth AI",
+        "title": "Enterprise Lead Enrichment and Automated Demo Booking",
+        "titleAccent": "Enrichment",
+        "subtitle": "Scores inbound tech buyers, books live AE calendar slots, and guides trial activation.",
+        "statItem": {
+            "value": "3.5x",
+            "label": "Demo Booking Lift"
+        },
+        "items": [
+            {
+                "iconName": "UserCheck",
+                "title": "Lead Qualification & Triage",
+                "description": "Qualifies company size, tech stack, and software budget."
+            },
+            {
+                "iconName": "Calendar",
+                "title": "Instant Demo Scheduling",
+                "description": "Books meetings directly into account executive calendars."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Meeting Completion Speed",
+                "description": "Accelerates scheduled enterprise demo completion by 3.5x."
+            },
+            {
+                "iconName": "Database",
+                "title": "Bi-Directional CRM Sync",
+                "description": "Enriches prospect data directly inside HubSpot and Salesforce."
+            },
+            {
+                "iconName": "CheckCircle",
+                "title": "Interactive Onboarding",
+                "description": "Boosts trial-to-paid activation rates by 38% through in-chat guides."
+            },
+            {
+                "iconName": "Zap",
+                "title": "L1 Support Deflection",
+                "description": "Answers API questions and technical documentation in milliseconds."
+            }
+        ]
+    },
     workflow: {
       badge: "B2B SOFTWARE PIPELINE",
       title: "From Website Visitor to Enterprise Contract",
@@ -1404,40 +1483,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Real-Time Tracking by Tracking ID or Mobile Number",
-        subtitle: "Instant Visibility, Zero Phone Hold",
-        problem:
-          "Courier call centers get inundated with anxious recipients asking for parcel whereabouts, creating 15-minute wait times during evening peak hours.",
-        solution:
-          "Recipients type their tracking code or registered mobile number on WhatsApp, receiving an instant live status update with driver name and expected delivery window.",
-        metrics: "Resolves tracking inquiries in under 2 seconds.",
-        benefits: [
-          "Direct integration with Courier ERP & GPS tracking systems",
-          "Automated status updates (In Transit, Out for Delivery, Delivered)",
-          "Driver name and phone number sharing for smooth coordination",
-          "Automated proof-of-delivery photo delivery upon handover"
-        ],
-        graphicAlt: "Courier parcel tracking dialogue on WhatsApp"
-      },
-      {
-        title: "Pre-Delivery Alert & Automated Rescheduling",
-        subtitle: "Fewer Failed Delivery Attempts",
-        problem:
-          "Delivery riders arrive at addresses only to find the recipient is away from home or lacks cash for COD payment, causing expensive re-delivery attempts.",
-        solution:
-          "On the morning of delivery, Jadubot sends an automated WhatsApp message with delivery time window and COD total, allowing the recipient to confirm or reschedule.",
-        metrics: "Improves first-attempt delivery success rate by 28%.",
-        benefits: [
-          "One-click 'Confirm Available' or 'Reschedule Delivery' buttons",
-          "Selection of alternate delivery date (tomorrow, weekend)",
-          "Ability to redirect parcel to a neighbor or office address",
-          "Advance notification of exact cash amount required"
-        ],
-        graphicAlt: "Pre-delivery confirmation and rescheduling interface"
-      }
-    ],
+    bento: {
+        "eyebrow": "Courier Logistics AI",
+        "title": "Instant Tracking Resolution and Delivery Rescheduling",
+        "titleAccent": "Tracking",
+        "subtitle": "Resolves parcel inquiries under 2 seconds and handles automated delivery rescheduling.",
+        "statItem": {
+            "value": "28%",
+            "label": "First-Attempt Deliveries"
+        },
+        "items": [
+            {
+                "iconName": "Truck",
+                "title": "Real-Time Parcel Tracking",
+                "description": "Resolves delivery inquiries in under 2 seconds via tracking ID."
+            },
+            {
+                "iconName": "Calendar",
+                "title": "Automated Rescheduling",
+                "description": "Allows buyers to delay delivery date or change drop-off location."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "First-Attempt Success",
+                "description": "Boosts first-attempt delivery completion rate by 28%."
+            },
+            {
+                "iconName": "Globe",
+                "title": "Live Courier ERP Sync",
+                "description": "Pulls real-time rider GPS data and recipient status automatically."
+            },
+            {
+                "iconName": "Shield",
+                "title": "Call Center Load Reduction",
+                "description": "Deflects 82% of repetitive 'Where is my order?' phone calls."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Advance COD Alert",
+                "description": "Notifies customer of exact cash amount before rider arrival."
+            }
+        ]
+    },
     workflow: {
       badge: "LOGISTICS LIFECYCLE",
       title: "From Warehouse Dispatch to Successful Handover",
@@ -1553,40 +1640,48 @@ export const INDUSTRIES: IndustryData[] = [
         }
       ]
     },
-    showcases: [
-      {
-        title: "Multi-Client Management from a Single Unified Dashboard",
-        subtitle: "Scale Without Chaos",
-        problem:
-          "Agencies managing multiple client Facebook pages and WhatsApp numbers get bogged down in messy login sharing, team credential issues, and billing confusion.",
-        solution:
-          "Jadubot provides an Agency Master Console where you can create isolated client workspaces, invite client team members with custom permissions, and track individual campaign metrics.",
-        metrics: "Manage 50+ client accounts effortlessly from one master login.",
-        benefits: [
-          "Isolated workspaces with custom client role permissions",
-          "White-label domain (e.g. portal.youragency.com) and logo branding",
-          "Automated monthly client performance and conversation reports",
-          "Direct integration with client ad accounts for attribution tracking"
-        ],
-        graphicAlt: "Agency multi-tenant client management console"
-      },
-      {
-        title: "Supercharge Client Ad Campaigns with Click-to-Message Automations",
-        subtitle: "Unbeatable Ad ROAS for Clients",
-        problem:
-          "Client ad campaigns with high click costs suffer from low landing page conversion rates, making it difficult for agencies to prove tangible ROI.",
-        solution:
-          "Switch client ad spend to Click-to-Messenger and Click-to-WhatsApp ads paired with Jadubot, capturing lead contact details in the first 3 seconds of interaction.",
-        metrics: "Lowers client cost per qualified lead by up to 50%.",
-        benefits: [
-          "Pre-built conversion templates for E-commerce, Real Estate, and Food",
-          "Automated comment-to-inbox auto-reply for sponsored post virality",
-          "Real-time lead delivery to client WhatsApp or CRM",
-          "Visual proof of conversion reports to impress agency clients"
-        ],
-        graphicAlt: "Agency client ad performance and click to message automation"
-      }
-    ],
+    bento: {
+        "eyebrow": "Agency Operations AI",
+        "title": "Unified Multi-Client AI Workspaces and Ad Lead Triage",
+        "titleAccent": "Workspaces",
+        "subtitle": "Manages 50+ client bot portals from one login and halves lead costs on sponsored ads.",
+        "statItem": {
+            "value": "50%",
+            "label": "Lower Cost Per Lead"
+        },
+        "items": [
+            {
+                "iconName": "Layers",
+                "title": "Multi-Client Master Portal",
+                "description": "Controls 50+ client workspaces with custom staff role access."
+            },
+            {
+                "iconName": "Zap",
+                "title": "Click-to-Message Automations",
+                "description": "Lowers client cost per qualified lead by up to 50% on Meta ads."
+            },
+            {
+                "iconName": "TrendUp",
+                "title": "Retainer Profit Margins",
+                "description": "Protects 70%+ gross service margins with recurring retainer fees."
+            },
+            {
+                "iconName": "Shield",
+                "title": "White-Label Client Branding",
+                "description": "Deploys custom agency domains, logos, and conversation metrics."
+            },
+            {
+                "iconName": "Clock",
+                "title": "Rapid 48-Hour Deployment",
+                "description": "Launches production bots for new clients in under 48 hours."
+            },
+            {
+                "iconName": "ChartBar",
+                "title": "Automated ROI Reporting",
+                "description": "Dispatches conversion attribution proof directly to clients."
+            }
+        ]
+    },
     workflow: {
       badge: "AGENCY GROWTH CYCLE",
       title: "How Agencies Scale Retainers with Jadubot",

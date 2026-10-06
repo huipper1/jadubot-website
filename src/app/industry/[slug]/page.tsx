@@ -6,11 +6,11 @@ import { siteConfig } from "@/config/site";
 import {
   getIndustryBySlug,
   INDUSTRIES,
+  IndustryBentoGrid,
   IndustryCta,
   IndustryFaq,
   IndustryHero,
   IndustryRoiSection,
-  IndustrySplitShowcase,
   IndustryUseCases,
   IndustryWorkflow
 } from "@/components/routes/industry";
@@ -135,7 +135,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <IndustryHero industry={industry} />
-      <IndustrySplitShowcase industry={industry} />
+      <IndustryBentoGrid industry={industry} />
       <IndustryRoiSection industry={industry} />
       <IndustryWorkflow industry={industry} />
       <IndustryUseCases industry={industry} />
