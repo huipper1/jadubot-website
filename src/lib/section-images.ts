@@ -775,3 +775,51 @@ export const HOME_HERO_CARDS: SectionImageConfig[] = [
   }
 ];
 
+export interface ChannelCardImageConfig extends SectionImageConfig {
+  key: "facebook" | "whatsapp" | "instagram" | "website" | "cpa";
+  title: string;
+}
+
+export const HOME_CHANNEL_CARDS: Record<"facebook" | "whatsapp" | "instagram" | "website" | "cpa", ChannelCardImageConfig> = {
+  facebook: {
+    key: "facebook",
+    title: "Facebook Automation",
+    src: "/assets/images/home/channels/facebook.webp",
+    alt: "Smartphone mockup in soft studio setting showing Facebook post comment PRICE automatically triggering Messenger DM with product card and Cash on Delivery confirmation",
+    prompt: "A realistic smartphone in a soft-lit studio setting with gentle depth of field and soft shadow. The screen shows a real, readable Facebook product post where a customer comments 'PRICE', and a private Messenger DM already open with a kurti product card, size selector, and Cash on Delivery confirmation in BDT ৳. Facebook-blue soft background wash.",
+    aspect: "16/10"
+  },
+  whatsapp: {
+    key: "whatsapp",
+    title: "WhatsApp Automation",
+    src: "/assets/images/home/channels/whatsapp.webp",
+    alt: "Smartphone mockup in studio setting displaying WhatsApp chat with instant order booking confirmation in BDT ৳ with Pathao tracking ID and VIP assistance",
+    prompt: "A realistic smartphone on a studio pedestal showing a verified WhatsApp Business chat. Bot sends an instant order confirmation with a big BDT ৳ 2,450 amount, Pathao Express tracking ID #JB-9842, and green confirm button, in Bangla and English chat bubbles. WhatsApp-green soft ambient background wash.",
+    aspect: "16/10"
+  },
+  instagram: {
+    key: "instagram",
+    title: "Instagram Automation",
+    src: "/assets/images/home/channels/instagram.webp",
+    alt: "Smartphone mockup showing Instagram Reel comment PRICE auto-triggering direct message with 2-item product catalog carousel and direct checkout link",
+    prompt: "A realistic smartphone in a studio setting showing an Instagram Reel with a PRICE comment badge, seamlessly triggering an auto-DM with a 2-item product catalog preview (silk scarf, tote bag in BDT ৳) and direct checkout button with COD support. Pink and purple soft ambient wash.",
+    aspect: "16/10"
+  },
+  website: {
+    key: "website",
+    title: "Full Website Automation",
+    src: "/assets/images/home/channels/website.webp",
+    alt: "Laptop on clean studio desk displaying eCommerce store product page with live AI sales widget answering customer query and syncing Pathao Steadfast shipping",
+    prompt: "A sleek modern laptop open on a clean desk showing an eCommerce store product page for wireless headphones. A live AI sales widget is open in the corner answering customer queries, recommending an accessory bundle in BDT ৳, and syncing orders to Steadfast and Pathao courier. Soft blue studio wash.",
+    aspect: "16/10"
+  },
+  cpa: {
+    key: "cpa",
+    title: "CPA Marketing Automation",
+    src: "/assets/images/home/channels/cpa.png",
+    alt: "Smartphone mockup displaying CPA lead qualification engine with 98.4% high-intent checkmark, rising conversion arrow, and instant S2S payout postback",
+    prompt: "A realistic smartphone on an orange studio pedestal showing a clean lead qualification dashboard. A big 'Lead Qualified ✓' status card, rising conversion arrow (+42% CR), instant server-to-server postback payout notification in BDT ৳ 18,500 ($165.00), and affiliate network routing chips. Warm orange soft ambient wash.",
+    aspect: "16/10"
+  }
+};
+
